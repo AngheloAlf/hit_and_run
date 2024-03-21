@@ -1,0 +1,137 @@
+# name:
+sha1: a18b5102d0bc831eea462c7901bf56ad7c253a7f
+options:
+  base_path: ../../
+  basename: hit_and_run
+  target_path: disk/us_2003_07_10/SLUS_206.24
+  elf_path: build/us_2003_07_10/hit_and_run.us_2003_07_10.elf
+  ld_script_path: linker_scripts/us_2003_07_10/hit_and_run.us_2003_07_10.ld
+  compiler: GCC
+  find_file_boundaries: False
+  platform: ps2
+  undefined_funcs_auto_path: linker_scripts/us_2003_07_10/auto/undefined_funcs_auto.ld
+  undefined_syms_auto_path: linker_scripts/us_2003_07_10/auto/undefined_syms_auto.ld
+  symbol_addrs_path:
+    - config/us_2003_07_10/elf_symbol_addrs.txt
+    - config/us_2003_07_10/symbol_addrs.txt
+    - config/us_2003_07_10/ignored_addresses.txt
+  reloc_addrs_path:
+    - config/us_2003_07_10/reloc_addrs.txt
+
+  ld_dependencies: True
+
+  asm_path: asm/us_2003_07_10
+  src_path: src
+  build_path: build/us_2003_07_10
+  asset_path: bin/us_2003_07_10
+  extensions_path: tools/splat_ext
+  # mips_abi_float_regs: o32
+  o_as_suffix: True
+  mnemonic_ljust: 12
+  rom_address_padding: True
+  dump_symbols: True
+
+  # generated_c_preamble: |
+  #   #include "libultra.h"
+  #   #include "include_asm.h"
+  #   #include "macros_defines.h"
+  #   #include "unknown_structs.h"
+  # asm_inc_header: ""
+  use_legacy_include_asm: False
+  create_asm_dependencies: True
+  string_encoding: ASCII
+  data_string_encoding: ASCII
+  rodata_string_guesser_level: 2
+  asm_function_macro: glabel
+  # asm_function_alt_macro: alabel
+  # asm_end_label: endlabel
+  asm_jtbl_label_macro: jlabel
+  asm_data_macro: dlabel
+  # include_macro_inc: False
+
+  # TODO
+  # gp_value: 0x0039DD70
+
+  section_order:
+    - .text
+    - .vutext
+    - .data
+    - .vudata
+    - .rodata
+    # - .rdata
+    # - .init
+    # - .ctor
+    # - .vtables
+    # - .exception
+    # # - .exceptix
+    - .gcc_except_table
+    - .sdata
+    - .sbss
+    - .bss
+    - .vubss
+
+  auto_all_sections:
+    - .data
+    # - .vudata
+    - .rodata
+    # - .rdata
+    # - .init
+    # - .ctor
+    # - .vtables
+    # - .exception
+    # # - .exceptix
+    - .gcc_except_table
+    - .sdata
+    - .sbss
+    - .bss
+    # - .vubss
+
+segments:
+  - [0x000000, databin, elf_stuff]
+
+  - name: sections
+    type: code
+    start: 0x001000
+    vram: 0x00100000
+    bss_size: 0x6907C
+    align: 4
+    subalign: null
+    subsegments:
+      - [0x001000, asm]
+      - [0x3219C0, vutext]
+      - [0x325680, data]
+      - [0x351100, rodata]
+      - [0x3B1780, gcc_except_table]
+      - { type: sbss, vram: 0x004B0780, name: sections/004B0780 }
+      - { type:  bss, vram: 0x004B0880, name: sections/004B0880 }
+
+  - [0x3B1880, databin]
+
+  - [0x3B54F8, databin, elf_stuff_2]
+
+# Section Headers:
+#   [Nr] Name                                   Type             Addr     Off    Size   ES Flg Lk Inf Al
+#   [ 0]                                        NULL             00000000 000000 000000 00      0   0  0
+#   [ 1] .text                                  PROGBITS         00100000 001000 3209c0 00  AX  0   0 64
+#   [ 2] .vutext                                PROGBITS         004209c0 3219c0 003cc0 00  AX  0   0 16
+#   [ 3] .reginfo                               MIPS_REGINFO     00000000 3b1880 000018 01      0   0  4
+#   [ 4] .DVP.overlay..0x0.660332563.43.0       LOPROC+0xffff421 00000000 3b1898 000800 00  WX  0   0  1
+#   [ 5] .DVP.overlay..unknvma.2641340539.363.1 LOPROC+0xffff421 00000000 3b2098 000800 00  WX  0   0  1
+#   [ 6] .DVP.overlay..unknvma.987715611.9.2    LOPROC+0xffff421 00000000 3b2898 000800 00  WX  0   0  1
+#   [ 7] .DVP.overlay..unknvma.3950859627.26.3  LOPROC+0xffff421 00000000 3b3098 000800 00  WX  0   0  1
+#   [ 8] .DVP.overlay..unknvma.3606741339.159.4 LOPROC+0xffff421 00000000 3b3898 000800 00  WX  0   0  1
+#   [ 9] .DVP.overlay..unknvma.3606741339.588.5 LOPROC+0xffff421 00000000 3b4098 000800 00  WX  0   0  1
+#   [10] .DVP.overlay..unknvma.2641339531.88.6  LOPROC+0xffff421 00000000 3b4898 000750 00  WX  0   0  1
+#   [11] .DVP.overlay..0x0.2094701411.45.0      LOPROC+0xffff421 00000000 3b4fe8 000500 00  WX  0   0  1
+#   [12] .mdebug.eabi64                         PROGBITS         00424680 3b54e8 000000 00      0   0  1
+#   [13] .data                                  PROGBITS         00424680 325680 02b9f8 00  WA  0   0 64
+#   [14] .vudata                                PROGBITS         00450078 351078 000000 00  WA  0   0  1
+#   [15] .dmacache                              PROGBITS         00450080 3b54e8 000010 00      0   0  1
+#   [16] .rodata                                PROGBITS         00450100 351100 06064e 00   A  0   0 16
+#   [17] .gcc_except_table                      PROGBITS         004b0780 3b1780 0000e4 00  WA  0   0  4
+#   [18] .sbss                                  NOBITS           004b0880 3b1880 000700 00 WAp  0   0  8
+#   [19] .bss                                   NOBITS           004b0f80 3b1880 06897c 00  WA  0   0 64
+#   [20] .vubss                                 NOBITS           005198fc 3b1880 000000 00  WA  0   0  1
+#   [21] .DVP.ovlytab                           LOPROC+0xffff420 00000000 3b54f8 000060 0c   W 22   0  4
+#   [22] .DVP.ovlystrtab                        STRTAB           00000000 3b5558 000129 00   W  0   0  1
+#   [23] .shstrtab                              STRTAB           00000000 3b5681 0001ca 00      0   0  1
