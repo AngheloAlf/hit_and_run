@@ -1,6 +1,6 @@
 from pathlib import Path
 
-syms: list[tuple[str, int, int]] = []
+syms: list[tuple[str, str, int, int]] = []
 files: list[tuple[str, str, int, int]] = []
 
 NOT_FILES = [
@@ -51,7 +51,7 @@ with Path("disk/us_2003_07_10/SRR2.MAP").open() as f:
         size = int(size, 16)
 
         if "                         " in line:
-            syms.append((thingy, addr, size))
+            syms.append((thingy, last_section, addr, size))
         elif "                 " in line:
             files.append((thingy, last_section, addr, size))
         elif "         " in line:
@@ -126,3 +126,18 @@ for filepath, section, addr, size in files:
         print(f"      - {{ type: {section}, vram: 0x{addr:08X}, name: {yaml_name} }}{comment}")
     else:
         print(f"      - [0x{start:06X}, {section}, {yaml_name}]{comment}")
+
+syms.sort(key=lambda x:x[2])
+
+# TODO: check repeated symbol names, addresses and valid names (length and chars)
+with Path("config/us_2003_07_10/elf_symbol_addrs.txt").open("w") as f:
+    for name, section, addr, size in syms:
+        size_str = ""
+        if size > 0:
+            size_str = f" size:0x{size:X}"
+
+        type_str = ""
+        if section == ".text":
+            type_str = f" type:func"
+
+        f.write(f"{name} = 0x{addr:08X}; //{size_str}{type_str}\n")
