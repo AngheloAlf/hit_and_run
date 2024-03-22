@@ -16,6 +16,8 @@ COMPARE ?= 1
 FULL_DISASM ?= 0
 # Dump build object files
 OBJDUMP_BUILD ?= 1
+# Invoke compiler in multiple steps, producing `.ii` and `.s` files.
+MULTISTEP_BUILD ?= 0
 # If non-zero, passes -v to compiler
 COMPILER_VERBOSE ?= 0
 
@@ -282,13 +284,25 @@ $(BUILD_DIR)/%.o: %.s
 	$(OBJDUMP_CMD)
 
 $(BUILD_DIR)/%.o: %.c
-	$(CC) $(C_COMPILER_FLAGS) -I $(dir $*) $(COMP_VERBOSE_FLAG) -c -o $@ $<
+ifeq ($(MULTISTEP_BUILD), 0)
+	$(CC) $(C_COMPILER_FLAGS) $(COMP_VERBOSE_FLAG) -c -o $@ $<
+else
+	$(CC) $(C_COMPILER_FLAGS) $(COMP_VERBOSE_FLAG) -E -o $(@:.o=.i) $<
+	$(CC) $(C_COMPILER_FLAGS) $(COMP_VERBOSE_FLAG) -S -o $(@:.o=.s) $(@:.o=.i)
+	$(CC) $(C_COMPILER_FLAGS) $(COMP_VERBOSE_FLAG) -c -o $@ $(@:.o=.s)
+endif
 	$(STRIP) $@ -N dummy-symbol-name
 #	$(PYTHON) tools/buildtools/elf_patcher.py $@ mwcc
 	$(OBJDUMP_CMD)
 
 $(BUILD_DIR)/%.o: %.cpp
-	$(CC) $(CXX_COMPILER_FLAGS) -I $(dir $*) $(COMP_VERBOSE_FLAG) -c -o $@ $<
+ifeq ($(MULTISTEP_BUILD), 0)
+	$(CC) $(CXX_COMPILER_FLAGS) $(COMP_VERBOSE_FLAG) -c -o $@ $<
+else
+	$(CC) $(CXX_COMPILER_FLAGS) $(COMP_VERBOSE_FLAG) -E -o $(@:.o=.ii) $<
+	$(CC) $(CXX_COMPILER_FLAGS) $(COMP_VERBOSE_FLAG) -S -o $(@:.o=.s) $(@:.o=.ii)
+	$(CC) $(CXX_COMPILER_FLAGS) $(COMP_VERBOSE_FLAG) -c -o $@ $(@:.o=.s)
+endif
 	$(STRIP) $@ -N dummy-symbol-name
 #	$(PYTHON) tools/buildtools/elf_patcher.py $@ mwcc
 	$(OBJDUMP_CMD)
