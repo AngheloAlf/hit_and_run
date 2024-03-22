@@ -878,7 +878,7 @@ segments:
       - [0x337540, data, libs/scrooby/scroobypr/FeApp] # .a
       - [0x337544, data, libs/scrooby/scroobypr/FeBoundedDrawable] # .a
       - [0x33755C, data, libs/pure3d/pure3dpr/billboardobject] # .a
-      - [0x337562, data, libs/pure3d/pure3dpr/drawable] # .a
+      # - [0x337562, data, libs/pure3d/pure3dpr/drawable] # .a
       - [0x337568, data, libs/pure3d/pure3dpr/entity] # .a
       - [0x337580, data, libs/pure3d/pure3dpr/error] # .a
       - [0x337588, data, libs/pure3d/pure3dpr/matrixstack] # .a
@@ -3142,6 +3142,8 @@ segments:
   - [0x3B1880, databin]
 
   - [0x3B54F8, databin, elf_stuff_2]
+
+  - [0x3B5C0C]
 
 # Section Headers:
 #   [Nr] Name                                   Type             Addr     Off    Size   ES Flg Lk Inf Al

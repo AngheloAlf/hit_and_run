@@ -260,8 +260,8 @@ $(ROM): $(ELF)
 	$(OBJCOPY) -O binary $< $@
 
 $(ELF): $(LINKER_SCRIPTS)
-	$(file >build/o_files, $(filter %.o, $^))
-	$(LD) $(ENDIAN) $(LDFLAGS) -G8 -Map $(LD_MAP) $(foreach ld, $(LINKER_SCRIPTS), -T $(ld)) -o $@ @build/o_files
+	$(file >build/$(VERSION)/o_files, $(filter %.o, $^))
+	$(LD) $(ENDIAN) $(LDFLAGS) -G8 -Map $(LD_MAP) $(foreach ld, $(LINKER_SCRIPTS), -T $(ld)) -o $@ @build/$(VERSION)/o_files
 
 ## Order-only prerequisites
 # These ensure e.g. the PNG_INC_FILES are built before the O_FILES.

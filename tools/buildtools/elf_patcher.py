@@ -28,6 +28,9 @@ SECTIONS_TO_REALIGN_PER_TOOL: dict[str, dict[str, int]] = {
     },
 }
 
+spimdisasm.common.GlobalConfig.VERBOSE = False
+spimdisasm.common.GlobalConfig.QUIET = True
+
 parser = argparse.ArgumentParser()
 
 parser.add_argument("elf_path")

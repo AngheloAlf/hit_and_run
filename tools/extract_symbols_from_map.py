@@ -70,6 +70,11 @@ for filepath, section, addr, size in files:
     if section in IGNORE_SECTIONS:
         continue
 
+    comment_out = ""
+
+    if addr % 4 != 0:
+        comment_out = "# "
+
     start = addr - VRAM + START
     section = SECTION_MAPPER[section]
 
@@ -129,9 +134,9 @@ for filepath, section, addr, size in files:
     assert "\\" not in yaml_name, yaml_name
 
     if section in NOLOAD_SECTIONS:
-        print(f"      - {{ type: {section}, vram: 0x{addr:08X}, name: {yaml_name} }}{comment}")
+        print(f"      {comment_out}- {{ type: {section}, vram: 0x{addr:08X}, name: {yaml_name} }}{comment}")
     else:
-        print(f"      - [0x{start:06X}, {section}, {yaml_name}]{comment}")
+        print(f"      {comment_out}- [0x{start:06X}, {section}, {yaml_name}]{comment}")
 
 syms.sort(key=lambda x:x[2])
 
