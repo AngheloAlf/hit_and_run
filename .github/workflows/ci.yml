@@ -22,7 +22,7 @@ jobs:
 
     - name: Install wine
       run: |
-        dpkg --add-architecture i386
+        sudo dpkg --add-architecture i386
         sudo apt-get install -y wine
 
     - name: Install Python dependencies
