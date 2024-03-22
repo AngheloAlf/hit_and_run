@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "us_2003_07_10",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "include"
+            ],
+            "defines": [],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "compilerPath": "/usr/bin/clang",
+            "intelliSenseMode": "linux-clang-x86",
+            "compilerArgs": [
+                "-m32"
+            ],
+            "cStandard": "gnu99",
+            "cppStandard": "c++98"
+        }
+    ],
+    "version": 4
+}

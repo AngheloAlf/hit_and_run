@@ -4,8 +4,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
-syms: list[tuple[str, str, int, int]] = []
-files: list[tuple[str, str, int, int]] = []
+START = 0x001000
+VRAM = 0x00100000
 
 ILLEGAL_FILENAME_CHARS = ["<", ">", ":", '"', "/", "\\", "|", "?", "*"]
 
@@ -42,33 +42,12 @@ IGNORE_SECTIONS = [
     "<default>",
 ]
 
-START = 0x001000
-VRAM = 0x00100000
-
-with Path("disk/us_2003_07_10/SRR2.MAP").open() as f:
-    i = 0
-    last_section = ""
-    for i, line in enumerate(f):
-        if i < 2:
-            continue
-
-        addr, size, align, thingy = line.split()
-        addr = int(addr, 16)
-        size = int(size, 16)
-
-        if "                         " in line:
-            syms.append((thingy, last_section, addr, size))
-        elif "                 " in line:
-            files.append((thingy, last_section, addr, size))
-        elif "         " in line:
-            last_section = thingy
-
-for filepath, section, addr, size in files:
-    if size == 0:
-        continue
+def emit_yaml_entry(filepath: str, section: str, addr: int, size: int, autogen: bool):
+    if size == 0 and not autogen:
+        return
 
     if section in IGNORE_SECTIONS:
-        continue
+        return
 
     comment_out = ""
 
@@ -78,13 +57,9 @@ for filepath, section, addr, size in files:
     start = addr - VRAM + START
     section = SECTION_MAPPER[section]
 
-    # if "(" in filepath:
-    #     if ".a(" not in filepath:
-    #         print(filepath)
-
     yaml_name = None
     comment = f""
-    if filepath in NOT_FILES:
+    if filepath in NOT_FILES or autogen:
         comment = f" # {filepath}"
         if section in NOLOAD_SECTIONS:
             yaml_name = f"unk/{addr:08X}"
@@ -137,6 +112,31 @@ for filepath, section, addr, size in files:
         print(f"      {comment_out}- {{ type: {section}, vram: 0x{addr:08X}, name: {yaml_name} }}{comment}")
     else:
         print(f"      {comment_out}- [0x{start:06X}, {section}, {yaml_name}]{comment}")
+
+
+syms: list[tuple[str, str, int, int]] = []
+files: list[tuple[str, str, int, int]] = []
+
+with Path("disk/us_2003_07_10/SRR2.MAP").open() as f:
+    i = 0
+    last_section = ""
+    for i, line in enumerate(f):
+        if i < 2:
+            continue
+
+        addr, size, align, thingy = line.split()
+        addr = int(addr, 16)
+        size = int(size, 16)
+
+        if "                         " in line:
+            syms.append((thingy, last_section, addr, size))
+        elif "                 " in line:
+            files.append((thingy, last_section, addr, size))
+        elif "         " in line:
+            last_section = thingy
+
+for i, (filepath, section, addr, size) in enumerate(files):
+    emit_yaml_entry(filepath, section, addr, size, False)
 
 syms.sort(key=lambda x:x[2])
 

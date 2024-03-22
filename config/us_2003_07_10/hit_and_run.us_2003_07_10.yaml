@@ -36,7 +36,7 @@ options:
   #   #include "include_asm.h"
   #   #include "macros_defines.h"
   #   #include "unknown_structs.h"
-  # asm_inc_header: ""
+  asm_inc_header: ""
   use_legacy_include_asm: False
   create_asm_dependencies: True
   string_encoding: ASCII
@@ -47,7 +47,12 @@ options:
   # asm_end_label: endlabel
   asm_jtbl_label_macro: jlabel
   asm_data_macro: dlabel
-  # include_macro_inc: False
+  include_macro_inc: False
+
+  auto_decompile_empty_functions: False
+
+  mips_abi_gpr: numeric
+  mips_abi_float_regs: numeric
 
   # TODO
   # gp_value: 0x0039DD70
@@ -120,7 +125,7 @@ segments:
       - [0x0513D0, asm, code/allinput]
       - [0x054E48, asm, code/allinteriors]
       - [0x05D690, asm, code/allloadmanager]
-      - [0x063648, asm, code/allps2main]
+      - [0x063648, cpp, code/allps2main]
       - [0x066EE0, asm, code/allmemory]
       - [0x069D80, asm, code/allmeta]
       - [0x06EC90, asm, code/allmission]
@@ -764,6 +769,7 @@ segments:
       - [0x320548, asm, sce_libs/gcc_lib/ee/libgcc/tinfo] # .a # 2.95.3
       - [0x320C18, asm, sce_libs/gcc_lib/ee/libgcc/tinfo2] # .a # 2.95.3
       - [0x321994, asm, unk/321994] # Collect2
+      - [0x3219C0, vutext, unk/3219C0]
       - [0x325680, data, code/allai]
       - [0x3259B8, data, code/allactor]
       - [0x325AA0, data, code/allsequencer]
@@ -1044,7 +1050,7 @@ segments:
       - [0x35C008, rodata, code/allinput]
       - [0x35C510, rodata, code/allinteriors]
       - [0x35D150, rodata, code/allloadmanager]
-      - [0x35E010, rodata, code/allps2main]
+      - [0x35E010, .rodata, code/allps2main]
       - [0x35E940, rodata, code/allmemory]
       - [0x35F000, rodata, code/allmeta]
       - [0x35FD90, rodata, code/allmission]

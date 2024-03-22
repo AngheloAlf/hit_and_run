@@ -1,1 +1,37 @@
 _start = 0x00100008; // size:0xAC type:func
+
+STR_0045D010 = 0x0045D010; // type:asciz
+STR_0045D020 = 0x0045D020; // type:asciz
+STR_0045D050 = 0x0045D050; // type:asciz
+
+STR_0045D388 = 0x0045D388; // type:asciz
+
+STR_0045D448 = 0x0045D448; // type:asciz force_not_migration:True
+STR_0045D450 = 0x0045D450; // type:asciz force_not_migration:True
+STR_0045D458 = 0x0045D458; // type:asciz force_not_migration:True
+
+D_0045D4E0 = 0x0045D4E0; // type:asciz
+
+STR_0045D5A8 = 0x0045D5A8; // type:asciz force_not_migration:True
+STR_0045D5D0 = 0x0045D5D0; // type:asciz force_not_migration:True
+STR_0045D600 = 0x0045D600; // type:asciz force_not_migration:True
+STR_0045D620 = 0x0045D620; // type:asciz force_not_migration:True
+STR_0045D648 = 0x0045D648; // type:asciz force_not_migration:True
+STR_0045D658 = 0x0045D658; // type:asciz force_not_migration:True
+STR_0045D660 = 0x0045D660; // type:asciz force_not_migration:True
+STR_0045D670 = 0x0045D670; // type:asciz force_not_migration:True
+STR_0045D678 = 0x0045D678; // type:asciz force_not_migration:True
+STR_0045D690 = 0x0045D690; // type:asciz force_not_migration:True
+STR_0045D6A0 = 0x0045D6A0; // type:asciz force_not_migration:True
+STR_0045D6B8 = 0x0045D6B8; // type:asciz force_not_migration:True
+
+STR_0045D590 = 0x0045D590; // type:asciz
+STR_0045D598 = 0x0045D598; // type:asciz
+
+STR_0045D6C8 = 0x0045D6C8; // type:asciz force_not_migration:True
+
+D_0045D6D0 = 0x0045D6D0; // type:asciz force_not_migration:True
+D_0045D6E0 = 0x0045D6E0; // type:asciz force_not_migration:True
+D_0045D6F0 = 0x0045D6F0; // type:asciz force_not_migration:True
+D_0045D6F8 = 0x0045D6F8; // type:asciz force_not_migration:True
+D_0045D700 = 0x0045D700; // type:asciz force_not_migration:True

@@ -73,12 +73,13 @@ endif
 ## General tools
 
 # WIBO            := tools/wibo/wibo
+WIBO            := wine
 PYTHON          ?= python3
 SPLAT           ?= $(PYTHON) -m splat split
 
 ## GNU tools
 
-AS              := $(CROSS)as
+GNUAS           := $(CROSS)as
 GNULD           := $(CROSS)ld
 OBJCOPY         := $(CROSS)objcopy
 OBJDUMP         := $(CROSS)objdump
@@ -86,16 +87,16 @@ GCC             := $(CROSS)gcc
 CPP             := $(CROSS)cpp
 STRIP           := $(CROSS)strip
 
-# ## Codewarrior tools
-# 
-# MWCC            := $(WIBO) tools/mwcps2/2.3-991202/mwccmips.exe
-# MWLD            := $(WIBO) tools/mwcps2/2.3-991202/mwldmips.exe
+## SN tools
+
+SNDIR           := tools/eegcc_sn/2.73a
+SNCC            := $(WIBO) $(SNDIR)/bin/ee-gcc295.exe
 
 ## Tools
 
-# CC              := $(MWCC)
+AS              := $(GNUAS)
+CC              := $(SNCC)
 LD              := $(GNULD)
-# LD              := $(MWLD)
 
 ## General tool flags
 
@@ -109,7 +110,7 @@ endif
 export SPIMDISASM_PANIC_RANGE_CHECK="True"
 
 
-IINC       := -Iinclude
+IINC       := -I include
 
 
 ## CC CHECK ##
@@ -137,8 +138,8 @@ DBGFLAGS        :=
 
 # Variable to simplify C compiler invocation
 # C_COMPILER_FLAGS = $(ABIFLAG) $(CFLAGS) $(CHAR_SIGN) $(BUILD_DEFINES) $(IINC) $(WARNINGS) $(MIPS_VERSION) $(ENDIAN) $(COMMON_DEFINES) $(C_DEFINES) $(OPTFLAGS) $(DBGFLAGS)
-C_COMPILER_FLAGS   = $(CFLAGS)   $(BUILD_DEFINES) $(IINC) $(WARNINGS) $(COMMON_DEFINES) $(C_DEFINES)   $(OPTFLAGS) $(DBGFLAGS)
-CXX_COMPILER_FLAGS = $(CXXFLAGS) $(BUILD_DEFINES) $(IINC) $(WARNINGS) $(COMMON_DEFINES) $(CXX_DEFINES) $(OPTFLAGS) $(DBGFLAGS)
+C_COMPILER_FLAGS   = $(CFLAGS)   $(BUILD_DEFINES) $(WARNINGS) $(COMMON_DEFINES) $(C_DEFINES)   $(OPTFLAGS) $(DBGFLAGS) $(IINC)
+CXX_COMPILER_FLAGS = $(CXXFLAGS) $(BUILD_DEFINES) $(WARNINGS) $(COMMON_DEFINES) $(CXX_DEFINES) $(OPTFLAGS) $(DBGFLAGS) $(IINC)
 
 ifneq ($(COMPILER_VERBOSE),0)
     COMP_VERBOSE_FLAG := -v
@@ -280,15 +281,17 @@ $(BUILD_DIR)/%.o: %.s
 	$(PYTHON) tools/buildtools/elf_patcher.py $@ gas
 	$(OBJDUMP_CMD)
 
-# $(BUILD_DIR)/%.o: %.c
-# 	$(CC) $(C_COMPILER_FLAGS) -I$(dir $*) -I$(BUILD_DIR)/$(dir $*) $(COMP_VERBOSE_FLAG) -nostdinc -stderr -c -o $@ $<
-# 	$(PYTHON) tools/buildtools/elf_patcher.py $@ mwcc
-# 	$(OBJDUMP_CMD)
-# 
-# $(BUILD_DIR)/%.o: %.cpp
-# 	$(CC) $(CXX_COMPILER_FLAGS) -I$(dir $*) -I$(BUILD_DIR)/$(dir $*) $(COMP_VERBOSE_FLAG) -nostdinc -stderr -c -o $@ $<
-# 	$(PYTHON) tools/buildtools/elf_patcher.py $@ mwcc
-# 	$(OBJDUMP_CMD)
+$(BUILD_DIR)/%.o: %.c
+	$(CC) $(C_COMPILER_FLAGS) -I $(dir $*) $(COMP_VERBOSE_FLAG) -c -o $@ $<
+	$(STRIP) $@ -N dummy-symbol-name
+#	$(PYTHON) tools/buildtools/elf_patcher.py $@ mwcc
+	$(OBJDUMP_CMD)
+
+$(BUILD_DIR)/%.o: %.cpp
+	$(CC) $(CXX_COMPILER_FLAGS) -I $(dir $*) $(COMP_VERBOSE_FLAG) -c -o $@ $<
+	$(STRIP) $@ -N dummy-symbol-name
+#	$(PYTHON) tools/buildtools/elf_patcher.py $@ mwcc
+	$(OBJDUMP_CMD)
 
 
 
