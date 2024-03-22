@@ -1,7 +1,13 @@
+#!/usr/bin/env python3
+
+from __future__ import annotations
+
 from pathlib import Path
 
 syms: list[tuple[str, str, int, int]] = []
 files: list[tuple[str, str, int, int]] = []
+
+ILLEGAL_FILENAME_CHARS = ["<", ">", ":", '"', "/", "\\", "|", "?", "*"]
 
 NOT_FILES = [
     "COMMON",
@@ -129,15 +135,40 @@ for filepath, section, addr, size in files:
 
 syms.sort(key=lambda x:x[2])
 
-# TODO: check repeated symbol names, addresses and valid names (length and chars)
+known_sym_names: set[str] = set()
+known_sym_addrs: set[int] = set()
+
+duped_sym_names: set[str] = set()
+duped_sym_addrs: set[int] = set()
+
+for name, section, addr, size in syms:
+    if name in known_sym_names:
+        duped_sym_names.add(name)
+    if addr in known_sym_addrs:
+        duped_sym_addrs.add(addr)
+
+    known_sym_names.add(name)
+    known_sym_addrs.add(addr)
+
+# TODO: check valid names (length and chars)
 with Path("config/us_2003_07_10/elf_symbol_addrs.txt").open("w") as f:
     for name, section, addr, size in syms:
+        comment_out = ""
+        if name in duped_sym_names or addr in duped_sym_addrs:
+            comment_out = "// "
+
         size_str = ""
         if size > 0:
             size_str = f" size:0x{size:X}"
 
         type_str = ""
+        prefix = "D_"
         if section == ".text":
             type_str = f" type:func"
+            prefix = "func_"
 
-        f.write(f"{name} = 0x{addr:08X}; //{size_str}{type_str}\n")
+        filename_str = ""
+        if len(name) > 253 or any(c in ILLEGAL_FILENAME_CHARS for c in name):
+            filename_str = f" filename:{prefix}{addr:08X}"
+
+        f.write(f"{comment_out}{name} = 0x{addr:08X}; //{size_str}{type_str}{filename_str}\n")
