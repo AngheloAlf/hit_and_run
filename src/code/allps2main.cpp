@@ -35,11 +35,110 @@ INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", __4GameP8Platform)
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", _$_4Game);
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", main);
+class Platform {
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", func_00163468);
+};
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", func_001634B8);
+class PS2Platform : public Platform {
+public:
+    static PS2Platform *CreateInstance(void);
+    static void DestroyInstance(void);
+    static void InitializeFoundation(void);
+};
+
+//PS2Platform *CreateInstance__11PS2Platform(); // PS2Platform::CreateInstance(void)
+//void DestroyInstance__11PS2Platform(); // PS2Platform::DestroyInstance(void)
+//void InitializeFoundation__11PS2Platform(); // PS2Platform::InitializeFoundation(void)
+
+class Game {
+public:
+    static Game *CreateInstance(Platform *); // Game::CreateInstance(Platform *)
+    static int GetRandomSeed(void); // Game::GetRandomSeed(void)
+    static void DestroyInstance(void); // Game::DestroyInstance(void)
+
+    void Initialize(void); // Game::Initialize(void)
+    void Run(void); // Game::Run(void)
+    void Terminate(void); // Game::Terminate(void)
+};
+
+// int CreateInstance__4GameP8Platform(int); // Game::CreateInstance(Platform *)
+//void DestroyInstance__4Game(); // Game::DestroyInstance(void)
+//int GetRandomSeed__4Game(); // Game::GetRandomSeed(void)
+//void Initialize__4Game(int); // Game::Initialize(void)
+//void Run__4Game(int); // Game::Run(void)
+//void Terminate__4Game(int); // Game::Terminate(void)
+
+
+class CommandLineOptions {
+public:
+    static void InitDefaults(void);
+};
+//void InitDefaults__18CommandLineOptions(); // CommandLineOptions::InitDefaults(void)
+
+
+enum GameMemoryAllocator {
+    GameMemoryAllocator_3 = 3,
+};
+
+class HeapManager {
+public:
+    void PopHeap(GameMemoryAllocator);
+    void PushHeap(GameMemoryAllocator);
+};
+
+//void PopHeap__11HeapManager19GameMemoryAllocator(int, int); // HeapManager::PopHeap(GameMemoryAllocator)
+//void PushHeap__11HeapManager19GameMemoryAllocator(int, int); // HeapManager::PushHeap(GameMemoryAllocator)
+
+void CreateSingletons(void); // CreateSingletons(void)
+void DestroySingletons(void); // DestroySingletons(void)
+HeapManager *HeapMgr(void); // HeapMgr(void)
+
+extern "C" void __main(int argc, char *argv[]);
+extern "C" void srand(int);
+
+void func_00163468(int argc, char *argv[]);
+void func_001634B8();
+
+
+int main(int argc, char *argv[]) {
+    Game *temp_v0;
+
+    // __main is implictly called
+
+    CommandLineOptions::InitDefaults();
+
+    func_00163468(argc, argv);
+    PS2Platform::InitializeFoundation();
+
+    srand(Game::GetRandomSeed());
+
+    HeapMgr()->PushHeap(GameMemoryAllocator_3);
+
+    func_001634B8();
+    CreateSingletons();
+
+    temp_v0 = Game::CreateInstance(PS2Platform::CreateInstance());
+
+    temp_v0->Initialize();
+    HeapMgr()->PopHeap(GameMemoryAllocator_3);
+
+    temp_v0->Run();
+    temp_v0->Terminate();
+
+    Game::DestroyInstance();
+
+    PS2Platform::DestroyInstance();
+    DestroySingletons();
+
+    return 0;
+}
+
+// :despair:
+__asm__("nop");
+
+INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", func_00163468__FiPPc);
+
+INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", func_001634B8__Fv);
 
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", D_0045D380);
 

@@ -1,5 +1,8 @@
 _start = 0x00100008; // size:0xAC type:func
 
+func_00163468__FiPPc = 0x00163468; // type:func
+func_001634B8__Fv = 0x001634B8; // type:func
+
 STR_0045D010 = 0x0045D010; // type:asciz
 STR_0045D020 = 0x0045D020; // type:asciz
 STR_0045D050 = 0x0045D050; // type:asciz

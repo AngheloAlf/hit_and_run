@@ -132,8 +132,7 @@ CXX_DEFINES     :=
 ENDIAN          := -EL
 
 OPTFLAGS        := -O2
-DBGFLAGS        :=
-# DBGFLAGS        := -gdwarf
+DBGFLAGS        := -g3
 # MIPS_VERSION    := -mips3
 # OUT_ENCODING    := Shift-JIS
 # CHAR_SIGN       := -funsigned-char
