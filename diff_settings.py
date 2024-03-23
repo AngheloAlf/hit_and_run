@@ -18,6 +18,7 @@ def add_custom_arguments(parser: argparse.ArgumentParser):
 def apply(config: dict, args: argparse.Namespace):
     version = args.version
 
+    config["arch"] = "mipsee"
     config["baseimg"] = f"expected/build/{version}/hit_and_run.{version}.rom"
     config["myimg"]   = f"build/{version}/hit_and_run.{version}.rom"
     config["mapfile"] = f"build/{version}/hit_and_run.{version}.map"

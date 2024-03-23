@@ -1,6 +1,8 @@
 #include "include_asm.h"
 #include "types.h"
 
+// TODO: migrate funcs from https://decomp.me/scratch/c0cMu
+
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", InitDefaults__18CommandLineOptions);
 
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D010);
@@ -40,6 +42,13 @@ class Platform {
 };
 
 class PS2Platform : public Platform {
+private:
+    char padding[0x1B];
+
+    PS2Platform();
+
+    static PS2Platform* spInstance;
+
 public:
     static PS2Platform *CreateInstance(void);
     static void DestroyInstance(void);
@@ -101,7 +110,7 @@ void func_001634B8();
 
 
 int main(int argc, char *argv[]) {
-    Game *temp_v0;
+    Game *game;
 
     // __main is implictly called
 
@@ -117,13 +126,13 @@ int main(int argc, char *argv[]) {
     func_001634B8();
     CreateSingletons();
 
-    temp_v0 = Game::CreateInstance(PS2Platform::CreateInstance());
+    game = Game::CreateInstance(PS2Platform::CreateInstance());
 
-    temp_v0->Initialize();
+    game->Initialize();
     HeapMgr()->PopHeap(GameMemoryAllocator_3);
 
-    temp_v0->Run();
-    temp_v0->Terminate();
+    game->Run();
+    game->Terminate();
 
     Game::DestroyInstance();
 
@@ -175,7 +184,13 @@ INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", D_0045D570);
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", LoadMemP3DFile__FPUcUiP12tEntityStore);
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", CreateInstance__11PS2Platform);
+void* operator new(unsigned int, GameMemoryAllocator);
+
+PS2Platform *PS2Platform::CreateInstance(void) {
+    spInstance = new (GameMemoryAllocator_3) PS2Platform();
+
+    return spInstance;
+}
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", GetInstance__11PS2Platform);
 

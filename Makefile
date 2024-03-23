@@ -120,8 +120,8 @@ IINC       := -I include
 
 ## Compiler options ##
 
-CFLAGS          +=
-CXXFLAGS        +=
+CFLAGS          += -G0
+CXXFLAGS        += -G0
 
 WARNINGS        := 
 ASFLAGS         := -march=r5900 -mabi=eabi -G8 -no-pad-sections
