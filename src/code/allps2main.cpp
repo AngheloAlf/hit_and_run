@@ -38,7 +38,7 @@ INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", __4GameP8Platform)
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", _$_4Game);
 
 class Platform {
-
+public:
 };
 
 class PS2Platform : public Platform {
@@ -194,7 +194,21 @@ PS2Platform *PS2Platform::CreateInstance(void) {
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", GetInstance__11PS2Platform);
 
+//extern void **_11PS2Platform$spInstance;
+#if 0
+void PS2Platform::DestroyInstance(void) {
+    void *temp_v0;
+
+    if (spInstance != NULL) {
+        temp_v0 = spInstance;
+    //    temp_v0->unk_6C(spInstance + temp_v0->unk_68, 3);
+    }
+
+    spInstance = NULL;
+}
+#else
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", DestroyInstance__11PS2Platform);
+#endif
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", InitializeFoundation__11PS2Platform);
 
@@ -264,7 +278,29 @@ INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", D_0045D700);
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", OnDriveError__11PS2Platform12radFileErrorPCcPv);
 
+#if 0
+class IRadDriveErrorCallback {
+public:
+    IRadDriveErrorCallback(void);
+};
+
+void __22IRadDriveErrorCallback(); // IRadDriveErrorCallback::IRadDriveErrorCallback
+
+//extern ? _vt$t3PS2Platform;
+
+PS2Platform::PS2Platform() {
+    //__22IRadDriveErrorCallback();
+    IRadDriveErrorCallback temp;
+
+    //arg0->unk_8 = 0;
+    //arg0->unk_0 = &_vt$t3PS2Platform;
+    //arg0->unk_C = 0;
+    //arg0->unk_10 = 0;
+    //arg0->unk_14 = 0;
+}
+#else
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", __11PS2Platform);
+#endif
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", _$_11PS2Platform);
 
