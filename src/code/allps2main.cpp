@@ -133,9 +133,6 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
-// :despair:
-__asm__("nop");
-
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", func_00163468__FiPPc);
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", func_001634B8__Fv);

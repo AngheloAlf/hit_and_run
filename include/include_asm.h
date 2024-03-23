@@ -8,7 +8,7 @@
         ".section .text\n" \
         "\t.set noat\n" \
         "\t.set noreorder\n" \
-        "\t.align\t2\n" \
+        "\t.align\t3\n" \
         "\t.globl\t"#NAME"\n" \
         "\t.type "#NAME", @function\n" \
         "\t.ent\t"#NAME"\n" \
