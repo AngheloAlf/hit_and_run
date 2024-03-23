@@ -1,0 +1,31 @@
+#ifndef SEQUENCE_REGION_H
+#define SEQUENCE_REGION_H
+
+// text
+
+// void region_controller_construct__8radmusicPQ28radmusic24struct_region_controllerPQ28radmusic16resource_managerRCQ23odst13pointer_templ1ZQ23ods7_region();
+// void region_controller_destroy__8radmusicPQ28radmusic24struct_region_controller();
+// void region_controller_region__8radmusicPQ28radmusic24struct_region_controller();
+// void region_controller_start_layer__8radmusicPQ28radmusic24struct_region_controllerPCc();
+// void region_controller_stop_layer__8radmusicPQ28radmusic24struct_region_controllerPCc();
+// void region_controller_queue_stream__8radmusicPQ28radmusic24struct_region_controllerPQ28radmusic12stream_graphbff();
+// void region_controller_kill__8radmusicPQ28radmusic24struct_region_controller();
+// void region_controller_paused__8radmusicPQ28radmusic24struct_region_controllerb();
+// void region_controller_play__8radmusicPQ28radmusic24struct_region_controller();
+// void region_controller_update__8radmusicPQ28radmusic24struct_region_controller();
+// void region_controller_volume__8radmusicPQ28radmusic24struct_region_controllerf();
+// void region_controller_volume__8radmusicPQ28radmusic24struct_region_controller();
+// void region_controller_pitch__8radmusicPQ28radmusic24struct_region_controllerf();
+// void region_controller_dequeue_stream__8radmusicPQ28radmusic24struct_region_controllerPPQ28radmusic12stream_graph();
+// void region_controller_resource_buffer__8radmusicPQ28radmusic24struct_region_controllerUi();
+// void region_controller_resource_buffer__8radmusicPQ28radmusic24struct_region_controller();
+// void region_controller_primary_sequence__8radmusicPQ28radmusic24struct_region_controller();
+// void region_controller_is_queued__8radmusicPQ28radmusic24struct_region_controller();
+
+// rodata
+
+// extern UNK_TYPE D_0049E8A0;
+// extern UNK_TYPE D_0049EBD0;
+// extern UNK_TYPE D_0049EC00;
+
+#endif

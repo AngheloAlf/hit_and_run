@@ -1,0 +1,173 @@
+#ifndef ALLSUPERSPRINT_H
+#define ALLSUPERSPRINT_H
+
+// text
+
+// void HandleEvent__18SuperSprintManager9EventEnumPv();
+// void OnProcessRequestsComplete__18SuperSprintManagerPv();
+// void GetInstance__18SuperSprintManager();
+// void DestroyInstance__18SuperSprintManager();
+// void Initialize__18SuperSprintManager();
+// void Finalize__18SuperSprintManager();
+// void Update__18SuperSprintManagerUi();
+// void LoadScriptData__18SuperSprintManager();
+// void StartRace__18SuperSprintManager();
+// void SetCharacter__18SuperSprintManagerii();
+// void SetVehicle__18SuperSprintManageriPCc();
+// void CalculatePositions__18SuperSprintManager();
+// void LoadLevelData__18SuperSprintManager();
+// void Reset__18SuperSprintManager();
+// void OnButton__18SuperSprintManageriiPC6Button();
+// void OnButtonUp__18SuperSprintManageriiPC6Button();
+// void OnButtonDown__18SuperSprintManageriiPC6Button();
+// void LoadControllerMappings__18SuperSprintManagerUi();
+// void OnControllerConnect__18SuperSprintManageri();
+// void OnControllerDisconnect__18SuperSprintManageri();
+// void GetNumCheckpoints__18SuperSprintManager();
+// void SetUpCars__18SuperSprintManager();
+// void CleanUpCars__18SuperSprintManager();
+// void PositionCars__18SuperSprintManager();
+// void PositionAI__18SuperSprintManager();
+// void DisableAllAI__18SuperSprintManager();
+// void DisableAllControllers__18SuperSprintManager();
+// void InitRaceData__18SuperSprintManager();
+// void ResetRaceData__18SuperSprintManager();
+// void PlaceCharactersInCars__18SuperSprintManager();
+// void LoadCars__18SuperSprintManager();
+// void LoadCharacters__18SuperSprintManager();
+// void EnumerateControllers__18SuperSprintManager();
+// void SetupIcons__18SuperSprintManager();
+// void InitCamera__18SuperSprintManager();
+// void GetOnlyHumanPlayerID__18SuperSprintManager();
+// void RestoreControllerState__18SuperSprintManager();
+// void SetupTraps__18SuperSprintManager();
+// void PlayIntroCam__18SuperSprintManager();
+// void UpdatePositionIcons__18SuperSprintManagerUi();
+// void GetCheckpointWith__18SuperSprintManagerc();
+// void GetPathDataWith__18SuperSprintManagerP7Locator();
+// void PositionCharacters__18SuperSprintManager();
+// void __18SuperSprintManager();
+// void _$_18SuperSprintManager();
+// void func_002A3CA8();
+// void func_002A3D10();
+// void __tf19SuperSprintDrawable();
+// void __tf18SuperSprintManager();
+// void func_002A3DD8();
+// void _$_19SuperSprintDrawable();
+// void Display__19SuperSprintDrawable();
+// void InitLevelData__18SuperSprintManager();
+// void CleanMissionData__18SuperSprintManager();
+// void IsSundayDrive__18SuperSprintManager();
+// void PerformLoading__18SuperSprintManager();
+// void LoadMission__18SuperSprintManager();
+// void IsSuperSprint__18SuperSprintManager();
+// void func_002A4270();
+// void _GLOBAL_$I$_18SuperSprintManager$spInstance();
+
+// rodata
+
+// extern UNK_TYPE D_0047DF28;
+// extern UNK_TYPE D_0047DF50;
+// extern UNK_TYPE D_0047DF70;
+// extern UNK_TYPE D_0047DF80;
+// extern UNK_TYPE D_0047DF90;
+// extern UNK_TYPE D_0047DFA0;
+// extern UNK_TYPE D_0047DFB0;
+// extern UNK_TYPE D_0047DFC0;
+// extern UNK_TYPE D_0047DFD0;
+// extern UNK_TYPE D_0047E098;
+// extern UNK_TYPE D_0047E0A8;
+// extern UNK_TYPE D_0047E0B0;
+// extern UNK_TYPE D_0047E0B8;
+// extern UNK_TYPE D_0047E0C8;
+// extern UNK_TYPE D_0047E0D8;
+// extern UNK_TYPE D_0047E0E8;
+// extern UNK_TYPE D_0047E110;
+// extern UNK_TYPE D_0047E118;
+// extern UNK_TYPE D_0047E128;
+// extern UNK_TYPE D_0047E138;
+// extern UNK_TYPE D_0047E148;
+// extern UNK_TYPE D_0047E150;
+// extern UNK_TYPE D_0047E158;
+// extern UNK_TYPE D_0047E168;
+// extern UNK_TYPE D_0047E178;
+// extern UNK_TYPE D_0047E1E0;
+// extern UNK_TYPE D_0047E1E8;
+// extern UNK_TYPE D_0047E1F0;
+// extern UNK_TYPE D_0047E1F8;
+// extern UNK_TYPE D_0047E200;
+// extern UNK_TYPE D_0047E208;
+// extern UNK_TYPE D_0047E218;
+// extern UNK_TYPE D_0047E230;
+// extern UNK_TYPE D_0047E240;
+// extern UNK_TYPE D_0047E248;
+// extern UNK_TYPE D_0047E250;
+// extern UNK_TYPE D_0047E260;
+// extern UNK_TYPE D_0047E270;
+// extern UNK_TYPE D_0047E280;
+// extern UNK_TYPE D_0047E290;
+// extern UNK_TYPE D_0047E298;
+// extern UNK_TYPE D_0047E2A0;
+// extern UNK_TYPE D_0047E2B8;
+// extern UNK_TYPE D_0047E2C0;
+// extern UNK_TYPE D_0047E2C8;
+// extern UNK_TYPE D_0047E2D0;
+// extern UNK_TYPE D_0047E2D8;
+// extern UNK_TYPE D_0047E2E0;
+// extern UNK_TYPE D_0047E2E8;
+// extern UNK_TYPE D_0047E3B8;
+// extern UNK_TYPE D_0047E3C8;
+// extern UNK_TYPE D_0047E3D0;
+// extern UNK_TYPE D_0047E3D8;
+// extern UNK_TYPE D_0047E3E0;
+// extern UNK_TYPE D_0047E3F0;
+// extern UNK_TYPE D_0047E400;
+// extern UNK_TYPE D_0047E410;
+// extern UNK_TYPE D_0047E420;
+// extern UNK_TYPE D_0047E430;
+// extern UNK_TYPE D_0047E448;
+// extern UNK_TYPE D_0047E460;
+// extern UNK_TYPE D_0047E478;
+// extern UNK_TYPE D_0047E490;
+// extern UNK_TYPE D_0047E498;
+// extern UNK_TYPE D_0047E4A0;
+// extern UNK_TYPE D_0047E4B0;
+// extern UNK_TYPE D_0047E4C8;
+// extern UNK_TYPE D_0047E4D0;
+// extern UNK_TYPE D_0047E4D8;
+// extern UNK_TYPE D_0047E4E0;
+// extern UNK_TYPE D_0047E4E8;
+// extern UNK_TYPE _15SuperSprintData$NUM_CHARACTER_NAMES;
+// extern UNK_TYPE _15SuperSprintData$VEHICLE_NAMES;
+// extern UNK_TYPE _15SuperSprintData$NUM_NAMES;
+// extern UNK_TYPE _vt$18SuperSprintManager$Q214LoadingManager23ProcessRequestsCallback;
+// extern UNK_TYPE _vt$18SuperSprintManager$Q217PresentationEvent25PresentationEventCallBack;
+// extern UNK_TYPE _vt$18SuperSprintManager$15GameplayManager;
+// extern UNK_TYPE _vt$18SuperSprintManager;
+// extern UNK_TYPE _vt$19SuperSprintDrawable;
+// extern UNK_TYPE D_0047EB00;
+// extern UNK_TYPE D_0047EB18;
+// extern UNK_TYPE D_0047EB30;
+
+// data
+
+// extern UNK_TYPE D_00436038;
+// extern UNK_TYPE _18SuperSprintManager$spInstance;
+// extern UNK_TYPE D_00436074;
+// extern UNK_TYPE D_00436078;
+// extern UNK_TYPE D_00436080;
+// extern UNK_TYPE D_00436088;
+// extern UNK_TYPE D_00436098;
+// extern UNK_TYPE D_004360A8;
+// extern UNK_TYPE D_004360B0;
+// extern UNK_TYPE D_004360B8;
+// extern UNK_TYPE D_004360C8;
+// extern UNK_TYPE D_004360D8;
+// extern UNK_TYPE D_004360E0;
+// extern UNK_TYPE _15SuperSprintData$CHARACTER_NAMES;
+
+// bss
+
+// extern UNK_TYPE D_004B2C18;
+
+#endif

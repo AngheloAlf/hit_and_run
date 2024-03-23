@@ -74,8 +74,8 @@ endif
 
 ## General tools
 
-# WIBO            := tools/wibo/wibo
-WIBO            := wine
+# WIBO            ?= tools/wibo/wibo
+WIBO            ?= wine
 PYTHON          ?= python3
 SPLAT           ?= $(PYTHON) -m splat split
 

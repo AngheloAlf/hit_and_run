@@ -1,0 +1,40 @@
+#ifndef SCHEMA_UTIL_H
+#define SCHEMA_UTIL_H
+
+// text
+
+// void group_memory_sizes_recurse__8radmusicRCQ23odst13pointer_templ1ZQ23ods6_groupPUiT2PQ23odst13pointer_templ1ZQ23ods6_groupT2T2T4();
+// void rsd_file_length_in_samples__8radmusicRCQ23odst13pointer_templ1ZQ23ods9_rsd_file();
+// void rsd_file_length_in_frames__8radmusicRCQ23odst13pointer_templ1ZQ23ods9_rsd_file();
+// void audio_format_frames_to_samples__8radmusicRCQ23odst13pointer_templ1ZQ23ods13_audio_formatUi();
+// void audio_format_samples_to_frames__8radmusicRCQ23odst13pointer_templ1ZQ23ods13_audio_formatUi();
+// void rsd_file_length_in_bytes__8radmusicRCQ23odst13pointer_templ1ZQ23ods9_rsd_file();
+// void func_003970C8();
+// void construct_audio_format__8radmusicRCQ23odst13pointer_templ1ZQ23ods13_audio_formatb();
+// void audio_format_samples_to_milliseconds__8radmusicRCQ23odst13pointer_templ1ZQ23ods13_audio_formatUi();
+// void group_memory_sizes__8radmusicRCQ23odst13pointer_templ1ZQ23ods6_groupPUiN32();
+// void composition_find_fade_transition__8radmusicRCQ23odst13pointer_templ1ZQ23ods5_compRCQ23odst13pointer_templ1ZQ23ods7_regionT2();
+// void composition_find_stitch_transition__8radmusicRCQ23odst13pointer_templ1ZQ23ods5_compRCQ23odst13pointer_templ1ZQ23ods7_regionT2();
+// void group_is_child_of__8radmusicRCQ23odst13pointer_templ1ZQ23ods6_groupT1();
+// void beat_in_range__8radmusicfff();
+// void beat_set_beat_in_range__8radmusicRCQ23odst13pointer_templ1ZQ23ods9_beat_setff();
+// void tempo_track_beat__8radmusicRCQ23odst13pointer_templ1ZQ23ods12_tempo_trackUiUi();
+// void calculate_action_offset__8radmusicRCQ23odst13pointer_templ1ZQ23ods6_eventPUi();
+// void __Q23odst13pointer_templ1ZQ23ods6_groupRCQ23odst13pointer_templ1ZQ23ods6_group();
+// void __as__Q23odst13pointer_templ1ZQ23ods6_groupRCQ23odst13pointer_templ1ZQ23ods6_group();
+// void __Q23odst13pointer_templ1ZQ23ods16_fade_transitionRCQ23odst13pointer_templ1ZQ23ods16_fade_transition();
+// void __as__Q23odst13pointer_templ1ZQ23ods16_fade_transitionRCQ23odst13pointer_templ1ZQ23ods16_fade_transition();
+// void __as__Q23odst13pointer_templ1ZQ23ods7_regionRCQ23odst13pointer_templ1ZQ23ods7_region();
+// void __Q23odst13pointer_templ1ZQ23ods18_stitch_transitionRCQ23odst13pointer_templ1ZQ23ods18_stitch_transition();
+// void __as__Q23odst13pointer_templ1ZQ23ods18_stitch_transitionRCQ23odst13pointer_templ1ZQ23ods18_stitch_transition();
+
+// rodata
+
+// extern UNK_TYPE D_0049CA30;
+
+// data
+
+// extern UNK_TYPE _8radmusic$g_audio_format_info;
+// extern UNK_TYPE D_0043B468;
+
+#endif
