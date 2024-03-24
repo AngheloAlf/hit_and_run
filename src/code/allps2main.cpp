@@ -38,32 +38,6 @@ void CommandLineOptions::InitDefaults(void) {
     sOptions |= tmp;
 }
 
-class PS2Platform : public Platform {
-public:
-    /* 0x04 */ unsigned int unk_04;
-    /* 0x08 */ unsigned char unk_08;
-private:
-    /* 0x0C */ IRadDrive *unk_0C;
-    /* 0x10 */ char unk_10[0xC];
-
-    PS2Platform();
-
-    static PS2Platform* spInstance;
-    static IRadCementLibrary *s_MainCement;
-
-    static void InitializeMemory(void);
-
-    void InitializeFoundationDrive(void);
-
-public:
-    static PS2Platform *CreateInstance(void);
-    static PS2Platform *GetInstance(void);
-    static void DestroyInstance(void);
-    static void InitializeFoundation(void);
-
-    // virtual void virtual_20(int);
-};
-
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", HandleOption__18CommandLineOptionsPCc);
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", Get__18CommandLineOptions17CmdLineOptionEnum);
@@ -409,11 +383,11 @@ void PS2Platform::InitializeFoundationDrive() {
     if (CommandLineOptions::Get(CmdLineOptionEnum_7) != 0) {
         radDriveOpenAsync(&this->unk_0C, STR_0045D658, radFilePriority_1, 3);
 
-        this->unk_0C->virtual_C4(this, 0);
+        this->unk_0C->virtual_0C4(this, 0);
     } else {
         radDriveOpenAsync(&this->unk_0C, STR_0045D660, radFilePriority_1, 3);
 
-        this->unk_0C->virtual_C4(this, 0);
+        this->unk_0C->virtual_0C4(this, 0);
     }
 }
 

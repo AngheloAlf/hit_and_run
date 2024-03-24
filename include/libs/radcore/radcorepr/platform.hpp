@@ -12,6 +12,15 @@ enum radPlatformGameMediaType {
     /* 0x1 */ radPlatformGameMediaType_1 = 1,
 };
 
+//! GUESS
+class Platform {
+private:
+
+public:
+    virtual void virtual_0C(void);
+    virtual void virtual_14(void);
+};
+
 void radPlatformInitialize(char const *, radPlatformIOPMedia, radPlatformGameMediaType, char const *, int);
 // void radPlatformTerminate__Fv();
 // void radPlatformGet__Fv();

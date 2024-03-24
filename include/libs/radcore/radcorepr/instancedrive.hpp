@@ -2,35 +2,55 @@
 #define INSTANCEDRIVE_HPP
 
 #include "IRadDriveErrorCallback.hpp"
+#include "platform.hpp"
 
 // This is here by guessing
 class IRadDrive {
-    virtual void virtual_0C(void);
-    virtual void virtual_14(void);
-    virtual void virtual_1C(void);
-    virtual void virtual_24(void);
-    virtual void virtual_2C(void);
-    virtual void virtual_34(void);
-    virtual void virtual_3C(void);
-    virtual void virtual_44(void);
-    virtual void virtual_4C(void);
-    virtual void virtual_54(void);
-    virtual void virtual_5C(void);
-    virtual void virtual_64(void);
-    virtual void virtual_6C(void);
-    virtual void virtual_74(void);
-    virtual void virtual_7C(void);
-    virtual void virtual_84(void);
-    virtual void virtual_8C(void);
-    virtual void virtual_94(void);
-    virtual void virtual_9C(void);
-    virtual void virtual_A4(void);
-    virtual void virtual_AC(void);
-    virtual void virtual_B4(void);
-    virtual void virtual_BC(void);
+private:
+    /* vt 0x00C */ virtual void virtual_00C(void);
+    /* vt 0x014 */ virtual void virtual_014(void);
+    /* vt 0x01C */ virtual void virtual_01C(void);
+    /* vt 0x024 */ virtual void virtual_024(void);
+    /* vt 0x02C */ virtual void virtual_02C(void);
+    /* vt 0x034 */ virtual void virtual_034(void);
+    /* vt 0x03C */ virtual void virtual_03C(void);
+    /* vt 0x044 */ virtual void virtual_044(void);
+    /* vt 0x04C */ virtual void virtual_04C(void);
+    /* vt 0x054 */ virtual void virtual_054(void);
+    /* vt 0x05C */ virtual void virtual_05C(void);
+    /* vt 0x064 */ virtual void virtual_064(void);
+    /* vt 0x06C */ virtual void virtual_06C(void);
+    /* vt 0x074 */ virtual void virtual_074(void);
+    /* vt 0x07C */ virtual void virtual_07C(void);
+    /* vt 0x084 */ virtual void virtual_084(void);
+    /* vt 0x08C */ virtual void virtual_08C(void);
+    /* vt 0x094 */ virtual void virtual_094(void);
+    /* vt 0x09C */ virtual void virtual_09C(void);
+    /* vt 0x0A4 */ virtual void virtual_0A4(void);
+    /* vt 0x0AC */ virtual void virtual_0AC(void);
+    /* vt 0x0B4 */ virtual void virtual_0B4(void);
+    /* vt 0x0BC */ virtual void virtual_0BC(void);
 public:
-    //! FIXME
-    virtual void virtual_C4(Platform *, int);
+    /* vt 0x0C4 */ virtual void virtual_0C4(Platform *, int);
+private:
+    /* vt 0x0CC */ virtual void virtual_0CC(void);
+    /* vt 0x0D4 */ virtual void virtual_0D4(void);
+    /* vt 0x0DC */ virtual void virtual_0DC(void);
+    /* vt 0x0E4 */ virtual void virtual_0E4(void);
+    /* vt 0x0EC */ virtual void virtual_0EC(void);
+    /* vt 0x0F4 */ virtual void virtual_0F4(void);
+    /* vt 0x0FC */ virtual void virtual_0FC(void);
+    /* vt 0x104 */ virtual void virtual_104(void);
+    /* vt 0x10C */ virtual void virtual_10C(void);
+    /* vt 0x114 */ virtual void virtual_114(void);
+    /* vt 0x11C */ virtual void virtual_11C(void);
+    /* vt 0x124 */ virtual void virtual_124(void);
+    /* vt 0x12C */ virtual void virtual_12C(void);
+    /* vt 0x134 */ virtual void virtual_134(void);
+    /* vt 0x13C */ virtual void virtual_13C(void);
+    /* vt 0x144 */ virtual void virtual_144(void);
+    /* vt 0x14C */ virtual void virtual_14C(void);
+    /* vt 0x154 */ virtual void virtual_154(void);
 };
 
 // text

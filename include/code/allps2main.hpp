@@ -4,6 +4,9 @@
 #include "unk.h"
 
 #include "libs/radcore/radcorepr/time.hpp"
+#include "libs/radcore/radcorepr/platform.hpp"
+#include "libs/radcore/radcorepr/instancedrive.hpp"
+#include "libs/radcore/radcorepr/cementer.hpp"
 
 #include "code/allgameflow.hpp"
 #include "code/allrenderflow.hpp"
@@ -26,18 +29,6 @@ public:
     static void InitDefaults(void);
     static void HandleOption(char const *);
     static int Get(CmdLineOptionEnum);
-};
-
-class Platform {
-private:
-
-public:
-    // /* 0x0 */ char unk_0[0x4];
-    // /* 0x4 */ unsigned int unk_4;
-    // /* 0x8 */ unsigned char unk_8;
-
-    virtual void virtual_0C(void);
-    virtual void virtual_14(void);
 };
 
 // text
@@ -79,18 +70,31 @@ int main(int argc, char *argv[]);
 // void func_00163468__FiPPc();
 // void func_001634B8__Fv();
 // void LoadMemP3DFile__FPUcUiP12tEntityStore();
-// void CreateInstance__11PS2Platform();
-// void GetInstance__11PS2Platform();
-// void DestroyInstance__11PS2Platform();
-// void InitializeFoundation__11PS2Platform();
-// void InitializeMemory__11PS2Platform();
+
+class PS2Platform : public Platform {
+public:
+    /* 0x00 */ /* vtable */
+    /* 0x04 */ unsigned int unk_04;
+    /* 0x08 */ unsigned char unk_08;
+private:
+    /* 0x0C */ IRadDrive *unk_0C;
+    /* 0x10 */ char unk_10[0xC];
+
+public:
+    static PS2Platform *CreateInstance(void);
+    static PS2Platform *GetInstance(void);
+    static void DestroyInstance(void);
+    static void InitializeFoundation(void);
+
+private:
+    static void InitializeMemory(void);
 // void InitializePlatform__11PS2Platform();
 // void ShutdownPlatform__11PS2Platform();
 // void ResetMachine__11PS2Platform();
 // void LaunchDashboard__11PS2Platform();
 // void DisplaySplashScreen__11PS2PlatformQ28Platform12SplashScreenPCcfffG10pddiColouri();
 // void DisplaySplashScreen__11PS2PlatformPCcT1fffG10pddiColouri();
-// void InitializeFoundationDrive__11PS2Platform();
+    void InitializeFoundationDrive(void);
 // void ShutdownFoundation__11PS2Platform();
 // void InitializePure3D__11PS2Platform();
 // void ShutdownPure3D__11PS2Platform();
@@ -98,11 +102,21 @@ int main(int argc, char *argv[]);
 // void CheckForStartupButtons__11PS2Platform();
 // void OnControllerError__11PS2PlatformPCc();
 // void OnDriveError__11PS2Platform12radFileErrorPCcPv();
-// void __11PS2Platform();
+
+    PS2Platform();
 // void _$_11PS2Platform();
 // void EnableSnProfiler__11PS2Platform();
+
+    static IRadCementLibrary *s_MainCement;
+    static PS2Platform* spInstance;
+
+public:
+    // virtual void virtual_20(int);
+};
+
 void CreateSingletons(void);
 void DestroySingletons(void);
+
 // void __13tUidUnaligned();
 // void __13tUidUnalignedRC13tUidUnaligned();
 // void __ne__C13tUidUnalignedG13tUidUnaligned();
@@ -137,8 +151,10 @@ void DestroySingletons(void);
 // extern UNK_TYPE g_inDemoMode;
 // extern UNK_TYPE D_00427161;
 // extern UNK_TYPE ERROR_STRINGS;
+
 // extern UNK_TYPE _11PS2Platform$s_MainCement;
 // extern UNK_TYPE _11PS2Platform$spInstance;
+
 // extern UNK_TYPE gFont;
 // extern UNK_TYPE D_0042AACD;
 
