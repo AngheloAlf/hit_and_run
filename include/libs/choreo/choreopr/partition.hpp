@@ -1,0 +1,142 @@
+#ifndef PARTITION_HPP
+#define PARTITION_HPP
+
+// text
+
+// void __Q26choreo9PartitionPQ26choreo3Rig();
+// void _$_Q26choreo9Partition();
+// void __Q26choreo18InclusivePartitionPQ26choreo3Rigii();
+// void _$_Q26choreo18InclusivePartition();
+// void AddEntry__Q26choreo18InclusivePartitionifi();
+// void AddRangeEntry__Q26choreo18InclusivePartitioniifi();
+// void FindEntryIndex__CQ26choreo18InclusivePartitioni();
+// void FindEntry__CQ26choreo18InclusivePartitioni();
+// void HasJoint__CQ26choreo18InclusivePartitioni();
+// void GetJointWeight__CQ26choreo18InclusivePartitioni();
+// void GetJointPriority__CQ26choreo18InclusivePartitioni();
+// void ReadFromScript__Q26choreo18InclusivePartitionPQ26choreo12ScriptReaderPQ26choreo8BaseBank();
+// void __Q26choreo18ExclusivePartitionPQ26choreo3Rigii();
+// void _$_Q26choreo18ExclusivePartition();
+// void AddEntry__Q26choreo18ExclusivePartitioni();
+// void AddRangeEntry__Q26choreo18ExclusivePartitionii();
+// void FindEntryIndex__CQ26choreo18ExclusivePartitioni();
+// void FindRangeEntryIndex__CQ26choreo18ExclusivePartitioni();
+// void HasJoint__CQ26choreo18ExclusivePartitioni();
+// void ReadFromScript__Q26choreo18ExclusivePartitionPQ26choreo12ScriptReaderPQ26choreo8BaseBank();
+// void __Q26choreo14UnionPartitionPQ26choreo3Rigi();
+// void _$_Q26choreo14UnionPartition();
+// void func_002B2CE0();
+// void AddPartition__Q26choreo14UnionPartitionPQ26choreo9Partitionif();
+// void HasJoint__CQ26choreo14UnionPartitioni();
+// void GetJointWeight__CQ26choreo14UnionPartitioni();
+// void GetJointPriority__CQ26choreo14UnionPartitioni();
+// void ReadFromScript__Q26choreo14UnionPartitionPQ26choreo12ScriptReaderPQ26choreo8BaseBank();
+// void __Q26choreo18IntersectPartitionPQ26choreo3Rigi();
+// void _$_Q26choreo18IntersectPartition();
+// void func_002B35E0();
+// void AddPartition__Q26choreo18IntersectPartitionPQ26choreo9Partitionif();
+// void HasJoint__CQ26choreo18IntersectPartitioni();
+// void GetJointWeight__CQ26choreo18IntersectPartitioni();
+// void GetJointPriority__CQ26choreo18IntersectPartitioni();
+// void ReadFromScript__Q26choreo18IntersectPartitionPQ26choreo12ScriptReaderPQ26choreo8BaseBank();
+// void __Q26choreo17CompletePartitionPQ26choreo3Rig();
+// void _$_Q26choreo17CompletePartition();
+// void HasJoint__CQ26choreo17CompletePartitioni();
+// void GetJointWeight__CQ26choreo17CompletePartitioni();
+// void GetJointPriority__CQ26choreo17CompletePartitioni();
+// void AddJoint__Q26choreo17CompletePartitionifi();
+// void func_002B3F98();
+// void AddJointRange__Q26choreo17CompletePartitioniifi();
+// void func_002B4050();
+// void Clear__Q26choreo17CompletePartition();
+// void ReadFromScript__Q26choreo17CompletePartitionPQ26choreo12ScriptReaderPQ26choreo8BaseBank();
+// void _$_Q26choreo12LODPartition();
+// void HasJoint__CQ26choreo12LODPartitioni();
+// void GetJointWeight__CQ26choreo12LODPartitioni();
+// void GetJointPriority__CQ26choreo12LODPartitioni();
+// void __tfQ26choreo9Partition();
+// void __tfQ26choreo18InclusivePartition();
+// void __tfQ26choreo18ExclusivePartition();
+// void __tfQ26choreo14UnionPartition();
+// void __tfQ26choreo18IntersectPartition();
+// void __tfQ26choreo17CompletePartition();
+// void __tfQ26choreo12LODPartition();
+// void GetJointWeight__CQ26choreo18ExclusivePartitioni();
+// void GetJointPriority__CQ26choreo18ExclusivePartitioni();
+// void func_002B4C30();
+
+// rodata
+
+// extern UNK_TYPE D_00480D38;
+// extern UNK_TYPE D_00480D40;
+// extern UNK_TYPE D_00480D58;
+// extern UNK_TYPE D_00480D70;
+// extern UNK_TYPE D_00480D80;
+// extern UNK_TYPE D_00480D98;
+// extern UNK_TYPE D_00480DA8;
+// extern UNK_TYPE D_00480DB0;
+// extern UNK_TYPE D_00480DB8;
+// extern UNK_TYPE D_00480DC0;
+// extern UNK_TYPE D_00480DD0;
+// extern UNK_TYPE D_00480DE0;
+// extern UNK_TYPE D_00480DF0;
+// extern UNK_TYPE D_00480DF8;
+// extern UNK_TYPE D_00480E00;
+// extern UNK_TYPE D_00480E10;
+// extern UNK_TYPE D_00480E18;
+// extern UNK_TYPE D_00480E20;
+// extern UNK_TYPE D_00480E28;
+// extern UNK_TYPE D_00480E40;
+// extern UNK_TYPE D_00480E60;
+// extern UNK_TYPE D_00480E98;
+// extern UNK_TYPE D_00480EC8;
+// extern UNK_TYPE D_00480F00;
+// extern UNK_TYPE D_00480F20;
+// extern UNK_TYPE D_00480F58;
+// extern UNK_TYPE D_00480F80;
+// extern UNK_TYPE D_00480FA8;
+// extern UNK_TYPE D_00480FC0;
+// extern UNK_TYPE D_00480FF0;
+// extern UNK_TYPE D_00481020;
+// extern UNK_TYPE D_00481048;
+// extern UNK_TYPE D_00481070;
+// extern UNK_TYPE D_00481098;
+// extern UNK_TYPE D_004810B8;
+// extern UNK_TYPE D_004810D8;
+// extern UNK_TYPE D_00481100;
+// extern UNK_TYPE _vt$Q26choreo12LODPartition;
+// extern UNK_TYPE _vt$Q26choreo17CompletePartition;
+// extern UNK_TYPE _vt$Q26choreo18IntersectPartition;
+// extern UNK_TYPE _vt$Q26choreo14UnionPartition;
+// extern UNK_TYPE _vt$Q26choreo18ExclusivePartition;
+// extern UNK_TYPE _vt$Q26choreo18InclusivePartition;
+// extern UNK_TYPE _vt$Q26choreo9Partition;
+// extern UNK_TYPE D_004812E8;
+// extern UNK_TYPE D_00481300;
+// extern UNK_TYPE D_00481320;
+// extern UNK_TYPE D_00481340;
+// extern UNK_TYPE D_00481360;
+// extern UNK_TYPE D_00481380;
+// extern UNK_TYPE D_004813A0;
+
+// data
+
+// extern UNK_TYPE D_00436200;
+// extern UNK_TYPE D_00436204;
+// extern UNK_TYPE D_00436208;
+// extern UNK_TYPE D_0043620C;
+// extern UNK_TYPE D_00436210;
+// extern UNK_TYPE D_00436214;
+// extern UNK_TYPE D_00436218;
+// extern UNK_TYPE D_0043621C;
+// extern UNK_TYPE D_00436220;
+// extern UNK_TYPE D_00436224;
+// extern UNK_TYPE D_00436228;
+// extern UNK_TYPE D_0043622C;
+// extern UNK_TYPE D_00436230;
+// extern UNK_TYPE D_00436234;
+// extern UNK_TYPE D_00436238;
+// extern UNK_TYPE D_0043623C;
+// extern UNK_TYPE D_00436240;
+
+#endif
