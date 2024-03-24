@@ -35,12 +35,27 @@ class Platform {
 private:
 
 public:
+    // /* 0x0 */ char unk_0[0x4];
+    // /* 0x0 */ unsigned int unk_4;
+    // /* 0x8 */ unsigned char unk_8;
+
     virtual void virtual_0C(void);
     virtual void virtual_14(void);
 };
 
 enum ContextEnum {
     /* 0x1 */ ContextEnum_1 = 0x1,
+    /* 0xC */ ContextEnum_C = 0xC,
+};
+
+class tLoadManager {
+public:
+    void SwitchTask(void);
+};
+
+class p3d {
+public:
+    static tLoadManager *loadManager;
 };
 
 class GameFlow {
@@ -48,6 +63,8 @@ public:
     static GameFlow *CreateInstance(void);
     static void DestroyInstance(void);
     void SetContext(ContextEnum);
+
+    virtual void virtual_0C(unsigned int, int);
 };
 
 class CGuiScreenMissionLoad {
@@ -59,12 +76,24 @@ class RenderFlow {
 public:
     static RenderFlow *GetInstance(void);
     void DoAllRegistration(void);
+
+    virtual void virtual_0C(unsigned int, int);
 };
 
 class IRadTimerList {
-public:
+private:
     virtual void virtual_0C(void);
+public:
     virtual void virtual_14(void);
+private:
+    virtual void virtual_1C(void);
+    virtual void virtual_24(void);
+};
+
+class InputManager {
+public:
+    static InputManager *GetInstance(void);
+    void Update(unsigned int);
 };
 
 enum GameMemoryAllocator {
@@ -82,7 +111,7 @@ class Game {
     /* 0x08 */ GameFlow *unk_08;
     /* 0x0C */ RenderFlow *unk_0C;
     /* 0x10 */ int unk_10;
-    /* 0x14 */ char unk_14;
+    /* 0x14 */ unsigned char unk_14;
     /* 0x18 */ int unk_18;
     /* 0x1C */ int unk_1C;
 
@@ -104,6 +133,14 @@ public:
     void Terminate(void);
 
     static int GetRandomSeed(void);
+};
+
+class SoundManager {
+public:
+    static SoundManager *GetInstance(void);
+
+    void Update(void);
+    void UpdateOncePerFrame(unsigned int, ContextEnum, bool);
 };
 
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D010);
@@ -172,7 +209,54 @@ void Game::Terminate() {
     this->unk_04 = NULL;
 }
 
+void radDbgComService(void);
+void radDebugConsoleService(void);
+void radFileService(void);
+int radTimeGetMilliseconds();
+
+#if 0
+void Game::Run() {
+    unsigned int temp_s1;
+    int temp_v0;
+    int var_s2;
+
+    var_s2 = radTimeGetMilliseconds();
+
+    while (this->unk_14 == 0) {
+        temp_v0 = radTimeGetMilliseconds();
+
+        temp_s1 = temp_v0 - var_s2;
+        var_s2 = temp_v0;
+        if (this->platform->unk_8 == 0) {
+            this->unk_04->virtual_24();
+            this->unk_08->virtual_0C(temp_s1, 0);
+
+            if (this->unk_14 == 0) {
+                this->unk_0C->virtual_0C(temp_s1, 0);
+            }
+        } else if (((this->platform->unk_4 ^ 2) == 0) && (InputManager::GetInstance() != NULL)) {
+            InputManager::GetInstance()->Update(temp_s1);
+        }
+
+        radFileService();
+        radDbgComService();
+        radDebugConsoleService();
+
+        CommandLineOptions::Get(CmdLineOptionEnum_5);
+
+        SoundManager::GetInstance()->Update();
+        if (this->platform->unk_8 != 0) {
+            SoundManager::GetInstance()->UpdateOncePerFrame(0, ContextEnum_C, 0);
+        }
+
+        p3d::loadManager->SwitchTask();
+
+        this->unk_10++;
+    }
+}
+#else
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", Run__4Game);
+#endif
 
 void Game::Stop(void) {
     this->unk_14 = 1;
@@ -593,35 +677,22 @@ INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", DisplaySplashScree
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", DisplaySplashScreen__11PS2PlatformPCcT1fffG10pddiColouri);
 
-//? radDriveOpenAsync__FPP9IRadDrivePCc15radFilePriorityi(void *, ? *, ?, ?); /* extern */
 void radDriveOpenAsync(IRadDrive **, char const *, radFilePriority, int);
 
-#if 0
 void PS2Platform::InitializeFoundationDrive() {
     IRadDrive *temp_v1;
     void *temp_v0;
 
     if (CommandLineOptions::Get(CmdLineOptionEnum_7) != 0) {
         radDriveOpenAsync(&this->unk_0C, STR_0045D658, radFilePriority_1, 3);
-        //temp_v1 = this->unk_0C;
-    #if 0
-        temp_v0 = *temp_v1;
-        temp_v0->unk_C4(temp_v1 + temp_v0->unk_C0, arg0, 0);
-    #endif
+
         this->unk_0C->virtual_C4(this, 0);
     } else {
         radDriveOpenAsync(&this->unk_0C, STR_0045D660, radFilePriority_1, 3);
-        //temp_v1 = this->unk_0C;
-    #if 0
-        temp_v0 = *temp_v1;
-        temp_v0->unk_C4(temp_v1 + temp_v0->unk_C0, arg0, 0);
-    #endif
+
         this->unk_0C->virtual_C4(this, 0);
     }
 }
-#else
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", InitializeFoundationDrive__11PS2Platform);
-#endif
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", ShutdownFoundation__11PS2Platform);
 
