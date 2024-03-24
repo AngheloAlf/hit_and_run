@@ -31,6 +31,81 @@ void CommandLineOptions::InitDefaults(void) {
     sOptions |= tmp;
 }
 
+class Platform {
+private:
+
+public:
+    virtual void virtual_0C(void);
+    virtual void virtual_14(void);
+};
+
+enum ContextEnum {
+    /* 0x1 */ ContextEnum_1 = 0x1,
+};
+
+class GameFlow {
+public:
+    static GameFlow *CreateInstance(void);
+    static void DestroyInstance(void);
+    void SetContext(ContextEnum);
+};
+
+class CGuiScreenMissionLoad {
+public:
+    static void InitializePermanentVariables(void);
+};
+
+class RenderFlow {
+public:
+    static RenderFlow *GetInstance(void);
+    void DoAllRegistration(void);
+};
+
+class IRadTimerList {
+public:
+    virtual void virtual_0C(void);
+    virtual void virtual_14(void);
+};
+
+enum GameMemoryAllocator {
+    GameMemoryAllocator_3 = 3,
+};
+
+void* operator new(unsigned int, GameMemoryAllocator);
+
+// ???
+// void operator delete(void*, GameMemoryAllocator);
+
+class Game {
+    /* 0x00 */ Platform *platform;
+    /* 0x04 */ IRadTimerList *unk_04;
+    /* 0x08 */ GameFlow *unk_08;
+    /* 0x0C */ RenderFlow *unk_0C;
+    /* 0x10 */ int unk_10;
+    /* 0x14 */ char unk_14;
+    /* 0x18 */ int unk_18;
+    /* 0x1C */ int unk_1C;
+
+    Game(Platform *);
+    virtual ~Game();
+
+    static Game *spInstance;
+
+public:
+    static Game *CreateInstance(Platform *platform);
+    static void DestroyInstance(void);
+    static Game *Game::GetInstance(void);
+
+    Platform *GetPlatform(void);
+
+    void Initialize(void);
+    void Run(void);
+    void Stop(void);
+    void Terminate(void);
+
+    static int GetRandomSeed(void);
+};
+
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D010);
 
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D020);
@@ -41,27 +116,89 @@ INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", HandleOption__18Co
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", Get__18CommandLineOptions17CmdLineOptionEnum);
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", CreateInstance__4GameP8Platform);
+Game *Game::CreateInstance(Platform *platform) {
+    if (spInstance == NULL) {
+        spInstance = new (GameMemoryAllocator_3) Game(platform);
+    }
 
+    return spInstance;
+}
+
+#if 0
+void Game::DestroyInstance(void) {
+    void *temp_v0;
+
+    if (spInstance != NULL) {
+        //temp_v0 = spInstance->unk_20;
+        //temp_v0->unk_C(spInstance + temp_v0->unk_8, 3);
+        delete (GameMemoryAllocator_3) spInstance;
+    }
+    spInstance = NULL;
+}
+#else
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", DestroyInstance__4Game);
+#endif
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", GetInstance__4Game);
+Game *Game::GetInstance(void) {
+    return spInstance;
+}
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", GetPlatform__4Game);
+Platform *Game::GetPlatform(void) {
+    return this->platform;
+}
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", Initialize__4Game);
+void radTimeCreateList(IRadTimerList **, unsigned int, int);
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", Terminate__4Game);
+void Game::Initialize() {
+    this->platform->virtual_14();
+
+    radTimeCreateList(&this->unk_04, 0x10, 3);
+
+    this->unk_08 = GameFlow::CreateInstance();
+
+    this->unk_0C = RenderFlow::GetInstance();
+    this->unk_0C->DoAllRegistration();
+
+    CGuiScreenMissionLoad::InitializePermanentVariables();
+
+    this->unk_08->SetContext(ContextEnum_1);
+}
+
+void Game::Terminate() {
+    GameFlow::DestroyInstance();
+    this->unk_08 = NULL;
+    this->unk_0C = NULL;
+    this->unk_04->virtual_14();
+    this->unk_04 = NULL;
+}
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", Run__4Game);
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", Stop__4Game);
+void Game::Stop(void) {
+    this->unk_14 = 1;
+}
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", GetRandomSeed__4Game);
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", __4GameP8Platform);
+Game::Game(Platform *pf) {
+    this->platform = pf;
+    this->unk_04 = NULL;
+    this->unk_08 = NULL;
+    this->unk_0C = NULL;
+    this->unk_10 = 0;
+    this->unk_14 = 0;
+    this->unk_18 = 0;
+    this->unk_1C = 0;
+}
 
+#if 0
+// triggers emitting the virtual table
+Game::~Game() {
+
+}
+#else
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", _$_4Game);
+#endif
 
 enum radDbgComType {
     /* 0x0 */ radDbgComType_0,
@@ -91,13 +228,6 @@ enum radPlatformIOPMedia {
 
 enum radPlatformGameMediaType {
     /* 0x1 */ radPlatformGameMediaType_1 = 1,
-};
-
-class Platform {
-private:
-    char unk_00[0x4];
-
-public:
 };
 
 class IRadDrive {
@@ -156,35 +286,6 @@ public:
     // virtual void virtual_20(int);
 };
 
-//PS2Platform *CreateInstance__11PS2Platform(); // PS2Platform::CreateInstance(void)
-//void DestroyInstance__11PS2Platform(); // PS2Platform::DestroyInstance(void)
-//void InitializeFoundation__11PS2Platform(); // PS2Platform::InitializeFoundation(void)
-
-class Game {
-public:
-    static Game *CreateInstance(Platform *); // Game::CreateInstance(Platform *)
-    static int GetRandomSeed(void); // Game::GetRandomSeed(void)
-    static void DestroyInstance(void); // Game::DestroyInstance(void)
-
-    void Initialize(void); // Game::Initialize(void)
-    void Run(void); // Game::Run(void)
-    void Terminate(void); // Game::Terminate(void)
-};
-
-// int CreateInstance__4GameP8Platform(int); // Game::CreateInstance(Platform *)
-//void DestroyInstance__4Game(); // Game::DestroyInstance(void)
-//int GetRandomSeed__4Game(); // Game::GetRandomSeed(void)
-//void Initialize__4Game(int); // Game::Initialize(void)
-//void Run__4Game(int); // Game::Run(void)
-//void Terminate__4Game(int); // Game::Terminate(void)
-
-
-//void InitDefaults__18CommandLineOptions(); // CommandLineOptions::InitDefaults(void)
-
-
-enum GameMemoryAllocator {
-    GameMemoryAllocator_3 = 3,
-};
 
 class HeapManager {
 public:
@@ -291,21 +392,15 @@ INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", D_0045D570);
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", LoadMemP3DFile__FPUcUiP12tEntityStore);
 
-void* operator new(unsigned int, GameMemoryAllocator);
-
 PS2Platform *PS2Platform::CreateInstance(void) {
     spInstance = new (GameMemoryAllocator_3) PS2Platform();
 
     return spInstance;
 }
 
-#ifdef NON_MATCHING
 PS2Platform *PS2Platform::GetInstance(void) {
     return spInstance;
 }
-#else
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", GetInstance__11PS2Platform);
-#endif
 
 //extern void **_11PS2Platform$spInstance;
 #if 0

@@ -131,7 +131,7 @@ C_DEFINES       :=
 CXX_DEFINES     := 
 ENDIAN          := -EL
 
-OPTFLAGS        := -O2
+OPTFLAGS        := -Os
 DBGFLAGS        := -g3
 # MIPS_VERSION    := -mips3
 # OUT_ENCODING    := Shift-JIS
