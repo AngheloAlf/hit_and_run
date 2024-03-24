@@ -1,5 +1,5 @@
-#ifndef 004B08B4_HPP
-#define 004B08B4_HPP
+#ifndef _004B08B4_HPP
+#define _004B08B4_HPP
 
 // scommon
 

@@ -1,5 +1,5 @@
-#ifndef 321994_HPP
-#define 321994_HPP
+#ifndef _321994_HPP
+#define _321994_HPP
 
 // text
 

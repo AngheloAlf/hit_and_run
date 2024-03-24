@@ -1,5 +1,5 @@
-#ifndef 004B0B00_HPP
-#define 004B0B00_HPP
+#ifndef _004B0B00_HPP
+#define _004B0B00_HPP
 
 // scommon
 

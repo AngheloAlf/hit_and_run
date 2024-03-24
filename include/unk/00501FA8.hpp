@@ -1,5 +1,5 @@
-#ifndef 00501FA8_HPP
-#define 00501FA8_HPP
+#ifndef _00501FA8_HPP
+#define _00501FA8_HPP
 
 // bss
 
