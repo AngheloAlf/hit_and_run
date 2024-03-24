@@ -1,11 +1,16 @@
 #ifndef TARGETX_HPP
 #define TARGETX_HPP
 
+enum radDbgComType {
+    /* 0x0 */ radDbgComType_0,
+    /* 0x3 */ radDbgComType_3 = 0x3,
+};
+
 // text
 
-// void radDbgComTargetInitialize__F13radDbgComTypeUsPvi();
+void radDbgComTargetInitialize(radDbgComType, unsigned short, void *, int);
 // void radDbgComTargetTerminate__Fv();
-// void radDbgComService__Fv();
+void radDbgComService(void);
 // void radDbgComTargetCreateChannel__FUsPP17IRadDbgComChanneli();
 // void func_003CDA78();
 

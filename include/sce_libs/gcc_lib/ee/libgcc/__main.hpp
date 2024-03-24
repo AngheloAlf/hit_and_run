@@ -5,7 +5,7 @@
 
 // void func_0041A3D0();
 // void __do_global_ctors();
-// void __main();
+extern "C" void __main(int argc, char *argv[]);
 
 // data
 

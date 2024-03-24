@@ -1,24 +1,33 @@
 #ifndef RADFILE_HPP
 #define RADFILE_HPP
 
+#include "cementer.hpp"
+#include "memoryspaceps2.hpp"
+#include "instancedrive.hpp"
+
+// This is here by guess
+enum radFilePriority {
+    /* 0x1 */ radFilePriority_1 = 0x1,
+};
+
 // text
 
 // void radMakeIconSys__FP13radPs2IconSysP11radSJISCharUs();
 // void radSetIconSysTitle__FP13radPs2IconSysP11radSJISCharUs();
-// void radFileInitialize__FUiUii();
+void radFileInitialize(unsigned int, unsigned int, int);
 // void radFileTerminate__Fv();
-// void radFileService__Fv();
+void radFileService(void);
 // void func_003D7498();
 // void radFileOpenAsync__FPP8IRadFilePCcb16radFileOpenFlags15radFilePriorityUii14radMemorySpace();
 // void func_003D74C8();
-// void radDriveOpenAsync__FPP9IRadDrivePCc15radFilePriorityi();
+void radDriveOpenAsync(IRadDrive **, char const *, radFilePriority, int);
 // void func_003D7500();
-// void radSetDefaultDrive__FPCc();
+void radSetDefaultDrive(char const *);
 // void func_003D7528();
 // void radFileRegisterCementLibraryAsync__FPP17IRadCementLibraryPCc24radCementLibraryPriorityUii14radMemorySpace();
-// void radFileRegisterCementLibrarySync__FPP17IRadCementLibraryPCc24radCementLibraryPriorityUii14radMemorySpace();
+void radFileRegisterCementLibrarySync(IRadCementLibrary **, char const *, radCementLibraryPriority, unsigned int, int, radMemorySpace);
 // void func_003D7578();
-// void radDriveMount__FPCci();
+void radDriveMount(char const *, int);
 // void radDriveUnmount__FPCc();
 // void func_003D75C0();
 

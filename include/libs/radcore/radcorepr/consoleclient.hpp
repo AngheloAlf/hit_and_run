@@ -3,7 +3,7 @@
 
 // text
 
-// void radDebugConsoleService__Fv();
+void radDebugConsoleService(void);
 // void func_003CDAB0();
 // void _$_12DebugConsole();
 // void AddRef__12DebugConsole();

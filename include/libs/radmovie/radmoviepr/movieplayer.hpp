@@ -25,7 +25,7 @@
 // void SetState__14radMoviePlayerQ216IRadMoviePlayer25State();
 // void InternalPlay__14radMoviePlayer();
 // void radMoviePlayerCreate2__Fi();
-// void radMovieInitialize2__Fi();
+void radMovieInitialize2(int);
 // void radMovieTerminate2__Fv();
 // void radMovieService2__Fv();
 // void func_003C1458();

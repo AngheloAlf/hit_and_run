@@ -1,6 +1,38 @@
 #ifndef INSTANCEDRIVE_HPP
 #define INSTANCEDRIVE_HPP
 
+#include "IRadDriveErrorCallback.hpp"
+
+// This is here by guessing
+class IRadDrive {
+    virtual void virtual_0C(void);
+    virtual void virtual_14(void);
+    virtual void virtual_1C(void);
+    virtual void virtual_24(void);
+    virtual void virtual_2C(void);
+    virtual void virtual_34(void);
+    virtual void virtual_3C(void);
+    virtual void virtual_44(void);
+    virtual void virtual_4C(void);
+    virtual void virtual_54(void);
+    virtual void virtual_5C(void);
+    virtual void virtual_64(void);
+    virtual void virtual_6C(void);
+    virtual void virtual_74(void);
+    virtual void virtual_7C(void);
+    virtual void virtual_84(void);
+    virtual void virtual_8C(void);
+    virtual void virtual_94(void);
+    virtual void virtual_9C(void);
+    virtual void virtual_A4(void);
+    virtual void virtual_AC(void);
+    virtual void virtual_B4(void);
+    virtual void virtual_BC(void);
+public:
+    //! FIXME
+    virtual void virtual_C4(Platform *, int);
+};
+
 // text
 
 // void radDrivePoolInitialize__FUii();

@@ -5,11 +5,19 @@
 
 // void __6Button();
 // void _$_6Button();
+
+class InputManager {
+private:
 // void CreateInstance__12InputManager();
-// void GetInstance__12InputManager();
+public:
+    static InputManager *GetInstance(void);
+private:
 // void DestroyInstance__12InputManager();
 // void Init__12InputManager();
-// void Update__12InputManagerUi();
+public:
+    void Update(unsigned int);
+
+private:
 // void OnControllerConnectionStatusChange__12InputManagerP14IRadController();
 // void IsControllerInPort__C12InputManageri();
 // void ToggleRumble__12InputManagerb();
@@ -35,6 +43,8 @@
 // void RegisterControllerID__12InputManagerii();
 // void UnregisterControllerID__12InputManageri();
 // void UnregisterAllControllerID__12InputManager();
+};
+
 // void __8MappableUi();
 // void _$_8Mappable();
 // void DispatchOnButton__8MappableiiPC6Button();

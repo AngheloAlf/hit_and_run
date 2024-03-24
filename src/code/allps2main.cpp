@@ -1,27 +1,34 @@
+#include "code/allps2main.hpp"
+
 #include "include_asm.h"
 #include "types.h"
 
+#include "sce_libs/gcc/ee/libg/rand.h"
+#include "sce_libs/lib/libkernl/iopheap.h"
+
+#include "libs/pure3d/pure3dpr/utility.hpp"
+#include "libs/radcore/radcorepr/targetx.hpp"
+#include "libs/radcore/radcorepr/consoleclient.hpp"
+#include "libs/radcore/radcorepr/radfile.hpp"
+#include "libs/radcontent/radcontentpr/manager.hpp"
+#include "libs/radcore/radcorepr/memorymanager.hpp"
+#include "libs/radmath/radmathpr/radmath.hpp"
+#include "libs/radcore/radcorepr/debug.hpp"
+#include "libs/radcore/radcorepr/platform.hpp"
+#include "libs/radmovie/radmoviepr/movieplayer.hpp"
+
+#include "code/allingame.hpp"
+#include "code/allinput.hpp"
+#include "code/allmemory.hpp"
+#include "code/allsound.hpp"
+
 // TODO: migrate funcs from https://decomp.me/scratch/c0cMu
 
-enum CmdLineOptionEnum {
-    /* 0x05 */ CmdLineOptionEnum_5 = 0x5,
+INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D010);
 
-    /* 0x07 */ CmdLineOptionEnum_7 = 0x7,
-    /* 0x08 */ CmdLineOptionEnum_8,
+INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D020);
 
-    /* 0x0A */ CmdLineOptionEnum_A = 0xA,
-
-    /* 0x2E */ CmdLineOptionEnum_2E = 0x2E,
-};
-
-class CommandLineOptions {
-    static unsigned long sOptions;
-
-public:
-    static void InitDefaults(void);
-    static int Get(CmdLineOptionEnum);
-    static void HandleOption(char const *);
-};
+INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D050);
 
 void CommandLineOptions::InitDefaults(void) {
     unsigned long tmp;
@@ -30,134 +37,6 @@ void CommandLineOptions::InitDefaults(void) {
     tmp=0x100000000;
     sOptions |= tmp;
 }
-
-class Platform {
-private:
-
-public:
-    // /* 0x0 */ char unk_0[0x4];
-    // /* 0x0 */ unsigned int unk_4;
-    // /* 0x8 */ unsigned char unk_8;
-
-    virtual void virtual_0C(void);
-    virtual void virtual_14(void);
-};
-
-enum ContextEnum {
-    /* 0x1 */ ContextEnum_1 = 0x1,
-    /* 0xC */ ContextEnum_C = 0xC,
-};
-
-class tLoadManager {
-public:
-    void SwitchTask(void);
-};
-
-class p3d {
-public:
-    static tLoadManager *loadManager;
-};
-
-class GameFlow {
-public:
-    static GameFlow *CreateInstance(void);
-    static void DestroyInstance(void);
-    void SetContext(ContextEnum);
-
-    virtual void virtual_0C(unsigned int, int);
-};
-
-class CGuiScreenMissionLoad {
-public:
-    static void InitializePermanentVariables(void);
-};
-
-class RenderFlow {
-public:
-    static RenderFlow *GetInstance(void);
-    void DoAllRegistration(void);
-
-    virtual void virtual_0C(unsigned int, int);
-};
-
-class IRadTimerList {
-private:
-    virtual void virtual_0C(void);
-public:
-    virtual void virtual_14(void);
-private:
-    virtual void virtual_1C(void);
-public:
-    virtual void virtual_24(void);
-};
-
-class InputManager {
-public:
-    static InputManager *GetInstance(void);
-    void Update(unsigned int);
-};
-
-enum radDbgComType {
-    /* 0x0 */ radDbgComType_0,
-    /* 0x3 */ radDbgComType_3 = 0x3,
-};
-
-class radLoadInit {
-
-};
-
-class IRadCementLibrary {
-
-};
-
-enum radCementLibraryPriority {
-    /* 0x0 */ radCementLibraryPriority_0,
-};
-
-enum radMemorySpace {
-    /* 0x1 */ radMemorySpace_1 = 0x1,
-};
-
-enum radPlatformIOPMedia {
-    /* 0x0 */ radPlatformIOPMedia_0,
-    /* 0x1 */ radPlatformIOPMedia_1,
-};
-
-enum radPlatformGameMediaType {
-    /* 0x1 */ radPlatformGameMediaType_1 = 1,
-};
-
-class IRadDrive {
-    virtual void virtual_68(void);
-    virtual void virtual_6C(void);
-    virtual void virtual_70(void);
-    virtual void virtual_74(void);
-    virtual void virtual_78(void);
-    virtual void virtual_7C(void);
-    virtual void virtual_80(void);
-    virtual void virtual_84(void);
-    virtual void virtual_88(void);
-    virtual void virtual_8C(void);
-    virtual void virtual_90(void);
-    virtual void virtual_94(void);
-    virtual void virtual_98(void);
-    virtual void virtual_9C(void);
-    virtual void virtual_A0(void);
-    virtual void virtual_A4(void);
-    virtual void virtual_A8(void);
-    virtual void virtual_AC(void);
-    virtual void virtual_B0(void);
-    virtual void virtual_B4(void);
-    virtual void virtual_B8(void);
-    virtual void virtual_BC(void);
-    virtual void virtual_C0(void);
-public:
-    virtual void virtual_C4(Platform *, int);
-};
-
-enum radFilePriority {
-    /* 0x1 */ radFilePriority_1 = 0x1,
-};
 
 class PS2Platform : public Platform {
 public:
@@ -184,60 +63,6 @@ public:
 
     // virtual void virtual_20(int);
 };
-
-
-enum GameMemoryAllocator {
-    GameMemoryAllocator_3 = 3,
-};
-
-void* operator new(unsigned int, GameMemoryAllocator);
-
-// ???
-// void operator delete(void*, GameMemoryAllocator);
-
-class Game {
-    /* 0x00 */ Platform *platform;
-    /* 0x04 */ IRadTimerList *unk_04;
-    /* 0x08 */ GameFlow *unk_08;
-    /* 0x0C */ RenderFlow *unk_0C;
-    /* 0x10 */ int unk_10;
-    /* 0x14 */ unsigned char unk_14;
-    /* 0x18 */ int unk_18;
-    /* 0x1C */ int unk_1C;
-
-    Game(Platform *);
-    virtual ~Game();
-
-    static Game *spInstance;
-
-public:
-    static Game *CreateInstance(Platform *platform);
-    static void DestroyInstance(void);
-    static Game *Game::GetInstance(void);
-
-    Platform *GetPlatform(void);
-
-    void Initialize(void);
-    void Run(void);
-    void Stop(void);
-    void Terminate(void);
-
-    static int GetRandomSeed(void);
-};
-
-class SoundManager {
-public:
-    static SoundManager *GetInstance(void);
-
-    void Update(void);
-    void UpdateOncePerFrame(unsigned int, ContextEnum, bool);
-};
-
-INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D010);
-
-INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D020);
-
-INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D050);
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", HandleOption__18CommandLineOptionsPCc);
 
@@ -274,8 +99,6 @@ Platform *Game::GetPlatform(void) {
     return this->platform;
 }
 
-void radTimeCreateList(IRadTimerList **, unsigned int, int);
-
 void Game::Initialize() {
     this->platform->virtual_14();
 
@@ -298,11 +121,6 @@ void Game::Terminate() {
     this->unk_04->virtual_14();
     this->unk_04 = NULL;
 }
-
-void radDbgComService(void);
-void radDebugConsoleService(void);
-void radFileService(void);
-int radTimeGetMilliseconds();
 
 void Game::Run() {
     unsigned int temp_s1;
@@ -354,7 +172,12 @@ void Game::Stop(void) {
     this->unk_14 = 1;
 }
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", GetRandomSeed__4Game);
+int Game::GetRandomSeed(void) {
+    radDate sp0;
+
+    radTimeGetDate(&sp0);
+    return ((sp0.unk_0 << 0x10) | (sp0.unk_2 << 8) | sp0.unk_3) ^ ((sp0.unk_6 << 0x18) | (sp0.unk_5 << 8) | sp0.unk_4);
+}
 
 Game::Game(Platform *pf) {
     this->platform = pf;
@@ -375,24 +198,6 @@ Game::~Game() {
 #else
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", _$_4Game);
 #endif
-
-class HeapManager {
-public:
-    void PopHeap(GameMemoryAllocator);
-    void PushHeap(GameMemoryAllocator);
-
-    void PrepareHeapsStartup(void);
-};
-
-//void PopHeap__11HeapManager19GameMemoryAllocator(int, int); // HeapManager::PopHeap(GameMemoryAllocator)
-//void PushHeap__11HeapManager19GameMemoryAllocator(int, int); // HeapManager::PushHeap(GameMemoryAllocator)
-
-void CreateSingletons(void); // CreateSingletons(void)
-void DestroySingletons(void); // DestroySingletons(void)
-HeapManager *HeapMgr(void); // HeapMgr(void)
-
-extern "C" void __main(int argc, char *argv[]);
-extern "C" void srand(int);
 
 void func_00163468(int argc, char *argv[]);
 void func_001634B8();
@@ -508,60 +313,6 @@ void PS2Platform::DestroyInstance(void) {
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", DestroyInstance__11PS2Platform);
 #endif
 
-#if 0
-s32 CommandLineOptions::Get(CmdLineOptionEnum_?); /* extern */
-s32 HeapMgr__Fv();                                  /* extern */
-? InitializeMemory__11PS2Platform(?, s8, ? *, ? *); /* extern */
-? PopHeap__11HeapManager19GameMemoryAllocator(s32, ?); /* extern */
-? PrepareHeapsStartup__11HeapManager(s32);          /* extern */
-? PushHeap__11HeapManager19GameMemoryAllocator(s32, ?); /* extern */
-s32 rDebugAssertFail_Implementation__FPCcT0Ui(? *, ? *, ?); /* extern */
-? rReleasePrintf__FPCce(? *, u32);                  /* extern */
-? radDbgComTargetInitialize__F13radDbgComTypeUsPvi(?, ?, ? *, ?); /* extern */
-? radDriveMount__FPCci(?, ?);                       /* extern */
-? radFileInitialize__FUiUii(?, ?, ?);               /* extern */
-? radFileRegisterCementLibrarySync__FPP17IRadCementLibraryPCc24radCementLibraryPriorityUii14radMemorySpace(? *, ? *, ?, ?); /* extern */
-? radLoadInitialize__FP11radLoadInit(?);            /* extern */
-? radMathInitialize__Fv();                          /* extern */
-? radMemorySetOutOfMemoryCallback__FPFPviUi_vPv(? *, ?); /* extern */
-? radMovieInitialize2__Fi(?);                       /* extern */
-? radPlatformInitialize__FPCc19radPlatformIOPMedia24radPlatformGameMediaTypeT0i(void *, ?, ?, ? *); /* extern */
-? radSetDefaultDrive__FPCc(? *);                    /* extern */
-? radTimeInitialize__Fv();                          /* extern */
-extern ? D_0045D380;
-extern ? PrintOutOfMemoryMessage__FPviUi;
-extern ? _11PS2Platform$s_MainCement;
-#endif
-
-extern "C" int sceSifAllocIopHeap(int);                          /* extern */
-extern "C" unsigned int sceSifQueryMaxFreeMemSize();                    /* extern */
-
-#define UNK_TYPE int
-
-extern UNK_TYPE D_0045D380;
-
-void radFileInitialize(unsigned int, unsigned int, int);
-void radLoadInitialize(radLoadInit *);
-
-void PrintOutOfMemoryMessage(void *, int, unsigned int);
-void radMemorySetOutOfMemoryCallback(void (*)(void *, int, unsigned int), void *);
-void radTimeInitialize(void);
-void radDbgComTargetInitialize(radDbgComType, unsigned short, void *, int);
-void radSetDefaultDrive(char const *);
-void radMovieInitialize2(int);
-void radMathInitialize(void);
-void radDriveMount(char const *, int);
-
-void radFileRegisterCementLibrarySync(IRadCementLibrary **, char const *, radCementLibraryPriority, unsigned int, int, radMemorySpace);
-
-void rReleasePrintf(char const *,...);
-
-void radPlatformInitialize(char const *, radPlatformIOPMedia, radPlatformGameMediaType, char const *, int);
-
-
-int rDebugAssertFail_Implementation(char const *, char const *, unsigned int);
-
-
 extern const char STR_0045D5A8[];
 extern const char STR_0045D5D0[];
 extern const char STR_0045D600[];
@@ -651,8 +402,6 @@ INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", DisplaySplashScree
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", DisplaySplashScreen__11PS2PlatformPCcT1fffG10pddiColouri);
 
-void radDriveOpenAsync(IRadDrive **, char const *, radFilePriority, int);
-
 void PS2Platform::InitializeFoundationDrive() {
     IRadDrive *temp_v1;
     void *temp_v0;
@@ -719,11 +468,6 @@ INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", D_0045D700);
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", OnDriveError__11PS2Platform12radFileErrorPCcPv);
 
 #if 0
-class IRadDriveErrorCallback {
-public:
-    IRadDriveErrorCallback(void);
-};
-
 void __22IRadDriveErrorCallback(); // IRadDriveErrorCallback::IRadDriveErrorCallback
 
 //extern ? _vt$t3PS2Platform;

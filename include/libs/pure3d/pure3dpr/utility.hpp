@@ -1,6 +1,8 @@
 #ifndef UTILITY_HPP
 #define UTILITY_HPP
 
+#include "loadmanager.hpp"
+
 // text
 
 // void func_00335710();
@@ -15,6 +17,12 @@
 // extern UNK_TYPE _3p3d$context;
 // extern UNK_TYPE _3p3d$inventory;
 // extern UNK_TYPE _3p3d$stack;
+
+class p3d {
+public:
+    static tLoadManager *loadManager;
+};
+
 // extern UNK_TYPE _3p3d$loadManager;
 // extern UNK_TYPE _3p3d$pddi;
 // extern UNK_TYPE _3p3d$device;

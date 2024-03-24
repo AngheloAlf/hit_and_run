@@ -3,14 +3,27 @@
 
 // text
 
+class RenderFlow {
+private:
 // void CreateInstance__10RenderFlow();
-// void GetInstance__10RenderFlow();
+
+public:
+    static RenderFlow *GetInstance(void);
+private:
 // void DestroyInstance__10RenderFlow();
-// void DoAllRegistration__10RenderFlow();
+public:
+    void DoAllRegistration(void);
+
+private:
 // void OnTimerDone__10RenderFlowUiPv();
 // void __10RenderFlow();
 // void _$_10RenderFlow();
 // void __tf10RenderFlow();
+
+public:
+    virtual void virtual_0C(unsigned int, int);
+};
+
 // void func_00216210();
 
 // data

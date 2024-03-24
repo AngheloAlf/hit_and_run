@@ -3,7 +3,11 @@
 
 // text
 
-// void radLoadInitialize__FP11radLoadInit();
+class radLoadInit {
+
+};
+
+void radLoadInitialize(radLoadInit *);
 // void func_003EBAF0();
 // void radLoadInstance__Fv();
 // void __14radLoadManagerR11radLoadInit();

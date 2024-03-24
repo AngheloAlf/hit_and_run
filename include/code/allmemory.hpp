@@ -1,6 +1,10 @@
 #ifndef ALLMEMORY_HPP
 #define ALLMEMORY_HPP
 
+enum GameMemoryAllocator {
+    GameMemoryAllocator_3 = 3,
+};
+
 // text
 
 // void func_00165EE0();
@@ -32,13 +36,13 @@
 // void __builtin_delete();
 // void __builtin_vec_new();
 // void __builtin_vec_delete();
-// void __nw__FUi19GameMemoryAllocator();
-// void __dl__FPv19GameMemoryAllocator();
+void* operator new(unsigned int, GameMemoryAllocator);
+// void __dl__FPv19GameMemoryAllocator(); // operator delete(void *, GameMemoryAllocator)
 // void __vn__FUi19GameMemoryAllocator();
 // void func_00166D48();
 // void FindFreeMemory__F19GameMemoryAllocatorUi();
 // void SetupAllocatorSearch__F19GameMemoryAllocator();
-// void PrintOutOfMemoryMessage__FPviUi();
+void PrintOutOfMemoryMessage(void *, int, unsigned int);
 // void __9HeapStack19GameMemoryAllocator();
 // void _$_9HeapStack();
 // void Push__9HeapStack19GameMemoryAllocator();
@@ -50,23 +54,37 @@
 // void MemoryFreed__19HeapActivityTrackeriPv();
 // void GetInstance__11HeapManager();
 // void func_001675E8();
+
+class HeapManager {
+private:
 // void __11HeapManager19GameMemoryAllocator();
 // void _$_11HeapManager();
 // void func_001676C0();
 // void GetFudgeFactor__11HeapManager();
-// void PushHeap__11HeapManager19GameMemoryAllocator();
-// void PopHeap__11HeapManager19GameMemoryAllocator();
+
+public:
+    void PushHeap(GameMemoryAllocator);
+    void PopHeap(GameMemoryAllocator);
+
+private:
+
 // void GetCurrentHeap__C11HeapManager();
 // void GetCurrentAllocator__11HeapManager();
 // void SetCurrentAllocator__11HeapManageri();
 // void DumpHeapStats__11HeapManagerb();
 // void ResetArtStats__11HeapManager();
-// void PrepareHeapsStartup__11HeapManager();
+
+public:
+    void PrepareHeapsStartup(void);
+
+private:
 // void PrepareHeapsFE__11HeapManager();
 // void PrepareHeapsInGame__11HeapManager();
 // void PrepareHeapsSuperSprint__11HeapManager();
+};
+
 // void func_00168968();
-// void HeapMgr__Fv();
+HeapManager *HeapMgr(void);
 // void _M_erase__t8_Rb_tree5ZPvZt4pair2ZCPvZUiZt10_Select1st1Zt4pair2ZCPvZUiZt4less1ZPvZt7s2alloc1Zt4pair2ZCPvZUiPt13_Rb_tree_node1Zt4pair2ZCPvZUi();
 // void func_00168A18();
 // void _$_t19_Rb_tree_alloc_base3Zt4pair2ZCPvZUiZt7s2alloc1Zt4pair2ZCPvZUib0();

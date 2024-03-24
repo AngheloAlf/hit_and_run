@@ -32,9 +32,16 @@
 // void GetState__12tLoadRequest();
 // void func_00327780();
 // void Done__Q212tLoadRequest16InternalCallback();
+
+class tLoadManager {
+private:
 // void __12tLoadManageri();
 // void _$_12tLoadManager();
-// void SwitchTask__12tLoadManager();
+
+public:
+    void SwitchTask(void);
+
+private:
 // void CancelAll__12tLoadManager();
 // void Load__12tLoadManagerP12tLoadRequest();
 // void TriggerCallbacks__12tLoadManager();
@@ -42,6 +49,8 @@
 // void GetHandler__12tLoadManagerPc();
 // void RemoveAllHandlers__12tLoadManager();
 // void GetP3DHandler__12tLoadManager();
+};
+
 // void func_00327BD8();
 // void __tf12tFileHandler();
 // void __tf13tChunkHandler();

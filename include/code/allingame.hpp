@@ -122,18 +122,27 @@
 // void UnloadBitmap__21CGuiScreenMissionBase();
 // void UpdateAnimatedBitmap__21CGuiScreenMissionBasef();
 // void UpdateGamblingInfo__21CGuiScreenMissionBase();
+
+class CGuiScreenMissionLoad {
+private:
 // void __21CGuiScreenMissionLoadPQ27Scrooby6ScreenP10CGuiEntity();
 // void _$_21CGuiScreenMissionLoad();
 // void AddListeners__21CGuiScreenMissionLoad();
 // void ExtractNormalPositions__21CGuiScreenMissionLoad();
 // void HandleEvent__21CGuiScreenMissionLoad9EventEnumPv();
 // void HandleMessage__21CGuiScreenMissionLoad11eGuiMessageUiUi();
-// void InitializePermanentVariables__21CGuiScreenMissionLoad();
+
+public:
+    static void InitializePermanentVariables(void);
+
+private:
 // void InitIntro__21CGuiScreenMissionLoad();
 // void InitOutro__21CGuiScreenMissionLoad();
 // void InitPositionsNormal__21CGuiScreenMissionLoad();
 // void InitPositionsWager__21CGuiScreenMissionLoad();
 // void RemoveListeners__21CGuiScreenMissionLoad();
+};
+
 // void __21CGuiScreenMissionOverPQ27Scrooby6ScreenP10CGuiEntity();
 // void _$_21CGuiScreenMissionOver();
 // void HandleMessage__21CGuiScreenMissionOver11eGuiMessageUiUi();

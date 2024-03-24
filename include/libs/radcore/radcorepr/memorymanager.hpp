@@ -8,7 +8,7 @@
 // void radMemorySetUsableAllocators__FPiUi();
 // void radMemoryInitialize__Fv();
 // void radMemoryTerminate__Fv();
-// void radMemorySetOutOfMemoryCallback__FPFPviUi_vPv();
+void radMemorySetOutOfMemoryCallback(void (*)(void *, int, unsigned int), void *);
 // void SetMemoryIdentification__FPCc();
 // void radMemoryAlloc__FiUi();
 // void radMemoryAllocAligned__FiUiUi();

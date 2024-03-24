@@ -1,23 +1,81 @@
 #ifndef ALLPS2MAIN_HPP
 #define ALLPS2MAIN_HPP
 
+#include "unk.h"
+
+#include "libs/radcore/radcorepr/time.hpp"
+
+#include "code/allgameflow.hpp"
+#include "code/allrenderflow.hpp"
+
+enum CmdLineOptionEnum {
+    /* 0x05 */ CmdLineOptionEnum_5 = 0x5,
+
+    /* 0x07 */ CmdLineOptionEnum_7 = 0x7,
+    /* 0x08 */ CmdLineOptionEnum_8,
+
+    /* 0x0A */ CmdLineOptionEnum_A = 0xA,
+
+    /* 0x2E */ CmdLineOptionEnum_2E = 0x2E,
+};
+
+class CommandLineOptions {
+    static unsigned long sOptions;
+
+public:
+    static void InitDefaults(void);
+    static void HandleOption(char const *);
+    static int Get(CmdLineOptionEnum);
+};
+
+class Platform {
+private:
+
+public:
+    // /* 0x0 */ char unk_0[0x4];
+    // /* 0x4 */ unsigned int unk_4;
+    // /* 0x8 */ unsigned char unk_8;
+
+    virtual void virtual_0C(void);
+    virtual void virtual_14(void);
+};
+
 // text
 
-// void InitDefaults__18CommandLineOptions();
-// void HandleOption__18CommandLineOptionsPCc();
-// void Get__18CommandLineOptions17CmdLineOptionEnum();
-// void CreateInstance__4GameP8Platform();
-// void DestroyInstance__4Game();
-// void GetInstance__4Game();
-// void GetPlatform__4Game();
-// void Initialize__4Game();
-// void Terminate__4Game();
-// void Run__4Game();
-// void Stop__4Game();
-// void GetRandomSeed__4Game();
-// void __4GameP8Platform();
-// void _$_4Game();
-// void main();
+class Game {
+private:
+    /* 0x00 */ Platform *platform;
+    /* 0x04 */ IRadTimerList *unk_04;
+    /* 0x08 */ GameFlow *unk_08;
+    /* 0x0C */ RenderFlow *unk_0C;
+    /* 0x10 */ int unk_10;
+    /* 0x14 */ unsigned char unk_14;
+    /* 0x18 */ int unk_18;
+    /* 0x1C */ int unk_1C;
+
+    static Game *spInstance;
+
+public:
+    static Game *CreateInstance(Platform *platform);
+    static void DestroyInstance(void);
+    static Game *Game::GetInstance(void);
+
+    Platform *GetPlatform(void);
+
+    void Initialize(void);
+    void Terminate(void);
+    void Run(void);
+    void Stop(void);
+
+    static int GetRandomSeed(void);
+
+private:
+    Game(Platform *);
+    virtual ~Game();
+};
+
+int main(int argc, char *argv[]);
+
 // void func_00163468__FiPPc();
 // void func_001634B8__Fv();
 // void LoadMemP3DFile__FPUcUiP12tEntityStore();
@@ -43,8 +101,8 @@
 // void __11PS2Platform();
 // void _$_11PS2Platform();
 // void EnableSnProfiler__11PS2Platform();
-// void CreateSingletons__Fv();
-// void DestroySingletons__Fv();
+void CreateSingletons(void);
+void DestroySingletons(void);
 // void __13tUidUnaligned();
 // void __13tUidUnalignedRC13tUidUnaligned();
 // void __ne__C13tUidUnalignedG13tUidUnaligned();
@@ -152,7 +210,7 @@
 // extern UNK_TYPE D_0045D360;
 // extern UNK_TYPE D_0045D370;
 // extern UNK_TYPE D_0045D378;
-// extern UNK_TYPE D_0045D380;
+extern UNK_TYPE D_0045D380;
 // extern UNK_TYPE STR_0045D388;
 // extern UNK_TYPE STR_0045D448;
 // extern UNK_TYPE STR_0045D450;

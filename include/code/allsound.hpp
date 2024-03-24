@@ -1,6 +1,8 @@
 #ifndef ALLSOUND_HPP
 #define ALLSOUND_HPP
 
+#include "code/ContextEnum.hpp"
+
 // text
 
 // void __8Listener();
@@ -41,11 +43,23 @@
 // void queueLoad__11SoundLoader16SoundClusterName();
 // void clusterLoad__11SoundLoader16SoundClusterNameP16SoundFileHandler();
 // void clusterUnload__11SoundLoader16SoundClusterName();
+
+class SoundManager {
+private:
 // void CreateInstance__12SoundManagerbN31();
-// void GetInstance__12SoundManager();
+
+public:
+    static SoundManager *GetInstance(void);
+
+private:
 // void DestroyInstance__12SoundManager();
-// void Update__12SoundManager();
-// void UpdateOncePerFrame__12SoundManagerUi11ContextEnumb();
+
+public:
+    void Update(void);
+    void UpdateOncePerFrame(unsigned int, ContextEnum, bool);
+
+private:
+
 // void HandleEvent__12SoundManager9EventEnumPv();
 // void OnBootupStart__12SoundManager();
 // void OnBootupComplete__12SoundManager();
@@ -110,6 +124,8 @@
 // void dumpStartupSounds__12SoundManager();
 // void playStartupAcceptSound__12SoundManager();
 // void playStartupScrollSound__12SoundManager();
+};
+
 // void __28SoundRenderingPlayerCallbackR19SimpsonsSoundPlayerP27SimpsonsSoundPlayerCallback();
 // void _$_28SoundRenderingPlayerCallback();
 // void CancelGameCallbackAndRelease__28SoundRenderingPlayerCallback();

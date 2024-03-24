@@ -3,6 +3,6 @@
 
 // text
 
-// void radMathInitialize__Fv();
+void radMathInitialize(void);
 
 #endif

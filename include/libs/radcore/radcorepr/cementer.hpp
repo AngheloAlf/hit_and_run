@@ -1,6 +1,16 @@
 #ifndef CEMENTER_HPP
 #define CEMENTER_HPP
 
+// This is here by guessing
+enum radCementLibraryPriority {
+    /* 0x0 */ radCementLibraryPriority_0,
+};
+
+// This is here by guessing
+class IRadCementLibrary {
+
+};
+
 // text
 
 // void radCementLibraryCreate__FPP17IRadCementLibraryP8radDrivePCc24radCementLibraryPriorityUii14radMemorySpace();

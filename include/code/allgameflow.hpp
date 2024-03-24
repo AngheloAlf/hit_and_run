@@ -1,17 +1,37 @@
 #ifndef ALLGAMEFLOW_HPP
 #define ALLGAMEFLOW_HPP
 
+#include "code/ContextEnum.hpp"
+
 // text
 
-// void CreateInstance__8GameFlow();
+class GameFlow {
+public:
+    static GameFlow *CreateInstance(void);
+
+private:
 // void GetInstance__8GameFlow();
-// void DestroyInstance__8GameFlow();
+
+public:
+    static void DestroyInstance(void);
+
+private:
 // void PushContext__8GameFlow11ContextEnum();
-// void func_0014FDD8();
-// void SetContext__8GameFlow11ContextEnum();
+// void func_0014FDD8(); // ????
+
+public:
+    void SetContext(ContextEnum);
+
+private:
 // void OnTimerDone__8GameFlowUiPv();
+
 // void __8GameFlow();
 // void _$_8GameFlow();
+
+public:
+    virtual void virtual_0C(unsigned int, int);
+};
+
 // void __uninitialized_copy_aux__H2ZP11ContextEnumZP11ContextEnum_X01X01X11G12__false_type_X11();
 // void _M_insert_aux__t6vector2Z11ContextEnumZt7s2alloc1Z11ContextEnumP11ContextEnumRC11ContextEnum();
 // void __tf8GameFlow();

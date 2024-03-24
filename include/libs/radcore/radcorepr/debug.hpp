@@ -6,12 +6,12 @@
 // void rDebugVsnPrintf__FPcUiPCcT0();
 // void rDebugSnPrintf__FPcUiPCce();
 // void func_003C3D28();
-// void rDebugAssertFail_Implementation__FPCcT0Ui();
+int rDebugAssertFail_Implementation(char const *, char const *, unsigned int);
 // void rDebugWarningFail_Implementation__FPCcT0Ui();
 // void func_003C3DC0();
 // void rDebugString_Implementation__FPCc();
 // void rDebuggerString_Implementation__FPCc();
-// void rReleasePrintf__FPCce();
+void rReleasePrintf(char const *,...);
 // void func_003C3EA0();
 // void func_003C3EB0();
 // void func_003C3F00();

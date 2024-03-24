@@ -1,17 +1,38 @@
 #ifndef TIME_HPP
 #define TIME_HPP
 
+class radDate {
+public:
+    unsigned short unk_0;
+    unsigned char unk_2;
+    unsigned char unk_3;
+    unsigned char unk_4;
+    unsigned char unk_5;
+    unsigned char unk_6;
+};
+
+class IRadTimerList {
+private:
+    virtual void virtual_0C(void);
+public:
+    virtual void virtual_14(void);
+private:
+    virtual void virtual_1C(void);
+public:
+    virtual void virtual_24(void);
+};
+
 // text
 
-// void radTimeInitialize__Fv();
+void radTimeInitialize(void);
 // void radTimeTerminate__Fv();
 // void radTimeGetMicroseconds__Fv();
 // void radTimeGetMicroseconds64__Fv();
-// void radTimeGetMilliseconds__Fv();
+int radTimeGetMilliseconds(void);
 // void radTimeGetSeconds__Fv();
-// void radTimeGetDate__FP7radDate();
+void radTimeGetDate(radDate *);
 // void radTimeGetWeekday__FUsUcUc();
-// void radTimeCreateList__FPP13IRadTimerListUii();
+void radTimeCreateList(IRadTimerList **, unsigned int, int);
 // void func_003C42B0();
 // void func_003C4310();
 // void func_003C43C0();

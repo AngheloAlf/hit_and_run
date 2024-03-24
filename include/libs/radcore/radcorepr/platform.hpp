@@ -3,7 +3,16 @@
 
 // text
 
-// void radPlatformInitialize__FPCc19radPlatformIOPMedia24radPlatformGameMediaTypeT0i();
+enum radPlatformIOPMedia {
+    /* 0x0 */ radPlatformIOPMedia_0,
+    /* 0x1 */ radPlatformIOPMedia_1,
+};
+
+enum radPlatformGameMediaType {
+    /* 0x1 */ radPlatformGameMediaType_1 = 1,
+};
+
+void radPlatformInitialize(char const *, radPlatformIOPMedia, radPlatformGameMediaType, char const *, int);
 // void radPlatformTerminate__Fv();
 // void radPlatformGet__Fv();
 // void func_003D7968();

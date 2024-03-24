@@ -1,6 +1,11 @@
 #ifndef MEMORYSPACEPS2_HPP
 #define MEMORYSPACEPS2_HPP
 
+// This is here by guessing
+enum radMemorySpace {
+    /* 0x1 */ radMemorySpace_1 = 0x1,
+};
+
 // text
 
 // void radMemorySpaceGetAllocator__F14radMemorySpacei();
