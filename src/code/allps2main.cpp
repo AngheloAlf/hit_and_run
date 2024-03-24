@@ -87,6 +87,7 @@ public:
     virtual void virtual_14(void);
 private:
     virtual void virtual_1C(void);
+public:
     virtual void virtual_24(void);
 };
 
@@ -95,6 +96,95 @@ public:
     static InputManager *GetInstance(void);
     void Update(unsigned int);
 };
+
+enum radDbgComType {
+    /* 0x0 */ radDbgComType_0,
+    /* 0x3 */ radDbgComType_3 = 0x3,
+};
+
+class radLoadInit {
+
+};
+
+class IRadCementLibrary {
+
+};
+
+enum radCementLibraryPriority {
+    /* 0x0 */ radCementLibraryPriority_0,
+};
+
+enum radMemorySpace {
+    /* 0x1 */ radMemorySpace_1 = 0x1,
+};
+
+enum radPlatformIOPMedia {
+    /* 0x0 */ radPlatformIOPMedia_0,
+    /* 0x1 */ radPlatformIOPMedia_1,
+};
+
+enum radPlatformGameMediaType {
+    /* 0x1 */ radPlatformGameMediaType_1 = 1,
+};
+
+class IRadDrive {
+    virtual void virtual_68(void);
+    virtual void virtual_6C(void);
+    virtual void virtual_70(void);
+    virtual void virtual_74(void);
+    virtual void virtual_78(void);
+    virtual void virtual_7C(void);
+    virtual void virtual_80(void);
+    virtual void virtual_84(void);
+    virtual void virtual_88(void);
+    virtual void virtual_8C(void);
+    virtual void virtual_90(void);
+    virtual void virtual_94(void);
+    virtual void virtual_98(void);
+    virtual void virtual_9C(void);
+    virtual void virtual_A0(void);
+    virtual void virtual_A4(void);
+    virtual void virtual_A8(void);
+    virtual void virtual_AC(void);
+    virtual void virtual_B0(void);
+    virtual void virtual_B4(void);
+    virtual void virtual_B8(void);
+    virtual void virtual_BC(void);
+    virtual void virtual_C0(void);
+public:
+    virtual void virtual_C4(Platform *, int);
+};
+
+enum radFilePriority {
+    /* 0x1 */ radFilePriority_1 = 0x1,
+};
+
+class PS2Platform : public Platform {
+public:
+    /* 0x04 */ unsigned int unk_04;
+    /* 0x08 */ unsigned char unk_08;
+private:
+    /* 0x0C */ IRadDrive *unk_0C;
+    /* 0x10 */ char unk_10[0xC];
+
+    PS2Platform();
+
+    static PS2Platform* spInstance;
+    static IRadCementLibrary *s_MainCement;
+
+    static void InitializeMemory(void);
+
+    void InitializeFoundationDrive(void);
+
+public:
+    static PS2Platform *CreateInstance(void);
+    static PS2Platform *GetInstance(void);
+    static void DestroyInstance(void);
+    static void InitializeFoundation(void);
+
+    // virtual void virtual_20(int);
+};
+
 
 enum GameMemoryAllocator {
     GameMemoryAllocator_3 = 3,
@@ -214,11 +304,11 @@ void radDebugConsoleService(void);
 void radFileService(void);
 int radTimeGetMilliseconds();
 
-#if 0
 void Game::Run() {
     unsigned int temp_s1;
     int temp_v0;
     int var_s2;
+    PS2Platform *platform;
 
     var_s2 = radTimeGetMilliseconds();
 
@@ -227,14 +317,17 @@ void Game::Run() {
 
         temp_s1 = temp_v0 - var_s2;
         var_s2 = temp_v0;
-        if (this->platform->unk_8 == 0) {
+
+        platform = static_cast<PS2Platform*>(this->platform);
+
+        if (platform->unk_08 == 0) {
             this->unk_04->virtual_24();
             this->unk_08->virtual_0C(temp_s1, 0);
 
             if (this->unk_14 == 0) {
                 this->unk_0C->virtual_0C(temp_s1, 0);
             }
-        } else if (((this->platform->unk_4 ^ 2) == 0) && (InputManager::GetInstance() != NULL)) {
+        } else if (((platform->unk_04 ^ 2) == 0) && (InputManager::GetInstance() != NULL)) {
             InputManager::GetInstance()->Update(temp_s1);
         }
 
@@ -245,7 +338,9 @@ void Game::Run() {
         CommandLineOptions::Get(CmdLineOptionEnum_5);
 
         SoundManager::GetInstance()->Update();
-        if (this->platform->unk_8 != 0) {
+
+        // kinda cursed but it matches
+        if (static_cast<PS2Platform*>(this->platform)->unk_08 != 0) {
             SoundManager::GetInstance()->UpdateOncePerFrame(0, ContextEnum_C, 0);
         }
 
@@ -254,9 +349,6 @@ void Game::Run() {
         this->unk_10++;
     }
 }
-#else
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", Run__4Game);
-#endif
 
 void Game::Stop(void) {
     this->unk_14 = 1;
@@ -283,93 +375,6 @@ Game::~Game() {
 #else
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", _$_4Game);
 #endif
-
-enum radDbgComType {
-    /* 0x0 */ radDbgComType_0,
-    /* 0x3 */ radDbgComType_3 = 0x3,
-};
-
-class radLoadInit {
-
-};
-
-class IRadCementLibrary {
-
-};
-
-enum radCementLibraryPriority {
-    /* 0x0 */ radCementLibraryPriority_0,
-};
-
-enum radMemorySpace {
-    /* 0x1 */ radMemorySpace_1 = 0x1,
-};
-
-enum radPlatformIOPMedia {
-    /* 0x0 */ radPlatformIOPMedia_0,
-    /* 0x1 */ radPlatformIOPMedia_1,
-};
-
-enum radPlatformGameMediaType {
-    /* 0x1 */ radPlatformGameMediaType_1 = 1,
-};
-
-class IRadDrive {
-    virtual void virtual_68(void);
-    virtual void virtual_6C(void);
-    virtual void virtual_70(void);
-    virtual void virtual_74(void);
-    virtual void virtual_78(void);
-    virtual void virtual_7C(void);
-    virtual void virtual_80(void);
-    virtual void virtual_84(void);
-    virtual void virtual_88(void);
-    virtual void virtual_8C(void);
-    virtual void virtual_90(void);
-    virtual void virtual_94(void);
-    virtual void virtual_98(void);
-    virtual void virtual_9C(void);
-    virtual void virtual_A0(void);
-    virtual void virtual_A4(void);
-    virtual void virtual_A8(void);
-    virtual void virtual_AC(void);
-    virtual void virtual_B0(void);
-    virtual void virtual_B4(void);
-    virtual void virtual_B8(void);
-    virtual void virtual_BC(void);
-    virtual void virtual_C0(void);
-public:
-    virtual void virtual_C4(Platform *, int);
-};
-
-enum radFilePriority {
-    /* 0x1 */ radFilePriority_1 = 0x1,
-};
-
-class PS2Platform : public Platform {
-private:
-    char unk_04[0x8];
-    IRadDrive *unk_0C;
-    char unk_10[0xC];
-
-    PS2Platform();
-
-    static PS2Platform* spInstance;
-    static IRadCementLibrary *s_MainCement;
-
-    static void InitializeMemory(void);
-
-    void InitializeFoundationDrive(void);
-
-public:
-    static PS2Platform *CreateInstance(void);
-    static PS2Platform *GetInstance(void);
-    static void DestroyInstance(void);
-    static void InitializeFoundation(void);
-
-    // virtual void virtual_20(int);
-};
-
 
 class HeapManager {
 public:
