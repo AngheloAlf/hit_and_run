@@ -566,40 +566,12 @@ extern const char STR_0045D658[]; // !
 extern const char STR_0045D660[]; // !
 extern const char STR_0045D670[];
 
-#if 0
 void PS2Platform::InitializeFoundation(void) {
     char sp00[] = "IRX\\";
     char sp10[] = "IOPRP254.IMG";
     unsigned int temp_v0_2;
 
-#if 0
-    ? sp3;
-    s8 sp4;
-    ? sp10;
-    ? sp1B;
-    s8 sp1C;
-    ? *temp_v0;
-    ? *temp_v1;
-    ? temp_a0;
-    s8 temp_a1;
-
-    temp_v0 = "IRX\\";
-    temp_v1 = "IOPRP254.IMG";
-    sp3 = (unaligned s32) M2C_ERROR(/* Unable to handle lwr; missing a corresponding lwl */);
-    sp4 = temp_v0->unk_4;
-    M2C_ERROR(/* unknown instruction: ldl $v0, 0x7($a2) */);
-    M2C_ERROR(/* unknown instruction: ldr $v0, ($a2) */);
-    temp_a0 = M2C_ERROR(/* Unable to handle lwr; missing a corresponding lwl */);
-    temp_a1 = temp_v1->unk_C;
-    M2C_ERROR(/* unknown instruction: sdl $v0, 0x17($sp) */);
-    M2C_ERROR(/* unknown instruction: sdr $v0, 0x10($sp) */);
-    sp1B = (unaligned s32) temp_a0;
-    sp1C = temp_a1;
-
-    InitializeMemory__11PS2Platform(temp_a0, temp_a1, temp_v1, temp_v0);
-#else
     InitializeMemory();
-#endif
 
     radMemorySetOutOfMemoryCallback(PrintOutOfMemoryMessage, NULL);
 
@@ -643,10 +615,10 @@ void PS2Platform::InitializeFoundation(void) {
 
     if (CommandLineOptions::Get(CmdLineOptionEnum_8) != 0) {
         radSetDefaultDrive(STR_0045D648);
-    } else if (CommandLineOptions::Get(CmdLineOptionEnum_7) == 0) {
-        radSetDefaultDrive(STR_0045D660);
-    } else {
+    } else if (CommandLineOptions::Get(CmdLineOptionEnum_7) != 0) {
         radSetDefaultDrive(STR_0045D658);
+    } else {
+        radSetDefaultDrive(STR_0045D660);
     }
 
     radDriveMount(NULL, 3);
@@ -659,9 +631,6 @@ void PS2Platform::InitializeFoundation(void) {
 
     HeapMgr()->PopHeap(GameMemoryAllocator_3);
 }
-#else
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", InitializeFoundation__11PS2Platform);
-#endif
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", InitializeMemory__11PS2Platform);
 
