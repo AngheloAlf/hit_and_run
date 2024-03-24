@@ -1,6 +1,7 @@
 #ifndef PLATFORM_HPP
 #define PLATFORM_HPP
 
+#include "IRadDriveErrorCallback.hpp"
 // text
 
 enum radPlatformIOPMedia {
@@ -10,15 +11,6 @@ enum radPlatformIOPMedia {
 
 enum radPlatformGameMediaType {
     /* 0x1 */ radPlatformGameMediaType_1 = 1,
-};
-
-//! GUESS
-class Platform {
-private:
-
-public:
-    virtual void virtual_0C(void);
-    virtual void virtual_14(void);
 };
 
 void radPlatformInitialize(char const *, radPlatformIOPMedia, radPlatformGameMediaType, char const *, int);

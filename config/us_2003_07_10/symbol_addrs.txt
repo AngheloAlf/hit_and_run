@@ -7,7 +7,8 @@ STR_0045D010 = 0x0045D010; // type:asciz
 STR_0045D020 = 0x0045D020; // type:asciz
 STR_0045D050 = 0x0045D050; // type:asciz
 
-STR_0045D388 = 0x0045D388; // type:asciz
+STR_0045D380 = 0x0045D380; // type:asciz force_not_migration:True
+STR_0045D388 = 0x0045D388; // type:asciz force_not_migration:True
 
 STR_0045D448 = 0x0045D448; // type:asciz force_not_migration:True
 STR_0045D450 = 0x0045D450; // type:asciz force_not_migration:True

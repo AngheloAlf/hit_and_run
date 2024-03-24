@@ -16,6 +16,7 @@
 #include "libs/radcore/radcorepr/debug.hpp"
 #include "libs/radcore/radcorepr/platform.hpp"
 #include "libs/radmovie/radmoviepr/movieplayer.hpp"
+#include "libs/radcore/radcorepr/system.hpp"
 
 #include "code/allingame.hpp"
 #include "code/allinput.hpp"
@@ -32,15 +33,169 @@ INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D050);
 
 void CommandLineOptions::InitDefaults(void) {
     unsigned long tmp;
-    tmp= 0x80;
+
+    tmp = 1ULL << CMDLINEOPTIONENUM_CDFILES;
     sOptions |= tmp;
-    tmp=0x100000000;
+
+    tmp = 1ULL << CMDLINEOPTIONENUM_NOHEAPS;
     sOptions |= tmp;
 }
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", HandleOption__18CommandLineOptionsPCc);
+typedef unsigned int size_t;
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", Get__18CommandLineOptions17CmdLineOptionEnum);
+extern "C" int strcmp(const char *, const char *);
+extern "C" char *strcpy(char *dest, const char *src);
+extern "C" size_t strlen(const char *str);
+extern "C" char *strupr(char *str);
+
+extern char gFruitless;
+extern char gTuneSound;
+extern char g_AllowDebugOutput;
+
+void CommandLineOptions::HandleOption(const char *opt) {
+    char sp[0x100];
+    int var_s2;
+    unsigned long var_s0;
+    char *temp_v0;
+    char temp_s1;
+
+    var_s2 = 1;
+    var_s0 = 1ULL;
+
+    strcpy(sp, opt);
+    rReleasePrintf("Commandline Option: %s\n", sp);
+
+    if (strcmp(strupr(sp), "NOMUSIC") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_NOMUSIC;
+    } else if (strcmp(strupr(sp), "NOEFFECTS") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_NOEFFECTS;
+    } else if (strcmp(strupr(sp), "NODIALOG") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_NODIALOG;
+    } else if (strcmp(strupr(sp), "MUTE") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_MUTE;
+    } else if (strcmp(strupr(sp), "SKIPMOVIE") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_SKIPMOVIE;
+    } else if (strcmp(strupr(sp), "MEMMONITOR") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_MEMMONITOR;
+    } else if (strcmp(strupr(sp), "HEAPSTATS") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_HEAPSTATS;
+    } else if (strcmp(strupr(sp), "CDFILES") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_CDFILES;
+    } else if (strcmp(strupr(sp), "HOSTFILES") == 0) {
+        var_s2 = 0;
+        CommandLineOptions::sOptions &= ~(1ULL << CMDLINEOPTIONENUM_CDFILES);
+    } else if (strcmp(strupr(sp), "FIREWIRE") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_FIREWIRE;
+    } else if (strcmp(strupr(sp), "SNPROFILER") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_SNPROFILER;
+    } else if (strcmp(strupr(sp), "ARTSTATS") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_ARTSTATS;
+    } else if (strcmp(strupr(sp), "PROPSTATS") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_PROPSTATS;
+    } else if (strcmp(strupr(sp), "FEUNJOINED") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_FEUNJOINED;
+    } else if (strcmp(strupr(sp), "SPEEDOMETER") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_SPEEDOMETER;
+    } else if (strcmp(strupr(sp), "NOHUD") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_NOHUD;
+    } else if (strcmp(strupr(sp), "DEBUGBV") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_DEBUGBV;
+    } else if (strcmp(strupr(sp), "NOTRAFFIC") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_NOTRAFFIC;
+    } else if (strcmp(strupr(sp), "SKIPSUNDAY") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_SKIPSUNDAY;
+    } else if (strcmp(strupr(sp), "SKIPFE") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_SKIPFE;
+    } else if (strcmp(strupr(sp), "FEGAGS") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_FEGAGS;
+    } else if (strcmp(strupr(sp), "FPS") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_FPS;
+    } else if (strcmp(strupr(sp), "DESIGNER") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_DESIGNER;
+    } else if (strcmp(strupr(sp), "DETECTLEAKS") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_DETECTLEAKS;
+    } else if (strcmp(strupr(sp), "NOHEAPS") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_NOHEAPS;
+    } else if (strcmp(strupr(sp), "PRINTMEMORY") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_PRINTMEMORY;
+    } else if (strcmp(strupr(sp), "DEMOTEST") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_DEMOTEST;
+    } else if (strcmp(strupr(sp), "NOSPLASH") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_NOSPLASH;
+    } else if (strcmp(strupr(sp), "SKIPLANGCHECK") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_SKIPLANGCHECK;
+    } else if (strcmp(strupr(sp), "SKIPMEMCHECK") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_SKIPMEMCHECK;
+    } else if (strcmp(strupr(sp), "NOHAPTIC") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_NOHAPTIC;
+    } else if (strcmp(strupr(sp), "RANDOMBUTTONS") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_RANDOMBUTTONS;
+    } else if (strcmp(strupr(sp), "SEQUENTIALDEMO") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_SEQUENTIALDEMO;
+    } else if (strcmp(strupr(sp), "PCTEST") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_PCTEST;
+    } else if (strcmp(strupr(sp), "NOAVRIL") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_NOAVRIL;
+    } else if (strcmp(strupr(sp), "SHORTDEMO") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_SHORTDEMO;
+    } else if (strcmp(strupr(sp), "PRINTLOADTIME") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_PRINTLOADTIME;
+    } else if (strcmp(strupr(sp), "PRINTFRAMERATE") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_PRINTFRAMERATE;
+    } else if (strcmp(strupr(sp), "SHOWDYNALOAD") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_SHOWDYNALOAD;
+    } else if (strcmp(strupr(sp), "NOPEDS") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_NOPEDS;
+    } else if (strcmp(strupr(sp), "MANUALRESETDAMAGE") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_MANUALRESETDAMAGE;
+    } else if (strcmp(strupr(sp), "WINDOW") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_WINDOW;
+    } else if (strcmp(strupr(sp), "NOTUTORIAL") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_NOTUTORIAL;
+    } else if (strcmp(strupr(sp), "COINS") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_COINS;
+    } else if (strcmp(strupr(sp), "PROGSCAN") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_PROGSCAN;
+    } else if (strcmp(strupr(sp), "LARGEHEAPS") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_LARGEHEAPS;
+    } else if (strcmp(strupr(sp), "MEMCARDCHEAT") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_MEMCARDCHEAT;
+    } else if (strcmp(strupr(sp), "TOOL") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_TOOL;
+    } else if (strcmp(strupr(sp), "FILENOTFOUND") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_FILENOTFOUND;
+    } else if (strcmp(strupr(sp), "LOADINGSPEW") == 0) {
+        var_s0 <<= CMDLINEOPTIONENUM_LOADINGSPEW;
+    } else if (strcmp(strupr(sp), "RELEASEPRINT") == 0) {
+        g_AllowDebugOutput = 1;
+        var_s2 = 0;
+    } else if (strcmp(strupr(sp), "NOFRUITLESS") == 0) {
+        var_s2 = 0;
+        gFruitless = 0;
+    } else if (strcmp(strupr(sp), "RADTUNER") == 0) {
+        gTuneSound = 1;
+        var_s2 = 0;
+    } else {
+        temp_v0 = sp + (strlen(sp) - 1);
+        temp_s1 = *temp_v0;
+        *temp_v0 = '\0';
+        if (strcmp(strupr(sp), "L") == 0) {
+            CommandLineOptions::s_defaultLevel = temp_s1 - '1';
+        } else if (strcmp(strupr(sp), "M") == 0) {
+            CommandLineOptions:s_defaultMission = temp_s1 - '1';
+        } else {
+            var_s2 = 0;
+        }
+    }
+
+    if (var_s2 != 0) {
+        CommandLineOptions::sOptions |= var_s0;
+    }
+}
+
+bool CommandLineOptions::Get(CmdLineOptionEnum option) {
+    return sOptions & (1ULL << option);
+}
 
 Game *Game::CreateInstance(Platform *platform) {
     if (spInstance == NULL) {
@@ -127,7 +282,7 @@ void Game::Run() {
         radDbgComService();
         radDebugConsoleService();
 
-        CommandLineOptions::Get(CmdLineOptionEnum_5);
+        CommandLineOptions::Get(CMDLINEOPTIONENUM_MEMMONITOR);
 
         SoundManager::GetInstance()->Update();
 
@@ -217,12 +372,14 @@ void func_00163468(int argc, char *argv[]) {
         CommandLineOptions::HandleOption(argv[i]);
     }
 
-    CommandLineOptions::Get(CmdLineOptionEnum_A);
+    CommandLineOptions::Get(CMDLINEOPTIONENUM_ARTSTATS);
 }
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", func_001634B8__Fv);
+void func_001634B8(void) {
+}
 
-INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", D_0045D380);
+__asm__(".section .rodata; .align 3");
+INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D380);
 
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D388);
 
@@ -305,20 +462,20 @@ void PS2Platform::InitializeFoundation(void) {
 
     radMemorySetOutOfMemoryCallback(PrintOutOfMemoryMessage, NULL);
 
-    CommandLineOptions::Get(CmdLineOptionEnum_5);
+    CommandLineOptions::Get(CMDLINEOPTIONENUM_MEMMONITOR);
 
     HeapMgr()->PrepareHeapsStartup();
     HeapMgr()->PushHeap(GameMemoryAllocator_3);
 
-    if (CommandLineOptions::Get(CmdLineOptionEnum_8) != 0) {
+    if (CommandLineOptions::Get(CMDLINEOPTIONENUM_FIREWIRE)) {
         radPlatformInitialize(sp00, radPlatformIOPMedia_1, radPlatformGameMediaType_1, NULL, 3);
-    } else if (CommandLineOptions::Get(CmdLineOptionEnum_7) != 0) {
+    } else if (CommandLineOptions::Get(CMDLINEOPTIONENUM_CDFILES)) {
         radPlatformInitialize(sp00, radPlatformIOPMedia_1, radPlatformGameMediaType_1, sp10, 3);
     } else {
         radPlatformInitialize(sp00, radPlatformIOPMedia_0, radPlatformGameMediaType_1, sp10, 3);
     }
 
-    if (CommandLineOptions::Get(CmdLineOptionEnum_2E) != 0) {
+    if (CommandLineOptions::Get(CMDLINEOPTIONENUM_TOOL)) {
         rReleasePrintf(STR_0045D5A8, 0x5F4900U);
 
         do {
@@ -334,8 +491,8 @@ void PS2Platform::InitializeFoundation(void) {
 
     radTimeInitialize();
 
-    if (CommandLineOptions::Get(CmdLineOptionEnum_8) != 0) {
-        radDbgComTargetInitialize(radDbgComType_3, 0x213E, &D_0045D380, 0xC);
+    if (CommandLineOptions::Get(CMDLINEOPTIONENUM_FIREWIRE)) {
+        radDbgComTargetInitialize(radDbgComType_3, 0x213E, (void*)STR_0045D380, 0xC);
     } else {
         radDbgComTargetInitialize(radDbgComType_0, 0x213E, NULL, 0xC);
     }
@@ -343,16 +500,16 @@ void PS2Platform::InitializeFoundation(void) {
     radFileInitialize(0x32, 0x20, 3);
     radLoadInitialize(NULL);
 
-    if (CommandLineOptions::Get(CmdLineOptionEnum_8) != 0) {
+    if (CommandLineOptions::Get(CMDLINEOPTIONENUM_FIREWIRE)) {
         radSetDefaultDrive(STR_0045D648);
-    } else if (CommandLineOptions::Get(CmdLineOptionEnum_7) != 0) {
+    } else if (CommandLineOptions::Get(CMDLINEOPTIONENUM_CDFILES)) {
         radSetDefaultDrive(STR_0045D658);
     } else {
         radSetDefaultDrive(STR_0045D660);
     }
 
     radDriveMount(NULL, 3);
-    if (CommandLineOptions::Get(CmdLineOptionEnum_7) != 0) {
+    if (CommandLineOptions::Get(CMDLINEOPTIONENUM_CDFILES)) {
         radFileRegisterCementLibrarySync(&s_MainCement, STR_0045D670, radCementLibraryPriority_0, 0, 0, radMemorySpace_1);
     }
 
@@ -362,7 +519,13 @@ void PS2Platform::InitializeFoundation(void) {
     HeapMgr()->PopHeap(GameMemoryAllocator_3);
 }
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", InitializeMemory__11PS2Platform);
+void PS2Platform::InitializeMemory(void) {
+    if (gMemorySystemInitialized != 1) {
+        gMemorySystemInitialized = 1;
+        radThreadInitialize(0x32);
+        radMemoryInitialize();
+    }
+}
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", InitializePlatform__11PS2Platform);
 
@@ -380,7 +543,7 @@ void PS2Platform::InitializeFoundationDrive() {
     IRadDrive *temp_v1;
     void *temp_v0;
 
-    if (CommandLineOptions::Get(CmdLineOptionEnum_7) != 0) {
+    if (CommandLineOptions::Get(CMDLINEOPTIONENUM_CDFILES)) {
         radDriveOpenAsync(&this->unk_0C, STR_0045D658, radFilePriority_1, 3);
 
         this->unk_0C->virtual_0C4(this, 0);
@@ -441,24 +604,12 @@ INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", D_0045D700);
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", OnDriveError__11PS2Platform12radFileErrorPCcPv);
 
-#if 0
-void __22IRadDriveErrorCallback(); // IRadDriveErrorCallback::IRadDriveErrorCallback
-
-//extern ? _vt$t3PS2Platform;
-
 PS2Platform::PS2Platform() {
-    //__22IRadDriveErrorCallback();
-    IRadDriveErrorCallback temp;
-
-    //arg0->unk_8 = 0;
-    //arg0->unk_0 = &_vt$t3PS2Platform;
-    //arg0->unk_C = 0;
-    //arg0->unk_10 = 0;
-    //arg0->unk_14 = 0;
+    this->unk_08 = 0;
+    this->unk_0C = 0;
+    this->unk_10 = 0;
+    this->unk_14 = 0;
 }
-#else
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", __11PS2Platform);
-#endif
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", _$_11PS2Platform);
 

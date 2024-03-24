@@ -119,7 +119,7 @@ HeapManager *HeapMgr(void);
 // extern UNK_TYPE D_0042C2BC;
 // extern UNK_TYPE g_LockedPersistentHeap;
 // extern UNK_TYPE g_HeapManagerCreated;
-// extern UNK_TYPE gMemorySystemInitialized;
+extern unsigned char gMemorySystemInitialized;
 // extern UNK_TYPE g_NoHeapRoute;
 // extern UNK_TYPE HeapNames;
 // extern UNK_TYPE D_0042C31C;

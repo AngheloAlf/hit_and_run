@@ -12,26 +12,82 @@
 #include "code/allrenderflow.hpp"
 
 enum CmdLineOptionEnum {
-    /* 0x05 */ CmdLineOptionEnum_5 = 0x5,
+    /* 0x00 */ CMDLINEOPTIONENUM_NOMUSIC,
+    /* 0x01 */ CMDLINEOPTIONENUM_NOEFFECTS,
+    /* 0x02 */ CMDLINEOPTIONENUM_NODIALOG,
+    /* 0x03 */ CMDLINEOPTIONENUM_MUTE,
+    /* 0x04 */ CMDLINEOPTIONENUM_SKIPMOVIE,
+    /* 0x05 */ CMDLINEOPTIONENUM_MEMMONITOR,
+    /* 0x06 */ CMDLINEOPTIONENUM_HEAPSTATS,
+    /* 0x07 */ CMDLINEOPTIONENUM_CDFILES, // "HOSTFILES" turns this option off
+    /* 0x08 */ CMDLINEOPTIONENUM_FIREWIRE,
+    /* 0x09 */ CMDLINEOPTIONENUM_SNPROFILER,
+    /* 0x0A */ CMDLINEOPTIONENUM_ARTSTATS,
+    /* 0x0B */ CMDLINEOPTIONENUM_PROPSTATS,
+    /* 0x0C */ CMDLINEOPTIONENUM_RANDOMBUTTONS,
+    /* 0x0D */ CMDLINEOPTIONENUM_DEMOTEST,
+    /* 0x0E */ CMDLINEOPTIONENUM_SEQUENTIALDEMO,
+    /* 0x0F */ CMDLINEOPTIONENUM_SHORTDEMO,
+    /* 0x10 */ CMDLINEOPTIONENUM_FEUNJOINED,
+    /* 0x11 */ CMDLINEOPTIONENUM_FEGAGS,
+    /* 0x12 */ CMDLINEOPTIONENUM_NOSPLASH,
+    /* 0x13 */ CMDLINEOPTIONENUM_SKIPFE,
+    /* 0x14 */ CMDLINEOPTIONENUM_SKIPLANGCHECK,
+    /* 0x15 */ CMDLINEOPTIONENUM_SKIPMEMCHECK,
+    /* 0x16 */ CMDLINEOPTIONENUM_SPEEDOMETER,
+    /* 0x17 */ CMDLINEOPTIONENUM_NOHUD,
+    /* 0x18 */ CMDLINEOPTIONENUM_NOTUTORIAL,
+    /* 0x19 */ CMDLINEOPTIONENUM_COINS,
+    /* 0x1A */ CMDLINEOPTIONENUM_DEBUGBV,
+    /* 0x1B */ CMDLINEOPTIONENUM_SKIPSUNDAY,
+    /* 0x1C */ CMDLINEOPTIONENUM_NOTRAFFIC,
+    /* 0x1D */ CMDLINEOPTIONENUM_FPS,
+    /* 0x1E */ CMDLINEOPTIONENUM_DESIGNER,
+    /* 0x1F */ CMDLINEOPTIONENUM_DETECTLEAKS,
+    /* 0x20 */ CMDLINEOPTIONENUM_NOHEAPS,
+    /* 0x21 */ CMDLINEOPTIONENUM_PRINTMEMORY,
+    /* 0x22 */ CMDLINEOPTIONENUM_NOHAPTIC,
+    /* 0x23 */ CMDLINEOPTIONENUM_PCTEST,
+    /* 0x24 */ CMDLINEOPTIONENUM_NOAVRIL,
+    /* 0x25 */ CMDLINEOPTIONENUM_PRINTLOADTIME,
+    /* 0x26 */ CMDLINEOPTIONENUM_PRINTFRAMERATE,
+    /* 0x27 */ CMDLINEOPTIONENUM_SHOWDYNALOAD,
+    /* 0x28 */ CMDLINEOPTIONENUM_MANUALRESETDAMAGE,
+    /* 0x29 */ CMDLINEOPTIONENUM_NOPEDS,
+    /* 0x2A */ CMDLINEOPTIONENUM_WINDOW,
+    /* 0x2B */ CMDLINEOPTIONENUM_PROGSCAN,
+    /* 0x2C */ CMDLINEOPTIONENUM_LARGEHEAPS,
+    /* 0x2D */ CMDLINEOPTIONENUM_MEMCARDCHEAT,
+    /* 0x2E */ CMDLINEOPTIONENUM_TOOL,
+    /* 0x2F */ CMDLINEOPTIONENUM_FILENOTFOUND,
+    /* 0x30 */ CMDLINEOPTIONENUM_LOADINGSPEW,
 
-    /* 0x07 */ CmdLineOptionEnum_7 = 0x7,
-    /* 0x08 */ CmdLineOptionEnum_8,
-
-    /* 0x0A */ CmdLineOptionEnum_A = 0xA,
-
-    /* 0x2E */ CmdLineOptionEnum_2E = 0x2E,
+#if 0
+    CMDLINEOPTIONENUM_RELEASEPRINT
+    CMDLINEOPTIONENUM_NOFRUITLESS
+    CMDLINEOPTIONENUM_RADTUNER
+#endif
 };
 
 class CommandLineOptions {
     static unsigned long sOptions;
+    static short s_defaultLevel;
+    static short s_defaultMission;
 
 public:
     static void InitDefaults(void);
     static void HandleOption(char const *);
-    static int Get(CmdLineOptionEnum);
+    static bool Get(CmdLineOptionEnum);
 };
 
-// text
+class Platform: public IRadDriveErrorCallback  {
+private:
+
+public:
+    int unk_04;
+
+    Platform() {}
+};
 
 class Game {
 private:
@@ -74,11 +130,13 @@ int main(int argc, char *argv[]);
 class PS2Platform : public Platform {
 public:
     /* 0x00 */ /* vtable */
-    /* 0x04 */ unsigned int unk_04;
+    ///* 0x04 */ unsigned int unk_04;
     /* 0x08 */ unsigned char unk_08;
 private:
     /* 0x0C */ IRadDrive *unk_0C;
-    /* 0x10 */ char unk_10[0xC];
+    /* 0x10 */ int unk_10;
+    /* 0x14 */ int unk_14;
+    /* 0x18 */ char unk_18[0x4];
 
 public:
     static PS2Platform *CreateInstance(void);
@@ -112,6 +170,8 @@ private:
 
 public:
     // virtual void virtual_20(int);
+private:
+    virtual void virtual_placeholder(void);
 };
 
 void CreateSingletons(void);
@@ -226,7 +286,7 @@ void DestroySingletons(void);
 // extern UNK_TYPE D_0045D360;
 // extern UNK_TYPE D_0045D370;
 // extern UNK_TYPE D_0045D378;
-extern UNK_TYPE D_0045D380;
+extern const char STR_0045D380[];
 // extern UNK_TYPE STR_0045D388;
 // extern UNK_TYPE STR_0045D448;
 // extern UNK_TYPE STR_0045D450;

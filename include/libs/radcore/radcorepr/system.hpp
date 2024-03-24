@@ -3,7 +3,7 @@
 
 // text
 
-// void radThreadInitialize__FUi();
+void radThreadInitialize(unsigned int);
 // void radThreadTerminate__Fv();
 // void radThreadInternalLock__Fv();
 // void radThreadInternalUnlock__Fv();

@@ -31,7 +31,7 @@ private:
     /* vt 0x0B4 */ virtual void virtual_0B4(void);
     /* vt 0x0BC */ virtual void virtual_0BC(void);
 public:
-    /* vt 0x0C4 */ virtual void virtual_0C4(Platform *, int);
+    /* vt 0x0C4 */ virtual void virtual_0C4(IRadDriveErrorCallback *, int);
 private:
     /* vt 0x0CC */ virtual void virtual_0CC(void);
     /* vt 0x0D4 */ virtual void virtual_0D4(void);

@@ -9,16 +9,9 @@
         "\t.set noat\n" \
         "\t.set noreorder\n" \
         "\t.align\t3\n" \
-        "\t.globl\t"#NAME"\n" \
-        "\t.type "#NAME", @function\n" \
-        "\t.ent\t"#NAME"\n" \
-        #NAME ":\n" \
         "\t.include \""FOLDER"/"#NAME".s\"\n" \
         "\t.set reorder\n" \
         "\t.set at\n" \
-        "\t.end\t"#NAME"\n" \
-        ".end"#NAME":\n" \
-        "\t.size\t"#NAME",.end"#NAME"-"#NAME "\n" \
         "\t.globl\t" #NAME ".NON_MATCHING\n" \
         "\t" #NAME ".NON_MATCHING" " = " #NAME "\n" \
     )

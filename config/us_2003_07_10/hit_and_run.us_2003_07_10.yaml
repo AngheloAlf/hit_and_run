@@ -43,8 +43,8 @@ options:
   data_string_encoding: ASCII
   rodata_string_guesser_level: 2
   asm_function_macro: glabel
-  # asm_function_alt_macro: alabel
-  # asm_end_label: endlabel
+  asm_function_alt_macro: alabel
+  asm_end_label: endlabel
   asm_jtbl_label_macro: jlabel
   asm_data_macro: dlabel
   include_macro_inc: False
