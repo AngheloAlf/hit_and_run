@@ -4,7 +4,7 @@
 #include "IRadDriveErrorCallback.hpp"
 #include "platform.hpp"
 
-// This is here by guessing
+//! @GUESS This is here by guessing
 class IRadDrive {
 private:
     /* vt 0x00C */ virtual void virtual_00C(void);

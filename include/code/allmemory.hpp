@@ -2,7 +2,8 @@
 #define ALLMEMORY_HPP
 
 enum GameMemoryAllocator {
-    GameMemoryAllocator_3 = 3,
+    /* 0x1 */ GameMemoryAllocator_1 = 1,
+    /* 0x3 */ GameMemoryAllocator_3 = 3,
 };
 
 // text

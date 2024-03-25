@@ -2,6 +2,8 @@
 #define UTILITY_HPP
 
 #include "loadmanager.hpp"
+#include "inventory.hpp"
+#include "context.hpp"
 
 // text
 
@@ -13,20 +15,22 @@
 
 extern char gFruitless;
 // extern UNK_TYPE D_004365F1;
+
+namespace p3d {
 // extern UNK_TYPE _3p3d$platform;
-// extern UNK_TYPE _3p3d$context;
-// extern UNK_TYPE _3p3d$inventory;
+
+    extern tContext *context;
+    extern tInventory *inventory;
+
 // extern UNK_TYPE _3p3d$stack;
 
-class p3d {
-public:
-    static tLoadManager *loadManager;
-};
+    extern tLoadManager *loadManager;
 
 // extern UNK_TYPE _3p3d$loadManager;
 // extern UNK_TYPE _3p3d$pddi;
 // extern UNK_TYPE _3p3d$device;
 // extern UNK_TYPE _3p3d$display;
+};
 
 // rodata
 

@@ -87,6 +87,10 @@ public:
     int unk_04;
 
     Platform() {}
+
+    enum SplashScreen {
+        /* 0x2 */ PLATFORM_SPLASHSCREEN_2,
+    };
 };
 
 class Game {
@@ -127,6 +131,10 @@ int main(int argc, char *argv[]);
 // void func_001634B8__Fv();
 // void LoadMemP3DFile__FPUcUiP12tEntityStore();
 
+struct pddiColour {
+    /* 0x0 */ unsigned char unk_0;
+};
+
 class PS2Platform : public Platform {
 public:
     /* 0x00 */ /* vtable */
@@ -149,9 +157,9 @@ private:
     void InitializePlatform(void);
     void ShutdownPlatform(void);
     void ResetMachine(void);
-// void LaunchDashboard__11PS2Platform();
-// void DisplaySplashScreen__11PS2PlatformQ28Platform12SplashScreenPCcfffG10pddiColouri();
-// void DisplaySplashScreen__11PS2PlatformPCcT1fffG10pddiColouri();
+    void LaunchDashboard(void);
+    void DisplaySplashScreen(Platform::SplashScreen, char const *, float, float, float, pddiColour, int);
+    void DisplaySplashScreen(char const *, char const *, float, float, float, pddiColour, int);
     void InitializeFoundationDrive(void);
 // void ShutdownFoundation__11PS2Platform();
 // void InitializePure3D__11PS2Platform();
@@ -173,7 +181,7 @@ private:
     /* vt 0x24 */ virtual void virtual_24(void); // placeholder
     /* vt 0x2C */ virtual void virtual_2C(void); // placeholder
     /* vt 0x34 */ virtual void virtual_34(int, int, float, float, float, unsigned int, int);
-    /* vt 0x3C */ virtual void virtual_3C(void); // placeholder
+    /* vt 0x3C */ virtual void virtual_3C(char const *, char const *, float, float, float, pddiColour, int);
     /* vt 0x44 */ virtual void virtual_44(void); // placeholder
     /* vt 0x4C */ virtual void virtual_4C(void);
     /* vt 0x54 */ virtual void virtual_54(void);

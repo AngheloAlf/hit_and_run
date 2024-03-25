@@ -26,6 +26,8 @@
 #include "libs/radmovie/radmoviepr/movieplayer.hpp"
 #include "libs/radcore/radcorepr/system.hpp"
 #include "libs/sim/simpr/simenvironment.hpp"
+#include "libs/pure3d/pure3dpr/unicode.hpp"
+#include "libs/pure3d/pure3dpr/texturefont.hpp"
 
 #include "code/allingame.hpp"
 #include "code/allinput.hpp"
@@ -437,6 +439,7 @@ INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", D_0045D548);
 
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", D_0045D570);
 
+void LoadMemP3DFile(unsigned char *, unsigned int, tEntityStore *);
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", LoadMemP3DFile__FPUcUiP12tEntityStore);
 
 PS2Platform *PS2Platform::CreateInstance(void) {
@@ -603,11 +606,279 @@ void PS2Platform::ResetMachine(void) {
     }
 }
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", LaunchDashboard__11PS2Platform);
+void PS2Platform::LaunchDashboard() {
+    void* temp_v0;
+    void* temp_v0_2;
+    void* temp_v0_3;
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", DisplaySplashScreen__11PS2PlatformQ28Platform12SplashScreenPCcfffG10pddiColouri);
+    LoadingManager::GetInstance()->CancelPendingRequests();
+    SoundManager::GetInstance()->SetMasterVolume(0.0f);
 
+    this->virtual_34(2, 0, 1.0f, 0.0f, 0.0f, 0xFFFFFFFF, 3);
+
+    PresentationManager::GetInstance()->StopAll();
+    GameDataManager::DestroyInstance();
+
+    p3d::loadManager->CancelAll();
+    SoundManager::DestroyInstance();
+
+    this->virtual_1C();
+    this->virtual_2C();
+}
+
+void PS2Platform::DisplaySplashScreen(Platform::SplashScreen arg1, char const * arg2, float arg3, float arg4, float arg5, pddiColour arg6, int arg7) {
+    this->virtual_3C(NULL, arg2, arg3, arg4, arg5, arg6, arg7);
+}
+
+INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D6B8);
+
+INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D6C8);
+
+#if 0
+? AddSection__10tInventoryPCc(s32, ? *);            /* extern */
+? AsciiToUnicode__3p3dPCcPUsi(s32, ? *, ?);         /* extern */
+? DeleteSection__10tInventoryG13tUidUnaligned(s32, ? *); /* extern */
+void ****GetPlatform__9tPlatform();                 /* extern */
+s32 HeapMgr__Fv();                                  /* extern */
+? LoadMemP3DFile__FPUcUiP12tEntityStore(? *, ?, s32); /* extern */
+? MakeUID__5tNamePCc(? *, ? *);                     /* extern */
+? PopHeap__11HeapManager19GameMemoryAllocator(s32, ?); /* extern */
+? PopSection__10tInventory(s32);                    /* extern */
+? PushHeap__11HeapManager19GameMemoryAllocator(s32, ?); /* extern */
+? PushSection__10tInventory(s32);                   /* extern */
+? RemoveSectionElements__10tInventoryG13tUidUnaligned(s32, ? *); /* extern */
+? Scale__12tMatrixStackfff(f32, ?, void **);        /* extern */
+? SelectSection__10tInventoryRC5tName(s32, ? *);    /* extern */
+? SetMissingLetter__12tTextureFontUs(void **, ?);   /* extern */
+? SwapBuffers__8tContext(s32);                      /* extern */
+? Translate__12tMatrixStackfff(f32, ?, void **);    /* extern */
+? _$_5tName(? *, ?);                                /* extern */
+? __13tUidUnalignedRC13tUidUnaligned(? *, ? *);     /* extern */
+? __5tNamePCc(? *, ? *);                            /* extern */
+? __Q216radLoadInventoryt8SafeCast1Z12tTextureFont(? *); /* extern */
+s32 __eq__C13tUidUnalignedG13tUidUnaligned(? *, ? *); /* extern */
+extern ? D_0045D6D0;
+extern ? D_0045D6E0;
+extern ? STR_0045D6B8;
+extern ? STR_0045D6C8;
+extern s32 _3p3d$context;
+extern s32 _3p3d$inventory;
+extern void *_3p3d$pddi;
+extern void **_3p3d$stack;
+#endif
+
+extern unsigned char gFont[];
+
+extern const char STR_0045D6B8[];
+
+#if 0
+void PS2Platform::DisplaySplashScreen(char const *arg1, char const *arg2, float arg3, float arg4, float arg5, pddiColour arg6, int arg7) {
+    unsigned short sp10[0x100];
+#if 0
+    ? sp210;
+    ? sp220;
+    ? sp230;
+    ? sp240;
+    ? sp250;
+    s32 sp260;
+#endif
+    float sp264;
+#if 0
+    s32 temp_fp;
+    s32 temp_s0;
+    s32 temp_s0_2;
+#endif
+    int temp_s4;
+    int var_s6;
+    int var_s3;
+    int var_a0;
+#if 0
+    s32 var_v0;
+    void **temp_s1;
+    void **temp_s2;
+    void *temp_v0;
+    void *temp_v0_10;
+    void *temp_v0_11;
+    void *temp_v0_12;
+    void *temp_v0_13;
+    void *temp_v0_14;
+    void *temp_v0_15;
+    void *temp_v0_16;
+    void *temp_v0_17;
+    void *temp_v0_18;
+    void *temp_v0_19;
+    void *temp_v0_20;
+    void *temp_v0_21;
+    void *temp_v0_22;
+    void *temp_v0_23;
+    void *temp_v0_2;
+    void *temp_v0_3;
+    void *temp_v0_4;
+    void *temp_v0_5;
+    void *temp_v0_6;
+    void *temp_v0_7;
+    void *temp_v0_8;
+    void *temp_v0_9;
+    void *temp_v1;
+    void *temp_v1_2;
+    void *temp_v1_3;
+    void *temp_v1_4;
+#endif
+    tTextureFont *var_s0;
+
+    temp_s4 = arg7;
+    sp264 = arg3;
+
+#if 0
+    temp_v0 = _3p3d$pddi->unk_8;
+    temp_v0->unk_304(_3p3d$pddi + temp_v0->unk_300, &STR_0045D6B8);
+#endif
+
+    HeapMgr()->PushHeap(GameMemoryAllocator_1);
+
+    p3d::inventory->PushSection();
+    p3d::inventory->AddSection(STR_0045D6B8);
+
+#if 0
+    __5tNamePCc(sp, &STR_0045D6B8);
+    SelectSection__10tInventoryRC5tName(_3p3d$inventory, sp);
+    _$_5tName(sp, 2);
+#else
+    {
+        tName sp(STR_0045D6B8);
+        p3d::inventory->SelectSection(sp);
+    }
+#endif
+
+#if 0
+    temp_v0_2 = _3p3d$pddi->unk_8;
+    sp260 = temp_v0_2->unk_C4(_3p3d$pddi + temp_v0_2->unk_C0);
+    temp_v0_3 = _3p3d$pddi->unk_8;
+    temp_v0_3->unk_BC(_3p3d$pddi + temp_v0_3->unk_B8, 2);
+    temp_v0_4 = _3p3d$pddi->unk_8;
+    temp_fp = temp_v0_4->unk_1C4(_3p3d$pddi + temp_v0_4->unk_1C0);
+    temp_v0_5 = _3p3d$pddi->unk_8;
+    temp_v0_5->unk_1BC(_3p3d$pddi + temp_v0_5->unk_1B8, 0);
+#endif
+
+    LoadMemP3DFile(gFont, 0xF05B, p3d::inventory);
+
+#if 0
+    temp_s2 = **GetPlatform__9tPlatform();
+    __5tNamePCc(&sp210, &D_0045D6E0);
+    MakeUID__5tNamePCc(&sp220, &STR_0045D6C8);
+    __13tUidUnalignedRC13tUidUnaligned(&sp230, &sp210);
+    if ((__eq__C13tUidUnalignedG13tUidUnaligned(&sp230, &sp220) != 0) || (MakeUID__5tNamePCc(&sp220, &D_0045D6D0), __13tUidUnalignedRC13tUidUnaligned(&sp240, &sp210), var_v0 = 0 & 0xFF, (__eq__C13tUidUnalignedG13tUidUnaligned(&sp240, &sp220) != 0))) {
+        var_v0 = 1 & 0xFF;
+    }
+    var_s0 = NULL;
+    if (var_v0 == 0) {
+        __Q216radLoadInventoryt8SafeCast1Z12tTextureFont(&sp220);
+        __13tUidUnalignedRC13tUidUnaligned(&sp250, &sp210);
+        temp_v0_6 = *temp_s2;
+        var_s0 = temp_v0_6->unk_24(temp_s2 + temp_v0_6->unk_20, &sp220, &sp250);
+        temp_s1 = **GetPlatform__9tPlatform();
+        if ((var_s0 == NULL) && (temp_s1 != temp_s2)) {
+            __13tUidUnalignedRC13tUidUnaligned(&sp250, &sp210);
+            temp_v0_7 = *temp_s1;
+            var_s0 = temp_v0_7->unk_24(temp_s1 + temp_v0_7->unk_20, &sp220, &sp250);
+        }
+    }
+    _$_5tName(&sp210, 2);
+#else
+    {
+
+    }
+#endif
+
+    var_s6 = 0;
+    var_s3 = 0;
+
+#if 0
+    temp_v0_8 = *var_s0;
+    temp_v0_8->unk_C(var_s0 + temp_v0_8->unk_8);
+    temp_v0_9 = *var_s0;
+    temp_v0_9->unk_7C(var_s0 + temp_v0_9->unk_78);
+#endif
+
+    p3d::AsciiToUnicode(arg2, sp10, 0x100);
+    var_s0->SetMissingLetter(0x6A);
+
+    do {
+#if 0
+        temp_v0_10 = _3p3d$pddi->unk_8;
+        temp_v0_10->unk_1CC(_3p3d$pddi + temp_v0_10->unk_1C8, 1, 1, 1);
+        temp_v0_11 = _3p3d$pddi->unk_8;
+        temp_v0_11->unk_3C(_3p3d$pddi + temp_v0_11->unk_38, 0xFF000000);
+        temp_v0_12 = _3p3d$pddi->unk_8;
+        temp_v0_12->unk_2C(_3p3d$pddi + temp_v0_12->unk_28);
+        temp_v0_13 = _3p3d$pddi->unk_8;
+        temp_v0_13->unk_6C(_3p3d$pddi + temp_v0_13->unk_68, 1);
+#endif
+        var_a0 = 0xFF;
+        if (var_s6 < temp_s4) {
+            var_a0 = var_s3 / temp_s4;
+        }
+
+        if (arg2 != NULL) {
+#if 0
+            temp_v1 = *var_s0;
+            temp_v1->unk_74(var_s0 + temp_v1->unk_70, (sp264 & 0xFFFFFF) | ((((var_a0 >= 0x100) ? 0xFF : var_a0) << 0x18) & 0xFF000000), sp264);
+            temp_v0_14 = _3p3d$pddi->unk_8;
+            temp_v0_14->unk_BC(_3p3d$pddi + temp_v0_14->unk_B8, 1);
+            temp_v1_2 = *_3p3d$stack;
+            temp_v0_15 = temp_v1_2->unk_8;
+            temp_v0_15->unk_84(temp_v1_2 + temp_v0_15->unk_80, 0);
+            temp_v1_3 = *_3p3d$stack;
+            temp_v0_16 = temp_v1_3->unk_8;
+            temp_v0_16->unk_74(temp_v1_3 + temp_v0_16->unk_70, 0);
+            Translate__12tMatrixStackfff(arg1, 0x3FC00000, _3p3d$stack);
+            Scale__12tMatrixStackfff(arg0 * 0.0020833334f, 0x3F800000, _3p3d$stack);
+            temp_v0_17 = *var_s0;
+            if ((arg1 != 0.0f) || (arg1 != 0.0f)) {
+                temp_v0_17->unk_54(var_s0 + temp_v0_17->unk_50, &sp10, 0);
+            } else {
+                temp_v0_17->unk_54(var_s0 + temp_v0_17->unk_50, &sp10, 3);
+            }
+            temp_v1_4 = *_3p3d$stack;
+            temp_v0_18 = temp_v1_4->unk_8;
+            temp_v0_18->unk_8C(temp_v1_4 + temp_v0_18->unk_88, 0);
+#endif
+        }
+
+        var_s6 += 1;
+        var_s3 += 0xFF;
+#if 0
+        temp_v0_19 = _3p3d$pddi->unk_8;
+        temp_v0_19->unk_34(_3p3d$pddi + temp_v0_19->unk_30);
+#endif
+        p3d::context->SwapBuffers();
+    } while (temp_s4 >= var_s6);
+
+#if 0
+    temp_v0_20 = _3p3d$pddi->unk_8;
+    temp_v0_20->unk_1BC(_3p3d$pddi + temp_v0_20->unk_1B8, temp_fp);
+    temp_v0_21 = _3p3d$pddi->unk_8;
+    temp_v0_21->unk_BC(_3p3d$pddi + temp_v0_21->unk_B8, sp260);
+    temp_v0_22 = _3p3d$pddi->unk_8;
+    temp_v0_22->unk_304(_3p3d$pddi + temp_v0_22->unk_300);
+    temp_v0_23 = *var_s0;
+    temp_v0_23->unk_14(var_s0 + temp_v0_23->unk_10);
+    temp_s0 = _3p3d$inventory;
+    MakeUID__5tNamePCc(&sp210, &STR_0045D6B8);
+    RemoveSectionElements__10tInventoryG13tUidUnaligned(temp_s0, &sp210);
+    temp_s0_2 = _3p3d$inventory;
+    MakeUID__5tNamePCc(&sp210, &STR_0045D6B8);
+    DeleteSection__10tInventoryG13tUidUnaligned(temp_s0_2, &sp210);
+#endif
+
+    p3d::inventory->PopSection();
+
+    HeapMgr()->PopHeap(GameMemoryAllocator_1);
+}
+#else
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", DisplaySplashScreen__11PS2PlatformPCcT1fffG10pddiColouri);
+#endif
 
 void PS2Platform::InitializeFoundationDrive() {
     IRadDrive *temp_v1;
@@ -635,10 +906,6 @@ INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", SetProgressiveMode
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", CheckForStartupButtons__11PS2Platform);
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", OnControllerError__11PS2PlatformPCc);
-
-INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D6B8);
-
-INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D6C8);
 
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", D_0045D6D0);
 

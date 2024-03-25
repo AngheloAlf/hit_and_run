@@ -54,7 +54,6 @@ public:
     void UpdateOncePerFrame(unsigned int, ContextEnum, bool);
 
 private:
-
 // void HandleEvent__12SoundManager9EventEnumPv();
 // void OnBootupStart__12SoundManager();
 // void OnBootupComplete__12SoundManager();
@@ -76,7 +75,9 @@ private:
 // void LoadSoundFile__12SoundManagerPCcP16SoundFileHandler();
 // void LoadCarSound__12SoundManagerP7Vehicleb();
 // void func_00229D98();
-// void SetMasterVolume__12SoundManagerf();
+public:
+    void SetMasterVolume(float);
+private:
 // void GetSfxVolume__12SoundManager();
 // void SetSfxVolume__12SoundManagerf();
 // void GetCarVolume__12SoundManager();

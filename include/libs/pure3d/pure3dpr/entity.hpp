@@ -3,20 +3,32 @@
 
 // text
 
-// void __5tName();
-// void __5tNamePCc();
-// void __5tNameG13tUidUnaligned();
-// void __5tNameRC5tName();
-// void _$_5tName();
-// void func_0031DDD8();
-// void SetText__5tNamePCc();
-// void SetTextOnly__5tNamePCc();
-// void SetUID__5tNameG13tUidUnaligned();
-// void GetText__C5tName();
-// void __eq__C5tNameRC5tName();
-// void __ne__C5tNameRC5tName();
-// void __as__5tNameRC5tName();
-// void MakeUID__5tNamePCc();
+class tName {
+private:
+    // void __5tName();
+
+public:
+    tName(char const *);
+
+private:
+    // void __5tNameG13tUidUnaligned();
+    // void __5tNameRC5tName();
+
+public:
+    ~tName();
+
+private:
+    // void func_0031DDD8();
+    // void SetText__5tNamePCc();
+    // void SetTextOnly__5tNamePCc();
+    // void SetUID__5tNameG13tUidUnaligned();
+    // void GetText__C5tName();
+    // void __eq__C5tNameRC5tName();
+    // void __ne__C5tNameRC5tName();
+    // void __as__5tNameRC5tName();
+    // void MakeUID__5tNamePCc();
+};
+
 // void __7tEntity();
 // void func_0031E040();
 // void _$_7tEntity();

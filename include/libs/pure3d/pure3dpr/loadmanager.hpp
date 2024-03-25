@@ -40,9 +40,9 @@ private:
 
 public:
     void SwitchTask(void);
+    void CancelAll(void);
 
 private:
-// void CancelAll__12tLoadManager();
 // void Load__12tLoadManagerP12tLoadRequest();
 // void TriggerCallbacks__12tLoadManager();
 // void AddHandler__12tLoadManagerP12tFileHandlerPc();

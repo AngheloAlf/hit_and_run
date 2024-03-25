@@ -52,11 +52,7 @@
 class PresentationManager {
 public:
     static void CreateInstance();
-
-private:
-// void GetInstance__19PresentationManager();
-
-public:
+    static PresentationManager *GetInstance();
     static void DestroyInstance();
 
 private:
@@ -87,7 +83,9 @@ private:
 // void OnGameplayStop__19PresentationManager();
 // void SetCamerasForLineOfDialog__19PresentationManagerRCt6vector2Z5tNameZt7s2alloc1Z5tName();
 // void InConversation__C19PresentationManager();
-// void StopAll__19PresentationManager();
+public:
+    void StopAll(void);
+private:
 // void ReplaceMissionBriefingBitmap__19PresentationManagerRC5tName();
 // void MakeCharactersFaceEachOther__19PresentationManagerP9CharacterT1();
 };

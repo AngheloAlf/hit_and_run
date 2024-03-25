@@ -35,10 +35,8 @@
 // void GetChunkID__18IntersectionLoader();
 
 class LoadingManager {
-private:
-// void GetInstance__14LoadingManager();
-
 public:
+    static LoadingManager *GetInstance(void);
     static void CreateInstance(void);
     static void DestroyInstance(void);
 
@@ -46,7 +44,9 @@ private:
 // void AddCallback__14LoadingManagerPQ214LoadingManager23ProcessRequestsCallbackPv();
 // void AddRequest__14LoadingManager15FileHandlerEnumPCc19GameMemoryAllocatorT2T2PQ214LoadingManager23ProcessRequestsCallbackPv();
 // void OnLoadFileComplete__14LoadingManagerPv();
-// void CancelPendingRequests__14LoadingManager();
+public:
+    void CancelPendingRequests(void);
+private:
 // void RegisterCementLibrary__14LoadingManagerPCc();
 // void UnregisterCementLibrary__14LoadingManageri();
 // void __14LoadingManager();

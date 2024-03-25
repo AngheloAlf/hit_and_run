@@ -1,36 +1,53 @@
 #ifndef INVENTORY_HPP
 #define INVENTORY_HPP
 
+#include "entity.hpp"
+
 // text
 
-// void __10tInventory();
-// void _$_10tInventory();
-// void Find__10tInventoryRQ216radLoadInventory12SafeCastBaseG13tUidUnaligned();
-// void Store__10tInventoryP7tEntity();
-// void Store__10tInventoryG13tUidUnalignedP9IRefCount();
-// void StoreHandlingCollisions__10tInventoryP7tEntity();
-// void StoreHandlingCollisions__10tInventoryG13tUidUnalignedP9IRefCount();
-// void Remove__10tInventoryP9IRefCount();
-// void TestCollision__10tInventoryP7tEntity();
-// void func_003242E8();
-// void AddSection__10tInventoryPCc();
-// void DeleteSection__10tInventoryG13tUidUnaligned();
-// void GetSection__10tInventoryG13tUidUnaligned();
-// void RemoveSectionElements__10tInventoryG13tUidUnaligned();
-// void SelectSection__10tInventoryRC5tName();
-// void PushSection__10tInventory();
-// void PopSection__10tInventory();
-// void FindSection__10tInventoryRC5tName();
-// void SearchSection__10tInventoryUiRQ216radLoadInventory12SafeCastBaseRC5tName();
-// void RePack__10tInventory();
-// void SetAutoRepack__10tInventoryb();
-// void GetAutoRepack__10tInventory();
-// void RemoveAllElements__10tInventory();
-// void DeleteAllSections__10tInventory();
-// void Store__12tEntityStoreP7tEntity();
-// void Store__12tEntityStoreG13tUidUnalignedP9IRefCount();
-// void StoreHandlingCollisions__12tEntityStoreP7tEntity();
-// void StoreHandlingCollisions__12tEntityStoreG13tUidUnalignedP9IRefCount();
+class tEntityStore {
+    // void Store__12tEntityStoreP7tEntity();
+    // void Store__12tEntityStoreG13tUidUnalignedP9IRefCount();
+    // void StoreHandlingCollisions__12tEntityStoreP7tEntity();
+    // void StoreHandlingCollisions__12tEntityStoreG13tUidUnalignedP9IRefCount();
+};
+
+class tInventory : public tEntityStore {
+private:
+    // void __10tInventory();
+    // void _$_10tInventory();
+    // void Find__10tInventoryRQ216radLoadInventory12SafeCastBaseG13tUidUnaligned();
+    // void Store__10tInventoryP7tEntity();
+    // void Store__10tInventoryG13tUidUnalignedP9IRefCount();
+    // void StoreHandlingCollisions__10tInventoryP7tEntity();
+    // void StoreHandlingCollisions__10tInventoryG13tUidUnalignedP9IRefCount();
+    // void Remove__10tInventoryP9IRefCount();
+    // void TestCollision__10tInventoryP7tEntity();
+    // void func_003242E8();
+
+public:
+    void tInventory::AddSection(char const *);
+
+private:
+    // void DeleteSection__10tInventoryG13tUidUnaligned();
+    // void GetSection__10tInventoryG13tUidUnaligned();
+    // void RemoveSectionElements__10tInventoryG13tUidUnaligned();
+
+public:
+    void SelectSection(tName const &);
+    void PushSection(void);
+    void PopSection(void);
+
+private:
+    // void FindSection__10tInventoryRC5tName();
+    // void SearchSection__10tInventoryUiRQ216radLoadInventory12SafeCastBaseRC5tName();
+    // void RePack__10tInventory();
+    // void SetAutoRepack__10tInventoryb();
+    // void GetAutoRepack__10tInventory();
+    // void RemoveAllElements__10tInventory();
+    // void DeleteAllSections__10tInventory();
+};
+
 // void func_00324D40();
 // void __tf12tEntityStore();
 // void __tf10tInventory();
