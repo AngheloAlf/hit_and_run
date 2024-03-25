@@ -5,10 +5,10 @@
 
 class CheatInputSystem {
 public:
-    static void CreateInstance();
+    static void CreateInstance(void);
+    static void DestroyInstance(void);
 
 private:
-// void DestroyInstance__16CheatInputSystem();
 // void GetInstance__16CheatInputSystem();
 // void __16CheatInputSystem();
 // void _$_16CheatInputSystem();

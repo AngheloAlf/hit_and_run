@@ -48,11 +48,8 @@ class SoundManager {
 public:
     static void CreateInstance(bool mute, bool noMusic, bool noEffects, bool noDialog);
     static SoundManager *GetInstance(void);
+    static void DestroyInstance(void);
 
-private:
-// void DestroyInstance__12SoundManager();
-
-public:
     void Update(void);
     void UpdateOncePerFrame(unsigned int, ContextEnum, bool);
 

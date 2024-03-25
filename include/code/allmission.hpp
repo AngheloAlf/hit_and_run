@@ -143,11 +143,10 @@
 // void CanMDKCar__7MissionP7VehicleP12MissionStage();
 
 class MissionManager {
-private:
-// void GetInstance__14MissionManager();
-
 public:
+// void GetInstance__14MissionManager();
     static void CreateInstance();
+    static void DestroyInstance(void);
 
 private:
 // void __14MissionManager();
@@ -171,12 +170,11 @@ private:
 
 class MissionScriptLoader {
 public:
-    static void CreateInstance();
+    static void CreateInstance(void);
+// void GetInstance__19MissionScriptLoader();
+    static void DestroyInstance(void);
 
 private:
-// void CreateInstance__19MissionScriptLoader();
-// void GetInstance__19MissionScriptLoader();
-// void DestroyInstance__19MissionScriptLoader();
 // void __19MissionScriptLoader();
 // void _$_19MissionScriptLoader();
 // void Register__19MissionScriptLoader();

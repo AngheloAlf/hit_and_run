@@ -55,7 +55,11 @@ public:
 
 private:
 // void GetInstance__19PresentationManager();
-// void DestroyInstance__19PresentationManager();
+
+public:
+    static void DestroyInstance();
+
+private:
 // void __19PresentationManager();
 // void _$_19PresentationManager();
 // void Initialize__19PresentationManager();
@@ -127,12 +131,16 @@ private:
 
 class TutorialManager {
 public:
-    static void CreateInstance();
+    static void CreateInstance(void);
 
 private:
 // void GetInstance__15TutorialManager();
 // void AddToQueue__15TutorialManager12TutorialMode();
-// void DestroyInstance__15TutorialManager();
+
+public:
+    static void DestroyInstance(void);
+
+private:
 // void __15TutorialManager();
 // void _$_15TutorialManager();
 // void HandleEvent__15TutorialManager9EventEnumPv();

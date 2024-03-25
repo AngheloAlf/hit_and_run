@@ -20,11 +20,11 @@ private:
 // void _$_15SkidmarkManager();
 
 public:
-    static void CreateInstance();
+    static void CreateInstance(void);
+// void GetInstance__15SkidmarkManager();
+    static void DestroyInstance(void);
 
 private:
-// void GetInstance__15SkidmarkManager();
-// void DestroyInstance__15SkidmarkManager();
 // void Update__15SkidmarkManagerUi();
 // void GetUnusedSkidmark__15SkidmarkManager();
 // void ReturnUsedSkidmark__15SkidmarkManagerP8Skidmark();

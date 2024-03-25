@@ -11,7 +11,7 @@
 
 // data
 
-// extern UNK_TYPE gFruitless;
+extern char gFruitless;
 // extern UNK_TYPE D_004365F1;
 // extern UNK_TYPE _3p3d$platform;
 // extern UNK_TYPE _3p3d$context;

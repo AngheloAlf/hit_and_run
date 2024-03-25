@@ -10,11 +10,11 @@ private:
 // void _$_16FootprintManager();
 
 public:
-    static void CreateInstance();
+    static void CreateInstance(void);
+// void GetInstance__16FootprintManager();
+    static void DestroyInstance(void);
 
 private:
-// void GetInstance__16FootprintManager();
-// void DestroyInstance__16FootprintManager();
 // void func_002A4658();
 // void Render__16FootprintManager();
 // void Update__16FootprintManagerUi();

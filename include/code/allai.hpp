@@ -193,10 +193,10 @@ private:
 
 public:
     static void CreateInstance();
+// void GetInstance__19ActionButtonManager();
+    static void DestroyInstance();
 
 private:
-// void GetInstance__19ActionButtonManager();
-// void DestroyInstance__19ActionButtonManager();
 // void EnterGame__19ActionButtonManager();
 // void Update__19ActionButtonManagerf();
 // void AddActionEventLocator__19ActionButtonManagerP18ActionEventLocatorP12tEntityStore();

@@ -146,9 +146,9 @@ public:
 
 private:
     static void InitializeMemory(void);
-// void InitializePlatform__11PS2Platform();
-// void ShutdownPlatform__11PS2Platform();
-// void ResetMachine__11PS2Platform();
+    void InitializePlatform(void);
+    void ShutdownPlatform(void);
+    void ResetMachine(void);
 // void LaunchDashboard__11PS2Platform();
 // void DisplaySplashScreen__11PS2PlatformQ28Platform12SplashScreenPCcfffG10pddiColouri();
 // void DisplaySplashScreen__11PS2PlatformPCcT1fffG10pddiColouri();
@@ -163,15 +163,23 @@ private:
 
     PS2Platform();
 // void _$_11PS2Platform();
-// void EnableSnProfiler__11PS2Platform();
+    void EnableSnProfiler(void);
 
     static IRadCementLibrary *s_MainCement;
     static PS2Platform* spInstance;
 
-public:
-    // virtual void virtual_20(int);
 private:
-    virtual void virtual_placeholder(void);
+    /* vt 0x1C */ virtual void virtual_1C(void); // placeholder
+    /* vt 0x24 */ virtual void virtual_24(void); // placeholder
+    /* vt 0x2C */ virtual void virtual_2C(void); // placeholder
+    /* vt 0x34 */ virtual void virtual_34(int, int, float, float, float, unsigned int, int);
+    /* vt 0x3C */ virtual void virtual_3C(void); // placeholder
+    /* vt 0x44 */ virtual void virtual_44(void); // placeholder
+    /* vt 0x4C */ virtual void virtual_4C(void);
+    /* vt 0x54 */ virtual void virtual_54(void);
+    /* vt 0x5C */ virtual void virtual_5C(void);
+    /* vt 0x64 */ virtual void virtual_64(void);
+    /* vt 0x6C */ virtual void virtual_6C(void); // placeholder
 };
 
 void CreateSingletons(void);

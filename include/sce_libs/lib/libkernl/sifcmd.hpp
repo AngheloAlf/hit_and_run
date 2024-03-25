@@ -8,7 +8,7 @@
 // void sceSifGetSreg();
 // void func_0040F160();
 // void sceSifInitCmd();
-// void sceSifExitCmd();
+extern "C" void sceSifExitCmd(void);
 // void sceSifAddCmdHandler();
 // void sceSifRemoveCmdHandler();
 // void func_0040F480();

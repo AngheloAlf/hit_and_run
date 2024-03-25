@@ -102,7 +102,11 @@ public:
 
 private:
 // void GetInstance__20TriggerVolumeTracker();
-// void DestroyInstance__20TriggerVolumeTracker();
+
+public:
+    static void DestroyInstance(void);
+
+private:
 // void __20TriggerVolumeTracker();
 // void _$_20TriggerVolumeTracker();
 // void Cleanup__20TriggerVolumeTracker();

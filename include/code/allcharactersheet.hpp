@@ -9,7 +9,11 @@ public:
 
 private:
 // void GetInstance__21CharacterSheetManager();
-// void DestroyInstance__21CharacterSheetManager();
+
+public:
+    static void DestroyInstance(void);
+
+private:
 // void SetMissionComplete__21CharacterSheetManagerQ211RenderEnums9LevelEnumPcbi();
 // void IncrementMissionAttempt__21CharacterSheetManagerQ211RenderEnums9LevelEnumPc();
 // void func_00188360();

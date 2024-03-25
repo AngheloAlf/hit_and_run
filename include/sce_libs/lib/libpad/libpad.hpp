@@ -6,7 +6,7 @@
 // void func_00408E88();
 // void scePadInit();
 // void func_004090E0();
-// void scePadEnd();
+extern "C" void scePadEnd(void);
 // void scePadPortOpen();
 // void func_004093E8();
 // void scePadRead();

@@ -33,11 +33,12 @@
 
 class AvatarManager {
 public:
-    static void CreateInstance();
+    static void CreateInstance(void);
+
+// void GetInstance__13AvatarManager();
+    static void DestroyInstance(void);
 
 private:
-// void GetInstance__13AvatarManager();
-// void DestroyInstance__13AvatarManager();
 // void __13AvatarManager();
 // void _$_13AvatarManager();
 // void Destroy__13AvatarManager();
@@ -65,11 +66,11 @@ private:
 
 class HitnRunManager {
 public:
-    static void CreateInstance();
+    static void CreateInstance(void);
+// void GetInstance__14HitnRunManager();
+    static void DestroyInstance(void);
 
 private:
-// void GetInstance__14HitnRunManager();
-// void DestroyInstance__14HitnRunManager();
 // void __14HitnRunManager();
 // void _$_14HitnRunManager();
 // void Destroy__14HitnRunManager();
@@ -135,10 +136,10 @@ private:
 // void GetInstance__14VehicleCentral();
 
 public:
-    static void CreateInstance();
+    static void CreateInstance(void);
+    static void DestroyInstance(void);
 
 private:
-// void DestroyInstance__14VehicleCentral();
 // void PreLoad__14VehicleCentral();
 // void Unload__14VehicleCentral();
 // void InitVehicle__14VehicleCentralPCcbPc11VehicleTypeQ214VehicleCentral10DriverInitT2T2();
@@ -207,7 +208,11 @@ private:
 // void GetCameraCollisionAreaIndex__19WorldPhysicsManager();
 // void GetVehicleCollisionAreaIndex__19WorldPhysicsManager();
 // void GetCharacterCollisionAreaIndex__19WorldPhysicsManager();
-// void DestroyInstance__19WorldPhysicsManager();
+
+public:
+    static void DestroyInstance(void);
+
+private:
 // void Update__19WorldPhysicsManagerUi();
 // void DebugInfoDisplay__19WorldPhysicsManager();
 // void WorldSimSubstepGuts__19WorldPhysicsManagerfb();

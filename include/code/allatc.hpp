@@ -9,7 +9,11 @@ public:
 
 private:
 // void GetInstance__10ATCManager();
-// void DestroyInstance__10ATCManager();
+
+public:
+    static void DestroyInstance(void);
+
+private:
 // void CreateCollisionAttributes__10ATCManagerUiUif();
 // void Init__10ATCManager();
 // void SetATCTable__10ATCManagerP12AttributeRowUi();

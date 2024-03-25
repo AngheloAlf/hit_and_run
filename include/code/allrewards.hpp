@@ -18,7 +18,11 @@ public:
 
 private:
 // void GetInstance__14RewardsManager();
-// void DestroyInstance__14RewardsManager();
+
+public:
+    static void DestroyInstance(void);
+
+private:
 // void InitRewards__14RewardsManager();
 // void ClearRewards__14RewardsManager();
 // void OnProcessRequestsComplete__14RewardsManagerPv();

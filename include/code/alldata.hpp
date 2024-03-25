@@ -5,10 +5,10 @@
 
 class GameDataManager {
 public:
-    static void CreateInstance();
+    static void CreateInstance(void);
+    static void DestroyInstance(void);
 
 private:
-// void DestroyInstance__15GameDataManager();
 // void GetInstance__15GameDataManager();
 // void __15GameDataManager();
 // void _$_15GameDataManager();
@@ -49,10 +49,10 @@ private:
 
 public:
     static void CreateInstance();
+// void GetInstance__22PersistentWorldManager();
+    static void DestroyInstance(void);
 
 private:
-// void GetInstance__22PersistentWorldManager();
-// void DestroyInstance__22PersistentWorldManager();
 // void OnSectorLoad__22PersistentWorldManagerG13tUidUnaligned();
 // void OnLevelLoad__22PersistentWorldManageri();
 // void GetPersistentObjectID__22PersistentWorldManagerG13tUidUnalignedT1();

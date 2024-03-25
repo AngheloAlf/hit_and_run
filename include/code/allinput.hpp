@@ -10,11 +10,8 @@ class InputManager {
 public:
     static void CreateInstance();
     static InputManager *GetInstance(void);
-
-private:
-// void DestroyInstance__12InputManager();
-// void Init__12InputManager();
-public:
+    static void DestroyInstance(void);
+    void Init(void);
     void Update(unsigned int);
 
 private:

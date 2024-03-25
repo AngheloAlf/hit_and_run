@@ -233,7 +233,9 @@ public:
 
 private:
 // void GetInstance__15SuperCamManager();
-// void DestroyInstance__15SuperCamManager();
+public:
+    static void DestroyInstance();
+private:
 // void Init__15SuperCamManagerb();
 // void GetSCC__15SuperCamManageri();
 // void PreCollisionPrep__15SuperCamManager();

@@ -7,10 +7,7 @@ class RenderFlow {
 public:
     static void CreateInstance();
     static RenderFlow *GetInstance(void);
-
-private:
-// void DestroyInstance__10RenderFlow();
-public:
+    static void DestroyInstance(void);
     void DoAllRegistration(void);
 
 private:

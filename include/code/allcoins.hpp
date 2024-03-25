@@ -5,11 +5,15 @@
 
 class CoinManager {
 public:
-    static void CreateInstance();
+    static void CreateInstance(void);
 
 private:
 // void GetInstance__11CoinManager();
-// void DestroyInstance__11CoinManager();
+
+public:
+    static void DestroyInstance(void);
+
+private:
 // void __11CoinManager();
 // void _$_11CoinManager();
 // void Destroy__11CoinManager();
@@ -48,7 +52,11 @@ public:
 
 private:
 // void GetInstance__7Sparkle();
-// void DestroyInstance__7Sparkle();
+
+public:
+    static void DestroyInstance(void);
+
+private:
 // void __7SparkleUcUs();
 // void _$_7Sparkle();
 // void Init__7Sparkle();

@@ -137,10 +137,10 @@
 
 class CGuiSystem {
 public:
-    static void CreateInstance();
+    static void CreateInstance(void);
+    static void DestroyInstance(void);
 
 private:
-// void DestroyInstance__10CGuiSystem();
 // void GetInstance__10CGuiSystem();
 // void __10CGuiSystem();
 // void _$_10CGuiSystem();

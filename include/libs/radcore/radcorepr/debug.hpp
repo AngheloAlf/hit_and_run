@@ -35,7 +35,7 @@ void rReleasePrintf(char const *,...);
 // extern UNK_TYPE g_rDebugHaltOnAsserts;
 // extern UNK_TYPE D_0043D555;
 // extern UNK_TYPE g_pDebugHandler;
-// extern UNK_TYPE g_AllowDebugOutput;
+extern char g_AllowDebugOutput;
 // extern UNK_TYPE D_0043D55D;
 
 #endif

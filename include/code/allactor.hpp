@@ -5,12 +5,11 @@
 
 class ActorManager {
 public:
-    static void CreateInstance();
+    static void CreateInstance(void);
+// void GetInstance__12ActorManager();
+    static void DestroyInstance(void);
 
 private:
-// void CreateInstance__12ActorManager();
-// void GetInstance__12ActorManager();
-// void DestroyInstance__12ActorManager();
 // void __12ActorManager();
 // void _$_12ActorManager();
 // void AddActor__12ActorManagerP5Actor();

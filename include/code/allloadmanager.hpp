@@ -39,11 +39,10 @@ private:
 // void GetInstance__14LoadingManager();
 
 public:
-    static void CreateInstance();
+    static void CreateInstance(void);
+    static void DestroyInstance(void);
 
 private:
-// void CreateInstance__14LoadingManager();
-// void DestroyInstance__14LoadingManager();
 // void AddCallback__14LoadingManagerPQ214LoadingManager23ProcessRequestsCallbackPv();
 // void AddRequest__14LoadingManager15FileHandlerEnumPCc19GameMemoryAllocatorT2T2PQ214LoadingManager23ProcessRequestsCallbackPv();
 // void OnLoadFileComplete__14LoadingManagerPv();

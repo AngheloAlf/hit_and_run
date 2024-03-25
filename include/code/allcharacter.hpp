@@ -155,10 +155,10 @@
 class CharacterManager {
 public:
     static void CreateInstance();
+// void GetInstance__16CharacterManager();
+    static void DestroyInstance();
 
 private:
-// void GetInstance__16CharacterManager();
-// void DestroyInstance__16CharacterManager();
 // void __16CharacterManager();
 // void _$_16CharacterManager();
 // void PreLoad__16CharacterManager();

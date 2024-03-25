@@ -5,6 +5,14 @@
 
 #include "sce_libs/gcc/ee/libg/rand.h"
 #include "sce_libs/lib/libkernl/iopheap.h"
+#include "sce_libs/gcc/ee/libg/strcmp.h"
+#include "sce_libs/gcc/ee/libg/strcpy.h"
+#include "sce_libs/gcc/ee/libg/strlen.h"
+#include "sce_libs/gcc/ee/libg/strupr.h"
+#include "sce_libs/gcc/ee/libg/sprintf.h"
+#include "sce_libs/lib/libkernl/exit.hpp"
+#include "sce_libs/lib/libkernl/sifcmd.hpp"
+#include "sce_libs/lib/libpad/libpad.hpp"
 
 #include "libs/pure3d/pure3dpr/utility.hpp"
 #include "libs/radcore/radcorepr/targetx.hpp"
@@ -46,14 +54,15 @@
 #include "code/allmeta.hpp"
 #include "code/allcharactersheet.hpp"
 #include "code/allconsole.hpp"
+#include "code/allsoundrenderer.hpp"
 
 // TODO: migrate funcs from https://decomp.me/scratch/c0cMu
 
-INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D010);
+extern const char STR_0045D010[] = "bad_alloc";
 
-INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D020);
+extern const char STR_0045D020[] = "*** WARNING: Too many commandline options!";
 
-INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D050);
+extern const char STR_0045D050[] = "../../code/main/commandlineoptions.cpp";
 
 void CommandLineOptions::InitDefaults(void) {
     unsigned long tmp;
@@ -64,17 +73,6 @@ void CommandLineOptions::InitDefaults(void) {
     tmp = 1ULL << CMDLINEOPTIONENUM_NOHEAPS;
     sOptions |= tmp;
 }
-
-typedef unsigned int size_t;
-
-extern "C" int strcmp(const char *, const char *);
-extern "C" char *strcpy(char *dest, const char *src);
-extern "C" size_t strlen(const char *str);
-extern "C" char *strupr(char *str);
-
-extern char gFruitless;
-extern char gTuneSound;
-extern char g_AllowDebugOutput;
 
 void CommandLineOptions::HandleOption(const char *opt) {
     char sp[0x100];
@@ -551,11 +549,59 @@ void PS2Platform::InitializeMemory(void) {
     }
 }
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", InitializePlatform__11PS2Platform);
+void PS2Platform::InitializePlatform() {
+    HeapMgr()->PushHeap(GameMemoryAllocator_3);
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", ShutdownPlatform__11PS2Platform);
+    if (CommandLineOptions::Get(CMDLINEOPTIONENUM_SNPROFILER)) {
+        this->EnableSnProfiler();
+    }
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", ResetMachine__11PS2Platform);
+    this->virtual_5C();
+    this->virtual_34(1, 0, 1.0f, 0.0f, 0.0f, 0xFFFFFFFF, 3);
+    this->virtual_4C();
+
+    InputManager::GetInstance()->Init();
+
+    HeapMgr()->PopHeap(GameMemoryAllocator_3);
+}
+
+void PS2Platform::ShutdownPlatform() {
+    this->virtual_64();
+    this->virtual_54();
+}
+
+INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D5A8);
+
+INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D5D0);
+
+INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D600);
+
+INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D620);
+
+INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D648);
+
+INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D658);
+
+INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D660);
+
+INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D670);
+
+void PS2Platform::ResetMachine(void) {
+    char sp[0x40];
+
+    scePadEnd();
+    sceSifExitCmd();
+
+    if (CommandLineOptions::Get(CMDLINEOPTIONENUM_CDFILES)) {
+        sprintf(sp, "cdrom0:\\slps123.45");
+        LoadExecPS2(sp, 0, NULL);
+    } else {
+        char *sp40 = "hostfiles";
+
+        sprintf(sp, "hostdrive:\\srr2p%c.elf", 'r');
+        LoadExecPS2(sp, 1, &sp40);
+    }
+}
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", LaunchDashboard__11PS2Platform);
 
@@ -589,28 +635,6 @@ INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", SetProgressiveMode
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", CheckForStartupButtons__11PS2Platform);
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", OnControllerError__11PS2PlatformPCc);
-
-INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D5A8);
-
-INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D5D0);
-
-INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D600);
-
-INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D620);
-
-INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D648);
-
-INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D658);
-
-INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D660);
-
-INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D670);
-
-INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D678);
-
-INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D690);
-
-INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D6A0);
 
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D6B8);
 
@@ -679,7 +703,40 @@ void CreateSingletons(void) {
     RenderFlow::CreateInstance();
 }
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", DestroySingletons__Fv);
+void DestroySingletons(void) {
+    InteriorManager::DestroyInstance();
+    TriggerVolumeTracker::DestroyInstance();
+    SuperCamManager::DestroyInstance();
+    ActionButtonManager::DestroyInstance();
+    AvatarManager::DestroyInstance();
+    CharacterManager::DestroyInstance();
+    MissionScriptLoader::DestroyInstance();
+    MissionManager::DestroyInstance();
+    SoundManager::DestroyInstance();
+    CGuiSystem::DestroyInstance();
+    PresentationManager::DestroyInstance();
+    WorldPhysicsManager::DestroyInstance();
+    VehicleCentral::DestroyInstance();
+    Console::DestroyInstance();
+    ATCManager::DestroyInstance();
+    CharacterSheetManager::DestroyInstance();
+    RewardsManager::DestroyInstance();
+    CardGallery::DestroyInstance();
+    TutorialManager::DestroyInstance();
+    CoinManager::DestroyInstance();
+    Sparkle::DestroyInstance();
+    CheatInputSystem::DestroyInstance();
+    HitnRunManager::DestroyInstance();
+    InputManager::DestroyInstance();
+    LoadingManager::DestroyInstance();
+    SkidmarkManager::DestroyInstance();
+    FootprintManager::DestroyInstance();
+    ActorManager::DestroyInstance();
+    PersistentWorldManager::DestroyInstance();
+    RenderFlow::DestroyInstance();
+    GameDataManager::DestroyInstance();
+    EventManager::DestroyInstance();
+}
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", __13tUidUnaligned);
 

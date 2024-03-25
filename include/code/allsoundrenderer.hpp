@@ -585,7 +585,7 @@
 // extern UNK_TYPE _Q25Sound21daSoundDynaLoadRegion$s_ActiveSlot;
 // extern UNK_TYPE _Q25Sound21daSoundDynaLoadRegion$s_GlobalPendingSwapCount;
 // extern UNK_TYPE gDaSoundStats;
-// extern UNK_TYPE gTuneSound;
+extern char gTuneSound;
 // extern UNK_TYPE _5Sound$gpBTreeNodePool;
 // extern UNK_TYPE _5Sound$gTotalMicrosecondsWastedParsingScripts;
 // extern UNK_TYPE _5Sound$DAMEMORY_ALLOC_SOUND;

@@ -8,11 +8,11 @@
 
 class EventManager {
 public:
-    static void CreateInstance();
+    static void CreateInstance(void);
+// void GetInstance__12EventManager();
+    static void DestroyInstance(void);
 
 private:
-// void GetInstance__12EventManager();
-// void DestroyInstance__12EventManager();
 // void AddListener__12EventManagerP13EventListener9EventEnum();
 // void RemoveListener__12EventManagerP13EventListener9EventEnum();
 // void RemoveAll__12EventManagerP13EventListener();

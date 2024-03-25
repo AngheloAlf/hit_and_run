@@ -10,13 +10,17 @@
 
 class InteriorManager {
 public:
-    static void CreateInstance();
+    static void CreateInstance(void);
 
 private:
 // void func_00154518();
 // void ClassifyPoint__15InteriorManagerRCQ218RadicalMathLibrary6Vector();
 // void GetInstance__15InteriorManager();
-// void DestroyInstance__15InteriorManager();
+
+public:
+    static void DestroyInstance(void);
+
+private:
 // void OnBootupStart__15InteriorManager();
 // void OnGameplayStart__15InteriorManager();
 // void OnGameplayEnd__15InteriorManager();

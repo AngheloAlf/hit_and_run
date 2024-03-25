@@ -12,7 +12,11 @@ public:
 
 private:
 // void GetInstance__7Console();
-// void DestroyInstance__7Console();
+
+public:
+    static void DestroyInstance(void);
+
+private:
 // void Initialize__7Console();
 // void __7Console();
 // void _$_7Console();

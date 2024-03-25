@@ -15,10 +15,10 @@
 
 class CardGallery {
 public:
-    static void CreateInstance();
+    static void CreateInstance(void);
+    static void DestroyInstance(void);
 
 private:
-// void DestroyInstance__11CardGallery();
 // void GetInstance__11CardGallery();
 // void __11CardGallery();
 // void _$_11CardGallery();
