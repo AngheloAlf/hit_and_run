@@ -12,7 +12,12 @@
 // void Add__8CardListP4Card();
 // void func_001449A8();
 // void Empty__8CardList();
-// void CreateInstance__11CardGallery();
+
+class CardGallery {
+public:
+    static void CreateInstance();
+
+private:
 // void DestroyInstance__11CardGallery();
 // void GetInstance__11CardGallery();
 // void __11CardGallery();
@@ -30,6 +35,8 @@
 // void SaveData__11CardGalleryPUcUi();
 // void OnCheatEntered__11CardGallery8eCheatIDb();
 // void AddCollectedCard__11CardGalleryP4Card();
+};
+
 // void __7CardsDB();
 // void _$_7CardsDB();
 // void LoadCards__7CardsDB();

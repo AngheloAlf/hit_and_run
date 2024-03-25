@@ -3,7 +3,11 @@
 
 // text
 
-// void CreateInstance__15GameDataManager();
+class GameDataManager {
+public:
+    static void CreateInstance();
+
+private:
 // void DestroyInstance__15GameDataManager();
 // void GetInstance__15GameDataManager();
 // void __15GameDataManager();
@@ -25,6 +29,8 @@
 // void func_0014D718();
 // void LoadAllData__15GameDataManager();
 // void SaveAllData__15GameDataManager();
+};
+
 // void __12SaveGameInfo();
 // void _$_12SaveGameInfo();
 // void LoadData__12SaveGameInfoPCUcUi();
@@ -35,9 +41,16 @@
 // void FormatLevelMissionInfo__C12SaveGameInfoPc();
 // void FormatDisplay__C12SaveGameInfoPcUi();
 // void CompareTimeStamps__12SaveGameInfoRC7radDateT1();
+
+class PersistentWorldManager {
+private:
 // void __22PersistentWorldManager();
 // void _$_22PersistentWorldManager();
-// void CreateInstance__22PersistentWorldManager();
+
+public:
+    static void CreateInstance();
+
+private:
 // void GetInstance__22PersistentWorldManager();
 // void DestroyInstance__22PersistentWorldManager();
 // void OnSectorLoad__22PersistentWorldManagerG13tUidUnaligned();
@@ -46,6 +59,8 @@
 // void GetPersistentObjectID__22PersistentWorldManager();
 // void OnObjectBreak__22PersistentWorldManagers();
 // void CheckObject__C22PersistentWorldManagerUcUc();
+};
+
 // void __tf15GameDataManager();
 // void __tf12SaveGameInfo();
 // void func_0014E1D8();

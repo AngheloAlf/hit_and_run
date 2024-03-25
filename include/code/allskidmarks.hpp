@@ -13,9 +13,16 @@
 // void Update__17SkidMarkGenerator();
 // void __Q215SkidmarkManager15ManagedSkidmark();
 // void _$_Q215SkidmarkManager15ManagedSkidmark();
+
+class SkidmarkManager {
+private:
 // void __15SkidmarkManager();
 // void _$_15SkidmarkManager();
-// void CreateInstance__15SkidmarkManager();
+
+public:
+    static void CreateInstance();
+
+private:
 // void GetInstance__15SkidmarkManager();
 // void DestroyInstance__15SkidmarkManager();
 // void Update__15SkidmarkManagerUi();
@@ -23,6 +30,8 @@
 // void ReturnUsedSkidmark__15SkidmarkManagerP8Skidmark();
 // void Init__15SkidmarkManageri();
 // void Destroy__15SkidmarkManager();
+};
+
 // void __8Skidmark();
 // void _$_8Skidmark();
 // void IsVisible__C8Skidmark();

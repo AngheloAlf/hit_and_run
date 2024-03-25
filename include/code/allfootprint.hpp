@@ -3,10 +3,16 @@
 
 // text
 
+class FootprintManager {
+private:
 // void __Q216FootprintManager9Footprint();
 // void __16FootprintManager();
 // void _$_16FootprintManager();
-// void CreateInstance__16FootprintManager();
+
+public:
+    static void CreateInstance();
+
+private:
 // void GetInstance__16FootprintManager();
 // void DestroyInstance__16FootprintManager();
 // void func_002A4658();
@@ -14,6 +20,8 @@
 // void Update__16FootprintManagerUi();
 // void func_002A48A8();
 // void FreeTextures__16FootprintManager();
+};
+
 // void func_002A4920();
 
 // rodata

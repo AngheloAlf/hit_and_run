@@ -151,7 +151,12 @@
 // void StopTalking__13NPCController();
 // void SetTempWaypont__13NPCControllerRCQ218RadicalMathLibrary6Vector();
 // void ClearTempWaypoint__13NPCController();
-// void CreateInstance__16CharacterManager();
+
+class CharacterManager {
+public:
+    static void CreateInstance();
+
+private:
 // void GetInstance__16CharacterManager();
 // void DestroyInstance__16CharacterManager();
 // void __16CharacterManager();
@@ -206,6 +211,8 @@
 // void AddTeleportDest__16CharacterManageriPPc();
 // void DoTeleport__16CharacterManagerPv();
 // void GetCharacterIndex__C16CharacterManagerPC9Character();
+};
+
 // void __17CharacterMappable();
 // void _$_17CharacterMappable();
 // void GetCharacterController__C17CharacterMappable();

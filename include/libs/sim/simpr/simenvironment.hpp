@@ -3,10 +3,18 @@
 
 // text
 
-// void Initialize__Q23sim8SimUnits();
+namespace sim {
+    class SimUnits {
+    public:
+        static void Initialize(void);
+
+    private:
 // void Reset__Q23sim8SimUnits();
 // void __Q23sim8SimUnits();
 // void _$_Q23sim8SimUnits();
+    };
+};
+
 // void SetCollisionDistanceCGS__Q23sim14SimEnvironmentf();
 // void GetDefaultSimEnvironment__Q23sim14SimEnvironment();
 // void __Q23sim14SimEnvironment();

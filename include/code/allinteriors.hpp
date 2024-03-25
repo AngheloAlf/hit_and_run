@@ -7,7 +7,12 @@
 // void Clear__Q215InteriorManager10GagBinding();
 // void __11GagDrawableP3Gag();
 // void Display__11GagDrawable();
-// void CreateInstance__15InteriorManager();
+
+class InteriorManager {
+public:
+    static void CreateInstance();
+
+private:
 // void func_00154518();
 // void ClassifyPoint__15InteriorManagerRCQ218RadicalMathLibrary6Vector();
 // void GetInstance__15InteriorManager();
@@ -59,6 +64,8 @@
 // void ClearGags__15InteriorManager();
 // void GetExitPos__15InteriorManager();
 // void CollectionEffect__15InteriorManagerPCcRCQ218RadicalMathLibrary6Vector();
+};
+
 // void func_00159E48();
 // void __14InteriorCentre();
 // void _$_14InteriorCentre();

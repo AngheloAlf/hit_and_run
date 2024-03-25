@@ -7,10 +7,10 @@
 // void _$_6Button();
 
 class InputManager {
-private:
-// void CreateInstance__12InputManager();
 public:
+    static void CreateInstance();
     static InputManager *GetInstance(void);
+
 private:
 // void DestroyInstance__12InputManager();
 // void Init__12InputManager();

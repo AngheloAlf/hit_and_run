@@ -141,9 +141,15 @@
 // void InitStreetRacePropUnload__7Mission();
 // void ShowHUD__7Missionb();
 // void CanMDKCar__7MissionP7VehicleP12MissionStage();
+
+class MissionManager {
+private:
 // void GetInstance__14MissionManager();
-// void CreateInstance__14MissionManager();
-// void DestroyInstance__14MissionManager();
+
+public:
+    static void CreateInstance();
+
+private:
 // void __14MissionManager();
 // void _$_14MissionManager();
 // void Initialize__14MissionManager();
@@ -161,6 +167,13 @@
 // void LoadMission__14MissionManager();
 // void CleanMissionData__14MissionManager();
 // void PutEffectHere__14MissionManagerRCQ218RadicalMathLibrary6Vector();
+};
+
+class MissionScriptLoader {
+public:
+    static void CreateInstance();
+
+private:
 // void CreateInstance__19MissionScriptLoader();
 // void GetInstance__19MissionScriptLoader();
 // void DestroyInstance__19MissionScriptLoader();
@@ -339,6 +352,8 @@
 // void SetGameOver__19MissionScriptLoaderiPPc();
 // void StayInBlack__19MissionScriptLoaderiPPc();
 // void AllowMissionAbort__19MissionScriptLoaderiPPc();
+};
+
 // void __12MissionStage();
 // void _$_12MissionStage();
 // void DestroyStageVehicleAI__12MissionStage();

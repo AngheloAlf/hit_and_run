@@ -3,8 +3,14 @@
 
 // text
 
+class Console {
+private:
 // void func_00146468();
-// void CreateInstance__7Console();
+
+public:
+    static void CreateInstance();
+
+private:
 // void GetInstance__7Console();
 // void DestroyInstance__7Console();
 // void Initialize__7Console();
@@ -30,6 +36,8 @@
 // void OnProcessRequestsComplete__7ConsolePv();
 // void __Q27Console18FunctionTableEntryPCcPFiPPc_vT1ii();
 // void __Q27Console18FunctionTableEntryPCcPFiPPc_bT1ii();
+};
+
 // void func_00147B20();
 // void OnVKey__20DebugConsoleCallbackibN22();
 // void OnChar__20DebugConsoleCallbacki();

@@ -3,6 +3,11 @@
 
 // text
 
+class ActorManager {
+public:
+    static void CreateInstance();
+
+private:
 // void CreateInstance__12ActorManager();
 // void GetInstance__12ActorManager();
 // void DestroyInstance__12ActorManager();
@@ -36,6 +41,8 @@
 // void AddBehaviour__12ActorManageriPPc();
 // void func_00113AD0();
 // void SetCollisionAttributes__12ActorManageriPPc();
+};
+
 // void __11FlyingActor();
 // void _$_11FlyingActor();
 // void Init__11FlyingActorPCcT1();

@@ -48,7 +48,12 @@
 // void __14PlayerDrawable();
 // void _$_14PlayerDrawable();
 // void Display__14PlayerDrawable();
-// void CreateInstance__19PresentationManager();
+
+class PresentationManager {
+public:
+    static void CreateInstance();
+
+private:
 // void GetInstance__19PresentationManager();
 // void DestroyInstance__19PresentationManager();
 // void __19PresentationManager();
@@ -79,11 +84,14 @@
 // void SetCamerasForLineOfDialog__19PresentationManagerRCt6vector2Z5tNameZt7s2alloc1Z5tName();
 // void InConversation__C19PresentationManager();
 // void StopAll__19PresentationManager();
+// void ReplaceMissionBriefingBitmap__19PresentationManagerRC5tName();
+// void MakeCharactersFaceEachOther__19PresentationManagerP9CharacterT1();
+};
+
 // void __19PresentationOverlay();
 // void Update__19PresentationOverlayUi();
 // void Display__19PresentationOverlay();
-// void ReplaceMissionBriefingBitmap__19PresentationManagerRC5tName();
-// void MakeCharactersFaceEachOther__19PresentationManagerP9CharacterT1();
+
 // void __20PresentationAnimator();
 // void _$_20PresentationAnimator();
 // void AddAmbientAnimations__20PresentationAnimatorRCt6vector2Z5tNameZt7s2alloc1Z5tName();
@@ -116,7 +124,12 @@
 // void Update__16TransitionPlayerUi();
 // void DoUpdate__16TransitionPlayerUi();
 // void DoRender__16TransitionPlayer();
-// void CreateInstance__15TutorialManager();
+
+class TutorialManager {
+public:
+    static void CreateInstance();
+
+private:
 // void GetInstance__15TutorialManager();
 // void AddToQueue__15TutorialManager12TutorialMode();
 // void DestroyInstance__15TutorialManager();
@@ -132,6 +145,8 @@
 // void ResetData__15TutorialManager();
 // void QueryTutorialSeen__15TutorialManager12TutorialMode();
 // void SetTutorialSeen__15TutorialManager12TutorialModeb();
+};
+
 // void Initialize__t9AllocPool1Z8FMVEvent();
 // void __t9AllocPool1Z8FMVEvent19GameMemoryAllocatorUi();
 // void Initialize__t9AllocPool1Z8NISEvent();

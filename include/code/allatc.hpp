@@ -3,7 +3,11 @@
 
 // text
 
-// void CreateInstance__10ATCManager();
+class ATCManager {
+public:
+    static void CreateInstance();
+
+private:
 // void GetInstance__10ATCManager();
 // void DestroyInstance__10ATCManager();
 // void CreateCollisionAttributes__10ATCManagerUiUif();
@@ -11,6 +15,8 @@
 // void SetATCTable__10ATCManagerP12AttributeRowUi();
 // void __10ATCManager();
 // void _$_10ATCManager();
+};
+
 // void __9ATCLoader();
 // void _$_9ATCLoader();
 // void LoadObject__9ATCLoaderP10tChunkFileP12tEntityStore();

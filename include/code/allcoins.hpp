@@ -3,7 +3,11 @@
 
 // text
 
-// void CreateInstance__11CoinManager();
+class CoinManager {
+public:
+    static void CreateInstance();
+
+private:
 // void GetInstance__11CoinManager();
 // void DestroyInstance__11CoinManager();
 // void __11CoinManager();
@@ -36,7 +40,13 @@
 // void SetHUDCoin__11CoinManageriib();
 // void OnCheatEntered__11CoinManager8eCheatIDb();
 // void HUDRender__11CoinManager();
-// void CreateInstance__7SparkleUcUs();
+};
+
+class Sparkle {
+public:
+    static void CreateInstance(unsigned char, unsigned short);
+
+private:
 // void GetInstance__7Sparkle();
 // void DestroyInstance__7Sparkle();
 // void __7SparkleUcUs();
@@ -60,6 +70,8 @@
 // void __Q27Sparkle13ActiveSparkle();
 // void Render__7SparkleQ27Sparkle18eSparkleRenderMode();
 // void HUDRender__7Sparkle();
+};
+
 // void func_0025DC98();
 // void func_0025DCA8();
 // void __tf11CoinManager();

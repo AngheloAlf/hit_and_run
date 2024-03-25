@@ -45,10 +45,8 @@
 // void clusterUnload__11SoundLoader16SoundClusterName();
 
 class SoundManager {
-private:
-// void CreateInstance__12SoundManagerbN31();
-
 public:
+    static void CreateInstance(bool mute, bool noMusic, bool noEffects, bool noDialog);
     static SoundManager *GetInstance(void);
 
 private:

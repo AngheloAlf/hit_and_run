@@ -30,7 +30,12 @@
 // void GetLastPathInfo__6AvatarRQ211RoadManager11PathElementRP11RoadSegmentRfT3();
 // void GetRaceInfo__6AvatarRfRiT2();
 // void SetRaceInfo__6Avatarfii();
-// void CreateInstance__13AvatarManager();
+
+class AvatarManager {
+public:
+    static void CreateInstance();
+
+private:
 // void GetInstance__13AvatarManager();
 // void DestroyInstance__13AvatarManager();
 // void __13AvatarManager();
@@ -46,6 +51,8 @@
 // void FindAvatarForCharacter__13AvatarManagerP9Character();
 // void GetAvatarForVehicle__13AvatarManagerP7Vehicle();
 // void IsAvatarGettingInOrOutOfCar__13AvatarManageri();
+};
+
 // void __15GroundPlanePooli();
 // void _$_15GroundPlanePool();
 // void GetNewGroundPlane__15GroundPlanePoolPQ23sim8SimState();
@@ -55,7 +62,12 @@
 // void FreeGroundPlane__15GroundPlanePooli();
 // void FreeAllGroundPlanes__15GroundPlanePool();
 // void GetSimState__15GroundPlanePooli();
-// void CreateInstance__14HitnRunManager();
+
+class HitnRunManager {
+public:
+    static void CreateInstance();
+
+private:
 // void GetInstance__14HitnRunManager();
 // void DestroyInstance__14HitnRunManager();
 // void __14HitnRunManager();
@@ -71,6 +83,8 @@
 // void RegisterHit__14HitnRunManagerPv();
 // void DoesObjectGiveCoins__14HitnRunManagerP18CollisionEntityDSG();
 // void RegisterVehicleImmunity__14HitnRunManagerP7Vehicle();
+};
+
 // void __14VehicleCentral();
 // void func_00250018();
 // void func_00250068();
@@ -113,10 +127,17 @@
 // void func_00250D08();
 // void func_00250D60();
 // void func_00250DB0();
+
+class VehicleCentral {
+private:
 // void SetupConsoleFunctionsForVehicleTuning__14VehicleCentral();
 // void _$_14VehicleCentral();
 // void GetInstance__14VehicleCentral();
-// void CreateInstance__14VehicleCentral();
+
+public:
+    static void CreateInstance();
+
+private:
 // void DestroyInstance__14VehicleCentral();
 // void PreLoad__14VehicleCentral();
 // void Unload__14VehicleCentral();
@@ -148,6 +169,8 @@
 // void IsCarUnderConstruction__14VehicleCentralPC7Vehicle();
 // void GetVehicleAI__14VehicleCentralP7Vehicle();
 // void DetachAllCollectibles__14VehicleCentral();
+};
+
 // void __32WorldCollisionSolverAgentManager();
 // void _$_32WorldCollisionSolverAgentManager();
 // void CollisionEvent__32WorldCollisionSolverAgentManagerPQ23sim8SimStateiT1iRCQ218RadicalMathLibrary6VectorffPPQ23sim15SimulatedObjectT8();
@@ -159,10 +182,17 @@
 // void _$_11WorldObject();
 // void func_002538A8();
 // void Display__11WorldObject();
+
+class WorldPhysicsManager {
+private:
 // void __19WorldPhysicsManager();
 // void _$_19WorldPhysicsManager();
 // void GetInstance__19WorldPhysicsManager();
-// void CreateInstance__19WorldPhysicsManager();
+
+public:
+    static void CreateInstance();
+
+private:
 // void Init__19WorldPhysicsManager();
 // void func_00253D58();
 // void ToggleTimerState__19WorldPhysicsManager();
@@ -200,6 +230,8 @@
 // void func_00257010();
 // void func_002571B0();
 // void FenceSanityCheck__19WorldPhysicsManagerUiGQ218RadicalMathLibrary6VectorT2PQ218RadicalMathLibrary6Vector();
+};
+
 // void __8HuskPool();
 // void _$_8HuskPool();
 // void Init__8HuskPooli();

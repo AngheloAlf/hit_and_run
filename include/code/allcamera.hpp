@@ -226,7 +226,12 @@
 // void _$_18SuperCamController();
 // void LoadControllerMappings__18SuperCamControllerUi();
 // void OnButtonDown__18SuperCamControlleriiPC6Button();
-// void CreateInstance__15SuperCamManager();
+
+class SuperCamManager {
+public:
+    static void CreateInstance();
+
+private:
 // void GetInstance__15SuperCamManager();
 // void DestroyInstance__15SuperCamManager();
 // void Init__15SuperCamManagerb();
@@ -237,6 +242,8 @@
 // void ToggleFirstPerson__15SuperCamManageri();
 // void __15SuperCamManager();
 // void _$_15SuperCamManager();
+};
+
 // void __10TrackerCam();
 // void _$_10TrackerCam();
 // void Update__10TrackerCamUi();

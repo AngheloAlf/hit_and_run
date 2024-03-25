@@ -134,7 +134,12 @@
 // void InitIntro__16CGuiScreenPrompt();
 // void InitRunning__16CGuiScreenPrompt();
 // void InitOutro__16CGuiScreenPrompt();
-// void CreateInstance__10CGuiSystem();
+
+class CGuiSystem {
+public:
+    static void CreateInstance();
+
+private:
 // void DestroyInstance__10CGuiSystem();
 // void GetInstance__10CGuiSystem();
 // void __10CGuiSystem();
@@ -161,6 +166,8 @@
 // void OnReleaseInGame__10CGuiSystem();
 // void GetPrimaryController__C10CGuiSystem();
 // void SetPrimaryController__10CGuiSystemi();
+};
+
 // void __13CGuiTextBible();
 // void _$_13CGuiTextBible();
 // void SetTextBible__13CGuiTextBiblePCc();

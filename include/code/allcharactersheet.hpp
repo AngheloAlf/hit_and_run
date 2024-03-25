@@ -3,7 +3,11 @@
 
 // text
 
-// void CreateInstance__21CharacterSheetManager();
+class CharacterSheetManager {
+public:
+    static void CreateInstance();
+
+private:
 // void GetInstance__21CharacterSheetManager();
 // void DestroyInstance__21CharacterSheetManager();
 // void SetMissionComplete__21CharacterSheetManagerQ211RenderEnums9LevelEnumPcbi();
@@ -82,6 +86,7 @@
 // void ResetData__21CharacterSheetManager();
 // void func_0018A230();
 // void _GLOBAL_$I$_21CharacterSheetManager$spInstance();
+};
 
 // data
 

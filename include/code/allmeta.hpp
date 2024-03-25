@@ -95,7 +95,12 @@
 // void Display__13TriggerVolume();
 // void TriggerAllowed__13TriggerVolumei();
 // void ClearPoints__13TriggerVolume();
-// void CreateInstance__20TriggerVolumeTracker();
+
+class TriggerVolumeTracker {
+public:
+    static void CreateInstance();
+
+private:
 // void GetInstance__20TriggerVolumeTracker();
 // void DestroyInstance__20TriggerVolumeTracker();
 // void __20TriggerVolumeTracker();
@@ -116,6 +121,8 @@
 // void AddAIActive__20TriggerVolumeTrackeriP13TriggerVolume();
 // void RemoveAIActive__20TriggerVolumeTrackerii();
 // void TestVolume__20TriggerVolumeTrackerP13TriggerVolumeRQ218RadicalMathLibrary6VectorfiUi();
+};
+
 // void __16ZoneEventLocator();
 // void _$_16ZoneEventLocator();
 // void GetNumLoadZones__16ZoneEventLocator();

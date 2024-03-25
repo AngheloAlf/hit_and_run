@@ -11,7 +11,12 @@
 // void SetQuestType__6RewardQ26Reward10eQuestType();
 // void SetFilename__6RewardPc();
 // void UnlockReward__6Reward();
-// void CreateInstance__14RewardsManager();
+
+class RewardsManager {
+public:
+    static void CreateInstance();
+
+private:
 // void GetInstance__14RewardsManager();
 // void DestroyInstance__14RewardsManager();
 // void InitRewards__14RewardsManager();
@@ -45,6 +50,8 @@
 // void GetTotalGags__C14RewardsManageri();
 // void SetTotalWasps__14RewardsManagerii();
 // void GetTotalWasps__C14RewardsManageri();
+};
+
 // void __11Merchandise();
 // void func_0018B3E8();
 // void _$_11Merchandise();

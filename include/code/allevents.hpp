@@ -5,7 +5,12 @@
 
 // void __13EventListener();
 // void _$_13EventListener();
-// void CreateInstance__12EventManager();
+
+class EventManager {
+public:
+    static void CreateInstance();
+
+private:
 // void GetInstance__12EventManager();
 // void DestroyInstance__12EventManager();
 // void AddListener__12EventManagerP13EventListener9EventEnum();
@@ -14,6 +19,8 @@
 // void TriggerEvent__C12EventManager9EventEnumPv();
 // void __12EventManager();
 // void _$_12EventManager();
+};
+
 // void find__H2ZPP13EventListenerZP13EventListener_X01X01RCX11G26random_access_iterator_tag_X01();
 // void _M_insert_aux__t6vector2ZP13EventListenerZt7s2alloc1ZP13EventListenerPP13EventListenerRCP13EventListener();
 // void __tf13EventListener();

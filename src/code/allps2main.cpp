@@ -17,11 +17,35 @@
 #include "libs/radcore/radcorepr/platform.hpp"
 #include "libs/radmovie/radmoviepr/movieplayer.hpp"
 #include "libs/radcore/radcorepr/system.hpp"
+#include "libs/sim/simpr/simenvironment.hpp"
 
 #include "code/allingame.hpp"
 #include "code/allinput.hpp"
 #include "code/allmemory.hpp"
 #include "code/allsound.hpp"
+#include "code/allatc.hpp"
+#include "code/allgui.hpp"
+#include "code/allcards.hpp"
+#include "code/allcoins.hpp"
+#include "code/allactor.hpp"
+#include "code/allevents.hpp"
+#include "code/allworldsim.hpp"
+#include "code/allworldsim.hpp"
+#include "code/allloadmanager.hpp"
+#include "code/allmission.hpp"
+#include "code/allrewards.hpp"
+#include "code/alldata.hpp"
+#include "code/allinteriors.hpp"
+#include "code/allskidmarks.hpp"
+#include "code/allcamera.hpp"
+#include "code/allpresentation.hpp"
+#include "code/allcharacter.hpp"
+#include "code/allcheats.hpp"
+#include "code/allfootprint.hpp"
+#include "code/allai.hpp"
+#include "code/allmeta.hpp"
+#include "code/allcharactersheet.hpp"
+#include "code/allconsole.hpp"
 
 // TODO: migrate funcs from https://decomp.me/scratch/c0cMu
 
@@ -615,7 +639,45 @@ INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", _$_11PS2Platform);
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", EnableSnProfiler__11PS2Platform);
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", CreateSingletons__Fv);
+void CreateSingletons(void) {
+    GameDataManager::CreateInstance();
+    EventManager::CreateInstance();
+    LoadingManager::CreateInstance();
+    InputManager::CreateInstance();
+    SkidmarkManager::CreateInstance();
+    ATCManager::CreateInstance();
+    CardGallery::CreateInstance();
+    CharacterSheetManager::CreateInstance();
+    RewardsManager::CreateInstance();
+    Console::CreateInstance();
+    VehicleCentral::CreateInstance();
+
+    sim::SimUnits::Initialize();
+
+    WorldPhysicsManager::CreateInstance();
+    PresentationManager::CreateInstance();
+    CGuiSystem::CreateInstance();
+
+    SoundManager::CreateInstance(CommandLineOptions::Get(CMDLINEOPTIONENUM_MUTE), CommandLineOptions::Get(CMDLINEOPTIONENUM_NOMUSIC), CommandLineOptions::Get(CMDLINEOPTIONENUM_NOEFFECTS), CommandLineOptions::Get(CMDLINEOPTIONENUM_NODIALOG));
+
+    MissionManager::CreateInstance();
+    MissionScriptLoader::CreateInstance();
+    CharacterManager::CreateInstance();
+    AvatarManager::CreateInstance();
+    ActionButtonManager::CreateInstance();
+    SuperCamManager::CreateInstance();
+    TriggerVolumeTracker::CreateInstance();
+    InteriorManager::CreateInstance();
+    CheatInputSystem::CreateInstance();
+    TutorialManager::CreateInstance();
+    ActorManager::CreateInstance();
+    PersistentWorldManager::CreateInstance();
+    FootprintManager::CreateInstance();
+    CoinManager::CreateInstance();
+    Sparkle::CreateInstance(7, 0x96);
+    HitnRunManager::CreateInstance();
+    RenderFlow::CreateInstance();
+}
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", DestroySingletons__Fv);
 

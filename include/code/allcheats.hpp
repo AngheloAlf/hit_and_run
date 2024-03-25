@@ -3,7 +3,11 @@
 
 // text
 
-// void CreateInstance__16CheatInputSystem();
+class CheatInputSystem {
+public:
+    static void CreateInstance();
+
+private:
 // void DestroyInstance__16CheatInputSystem();
 // void GetInstance__16CheatInputSystem();
 // void __16CheatInputSystem();
@@ -17,6 +21,8 @@
 // void ReceiveInputs__16CheatInputSystemP11eCheatInputi();
 // void RegisterCallback__16CheatInputSystemP21ICheatEnteredCallback();
 // void UnregisterCallback__16CheatInputSystemP21ICheatEnteredCallback();
+};
+
 // void __17CheatInputHandler();
 // void _$_17CheatInputHandler();
 // void ResetInputSequence__17CheatInputHandler();

@@ -180,6 +180,9 @@
 // void OnExit__Q212ActionButton12PurchaseSkinP9Character();
 // void OnUpdate__Q212ActionButton12PurchaseSkinf();
 // void CompareActionType__12ActionButtonPCcG13tUidUnaligned();
+
+class ActionButtonManager {
+private:
 // void __19ActionButtonManager();
 // void FindHandler__C19ActionButtonManagerPC18ActionEventLocator();
 // void AddVehicleSelectInfo__19ActionButtonManageriPPc();
@@ -187,7 +190,11 @@
 // void OnProcessRequestsComplete__19ActionButtonManagerPv();
 // void _$_19ActionButtonManager();
 // void Destroy__19ActionButtonManager();
-// void CreateInstance__19ActionButtonManager();
+
+public:
+    static void CreateInstance();
+
+private:
 // void GetInstance__19ActionButtonManager();
 // void DestroyInstance__19ActionButtonManager();
 // void EnterGame__19ActionButtonManager();
@@ -206,6 +213,8 @@
 // void HandleEvent__19ActionButtonManager9EventEnumPv();
 // void Find__C19ActionButtonManageri();
 // void RemoveActionByArrayPos__19ActionButtonManageri();
+};
+
 // void __Q211CharacterAi5StateP9Character();
 // void _$_Q211CharacterAi5State();
 // void __Q211CharacterAi5InCarP9Character();

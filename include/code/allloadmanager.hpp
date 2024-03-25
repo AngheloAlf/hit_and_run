@@ -33,7 +33,15 @@
 // void Load__18IntersectionLoaderP10tChunkFileP12tEntityStore();
 // void CheckChunkID__18IntersectionLoaderUi();
 // void GetChunkID__18IntersectionLoader();
+
+class LoadingManager {
+private:
 // void GetInstance__14LoadingManager();
+
+public:
+    static void CreateInstance();
+
+private:
 // void CreateInstance__14LoadingManager();
 // void DestroyInstance__14LoadingManager();
 // void AddCallback__14LoadingManagerPQ214LoadingManager23ProcessRequestsCallbackPv();
@@ -45,6 +53,8 @@
 // void __14LoadingManager();
 // void _$_14LoadingManager();
 // void ProcessNextRequest__14LoadingManager();
+};
+
 // void __13LocatorLoader();
 // void _$_13LocatorLoader();
 // void LoadObject__13LocatorLoaderP10tChunkFileP12tEntityStore();
