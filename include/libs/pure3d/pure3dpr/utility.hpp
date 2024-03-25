@@ -1,15 +1,20 @@
 #ifndef UTILITY_HPP
 #define UTILITY_HPP
 
+#include "libc/stddef.h"
+
 #include "loadmanager.hpp"
 #include "inventory.hpp"
 #include "context.hpp"
+#include "platform.hpp"
+#include "matrixstack.hpp"
+
+#include "libs/pure3d/pddipr/basecontext.hpp"
+#include "libs/pure3d/pddipr/ps2device.hpp"
 
 // text
 
 // void func_00335710();
-// void openFile__3p3dPCcb();
-// void printf__3p3dPCce();
 
 // data
 
@@ -17,19 +22,17 @@ extern char gFruitless;
 // extern UNK_TYPE D_004365F1;
 
 namespace p3d {
-// extern UNK_TYPE _3p3d$platform;
+    // void openFile__3p3dPCcb();
+    void printf(char const *, ...);
 
+    extern tPlatform *platform;
     extern tContext *context;
     extern tInventory *inventory;
-
-// extern UNK_TYPE _3p3d$stack;
-
+    extern tMatrixStack *stack;
     extern tLoadManager *loadManager;
-
-// extern UNK_TYPE _3p3d$loadManager;
-// extern UNK_TYPE _3p3d$pddi;
-// extern UNK_TYPE _3p3d$device;
-// extern UNK_TYPE _3p3d$display;
+    extern pddiRenderContext *pddi;
+    extern pddiDevice *device;
+    extern pddiDisplay *display;
 };
 
 // rodata

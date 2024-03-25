@@ -1,9 +1,14 @@
 #ifndef PS2DEVICE_HPP
 #define PS2DEVICE_HPP
 
+#include "pddiobj.hpp"
+#include "basecontext.hpp"
+#include "ps2display.hpp"
+
 // text
 
-// void pddiCreate();
+
+extern "C" void pddiCreate(int, int, void *);
 // void __9ps2Device();
 // void _$_9ps2Device();
 // void GetLibraryInfo__9ps2DeviceP11pddiLibInfo();
@@ -15,7 +20,23 @@
 // void NewPrimBuffer__9ps2DeviceP18pddiPrimBufferDesc();
 // void func_0036BA68();
 // void __tf9ps2Device();
-// void __10pddiDevice();
+
+class pddiDevice : public pddiObject {
+    pddiDevice(void);
+
+private:
+    /* vt 0x0C */virtual pddiDisplay *virtual_0C(void); // placeholder
+    /* vt 0x14 */virtual pddiDisplay *virtual_14(void); // placeholder
+    /* vt 0x1C */virtual pddiDisplay *virtual_1C(void); // placeholder
+    /* vt 0x24 */virtual pddiDisplay *virtual_24(void); // placeholder
+    /* vt 0x2C */virtual pddiDisplay *virtual_2C(void); // placeholder
+    /* vt 0x34 */virtual pddiDisplay *virtual_34(void); // placeholder
+    /* vt 0x3C */virtual pddiDisplay *virtual_3C(void); // placeholder
+public:
+    /* vt 0x44 */virtual pddiDisplay *virtual_44(int);
+    /* vt 0x4C */virtual pddiRenderContext *virtual_4C(pddiObject *);
+};
+
 // void GetCurrentContext__9ps2Device();
 // void AddCustomShader__9ps2DevicePCcT1();
 // void _GLOBAL_$I$pddiCreate();

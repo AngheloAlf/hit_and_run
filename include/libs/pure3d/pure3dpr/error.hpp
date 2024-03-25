@@ -1,9 +1,15 @@
 #ifndef ERROR_HPP
 #define ERROR_HPP
 
+#include "libs/pure3d/pddipr/ps2device.hpp"
+
 // text
 
-// void CapturePDDIMessages__6tDebugP10pddiDevice();
+class tDebug {
+public:
+    static void CapturePDDIMessages(pddiDevice *);
+};
+
 // void P3DVERIFY__FiPCcN41();
 // void __9AdaptPDDI();
 // void __tf9AdaptPDDI();

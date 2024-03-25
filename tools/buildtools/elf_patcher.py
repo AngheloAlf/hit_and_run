@@ -15,9 +15,9 @@ def align_up(x: int, a: int) -> int:
 
 SECTIONS_TO_REALIGN_PER_TOOL: dict[str, dict[str, int]] = {
     "gas": {
-        ".text": 4,
+        ".text": 0x8,
         ".data": 4,
-        ".rodata": 4,
+        ".rodata": 0x8,
         ".ctor": 4,
         ".init": 4,
         ".exceptix": 4,
@@ -34,11 +34,18 @@ spimdisasm.common.GlobalConfig.QUIET = True
 parser = argparse.ArgumentParser(description="Patches elf objects to bypass alignment restrictions of other tools")
 
 parser.add_argument("elf_path")
-parser.add_argument("mode", choices=["gas", "mwcc"])
+parser.add_argument("mode", choices=["gas"])
+parser.add_argument("--section-align", nargs="+")
 
 args = parser.parse_args()
 
 elf_path = Path(args.elf_path)
+section_align_override: dict[str, int] = {}
+if args.section_align is not None:
+    for entry in args.section_align:
+        sect, align_str = entry.split(":")
+        align = int(align_str, 0)
+        section_align_override[sect] = align
 
 elf_bytes = bytearray(elf_path.read_bytes())
 
@@ -50,7 +57,13 @@ for i, sect in enumerate(elf_file.sectionHeaders):
     name = elf_file.shstrtab[sect.name]
     # print(name, sect)
 
-    new_alignment = sections_to_realign.get(name)
+    # Check the cmd line override first
+    new_alignment = section_align_override.get(name)
+
+    if new_alignment is None:
+        # If no override is present then use the built-in ones
+        new_alignment = sections_to_realign.get(name)
+
     if new_alignment is not None:
         section_offset = elf_file.header.shoff + i * 0x28
         addralign_pointer = section_offset + 0x20

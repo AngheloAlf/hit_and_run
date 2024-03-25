@@ -132,7 +132,11 @@
 // void __tft9pddiStack1Z12pddiFogState();
 // void __tft9pddiStack1Z16pddiStencilState();
 // void _$_10pddiDevice();
-// void __17pddiRenderContext();
+
+class pddiRenderContext {
+    // void __17pddiRenderContext();
+};
+
 // void _$_17pddiRenderContext();
 // void __13pddiExtension();
 // void _$_15pddiMatrixStack();

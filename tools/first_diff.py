@@ -12,7 +12,7 @@ import rabbitizer
 
 
 def decodeInstruction(bytesDiff: bytes, mapFile: mapfile_parser.MapFile) -> str|None:
-    word = (bytesDiff[0] << 24) | (bytesDiff[1] << 16) | (bytesDiff[2] << 8) | (bytesDiff[3] << 0)
+    word = (bytesDiff[3] << 24) | (bytesDiff[2] << 16) | (bytesDiff[1] << 8) | (bytesDiff[0] << 0)
     instr = rabbitizer.Instruction(word)
     immOverride = None
 
@@ -50,7 +50,7 @@ def firstDiffMain():
     EXPECTEDROM = "expected" / BUILTROM
     EXPECTEDMAP = "expected" / BUILTMAP
 
-    mapfile_parser.frontends.first_diff.doFirstDiff(BUILTMAP, EXPECTEDMAP, BUILTROM, EXPECTEDROM, args.count, mismatchSize=True, addColons=args.add_colons, bytesConverterCallback=decodeInstruction)
+    mapfile_parser.frontends.first_diff.doFirstDiff(BUILTMAP, EXPECTEDMAP, BUILTROM, EXPECTEDROM, args.count, mismatchSize=True, addColons=args.add_colons, bytesConverterCallback=decodeInstruction, endian="little")
 
 if __name__ == "__main__":
     firstDiffMain()

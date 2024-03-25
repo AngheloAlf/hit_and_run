@@ -1,6 +1,8 @@
 #ifndef PS2DISPLAY_HPP
 #define PS2DISPLAY_HPP
 
+#include "pddiobj.hpp"
+
 // text
 
 // void __10ps2Display();
@@ -17,11 +19,24 @@
 // void Screenshot__10ps2DisplayP10pddiColouri();
 // void __tf11pddiDisplay();
 // void __tf10ps2Display();
+
+class pddiDisplay: public pddiObject {
 // void __11pddiDisplay();
 // void IsWidescreen__11pddiDisplay();
 // void SetForceVSync__11pddiDisplayb();
 // void GetForceVSync__11pddiDisplay();
 // void _$_11pddiDisplay();
+
+private:
+    /* vt 0x0C */virtual pddiDisplay *virtual_0C(void); // placeholder
+    /* vt 0x14 */virtual pddiDisplay *virtual_14(void); // placeholder
+    /* vt 0x1C */virtual pddiDisplay *virtual_1C(void); // placeholder
+    /* vt 0x24 */virtual pddiDisplay *virtual_24(void); // placeholder
+    /* vt 0x2C */virtual pddiDisplay *virtual_2C(void); // placeholder
+public:
+    /* vt 0x34 */virtual pddiDisplay *virtual_34(void * /* ??? */);
+};
+
 // void GetHeight__10ps2Display();
 // void GetWidth__10ps2Display();
 // void GetDepth__10ps2Display();

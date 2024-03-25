@@ -3,12 +3,19 @@
 
 // text
 
-// void __10pddiObject();
-// void _$_10pddiObject();
-// void AddRef__10pddiObject();
-// void Release__10pddiObject();
-// void GetLastError__10pddiObject();
-// void __tf10pddiObject();
+class pddiObject {
+private:
+    /* 0x0 */ char unk_0[0x8];
+
+protected:
+    pddiObject(void);
+private:
+    // void _$_10pddiObject();
+    // void AddRef__10pddiObject();
+    // void Release__10pddiObject();
+    // void GetLastError__10pddiObject();
+    // void __tf10pddiObject();
+};
 
 // rodata
 

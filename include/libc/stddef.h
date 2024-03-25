@@ -2,7 +2,7 @@
 #define STDDEF_H
 
 #ifndef NULL
-#define NULL ((void *)0)
+#define NULL (0)
 #endif
 
 #ifndef _SIZE_T

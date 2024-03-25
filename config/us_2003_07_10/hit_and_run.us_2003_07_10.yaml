@@ -273,7 +273,7 @@ segments:
       - [0x211398, asm, libs/scrooby/scroobypr/FeOwner] # .a
       - [0x212100, asm, libs/scrooby/scroobypr/XMLParser] # .a
       - [0x2130D8, asm, libs/scrooby/scroobypr/BufferReader] # .a
-      - [0x2130E8, asm, libs/pure3d/pure3dpr/platform] # .a
+      - [0x2130E8, cpp, libs/pure3d/pure3dpr/platform] # .a
       - [0x213368, asm, libs/pure3d/pure3dpr/billboardobject] # .a
       - [0x21B990, asm, libs/pure3d/pure3dpr/bmp] # .a
       - [0x21C4C8, asm, libs/pure3d/pure3dpr/camera] # .a
@@ -1186,7 +1186,7 @@ segments:
       - [0x38CCD8, rodata, libs/scrooby/scroobypr/FeMovie] # .a
       - [0x38D560, rodata, libs/scrooby/scroobypr/FeOwner] # .a
       - [0x38D8E0, rodata, libs/scrooby/scroobypr/XMLParser] # .a
-      - [0x38D9B8, rodata, libs/pure3d/pure3dpr/platform] # .a
+      - [0x38D9B8, .rodata, libs/pure3d/pure3dpr/platform] # .a
       - [0x38D9F8, rodata, libs/pure3d/pure3dpr/billboardobject] # .a
       - [0x38DD88, rodata, libs/pure3d/pure3dpr/bmp] # .a
       - [0x38DE90, rodata, libs/pure3d/pure3dpr/camera] # .a

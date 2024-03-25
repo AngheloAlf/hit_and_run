@@ -1,11 +1,33 @@
 #ifndef CONTEXT_HPP
 #define CONTEXT_HPP
 
+#include "libs/pure3d/pddipr/basecontext.hpp"
+#include "libs/pure3d/pddipr/ps2device.hpp"
+#include "libs/pure3d/pddipr/ps2display.hpp"
+#include "inventory.hpp"
+#include "matrixstack.hpp"
+#include "loadmanager.hpp"
+
 // text
 
 class tContext {
-    // void __8tContextP10pddiDeviceP11pddiDisplayP17pddiRenderContext();
-    // void Setup__8tContext();
+public:
+    /* 0x00 */ tInventory *unk_00;
+    /* 0x04 */ tLoadManager *unk_04;
+private:
+    /* 0x08 */ char unk_08[0xE0];
+public:
+    /* 0xE8 */ pddiDevice *unk_E8;
+    /* 0xEC */ pddiRenderContext *unk_EC;
+    /* 0xF0 */ pddiDisplay *unk_F0;
+private:
+    /* 0xF4 */ char unk_F4[0xC];
+
+public:
+    tContext(pddiDevice *, pddiDisplay *, pddiRenderContext *);
+    void Setup(void);
+
+private:
     // void BeginFrame__8tContext();
     // void EndFrame__8tContextb();
     // void SetView__8tContextP5tView();
@@ -13,9 +35,9 @@ class tContext {
 
 public:
     void SwapBuffers();
+    tMatrixStack *GetMatrixStack(p3dMatrixType);
 
 private:
-    // void GetMatrixStack__8tContext13p3dMatrixType();
     // void LoadViewMatrix__8tContextRCQ218RadicalMathLibrary6MatrixT1();
     // void GetWorldMatrix__8tContext();
     // void func_0031D4A0();

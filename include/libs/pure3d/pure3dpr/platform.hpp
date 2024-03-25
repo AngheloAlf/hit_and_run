@@ -1,15 +1,40 @@
 #ifndef PLATFORM_HPP
 #define PLATFORM_HPP
 
+#include "context.hpp"
+
 // text
 
 // void func_003120E8();
-// void __16tContextInitData();
-// void __9tPlatform();
-// void _$_9tPlatform();
-// void Create__9tPlatform();
-// void CreateContext__9tPlatformP16tContextInitData();
-// void GetPlatform__9tPlatform();
+
+class tContextInitData {
+    /* 0x00 */ int unk_00;
+    /* 0x04 */ int unk_04;
+    /* 0x08 */ int unk_08;
+    /* 0x0C */ int unk_0C;
+    /* 0x10 */ int unk_10;
+    /* 0x14 */ int unk_14;
+    /* 0x18 */ int unk_18;
+    /* 0x1C */ int unk_1C;
+
+public:
+    tContextInitData(void);
+};
+
+class tPlatform {
+private:
+    /* 0x0 */ tContext *unk_0;
+
+public:
+    tPlatform(void);
+    ~tPlatform(void);
+
+private:
+    static void Create(void);
+    tContext *CreateContext(tContextInitData *);
+    tPlatform *GetPlatform(void);
+};
+
 // void func_003122E8();
 // void _GLOBAL_$I$malloc_uncached__Fi();
 // void _GLOBAL_$D$malloc_uncached__Fi();
@@ -21,8 +46,5 @@
 // extern UNK_TYPE D_0048C9E0;
 // extern UNK_TYPE D_0048C9E8;
 
-// bss
-
-// extern UNK_TYPE D_004B2DE8;
 
 #endif

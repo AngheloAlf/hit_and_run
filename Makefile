@@ -78,6 +78,7 @@ endif
 WIBO            ?= wine
 PYTHON          ?= python3
 SPLAT           ?= $(PYTHON) -m splat split
+ELF_PATCHER     ?= $(PYTHON) tools/buildtools/elf_patcher.py
 
 ## GNU tools
 
@@ -108,6 +109,8 @@ SPLAT_FLAGS     ?=
 ifneq ($(FULL_DISASM),0)
     SPLAT_FLAGS       += --disassemble-all
 endif
+
+ELF_PATCHER_FLAGS ?=
 
 export SPIMDISASM_PANIC_RANGE_CHECK="True"
 
@@ -195,7 +198,14 @@ DEP_FILES := $(LD_SCRIPT:.ld=.d)
 
 ##### Directory flags #####
 
+$(BUILD_DIR)/asm/$(VERSION)/sce_libs/gcc/ee/%.o:                ELF_PATCHER_FLAGS += --section-align .text:0x4
+$(BUILD_DIR)/asm/$(VERSION)/sce_libs/gcc_lib/ee/%.o:            ELF_PATCHER_FLAGS += --section-align .text:0x4
+$(BUILD_DIR)/asm/$(VERSION)/data/sce_libs/gcc/ee/%.rodata.o:    ELF_PATCHER_FLAGS += --section-align .rodata:0x4
+
 ##### Per-file flags #####
+
+$(BUILD_DIR)/asm/us_2003_07_10/unk/321994.o:                    ELF_PATCHER_FLAGS += --section-align .text:0x4
+
 
 ## Create build directories
 
@@ -279,7 +289,7 @@ $(BUILD_DIR)/%.ld: %.ld
 
 $(BUILD_DIR)/%.o: %.s
 	$(CPP) $(CPPFLAGS) $(BUILD_DEFINES) $(IINC) -I $(dir $*) -I $(BUILD_DIR)/$(dir $*) $(COMMON_DEFINES) $(AS_DEFINES) $(COMP_VERBOSE_FLAG) $< | $(AS) $(ASFLAGS) $(ENDIAN) $(IINC) -I $(dir $*) -I $(BUILD_DIR)/$(dir $*) $(COMP_VERBOSE_FLAG) -o $@
-	$(PYTHON) tools/buildtools/elf_patcher.py $@ gas
+	$(ELF_PATCHER) $@ gas $(ELF_PATCHER_FLAGS)
 	$(OBJDUMP_CMD)
 
 $(BUILD_DIR)/%.o: %.c
@@ -291,7 +301,7 @@ else
 	$(CC) $(C_COMPILER_FLAGS) $(COMP_VERBOSE_FLAG) -c -o $@ $(@:.o=.s)
 endif
 	$(STRIP) $@ -N dummy-symbol-name
-#	$(PYTHON) tools/buildtools/elf_patcher.py $@ mwcc
+#	$(ELF_PATCHER) $@ mwcc $(ELF_PATCHER_FLAGS)
 	$(OBJDUMP_CMD)
 
 $(BUILD_DIR)/%.o: %.cpp
@@ -303,7 +313,7 @@ else
 	$(CC) $(CXX_COMPILER_FLAGS) $(COMP_VERBOSE_FLAG) -c -o $@ $(@:.o=.s)
 endif
 	$(STRIP) $@ -N dummy-symbol-name
-#	$(PYTHON) tools/buildtools/elf_patcher.py $@ mwcc
+#	$(ELF_PATCHER) $@ mwcc $(ELF_PATCHER_FLAGS)
 	$(OBJDUMP_CMD)
 
 
