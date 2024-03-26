@@ -2,6 +2,7 @@
 
 #include "include_asm.h"
 #include "types.h"
+#include "attributes.h"
 
 #include "sce_libs/gcc/ee/libg/rand.h"
 #include "sce_libs/lib/libkernl/iopheap.h"
@@ -67,7 +68,7 @@ extern const char STR_0045D020[] = "*** WARNING: Too many commandline options!";
 extern const char STR_0045D050[] = "../../code/main/commandlineoptions.cpp";
 
 void CommandLineOptions::InitDefaults(void) {
-    unsigned long tmp;
+    unsigned long long tmp;
 
     tmp = 1ULL << CMDLINEOPTIONENUM_CDFILES;
     sOptions |= tmp;
@@ -79,7 +80,7 @@ void CommandLineOptions::InitDefaults(void) {
 void CommandLineOptions::HandleOption(const char *opt) {
     char sp[0x100];
     int var_s2;
-    unsigned long var_s0;
+    unsigned long long var_s0;
     char *temp_v0;
     char temp_s1;
 
@@ -206,7 +207,7 @@ void CommandLineOptions::HandleOption(const char *opt) {
         if (strcmp(strupr(sp), "L") == 0) {
             CommandLineOptions::s_defaultLevel = temp_s1 - '1';
         } else if (strcmp(strupr(sp), "M") == 0) {
-            CommandLineOptions:s_defaultMission = temp_s1 - '1';
+            CommandLineOptions::s_defaultMission = temp_s1 - '1';
         } else {
             var_s2 = 0;
         }
@@ -599,7 +600,7 @@ void PS2Platform::ResetMachine(void) {
         sprintf(sp, "cdrom0:\\slps123.45");
         LoadExecPS2(sp, 0, NULL);
     } else {
-        char *sp40 = "hostfiles";
+        const char *sp40 = "hostfiles";
 
         sprintf(sp, "hostdrive:\\srr2p%c.elf", 'r');
         LoadExecPS2(sp, 1, &sp40);
@@ -607,10 +608,6 @@ void PS2Platform::ResetMachine(void) {
 }
 
 void PS2Platform::LaunchDashboard() {
-    void* temp_v0;
-    void* temp_v0_2;
-    void* temp_v0_3;
-
     LoadingManager::GetInstance()->CancelPendingRequests();
     SoundManager::GetInstance()->SetMasterVolume(0.0f);
 
@@ -626,7 +623,7 @@ void PS2Platform::LaunchDashboard() {
     this->virtual_2C();
 }
 
-void PS2Platform::DisplaySplashScreen(Platform::SplashScreen arg1, char const * arg2, float arg3, float arg4, float arg5, pddiColour arg6, int arg7) {
+void PS2Platform::DisplaySplashScreen(UNUSED Platform::SplashScreen arg1, char const * arg2, float arg3, float arg4, float arg5, pddiColour arg6, int arg7) {
     this->virtual_3C(NULL, arg2, arg3, arg4, arg5, arg6, arg7);
 }
 
@@ -881,9 +878,6 @@ INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", DisplaySplashScree
 #endif
 
 void PS2Platform::InitializeFoundationDrive() {
-    IRadDrive *temp_v1;
-    void *temp_v0;
-
     if (CommandLineOptions::Get(CMDLINEOPTIONENUM_CDFILES)) {
         radDriveOpenAsync(&this->unk_0C, STR_0045D658, radFilePriority_1, 3);
 

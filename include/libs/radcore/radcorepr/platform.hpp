@@ -1,5 +1,5 @@
-#ifndef PLATFORM_HPP
-#define PLATFORM_HPP
+#ifndef LIBS_RADCORE_RADCOREPR_PLATFORM_HPP
+#define LIBS_RADCORE_RADCOREPR_PLATFORM_HPP
 
 #include "IRadDriveErrorCallback.hpp"
 // text

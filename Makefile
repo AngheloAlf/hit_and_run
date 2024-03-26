@@ -14,6 +14,9 @@ SHELL = /bin/bash
 COMPARE ?= 1
 # Disassembles all asm from the ROM instead of skipping files which are entirely in C
 FULL_DISASM ?= 0
+# Check code syntax with host compiler
+RUN_CC_CHECK ?= 1
+CC_CHECK_COMP ?= clang
 # Dump build object files
 OBJDUMP_BUILD ?= 1
 # Invoke compiler in multiple steps, producing `.ii` and `.s` files.
@@ -119,6 +122,25 @@ IINC       := -I include
 
 
 ## CC CHECK ##
+
+# Check code syntax with host compiler
+CHECK_WARNINGS := -Wall -Wextra -Wimplicit-fallthrough -Wno-unknown-pragmas -Wno-missing-braces -Wno-sign-compare -Wno-uninitialized -Wno-char-subscripts -Wno-pointer-sign
+CHECK_WARNINGS += -Wno-invalid-source-encoding
+CHECK_WARNINGS += -Wno-unused-private-field
+
+ifneq ($(WERROR), 0)
+    CHECK_WARNINGS += -Werror
+endif
+
+# Have CC_CHECK pretend to be a MIPS compiler
+MIPS_BUILTIN_DEFS := 
+ifneq ($(RUN_CC_CHECK),0)
+#   The -MMD flags additionaly creates a .d file with the same name as the .o file.
+    CC_CHECK          := $(CC_CHECK_COMP)
+    CC_CHECK_FLAGS    := -MMD -MP -fno-builtin -funsigned-char -fsyntax-only -fdiagnostics-color -m32 -DNON_MATCHING -DPRESERVE_UB -DCC_CHECK=1
+else
+    CC_CHECK          := @:
+endif
 
 
 ## Compiler options ##
@@ -293,6 +315,7 @@ $(BUILD_DIR)/%.o: %.s
 	$(OBJDUMP_CMD)
 
 $(BUILD_DIR)/%.o: %.c
+	$(CC_CHECK) $(CC_CHECK_FLAGS) $(IINC) $(CHECK_WARNINGS) -std=gnu99 -o $@ $<
 ifeq ($(MULTISTEP_BUILD), 0)
 	$(CC) $(C_COMPILER_FLAGS) $(COMP_VERBOSE_FLAG) -c -o $@ $<
 else
@@ -305,6 +328,7 @@ endif
 	$(OBJDUMP_CMD)
 
 $(BUILD_DIR)/%.o: %.cpp
+	$(CC_CHECK) $(CC_CHECK_FLAGS) $(IINC) $(CHECK_WARNINGS) -std=gnu++98 -o $@ $<
 ifeq ($(MULTISTEP_BUILD), 0)
 	$(CC) $(CXX_COMPILER_FLAGS) $(COMP_VERBOSE_FLAG) -c -o $@ $<
 else

@@ -109,7 +109,7 @@ private:
 public:
     static Game *CreateInstance(Platform *platform);
     static void DestroyInstance(void);
-    static Game *Game::GetInstance(void);
+    static Game *GetInstance(void);
 
     Platform *GetPlatform(void);
 

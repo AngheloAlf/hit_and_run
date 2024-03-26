@@ -1,5 +1,5 @@
-#ifndef PLATFORM_HPP
-#define PLATFORM_HPP
+#ifndef LIBS_PURE3D_PURE3DPR_PLATFORM_HPP
+#define LIBS_PURE3D_PURE3DPR_PLATFORM_HPP
 
 #include "context.hpp"
 

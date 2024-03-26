@@ -8,7 +8,7 @@
 // void func_00412480();
 // void func_00412490();
 // void func_004125A8();
-extern "C" void LoadExecPS2(const char *, int, char **);
+extern "C" void LoadExecPS2(const char *, int, const char **);
 // void Exit();
 // void func_00412620();
 

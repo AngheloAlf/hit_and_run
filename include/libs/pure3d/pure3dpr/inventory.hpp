@@ -26,7 +26,7 @@ private:
     // void func_003242E8();
 
 public:
-    void tInventory::AddSection(char const *);
+    void AddSection(char const *);
 
 private:
     // void DeleteSection__10tInventoryG13tUidUnaligned();
