@@ -8,7 +8,9 @@ enum radCementLibraryPriority {
 
 // This is here by guessing
 class IRadCementLibrary {
-
+public:
+    /* vt 0x0C */ virtual void virtual_0C(void);
+    /* vt 0x14 */ virtual void virtual_14(void);
 };
 
 // text

@@ -7,7 +7,7 @@
 // void GetSize__19IRadMemoryAllocator();
 // void radMemorySetUsableAllocators__FPiUi();
 void radMemoryInitialize(void);
-// void radMemoryTerminate__Fv();
+void radMemoryTerminate(void);
 void radMemorySetOutOfMemoryCallback(void (*)(void *, int, unsigned int), void *);
 // void SetMemoryIdentification__FPCc();
 // void radMemoryAlloc__FiUi();

@@ -15,7 +15,7 @@ enum radFilePriority {
 // void radMakeIconSys__FP13radPs2IconSysP11radSJISCharUs();
 // void radSetIconSysTitle__FP13radPs2IconSysP11radSJISCharUs();
 void radFileInitialize(unsigned int, unsigned int, int);
-// void radFileTerminate__Fv();
+void radFileTerminate(void);
 void radFileService(void);
 // void func_003D7498();
 // void radFileOpenAsync__FPP8IRadFilePCcb16radFileOpenFlags15radFilePriorityUii14radMemorySpace();
@@ -28,7 +28,7 @@ void radSetDefaultDrive(char const *);
 void radFileRegisterCementLibrarySync(IRadCementLibrary **, char const *, radCementLibraryPriority, unsigned int, int, radMemorySpace);
 // void func_003D7578();
 void radDriveMount(char const *, int);
-// void radDriveUnmount__FPCc();
+void radDriveUnmount(char const *);
 // void func_003D75C0();
 
 // rodata

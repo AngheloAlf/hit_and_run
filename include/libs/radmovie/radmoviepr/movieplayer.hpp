@@ -26,7 +26,7 @@
 // void InternalPlay__14radMoviePlayer();
 // void radMoviePlayerCreate2__Fi();
 void radMovieInitialize2(int);
-// void radMovieTerminate2__Fv();
+void radMovieTerminate2(void);
 // void radMovieService2__Fv();
 // void func_003C1458();
 // void __tf14radMoviePlayer();

@@ -4,7 +4,7 @@
 // text
 
 void radThreadInitialize(unsigned int);
-// void radThreadTerminate__Fv();
+void radThreadTerminate(void);
 // void radThreadInternalLock__Fv();
 // void radThreadInternalUnlock__Fv();
 

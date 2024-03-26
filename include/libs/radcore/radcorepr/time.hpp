@@ -25,7 +25,7 @@ public:
 // text
 
 void radTimeInitialize(void);
-// void radTimeTerminate__Fv();
+void radTimeTerminate();
 // void radTimeGetMicroseconds__Fv();
 // void radTimeGetMicroseconds64__Fv();
 int radTimeGetMilliseconds(void);

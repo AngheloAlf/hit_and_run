@@ -161,7 +161,7 @@ private:
     void DisplaySplashScreen(Platform::SplashScreen, char const *, float, float, float, pddiColour, int);
     void DisplaySplashScreen(char const *, char const *, float, float, float, pddiColour, int);
     void InitializeFoundationDrive(void);
-// void ShutdownFoundation__11PS2Platform();
+    void ShutdownFoundation(void);
 // void InitializePure3D__11PS2Platform();
 // void ShutdownPure3D__11PS2Platform();
 // void SetProgressiveMode__11PS2Platformb();

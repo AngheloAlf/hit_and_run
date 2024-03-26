@@ -8,7 +8,9 @@
 class IRadDrive {
 private:
     /* vt 0x00C */ virtual void virtual_00C(void);
+public:
     /* vt 0x014 */ virtual void virtual_014(void);
+private:
     /* vt 0x01C */ virtual void virtual_01C(void);
     /* vt 0x024 */ virtual void virtual_024(void);
     /* vt 0x02C */ virtual void virtual_02C(void);

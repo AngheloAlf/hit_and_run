@@ -889,7 +889,25 @@ void PS2Platform::InitializeFoundationDrive() {
     }
 }
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", ShutdownFoundation__11PS2Platform);
+void PS2Platform::ShutdownFoundation(void) {
+    PS2Platform::s_MainCement->virtual_14();
+    PS2Platform::s_MainCement = NULL;
+
+    this->unk_0C->virtual_014();
+    this->unk_0C = NULL;
+
+    radDriveUnmount(NULL);
+    radFileTerminate();
+
+    CommandLineOptions::Get(CMDLINEOPTIONENUM_MEMMONITOR);
+
+    radDbgComTargetTerminate();
+    radTimeTerminate();
+    radPlatformTerminate();
+    radMemoryTerminate();
+    radThreadTerminate();
+    radMovieTerminate2();
+}
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", InitializePure3D__11PS2Platform);
 

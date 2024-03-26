@@ -9,7 +9,7 @@ enum radDbgComType {
 // text
 
 void radDbgComTargetInitialize(radDbgComType, unsigned short, void *, int);
-// void radDbgComTargetTerminate__Fv();
+void radDbgComTargetTerminate(void);
 void radDbgComService(void);
 // void radDbgComTargetCreateChannel__FUsPP17IRadDbgComChanneli();
 // void func_003CDA78();
