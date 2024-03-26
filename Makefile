@@ -199,7 +199,7 @@ CPP_FILES     := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.cpp))
 S_FILES       := $(foreach dir,$(ASM_DIRS) $(SRC_DIRS),$(wildcard $(dir)/*.s))
 
 O_FILES       := $(foreach f,$(C_FILES:.c=.o),$(BUILD_DIR)/$f) \
-                 $(foreach f,$(C_FILES:.cpp=.o),$(BUILD_DIR)/$f) \
+                 $(foreach f,$(CPP_FILES:.cpp=.o),$(BUILD_DIR)/$f) \
                  $(foreach f,$(S_FILES:.s=.o),$(BUILD_DIR)/$f)
 
 # LINKER_SCRIPTS   := $(LD_SCRIPT) $(BUILD_DIR)/linker_scripts/$(VERSION)/hardware_regs.ld $(BUILD_DIR)/linker_scripts/$(VERSION)/undefined_syms.ld $(BUILD_DIR)/linker_scripts/common_undef_syms.ld
@@ -209,13 +209,13 @@ LINKER_SCRIPTS   := $(LD_SCRIPT) $(BUILD_DIR)/linker_scripts/$(VERSION)/linker_s
 ### Automatic dependency files ###
 DEP_FILES := $(LD_SCRIPT:.ld=.d)
 
-#ifneq ($(DEP_ASM), 0)
-#    DEP_FILES += $(O_FILES:.o=.asmproc.d)
-#endif
-#
-#ifneq ($(DEP_INCLUDE), 0)
-#    DEP_FILES += $(O_FILES:.o=.d)
-#endif
+ifneq ($(DEP_ASM), 0)
+    DEP_FILES += $(O_FILES:.o=.asmproc.d)
+endif
+
+ifneq ($(DEP_INCLUDE), 0)
+    DEP_FILES += $(O_FILES:.o=.d)
+endif
 
 
 ##### Directory flags #####
