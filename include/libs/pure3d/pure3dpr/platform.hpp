@@ -7,15 +7,11 @@
 
 // void func_003120E8();
 
-class tContextInitData {
-    /* 0x00 */ int unk_00;
-    /* 0x04 */ int unk_04;
-    /* 0x08 */ int unk_08;
-    /* 0x0C */ int unk_0C;
-    /* 0x10 */ int unk_10;
+class tContextInitData: public pddiDisplayInit {
     /* 0x14 */ int unk_14;
     /* 0x18 */ int unk_18;
     /* 0x1C */ int unk_1C;
+    /* 0x20 size */
 
 public:
     tContextInitData(void);

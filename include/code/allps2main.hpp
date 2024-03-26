@@ -144,7 +144,8 @@ private:
     /* 0x0C */ IRadDrive *unk_0C;
     /* 0x10 */ int unk_10;
     /* 0x14 */ int unk_14;
-    /* 0x18 */ char unk_18[0x4];
+    /* 0x18 */ char unk_18;
+    /* 0x19 */ char unk_19[0x3];
 
 public:
     static PS2Platform *CreateInstance(void);
@@ -163,8 +164,8 @@ private:
     void InitializeFoundationDrive(void);
     void ShutdownFoundation(void);
 // void InitializePure3D__11PS2Platform();
-// void ShutdownPure3D__11PS2Platform();
-// void SetProgressiveMode__11PS2Platformb();
+    void ShutdownPure3D(void);
+    void SetProgressiveMode(bool);
 // void CheckForStartupButtons__11PS2Platform();
 // void OnControllerError__11PS2PlatformPCc();
 // void OnDriveError__11PS2Platform12radFileErrorPCcPv();

@@ -21,6 +21,7 @@ extern "C" void pddiCreate(int, int, void *);
 // void func_0036BA68();
 // void __tf9ps2Device();
 
+// Check _vt$9ps2Device for types for vtable methods
 class pddiDevice : public pddiObject {
     pddiDevice(void);
 

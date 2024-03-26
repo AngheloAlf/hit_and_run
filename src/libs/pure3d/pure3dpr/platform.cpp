@@ -16,13 +16,13 @@ INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/pure3d/pure3dpr/platform", func
 tContextInitData::tContextInitData(void) {
     this->unk_00 = 0x280;
     this->unk_04 = 0;
-    this->unk_08 = 0;
-    this->unk_0C = 1;
+    this->unk_08 = false;
+    this->unk_0C = true;
+    //! @bug unitialized this->unk_10
+
     this->unk_1C = 0;
     this->unk_18 = 0;
     this->unk_14 = 0;
-
-    //! @bug unitialized this->unk_10
 }
 
 tPlatform::tPlatform(void) {
@@ -65,7 +65,6 @@ tContext *tPlatform::CreateContext(tContextInitData *arg1) {
     p3d::pddi = this->unk_0->unk_EC;
     p3d::device = this->unk_0->unk_E8;
     p3d::display = this->unk_0->unk_F0;
-
 
     p3d::UsePermanentMem(false);
 

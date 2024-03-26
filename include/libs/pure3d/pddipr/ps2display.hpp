@@ -3,6 +3,28 @@
 
 #include "pddiobj.hpp"
 
+class pddiDisplayInit {
+protected:
+    /* 0x00 */ int unk_00;
+    /* 0x04 */ int unk_04;
+    /* 0x08 */ bool unk_08;
+    /* 0x0C */ bool unk_0C;
+    /* 0x10 */ char unk_10[0x4];
+    /* 0x14 size */
+
+protected:
+    pddiDisplayInit() {}
+
+public:
+    pddiDisplayInit(bool arg1, bool arg2) {
+        this->unk_00 = 0x280;
+        this->unk_04 = 0;this->unk_08 = arg1;
+        this->unk_0C = arg2;
+
+        //! @bug unitialized this->unk_10
+    }
+};
+
 // text
 
 // void __10ps2Display();
@@ -20,6 +42,7 @@
 // void __tf11pddiDisplay();
 // void __tf10ps2Display();
 
+// Check _vt$10ps2Display for types of vtable methods
 class pddiDisplay: public pddiObject {
 // void __11pddiDisplay();
 // void IsWidescreen__11pddiDisplay();
@@ -34,7 +57,7 @@ private:
     /* vt 0x24 */virtual pddiDisplay *virtual_24(void); // placeholder
     /* vt 0x2C */virtual pddiDisplay *virtual_2C(void); // placeholder
 public:
-    /* vt 0x34 */virtual pddiDisplay *virtual_34(void * /* ??? */);
+    /* vt 0x34 */virtual pddiDisplay *virtual_34(pddiDisplayInit *);
 };
 
 // void GetHeight__10ps2Display();

@@ -911,9 +911,25 @@ void PS2Platform::ShutdownFoundation(void) {
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", InitializePure3D__11PS2Platform);
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", ShutdownPure3D__11PS2Platform);
+void PS2Platform::ShutdownPure3D(void) {
+    p3d::inventory->RemoveAllElements();
+    p3d::inventory->DeleteAllSections();
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", SetProgressiveMode__11PS2Platformb);
+    if (this->unk_14 != 0) {
+        this->unk_14 = 0;
+    }
+    if (this->unk_10 != 0) {
+        this->unk_10 = 0;
+    }
+}
+
+void PS2Platform::SetProgressiveMode(bool arg1) {
+    pddiDisplayInit sp0(arg1, false);
+
+    p3d::display->virtual_34(&sp0);
+
+    this->unk_18 = arg1;
+}
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", CheckForStartupButtons__11PS2Platform);
 

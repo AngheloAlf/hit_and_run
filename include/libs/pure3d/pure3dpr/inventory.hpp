@@ -41,11 +41,12 @@ public:
 private:
     // void FindSection__10tInventoryRC5tName();
     // void SearchSection__10tInventoryUiRQ216radLoadInventory12SafeCastBaseRC5tName();
-    // void RePack__10tInventory();
+    void RePack(void);
     // void SetAutoRepack__10tInventoryb();
-    // void GetAutoRepack__10tInventory();
-    // void RemoveAllElements__10tInventory();
-    // void DeleteAllSections__10tInventory();
+    void GetAutoRepack(void);
+public:
+    void RemoveAllElements(void);
+    void DeleteAllSections(void);
 };
 
 // void func_00324D40();
