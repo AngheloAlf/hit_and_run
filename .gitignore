@@ -22,6 +22,8 @@ linker_scripts/**/hit_and_run.*.d
 
 ctx.c
 ctx.c.m2c
+ctx.cpp
+ctx.cpp.m2c
 .make_options
 
 .vscode/settings.json

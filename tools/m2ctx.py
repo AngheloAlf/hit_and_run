@@ -2,31 +2,28 @@
 
 import argparse
 import os
+from pathlib import Path
 import sys
 import subprocess
 import tempfile
 
-script_dir = os.path.dirname(os.path.realpath(__file__))
-root_dir = os.path.abspath(os.path.join(script_dir, ".."))
-src_dir = root_dir + "src/"
+script_dir = Path(os.path.dirname(os.path.realpath(__file__)))
+root_dir = Path(os.path.abspath(os.path.join(script_dir, "..")))
+src_dir = root_dir / "src"
 
 # Project-specific
 CPP_FLAGS = [
     "-Iinclude",
-    "-Isrc",
-    "-Iver/current/build/include",
-    "-D_LANGUAGE_C",
-    "-DF3DEX_GBI_2",
-    "-D_MIPS_SZLONG=32",
-    "-DSCRIPT(...)={}",
     "-D__attribute__(...)=",
-    "-D__asm__(...)=",
     "-ffreestanding",
     "-DM2CTX",
+
+    # TODO: flags per C or C++
+    "-std=gnu++98",
 ]
 
-def import_c_file(in_file) -> str:
-    in_file = os.path.relpath(in_file, root_dir)
+def import_c_file(in_file: Path) -> str:
+    in_file = in_file.absolute().relative_to(root_dir)
 
     cpp_command = ["gcc", "-E", "-P", "-dD", *CPP_FLAGS, in_file]
 
@@ -72,14 +69,24 @@ def main():
         description="""Create a context file which can be used for m2c / decomp.me"""
     )
     parser.add_argument(
-        "c_file",
+        "in_file",
         help="""File from which to create context""",
     )
     args = parser.parse_args()
 
-    output = import_c_file(args.c_file)
+    in_file = Path(args.in_file)
+    output = import_c_file(in_file)
 
-    with open(os.path.join(root_dir, "ctx.c"), "w", encoding="UTF-8") as f:
+    ctx_suffixes = {
+        ".c": ".c",
+        ".h": ".c",
+        ".cpp": ".cpp",
+        ".hpp": ".cpp",
+    }
+    suffix = ctx_suffixes.get(in_file.suffix, ".c")
+    ctx_path = root_dir / f"ctx{suffix}"
+
+    with ctx_path.open("w", encoding="UTF-8") as f:
         f.write(output)
 
 
