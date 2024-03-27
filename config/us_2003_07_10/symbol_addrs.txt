@@ -1,7 +1,35 @@
 _start = 0x00100008; // size:0xAC type:func
 
+func_0012FBA8 = 0x12FBA8; // type:func
+func_00142E68 = 0x142E68; // type:func
+func_0014B7B0 = 0x14B7B0; // type:func
+func_0014C810 = 0x14C810; // type:func
+
 func_00163468__FiPPc = 0x00163468; // type:func
 func_001634B8__Fv = 0x001634B8; // type:func
+
+func_0016D380 = 0x0016D380; // type:func
+func_00198E60 = 0x00198E60; // type:func
+func_0021EBD0 = 0x0021EBD0; // type:func
+func_00257AF0 = 0x00257AF0; // type:func
+func_0025DCA8 = 0x0025DCA8; // type:func
+func_0028CE00 = 0x0028CE00; // type:func
+func_0029F0C8 = 0x0029F0C8; // type:func
+func_002D4738 = 0x002D4738; // type:func
+func_00320C40 = 0x00320C40; // type:func
+func_0035A9B0 = 0x0035A9B0; // type:func
+func_0035AD58 = 0x0035AD58; // type:func
+func_003837A0 = 0x003837A0; // type:func
+func_00394360 = 0x00394360; // type:func
+func_003A7988 = 0x003A7988; // type:func
+func_003C3EB0 = 0x003C3EB0; // type:func
+func_00407158 = 0x00407158; // type:func
+func_00408208 = 0x00408208; // type:func
+func_00409548 = 0x00409548; // type:func
+func_00411B40 = 0x00411B40; // type:func
+func_00412170 = 0x00412170; // type:func
+func_004128C0 = 0x004128C0; // type:func
+
 
 STR_0045D010 = 0x0045D010; // type:asciz
 STR_0045D020 = 0x0045D020; // type:asciz
