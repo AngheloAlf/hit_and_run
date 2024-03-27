@@ -1,5 +1,7 @@
 _start = 0x00100008; // size:0xAC type:func
 
+_root = 0x001000C0; // size:0x8
+
 func_0012FBA8 = 0x12FBA8; // type:func
 func_00142E68 = 0x142E68; // type:func
 func_0014B7B0 = 0x14B7B0; // type:func
@@ -67,3 +69,5 @@ D_0045D6E0 = 0x0045D6E0; // type:asciz force_not_migration:True
 D_0045D6F0 = 0x0045D6F0; // type:asciz force_not_migration:True
 D_0045D6F8 = 0x0045D6F8; // type:asciz force_not_migration:True
 D_0045D700 = 0x0045D700; // type:asciz force_not_migration:True
+
+_args = 0x004B0F80; // size:0x144

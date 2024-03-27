@@ -1,0 +1,23 @@
+D_00001000 = 0x00001000; // ignore:True
+D_0000FFFF = 0x0000FFFF; // ignore:True
+D_00010000 = 0x00010000; // ignore:True
+D_00010021 = 0x00010021; // ignore:True
+D_000FFFFF = 0x000FFFFF; // ignore:True
+D_00200001 = 0x00200001; // ignore:True
+D_005198FC = 0x005198FC; // ignore:True
+D_00FFFFFF = 0x00FFFFFF; // ignore:True
+
+D_20000010 = 0x20000010; // ignore:True
+D_20000050 = 0x20000050; // ignore:True
+D_30000004 = 0x30000004; // ignore:True
+D_30000008 = 0x30000008; // ignore:True
+D_3000000C = 0x3000000C; // ignore:True
+D_30000010 = 0x30000010; // ignore:True
+D_30000014 = 0x30000014; // ignore:True
+D_30000018 = 0x30000018; // ignore:True
+D_3000001C = 0x3000001C; // ignore:True
+D_30000020 = 0x30000020; // ignore:True
+D_80000002 = 0x80000002; // ignore:True
+D_BFF00001 = 0xBFF00001; // ignore:True
+D_E0002000 = 0xE0002000; // ignore:True
+D_F0000001 = 0xF0000001; // ignore:True

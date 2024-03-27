@@ -209,8 +209,8 @@ O_FILES       := $(foreach f,$(C_FILES:.c=.o),$(BUILD_DIR)/$f) \
                  $(foreach f,$(S_FILES:.s=.o),$(BUILD_DIR)/$f)
 
 # LINKER_SCRIPTS   := $(LD_SCRIPT) $(BUILD_DIR)/linker_scripts/$(VERSION)/hardware_regs.ld $(BUILD_DIR)/linker_scripts/$(VERSION)/undefined_syms.ld $(BUILD_DIR)/linker_scripts/common_undef_syms.ld
-LINKER_SCRIPTS   := $(LD_SCRIPT) $(BUILD_DIR)/linker_scripts/$(VERSION)/linker_script_extra.$(VERSION).ld linker_scripts/$(VERSION)/auto/undefined_funcs_auto.ld linker_scripts/$(VERSION)/auto/undefined_syms_auto.ld
-
+# LINKER_SCRIPTS   := $(LD_SCRIPT) $(BUILD_DIR)/linker_scripts/$(VERSION)/linker_script_extra.$(VERSION).ld linker_scripts/$(VERSION)/auto/undefined_funcs_auto.ld linker_scripts/$(VERSION)/auto/undefined_syms_auto.ld
+LINKER_SCRIPTS   := $(LD_SCRIPT) $(BUILD_DIR)/linker_scripts/$(VERSION)/linker_script_extra.$(VERSION).ld
 
 ### Automatic dependency files ###
 DEP_FILES := $(LD_SCRIPT:.ld=.d)
