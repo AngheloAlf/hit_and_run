@@ -166,7 +166,7 @@ private:
 // void InitializePure3D__11PS2Platform();
     void ShutdownPure3D(void);
     void SetProgressiveMode(bool);
-// void CheckForStartupButtons__11PS2Platform();
+    bool CheckForStartupButtons(void);
 // void OnControllerError__11PS2PlatformPCc();
 // void OnDriveError__11PS2Platform12radFileErrorPCcPv();
 

@@ -931,7 +931,62 @@ void PS2Platform::SetProgressiveMode(bool arg1) {
     this->unk_18 = arg1;
 }
 
+enum scePadGetState_ret {
+    /* 0x0 */ scePadGetState_ret_0,
+    /* 0x2 */ scePadGetState_ret_2 = 0x2,
+    /* 0x6 */ scePadGetState_ret_6 = 0x6,
+    /* 0x7 */ scePadGetState_ret_7,
+};
+
+struct scePadRead_arg2 {
+    /* 0x0 */ unsigned char unk_00;
+    /* 0x1 */ char unk_01[2];
+    /* 0x3 */ unsigned char unk_03;
+}; // size = ?
+
+extern "C" scePadGetState_ret scePadGetState(int, int);
+extern "C" bool scePadRead(int, int, scePadRead_arg2 *);
+
+#ifdef NON_MATCHING
+bool PS2Platform::CheckForStartupButtons(void) {
+    scePadRead_arg2 sp0;
+    bool var_s2;
+    int var_s0;
+    int var_s1;
+
+    var_s2 = false;
+
+    for (var_s1 = 0; (!var_s2) && (var_s1 < 2); var_s1++) {
+        for (var_s0 = 0; var_s0 < 4; var_s0++) {
+            scePadGetState_ret temp = scePadGetState(var_s1, var_s0);
+
+            switch (temp) {
+                case 0x0:
+                case 0x6:
+                case 0x7:
+                    if ((temp == 2) || (temp == 6)) {
+                case 0x2:
+                        if ((scePadRead(var_s1, var_s0, &sp0) != 0) && (sp0.unk_00 == 0) && !(sp0.unk_03 & 0x50)) {
+                            var_s2 = 1;
+                            goto loop_2_end;
+                        }
+                    }
+                    break;
+
+                default:
+                    continue;
+                    break;
+            }
+        }
+
+loop_2_end:;
+    }
+
+    return var_s2;
+}
+#else
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", CheckForStartupButtons__11PS2Platform);
+#endif
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", OnControllerError__11PS2PlatformPCc);
 
