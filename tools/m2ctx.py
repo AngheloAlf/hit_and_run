@@ -14,12 +14,16 @@ src_dir = root_dir / "src"
 # Project-specific
 CPP_FLAGS = [
     "-Iinclude",
-    "-D__attribute__(...)=",
     "-ffreestanding",
     "-DM2CTX",
 
     # TODO: flags per C or C++
     "-std=gnu++98",
+]
+
+MACROS_TO_REMOVE = [
+    "__cplusplus",
+    "__GNUG__",
 ]
 
 def import_c_file(in_file: Path) -> str:
@@ -49,7 +53,8 @@ def import_c_file(in_file: Path) -> str:
     for line in out_text.splitlines(keepends=True):
         if line.startswith("#define"):
             sym = line.split()[1].split("(")[0]
-            defines[sym] = line
+            if sym not in MACROS_TO_REMOVE:
+                defines[sym] = line
         elif line.startswith("#undef"):
             sym = line.split()[1]
             if sym in defines:

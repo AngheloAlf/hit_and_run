@@ -947,7 +947,7 @@ struct scePadRead_arg2 {
 extern "C" scePadGetState_ret scePadGetState(int, int);
 extern "C" bool scePadRead(int, int, scePadRead_arg2 *);
 
-#ifdef NON_MATCHING
+#if 0
 bool PS2Platform::CheckForStartupButtons(void) {
     scePadRead_arg2 sp0;
     bool var_s2;
