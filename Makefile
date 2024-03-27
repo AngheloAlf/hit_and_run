@@ -31,8 +31,14 @@ CROSS ?= mips-linux-gnu-
 
 VERSION ?= us_2003_07_10
 
-BASEROM              := disk/$(VERSION)/SLUS_206.24
+BASEELF              := disk/$(VERSION)/SLUS_206.24
+BASEROM              := $(BASEELF).rom
 TARGET               := hit_and_run
+
+
+ifeq ("$(wildcard $(BASEELF))","")
+$(error '$(BASEELF)' file is missing. Follow the README preparation instructions to fix this error.)
+endif
 
 
 ### Output ###
@@ -258,6 +264,8 @@ distclean: clean
 
 setup:
 	$(MAKE) -C tools
+	$(OBJCOPY) -O binary --pad-to=0x3B0880 --gap-fill=0x00 $(BASEELF) $(BASEROM)
+	$(OBJCOPY) -I binary -O binary --pad-to=0x3B0880 --gap-fill=0x00 $(BASEROM)
 
 extract:
 	$(RM) -r asm/$(VERSION) bin/$(VERSION) $(LD_SCRIPT) $(LD_SCRIPT:.ld=.d)

@@ -1,9 +1,9 @@
 # name:
-sha1: a18b5102d0bc831eea462c7901bf56ad7c253a7f
+sha1: 8bb746568f8fec5287dfd4c24608078fb2bc7556
 options:
   base_path: ../../
   basename: hit_and_run
-  target_path: disk/us_2003_07_10/SLUS_206.24
+  target_path: disk/us_2003_07_10/SLUS_206.24.rom
   elf_path: build/us_2003_07_10/hit_and_run.us_2003_07_10.elf
   ld_script_path: linker_scripts/us_2003_07_10/hit_and_run.us_2003_07_10.ld
   compiler: GCC
@@ -94,1411 +94,1409 @@ options:
     # - .vubss
 
 segments:
-  - [0x000000, databin, elf_stuff]
-
   - name: sections
     type: code
-    start: 0x001000
+    start: 0x000000
     vram: 0x00100000
     bss_size: 0x6907C
     align: 4
     subalign: null
     subsegments:
-      - [0x001000, asm, crt0/crt0]
-      - [0x001100, asm, code/allai]
-      - [0x0123E8, asm, code/allactor]
-      - [0x021CD8, asm, code/allsequencer]
-      - [0x0294B8, asm, code/allaivehicle]
-      - [0x030EE0, asm, code/allatc]
-      - [0x0315B0, asm, code/allcamera]
-      - [0x045790, asm, code/allcards]
-      - [0x046720, asm, code/allcheats]
-      - [0x047468, asm, code/allconsole]
-      - [0x049828, asm, code/allcontexts]
-      - [0x04BAB8, asm, code/allgameplay]
-      - [0x04CA98, asm, code/alldemo]
-      - [0x04D968, asm, code/alldata]
-      - [0x04F310, asm, code/allmemcard]
-      - [0x050478, asm, code/alldebug]
-      - [0x050480, asm, code/allevents]
-      - [0x050CF0, asm, code/allgameflow]
-      - [0x0513D0, asm, code/allinput]
-      - [0x054E48, asm, code/allinteriors]
-      - [0x05D690, asm, code/allloadmanager]
-      - [0x063648, cpp, code/allps2main]
-      - [0x066EE0, asm, code/allmemory]
-      - [0x069D80, asm, code/allmeta]
-      - [0x06EC90, asm, code/allmission]
-      - [0x088FA0, asm, code/allsafezone]
-      - [0x0890F0, asm, code/allcharactersheet]
-      - [0x08B258, asm, code/allrewards]
-      - [0x08C520, asm, code/allconditions]
-      - [0x08DF90, asm, code/allobjectives]
-      - [0x09AB88, asm, code/allpresentation]
-      - [0x0A3DA8, asm, code/allrespawnmanager]
-      - [0x0A3FF0, asm, code/allfmvplayerps2]
-      - [0x0A5930, asm, code/allgui]
-      - [0x0B0318, asm, code/allbootup]
-      - [0x0B1ED0, asm, code/allbackend]
-      - [0x0B4388, asm, code/allfrontend]
-      - [0x0C3478, asm, code/allminigame]
-      - [0x0C7CF0, asm, code/allingame]
-      - [0x0DFF68, asm, code/allhudevents]
-      - [0x0E3890, asm, code/allutility]
-      - [0x0EADB8, asm, code/allpresevents]
-      - [0x0EB550, asm, code/allculling]
-      - [0x0F4EA0, asm, code/alldsg]
-      - [0x101F80, asm, code/allbreakables]
-      - [0x1033A0, asm, code/allskidmarks]
-      - [0x105CE0, asm, code/allintersect]
-      - [0x107E48, asm, code/allloaders]
-      - [0x111B38, asm, code/allparticles]
-      - [0x115C00, asm, code/allanimentitydsgmanager]
-      - [0x116DE0, asm, code/allrenderflow]
-      - [0x117220, asm, code/allrendermanager]
-      - [0x11FEE0, asm, code/allroads]
-      - [0x128B08, asm, code/allsound]
-      - [0x12CF78, asm, code/allsoundavatar]
-      - [0x131030, asm, code/alldialog]
-      - [0x1378F0, asm, code/allmusic]
-      - [0x13A108, asm, code/allnissound]
-      - [0x13A9A8, asm, code/allsoundfx]
-      - [0x13E640, asm, code/allsoundrenderer]
-      - [0x149448, asm, code/allsoundtuning]
-      - [0x14A190, asm, code/allsounddebug]
-      - [0x14A360, asm, code/allmovingposn]
-      - [0x14D2F0, asm, code/allworldsim]
-      - [0x158DF0, asm, code/allcoins]
-      - [0x15EEB8, asm, code/allcharacter]
-      - [0x174470, asm, code/allredbrick]
-      - [0x18EDC8, asm, code/allvehiclecontroller]
-      - [0x1909C8, asm, code/alltraffic]
-      - [0x193E20, asm, code/allpedpaths]
-      - [0x194610, asm, code/allped]
-      - [0x197550, asm, code/allspawn]
-      - [0x197740, asm, code/allharass]
-      - [0x1990B0, asm, code/allstateprop]
-      - [0x19AE10, asm, code/allufo]
-      - [0x19D898, asm, code/allparkedcars]
-      - [0x19F000, asm, code/allsupersprintctx]
-      - [0x1A02F0, asm, code/allsupersprint]
-      - [0x1A5330, asm, code/allfootprint]
-      - [0x1A5950, asm, libs/choreo/choreopr/animation] # .a
-      - [0x1A8C18, asm, libs/choreo/choreopr/bank] # .a
-      - [0x1A9930, asm, libs/choreo/choreopr/basebank] # .a
-      - [0x1AA118, asm, libs/choreo/choreopr/constants] # .a
-      - [0x1AA170, asm, libs/choreo/choreopr/engine] # .a
-      - [0x1AAD60, asm, libs/choreo/choreopr/footblender] # .a
-      - [0x1AC610, asm, libs/choreo/choreopr/footplanter] # .a
-      - [0x1ACDD0, asm, libs/choreo/choreopr/internalanimation] # .a
-      - [0x1AD2B0, asm, libs/choreo/choreopr/jointblender] # .a
-      - [0x1AE0B8, asm, libs/choreo/choreopr/load] # .a
-      - [0x1AE960, asm, libs/choreo/choreopr/locomotion] # .a
-      - [0x1B26F8, asm, libs/choreo/choreopr/partition] # .a
-      - [0x1B5C78, asm, libs/choreo/choreopr/puppet] # .a
-      - [0x1B6CF8, asm, libs/choreo/choreopr/replay] # .a
-      - [0x1B8040, asm, libs/choreo/choreopr/replayblender] # .a
-      - [0x1B8570, asm, libs/choreo/choreopr/rig] # .a
-      - [0x1B9908, asm, libs/choreo/choreopr/root] # .a
-      - [0x1BA4C0, asm, libs/choreo/choreopr/rootblender] # .a
-      - [0x1BC3B0, asm, libs/choreo/choreopr/scriptreader] # .a
-      - [0x1BF380, asm, libs/choreo/choreopr/synchronization] # .a
-      - [0x1BFC68, asm, libs/choreo/choreopr/transition] # .a
-      - [0x1C0428, asm, libs/choreo/choreopr/utility] # .a
-      - [0x1C08D0, asm, libs/choreo/choreopr/blend] # .a
-      - [0x1C56C0, asm, libs/sim/simpr/collision] # .a
-      - [0x1C5A50, asm, libs/sim/simpr/collisiondisplay] # .a
-      - [0x1C6478, asm, libs/sim/simpr/collisionmanager] # .a
-      - [0x1C8068, asm, libs/sim/simpr/collisionobject] # .a
-      - [0x1CA208, asm, libs/sim/simpr/collisionvolume] # .a
-      - [0x1CD318, asm, libs/sim/simpr/impulsebasedcollisionsolver] # .a
-      - [0x1CF0C0, asm, libs/sim/simpr/proximitydetection] # .a
-      - [0x1D1AA0, asm, libs/sim/simpr/dline2] # .a
-      - [0x1D2410, asm, libs/sim/simpr/physicsproperties] # .a
-      - [0x1D2B48, asm, libs/sim/simpr/simenvironment] # .a
-      - [0x1D3460, asm, libs/sim/simpr/simmath] # .a
-      - [0x1D4178, asm, libs/sim/simpr/simstate] # .a
-      - [0x1D59E8, asm, libs/sim/simpr/simstatearticulated] # .a
-      - [0x1D7ED0, asm, libs/sim/simpr/simtarget] # .a
-      - [0x1D84C0, asm, libs/sim/simpr/simulatedobject] # .a
-      - [0x1D89A0, asm, libs/sim/simpr/simutility] # .a
-      - [0x1D92B0, asm, libs/sim/simpr/skeletoninfo] # .a
-      - [0x1D9940, asm, libs/sim/simpr/symmatrix] # .a
-      - [0x1DA1F0, asm, libs/sim/simpr/tlist] # .a
-      - [0x1DA5B0, asm, libs/sim/simpr/physicsobject] # .a
-      - [0x1DD2D8, asm, libs/sim/simpr/articulatedphysicsobject] # .a
-      - [0x1DEFD0, asm, libs/sim/simpr/physicsjoint] # .a
-      - [0x1E33A0, asm, libs/sim/simpr/virtualcm] # .a
-      - [0x1E3978, asm, libs/sim/simpr/restingdetector] # .a
-      - [0x1E3E10, asm, libs/sim/simpr/collisionanalyser] # .a
-      - [0x1E4C80, asm, libs/sim/simpr/collisionanalyserdata] # .a
-      - [0x1E58A8, asm, libs/sim/simpr/collisionanalyserevent] # .a
-      - [0x1E5968, asm, libs/sim/simpr/collisionanalyserinfo] # .a
-      - [0x1E5AF0, asm, libs/sim/simpr/collisiondetector] # .a
-      - [0x1E7D20, asm, libs/sim/simpr/subcollisiondetector] # .a
-      - [0x1EFA68, asm, libs/sim/simpr/kalmann] # .a
-      - [0x1F0388, asm, libs/poser/poserpr/joint] # .a
-      - [0x1F0D20, asm, libs/poser/poserpr/pose] # .a
-      - [0x1F1610, asm, libs/poser/poserpr/posedriver] # .a
-      - [0x1F1718, asm, libs/poser/poserpr/poseengine] # .a
-      - [0x1F1F38, asm, libs/poser/poserpr/transform] # .a
-      - [0x1F2330, asm, libs/scrooby/scroobypr/FeLoaders] # .a
-      - [0x1F5AC0, asm, libs/scrooby/scroobypr/FePage] # .a
-      - [0x1F6C78, asm, libs/scrooby/scroobypr/FeParent] # .a
-      - [0x1F8030, asm, libs/scrooby/scroobypr/FePolygon] # .a
-      - [0x1F93B8, asm, libs/scrooby/scroobypr/FeProject] # .a
-      - [0x1FA350, asm, libs/scrooby/scroobypr/FePure3dObject] # .a
-      - [0x1FC2E0, asm, libs/scrooby/scroobypr/FeScreen] # .a
-      - [0x1FD9A0, asm, libs/scrooby/scroobypr/FeSprite] # .a
-      - [0x1FF3B8, asm, libs/scrooby/scroobypr/FeText] # .a
-      - [0x201CE8, asm, libs/scrooby/scroobypr/FeTextBible] # .a
-      - [0x2021D8, asm, libs/scrooby/scroobypr/FeTextStyle] # .a
-      - [0x202458, asm, libs/scrooby/scroobypr/tLinearTable] # .a
-      - [0x203120, asm, libs/scrooby/scroobypr/FeResourceManager] # .a
-      - [0x2060C0, asm, libs/scrooby/scroobypr/App] # .a
-      - [0x206218, asm, libs/scrooby/scroobypr/pcstring] # .a
-      - [0x207010, asm, libs/scrooby/scroobypr/UnicodeString] # .a
-      - [0x207AE0, asm, libs/scrooby/scroobypr/stricmp] # .a
-      - [0x207BB8, asm, libs/scrooby/scroobypr/EnumConversion] # .a
-      - [0x207C80, asm, libs/scrooby/scroobypr/XMLTree] # .a
-      - [0x2085D0, asm, libs/scrooby/scroobypr/FeApp] # .a
-      - [0x209790, asm, libs/scrooby/scroobypr/FeBoundedDrawable] # .a
-      - [0x20AA50, asm, libs/scrooby/scroobypr/FeChunkHandler] # .a
-      - [0x20D998, asm, libs/scrooby/scroobypr/FeDrawable] # .a
-      - [0x20E9B8, asm, libs/scrooby/scroobypr/FeEntity] # .a
-      - [0x20EAA8, asm, libs/scrooby/scroobypr/FeGroup] # .a
-      - [0x20FF28, asm, libs/scrooby/scroobypr/FeLanguage] # .a
-      - [0x210168, asm, libs/scrooby/scroobypr/FeLayer] # .a
-      - [0x210B70, asm, libs/scrooby/scroobypr/FeMovie] # .a
-      - [0x211398, asm, libs/scrooby/scroobypr/FeOwner] # .a
-      - [0x212100, asm, libs/scrooby/scroobypr/XMLParser] # .a
-      - [0x2130D8, asm, libs/scrooby/scroobypr/BufferReader] # .a
-      - [0x2130E8, cpp, libs/pure3d/pure3dpr/platform] # .a
-      - [0x213368, asm, libs/pure3d/pure3dpr/billboardobject] # .a
-      - [0x21B990, asm, libs/pure3d/pure3dpr/bmp] # .a
-      - [0x21C4C8, asm, libs/pure3d/pure3dpr/camera] # .a
-      - [0x21D198, asm, libs/pure3d/pure3dpr/cameraloader] # .a
-      - [0x21D650, asm, libs/pure3d/pure3dpr/chunkfile] # .a
-      - [0x21DEB0, asm, libs/pure3d/pure3dpr/context] # .a
-      - [0x21E670, asm, libs/pure3d/pure3dpr/drawable] # .a
-      - [0x21ECA8, asm, libs/pure3d/pure3dpr/entity] # .a
-      - [0x21F180, asm, libs/pure3d/pure3dpr/error] # .a
-      - [0x21F3D0, asm, libs/pure3d/pure3dpr/file] # .a
-      - [0x21FAA8, asm, libs/pure3d/pure3dpr/font] # .a
-      - [0x21FD60, asm, libs/pure3d/pure3dpr/gameattr] # .a
-      - [0x220818, asm, libs/pure3d/pure3dpr/geometry] # .a
-      - [0x2215F8, asm, libs/pure3d/pure3dpr/image] # .a
-      - [0x222348, asm, libs/pure3d/pure3dpr/imagefactory] # .a
-      - [0x223D38, asm, libs/pure3d/pure3dpr/imagefont] # .a
-      - [0x224C40, asm, libs/pure3d/pure3dpr/inventory] # .a
-      - [0x225F80, asm, libs/pure3d/pure3dpr/light] # .a
-      - [0x226868, asm, libs/pure3d/pure3dpr/lightloader] # .a
-      - [0x2277F8, asm, libs/pure3d/pure3dpr/locator] # .a
-      - [0x227B88, asm, libs/pure3d/pure3dpr/loadmanager] # .a
-      - [0x2291A0, asm, libs/pure3d/pure3dpr/lzr] # .a
-      - [0x229408, asm, libs/pure3d/pure3dpr/matrixstack] # .a
-      - [0x2295B8, asm, libs/pure3d/pure3dpr/memory] # .a
-      - [0x229908, asm, libs/pure3d/pure3dpr/pointcamera] # .a
-      - [0x229CA8, asm, libs/pure3d/pure3dpr/pointlight] # .a
-      - [0x229F38, asm, libs/pure3d/pure3dpr/png] # .a
-      - [0x22A8A8, asm, libs/pure3d/pure3dpr/primgroup] # .a
-      - [0x22E648, asm, libs/pure3d/pure3dpr/rawimage] # .a
-      - [0x22E870, asm, libs/pure3d/pure3dpr/refcounted] # .a
-      - [0x22E8B0, asm, libs/pure3d/pure3dpr/shader] # .a
-      - [0x22F828, asm, libs/pure3d/pure3dpr/sprite] # .a
-      - [0x2323F8, asm, libs/pure3d/pure3dpr/spotlight] # .a
-      - [0x2327A0, asm, libs/pure3d/pure3dpr/targa] # .a
-      - [0x233260, asm, libs/pure3d/pure3dpr/textstring] # .a
-      - [0x233540, asm, libs/pure3d/pure3dpr/texture] # .a
-      - [0x2344D0, asm, libs/pure3d/pure3dpr/texturefont] # .a
-      - [0x236568, asm, libs/pure3d/pure3dpr/unicode] # .a
-      - [0x236710, asm, libs/pure3d/pure3dpr/utility] # .a
-      - [0x236798, asm, libs/pure3d/pure3dpr/vectorcamera] # .a
-      - [0x236A20, asm, libs/pure3d/pure3dpr/vertexlist] # .a
-      - [0x237910, asm, libs/pure3d/pure3dpr/view] # .a
-      - [0x238158, asm, libs/pure3d/pure3dpr/animate] # .a
-      - [0x23C928, asm, libs/pure3d/pure3dpr/animatedobject] # .a
-      - [0x23EB70, asm, libs/pure3d/pure3dpr/billboardobjectanimation] # .a
-      - [0x23F148, asm, libs/pure3d/pure3dpr/cameraanimation] # .a
-      - [0x23FE30, asm, libs/pure3d/pure3dpr/channel] # .a
-      - [0x244A40, asm, libs/pure3d/pure3dpr/compositedrawable] # .a
-      - [0x247C70, asm, libs/pure3d/pure3dpr/drawablepose] # .a
-      - [0x247EA0, asm, libs/pure3d/pure3dpr/event] # .a
-      - [0x2481A8, asm, libs/pure3d/pure3dpr/expression] # .a
-      - [0x249E58, asm, libs/pure3d/pure3dpr/expressionanimation] # .a
-      - [0x24A590, asm, libs/pure3d/pure3dpr/lightanimation] # .a
-      - [0x24B170, asm, libs/pure3d/pure3dpr/multicontroller] # .a
-      - [0x24C3D8, asm, libs/pure3d/pure3dpr/polyskin] # .a
-      - [0x24D330, asm, libs/pure3d/pure3dpr/pose] # .a
-      - [0x24D9F8, asm, libs/pure3d/pure3dpr/poseanimation] # .a
-      - [0x24E290, asm, libs/pure3d/pure3dpr/sequencer] # .a
-      - [0x251700, asm, libs/pure3d/pure3dpr/skeleton] # .a
-      - [0x2523B8, asm, libs/pure3d/pure3dpr/shaderanimation] # .a
-      - [0x2528E8, asm, libs/pure3d/pure3dpr/textureanimation] # .a
-      - [0x252BC0, asm, libs/pure3d/pure3dpr/vertexoffsetexpression] # .a
-      - [0x2546D8, asm, libs/pure3d/pure3dpr/visibilityanimation] # .a
-      - [0x255060, asm, libs/pure3d/pure3dpr/vertexanimcontroller] # .a
-      - [0x2553B0, asm, libs/pure3d/pure3dpr/vertexanimkey] # .a
-      - [0x256400, asm, libs/pure3d/pure3dpr/vertexanimobject] # .a
-      - [0x257CF0, asm, libs/pure3d/pure3dpr/effect] # .a
-      - [0x258128, asm, libs/pure3d/pure3dpr/opticloader] # .a
-      - [0x258A90, asm, libs/pure3d/pure3dpr/particleloader] # .a
-      - [0x25A430, asm, libs/pure3d/pure3dpr/particlesystem] # .a
-      - [0x25BD40, asm, libs/pure3d/pure3dpr/particleutility] # .a
-      - [0x25BDD0, asm, libs/pure3d/pure3dpr/nodeanimation] # .a
-      - [0x25C368, asm, libs/pure3d/pure3dpr/scenegraph] # .a
-      - [0x25FFD0, asm, libs/pure3d/pure3dpr/plat_filemap] # .a
-      - [0x260090, asm, libs/pure3d/pure3dpr/ambientlight] # .a
-      - [0x2601B8, asm, libs/pure3d/pure3dpr/directionallight] # .a
-      - [0x2603D8, asm, libs/pure3d/pure3dpr/displaylist] # .a
-      - [0x260A68, asm, libs/pure3d/pure3dpr/fileftt] # .a
-      - [0x2615B8, asm, libs/pure3d/pure3dpr/imageconverter] # .a
-      - [0x2620C8, asm, libs/pure3d/pure3dpr/textdataparser] # .a
-      - [0x262870, asm, libs/pure3d/pure3dpr/eventanimation] # .a
-      - [0x263D90, asm, libs/pure3d/pure3dpr/expressionoffsets] # .a
-      - [0x264360, asm, libs/pure3d/pure3dpr/opticlensflare] # .a
-      - [0x2653D0, asm, libs/pure3d/pure3dpr/particlepool] # .a
-      - [0x266808, asm, libs/pure3d/pure3dpr/particlearray] # .a
-      - [0x266DF8, asm, libs/pure3d/pure3dpr/particleemitter] # .a
-      - [0x26A7C8, asm, libs/pure3d/pure3dpr/particlegenerator] # .a
-      - [0x26C480, asm, libs/pure3d/pure3dpr/optic] # .a
-      - [0x26C6E0, asm, libs/pure3d/pddipr/misc] # .a
-      - [0x26C718, asm, libs/pure3d/pddipr/ps2device] # .a
-      - [0x26CB88, asm, libs/pure3d/pddipr/ps2display] # .a
-      - [0x26E128, asm, libs/pure3d/pddipr/ps2prim] # .a
-      - [0x2703F8, asm, libs/pure3d/pddipr/ps2errorshader] # .a
-      - [0x2708D8, asm, libs/pure3d/pddipr/ps2layeredshader] # .a
-      - [0x270A20, asm, libs/pure3d/pddipr/ps2lightmapshader] # .a
-      - [0x2718F0, asm, libs/pure3d/pddipr/ps2lightweightshader] # .a
-      - [0x2722F8, asm, libs/pure3d/pddipr/ps2toonshader] # .a
-      - [0x272B00, asm, libs/pure3d/pddipr/ps2simpleshader] # .a
-      - [0x273DF8, asm, libs/pure3d/pddipr/ps2refractionshader] # .a
-      - [0x274790, asm, libs/pure3d/pddipr/ps2reflectionshader] # .a
-      - [0x275BA8, asm, libs/pure3d/pddipr/ps2shadowshader] # .a
-      - [0x275F60, asm, libs/pure3d/pddipr/ps2streamprim] # .a
-      - [0x276928, asm, libs/pure3d/pddipr/ps2texture] # .a
-      - [0x277F60, asm, libs/pure3d/pddipr/ps2texcache] # .a
-      - [0x278A20, asm, libs/pure3d/pddipr/ps2vram] # .a
-      - [0x27A038, asm, libs/pure3d/pddipr/ps2vucode] # .a
-      - [0x27A1F0, asm, libs/pure3d/pddipr/basecontext] # .a
-      - [0x27DE50, asm, libs/pure3d/pddipr/baseshader] # .a
-      - [0x27E740, asm, libs/pure3d/pddipr/dma] # .a
-      - [0x27EB10, asm, libs/pure3d/pddipr/ee] # .a
-      - [0x27EB50, asm, libs/pure3d/pddipr/font] # .a
-      - [0x27F058, asm, libs/pure3d/pddipr/mfifo] # .a
-      - [0x27F458, asm, libs/pure3d/pddipr/pddiobj] # .a
-      - [0x27F550, asm, libs/pure3d/pddipr/packet] # .a
-      - [0x27F708, asm, libs/pure3d/pddipr/ps2context] # .a
-      - [0x283D78, asm, libs/pure3d/pddipr/ps2skin] # .a
-      - [0x284158, asm, libs/pure3d/pngpr/png] # .a
-      - [0x284510, asm, libs/pure3d/pngpr/pngerror] # .a
-      - [0x2847E0, asm, libs/pure3d/pngpr/pngget] # .a
-      - [0x2849D0, asm, libs/pure3d/pngpr/pngmem] # .a
-      - [0x284C20, asm, libs/pure3d/pngpr/pngread] # .a
-      - [0x285C20, asm, libs/pure3d/pngpr/pngrio] # .a
-      - [0x285D18, asm, libs/pure3d/pngpr/pngrtran] # .a
-      - [0x28B290, asm, libs/pure3d/pngpr/pngrutil] # .a
-      - [0x28EDE0, asm, libs/pure3d/pngpr/pngset] # .a
-      - [0x28F628, asm, libs/pure3d/pngpr/pngtrans] # .a
-      - [0x28FC80, asm, libs/pure3d/zlibpr/crc32] # .a
-      - [0x28FE88, asm, libs/pure3d/zlibpr/inflate] # .a
-      - [0x2905E0, asm, libs/pure3d/zlibpr/zutil] # .a
-      - [0x290628, asm, libs/pure3d/zlibpr/adler32] # .a
-      - [0x2907C0, asm, libs/pure3d/zlibpr/infblock] # .a
-      - [0x2915C0, asm, libs/pure3d/zlibpr/infcodes] # .a
-      - [0x291E50, asm, libs/pure3d/zlibpr/inffast] # .a
-      - [0x292228, asm, libs/pure3d/zlibpr/inftrees] # .a
-      - [0x292AE0, asm, libs/pure3d/zlibpr/infutil] # .a
-      - [0x292C60, asm, libs/radmath/radmathpr/radmath] # .a
-      - [0x292CC0, asm, libs/radmath/radmathpr/matrix] # .a
-      - [0x293AE8, asm, libs/radmath/radmathpr/plane] # .a
-      - [0x293C80, asm, libs/radmath/radmathpr/quaternion] # .a
-      - [0x294400, asm, libs/radmath/radmathpr/random] # .a
-      - [0x294680, asm, libs/radmath/radmathpr/spline] # .a
-      - [0x295750, asm, libs/radmath/radmathpr/trig] # .a
-      - [0x295A08, asm, libs/radmath/radmathpr/vector] # .a
-      - [0x2960C0, asm, libs/radmath/radmathpr/matrix_ps2] # .a
-      - [0x2961E8, asm, libs/radmath/radmathpr/numerical] # .a
-      - [0x2961F8, asm, libs/radmusic/radmusicpr/framework] # .a
-      - [0x296270, asm, libs/radmusic/radmusicpr/music_composition] # .a
-      - [0x296AE8, asm, libs/radmusic/radmusicpr/music_performance] # .a
-      - [0x297A88, asm, libs/radmusic/radmusicpr/schema_util] # .a
-      - [0x299D30, asm, libs/radmusic/radmusicpr/resource_manager] # .a
-      - [0x29C1E0, asm, libs/radmusic/radmusicpr/memory] # .a
-      - [0x29C390, asm, libs/radmusic/radmusicpr/ods] # .a
-      - [0x29F308, asm, libs/radmusic/radmusicpr/ods_memory] # .a
-      - [0x2A1010, asm, libs/radmusic/radmusicpr/ods_parser] # .a
-      - [0x2A15B8, asm, libs/radmusic/radmusicpr/music_engine] # .a
-      - [0x2A2A10, asm, libs/radmusic/radmusicpr/music_engine_state_fade] # .a
-      - [0x2A3810, asm, libs/radmusic/radmusicpr/music_engine_state_steady] # .a
-      - [0x2A4360, asm, libs/radmusic/radmusicpr/music_engine_state_stitch] # .a
-      - [0x2A50B8, asm, libs/radmusic/radmusicpr/music_engine_state_stopped] # .a
-      - [0x2A5478, asm, libs/radmusic/radmusicpr/sequence_player] # .a
-      - [0x2A9458, asm, libs/radmusic/radmusicpr/sequence_region] # .a
-      - [0x2AA5A8, asm, libs/radmusic/radmusicpr/sequence_stream_graph] # .a
-      - [0x2AAF50, asm, libs/radsound/radsoundpr/audioformat] # .a
-      - [0x2ABB38, asm, libs/radsound/radsoundpr/softwarelistener] # .a
-      - [0x2AC988, asm, libs/radsound/radsoundpr/softwarepositionalgroup] # .a
-      - [0x2AD150, asm, libs/radsound/radsoundpr/memoryregion] # .a
-      - [0x2ADB88, asm, libs/radsound/radsoundpr/system] # .a
-      - [0x2AE9B0, asm, libs/radsound/radsoundpr/effect] # .a
-      - [0x2AF138, asm, libs/radsound/radsoundpr/iopclient] # .a
-      - [0x2AFC08, asm, libs/radsound/radsoundpr/adpcm] # .a
-      - [0x2AFD28, asm, libs/radsound/radsoundpr/adpcmasyncrequest] # .a
-      - [0x2B0070, asm, libs/radsound/radsoundpr/adpcmbuffer] # .a
-      - [0x2B07A8, asm, libs/radsound/radsoundpr/adpcmbufferclearer] # .a
-      - [0x2B0C48, asm, libs/radsound/radsoundpr/adpcmbufferloader] # .a
-      - [0x2B13F0, asm, libs/radsound/radsoundpr/adpcmvoice] # .a
-      - [0x2B42E0, asm, libs/radsound/radsoundpr/buffereddatasource] # .a
-      - [0x2B5938, asm, libs/radsound/radsoundpr/clip] # .a
-      - [0x2B6800, asm, libs/radsound/radsoundpr/clipplayer] # .a
-      - [0x2B7750, asm, libs/radsound/radsoundpr/datacache] # .a
-      - [0x2B86F8, asm, libs/radsound/radsoundpr/rsdfiledatasource] # .a
-      - [0x2B9360, asm, libs/radsound/radsoundpr/memorydatasource] # .a
-      - [0x2B9D80, asm, libs/radsound/radsoundpr/memoryspaceobject] # .a
-      - [0x2BA238, asm, libs/radsound/radsoundpr/stitcheddatasource] # .a
-      - [0x2BB0E0, asm, libs/radsound/radsoundpr/streamplayer] # .a
-      - [0x2BCAC8, asm, libs/radsound/radsoundpr/banner] # .a
-      - [0x2BCAD0, asm, libs/radsound/radsoundpr/radsoundfile] # .a
-      - [0x2BCC48, asm, libs/radsound/radsoundpr/rolloff] # .a
-      - [0x2BCCE0, asm, libs/radscript/radscriptpr/script] # .a
-      - [0x2BD3C0, asm, libs/radscript/radscriptpr/namespace] # .a
-      - [0x2BD730, asm, libs/radscript/radscriptpr/radfactory] # .a
-      - [0x2BDB60, asm, libs/radscript/radscriptpr/TypeInfoLoader] # .a
-      - [0x2BFE70, asm, libs/radscript/radscriptpr/TypeInfoMethod] # .a
-      - [0x2C0030, asm, libs/radscript/radscriptpr/ps2typeinfovfcall] # .a
-      - [0x2C00C0, asm, libs/radscript/radscriptpr/TypeInfoSystem] # .a
-      - [0x2C0F88, asm, libs/radmovie/radmoviepr/movieplayer] # .a
-      - [0x2C2650, asm, libs/radmovie/radmoviepr/ipups2] # .a
-      - [0x2C2E78, asm, libs/radmovie/radmoviepr/videodecoderps2] # .a
-      - [0x2C3C38, asm, libs/radmovie/radmoviepr/renderstrategyps2] # .a
-      - [0x2C43D0, asm, libs/radmovie/radmoviepr/audiodatasource] # .a
-      - [0x2C4CC8, asm, libs/radcore/radcorepr/debug] # .a
-      - [0x2C4F90, asm, libs/radcore/radcorepr/time] # .a
-      - [0x2C5D10, asm, libs/radcore/radcorepr/stopwatch] # .a
-      - [0x2C64C8, asm, libs/radcore/radcorepr/align] # .a
-      - [0x2C6540, asm, libs/radcore/radcorepr/dlheap] # .a
-      - [0x2C7B20, asm, libs/radcore/radcorepr/externalmemoryheap] # .a
-      - [0x2C86E8, asm, libs/radcore/radcorepr/externalmemoryobject] # .a
-      - [0x2C8808, asm, libs/radcore/radcorepr/memorymanager] # .a
-      - [0x2C97D0, asm, libs/radcore/radcorepr/memoryspaceps2] # .a
-      - [0x2CAB58, asm, libs/radcore/radcorepr/memorypool] # .a
-      - [0x2CB318, asm, libs/radcore/radcorepr/platalloc] # .a
-      - [0x2CB3B0, asm, libs/radcore/radcorepr/staticheap] # .a
-      - [0x2CB9A8, asm, libs/radcore/radcorepr/trackingheap] # .a
-      - [0x2CD1C8, asm, libs/radcore/radcorepr/string] # .a
-      - [0x2CDF50, asm, libs/radcore/radcorepr/objectbtree] # .a
-      - [0x2CEA58, asm, libs/radcore/radcorepr/targetx] # .a
-      - [0x2CEA88, asm, libs/radcore/radcorepr/consoleclient] # .a
-      - [0x2D02D8, asm, libs/radcore/radcorepr/ps2controller] # .a
-      - [0x2D8070, asm, libs/radcore/radcorepr/radfile] # .a
-      - [0x2D85C8, asm, libs/radcore/radcorepr/platform] # .a
-      - [0x2D8FD0, asm, libs/radcore/radcorepr/system] # .a
-      - [0x2D90A8, asm, libs/radcore/radcorepr/mutex] # .a
-      - [0x2D9440, asm, libs/radcore/radcorepr/semaphore] # .a
-      - [0x2D9788, asm, libs/radcore/radcorepr/thread] # .a
-      - [0x2DAA78, asm, libs/radcore/radcorepr/textdisplay] # .a
-      - [0x2DB6C0, asm, libs/radcore/radcorepr/weakcallbackwrapper] # .a
-      - [0x2DB988, asm, libs/radcore/radcorepr/controllerbuffer] # .a
-      - [0x2DBEB0, asm, libs/radcore/radcorepr/filesystem] # .a
-      - [0x2DCB88, asm, libs/radcore/radcorepr/platformdrives] # .a
-      - [0x2DCD18, asm, libs/radcore/radcorepr/remotedrive] # .a
-      - [0x2DE2B0, asm, libs/radcore/radcorepr/cementer] # .a
-      - [0x2DF108, asm, libs/radcore/radcorepr/ps2cddrive] # .a
-      - [0x2E0B50, asm, libs/radcore/radcorepr/ps2hostdrive] # .a
-      - [0x2E1368, asm, libs/radcore/radcorepr/ps2memcarddrive] # .a
-      - [0x2E3740, asm, libs/radcore/radcorepr/requests] # .a
-      - [0x2E6358, asm, libs/radcore/radcorepr/file] # .a
-      - [0x2E72A0, asm, libs/radcore/radcorepr/instancedrive] # .a
-      - [0x2E8348, asm, libs/radcore/radcorepr/drive] # .a
-      - [0x2E8DB8, asm, libs/radcore/radcorepr/buffereddrive] # .a
-      - [0x2E91E0, asm, libs/radcore/radcorepr/drivethread] # .a
-      - [0x2E9CC8, asm, libs/radcore/radcorepr/signeddrive] # .a
-      - [0x2EA080, asm, libs/radcore/radcorepr/filecache] # .a
-      - [0x2EA540, asm, sce_libs/lib/liblgdev/liblgdev] # .a
-      - [0x2EB468, asm, libs/radcontent/radcontentpr/hashtable] # .a
-      - [0x2EBFA0, asm, libs/radcontent/radcontentpr/inventory] # .a
-      - [0x2ECA60, asm, libs/radcontent/radcontentpr/manager] # .a
-      - [0x2EE458, asm, libs/radcontent/radcontentpr/object] # .a
-      - [0x2EE628, asm, libs/radcontent/radcontentpr/queue] # .a
-      - [0x2EE838, asm, libs/radcontent/radcontentpr/request] # .a
-      - [0x2EED20, asm, libs/radcontent/radcontentpr/stream] # .a
-      - [0x2EF6E0, asm, sce_libs/gcc/ee/libg/assert] # .a
-      - [0x2EF718, asm, sce_libs/gcc/ee/libg/atexit] # .a
-      - [0x2EF7B0, asm, sce_libs/gcc/ee/libg/atof] # .a
-      - [0x2EF7D0, asm, sce_libs/gcc/ee/libg/atoi] # .a
-      - [0x2EF7F8, asm, sce_libs/gcc/ee/libg/bsearch] # .a
-      - [0x2EF800, asm, sce_libs/gcc/ee/libg/calloc] # .a
-      - [0x2EF830, asm, sce_libs/gcc/ee/libg/callocr] # .a
-      - [0x2EF8F0, asm, sce_libs/gcc/ee/libg/exit] # .a
-      - [0x2EF9A0, asm, sce_libs/gcc/ee/libg/fclose] # .a
-      - [0x2EFAA8, asm, sce_libs/gcc/ee/libg/fflush] # .a
-      - [0x2EFBB0, asm, sce_libs/gcc/ee/libg/findfp] # .a
-      - [0x2EFE00, asm, sce_libs/gcc/ee/libg/fiprintf] # .a
-      - [0x2EFE38, asm, sce_libs/gcc/ee/libg/fopen] # .a
-      - [0x2EFF48, asm, sce_libs/gcc/ee/libg/fprintf] # .a
-      - [0x2EFF80, asm, sce_libs/gcc/ee/libg/fread] # .a
-      - [0x2F00A0, asm, sce_libs/gcc/ee/libg/freer] # .a
-      - [0x2F0530, asm, sce_libs/gcc/ee/libg/fseek] # .a
-      - [0x2F09C0, asm, sce_libs/gcc/ee/libg/fstatr] # .a
-      - [0x2F0A20, asm, sce_libs/gcc/ee/libg/fwalk] # .a
-      - [0x2F0AB8, asm, sce_libs/gcc/ee/libg/fwrite] # .a
-      - [0x2F0B40, asm, sce_libs/gcc/ee/libg/makebuf] # .a
-      - [0x2F0C90, asm, sce_libs/gcc/ee/libg/malign] # .a
-      - [0x2F0CC0, asm, sce_libs/gcc/ee/libg/malignr] # .a
-      - [0x2F0E90, asm, sce_libs/gcc/ee/libg/malloc] # .a
-      - [0x2F0EC8, asm, sce_libs/gcc/ee/libg/mallocr] # .a
-      - [0x2F1898, asm, sce_libs/gcc/ee/libg/memcmp] # .a
-      - [0x2F192C, asm, sce_libs/gcc/ee/libg/memcpy] # .a
-      - [0x2F19DC, asm, sce_libs/gcc/ee/libg/memmove] # .a
-      - [0x2F1AE0, asm, sce_libs/gcc/ee/libg/memset] # .a
-      - [0x2F1BA0, asm, sce_libs/gcc/ee/libg/mlock] # .a
-      - [0x2F1BB0, asm, sce_libs/gcc/ee/libg/mstats] # .a
-      - [0x2F1BF0, asm, sce_libs/gcc/ee/libg/openr] # .a
-      - [0x2F1C50, asm, sce_libs/gcc/ee/libg/printf] # .a
-      - [0x2F1CA8, asm, sce_libs/gcc/ee/libg/qsort] # .a
-      - [0x2F26D0, asm, sce_libs/gcc/ee/libg/rand] # .a
-      - [0x2F2710, asm, sce_libs/gcc/ee/libg/refill] # .a
-      - [0x2F28A8, asm, sce_libs/gcc/ee/libg/sbrkr] # .a
-      - [0x2F2904, asm, sce_libs/gcc/ee/libg/setjmp] # .a
-      - [0x2F2980, asm, sce_libs/gcc/ee/libg/sf_isnan] # .a
-      - [0x2F29A8, asm, sce_libs/gcc/ee/libg/sprintf] # .a
-      - [0x2F2A18, asm, sce_libs/gcc/ee/libg/stdio] # .a
-      - [0x2F2B88, asm, sce_libs/gcc/ee/libg/strcasecmp] # .a
-      - [0x2F2C3C, asm, sce_libs/gcc/ee/libg/strcat] # .a
-      - [0x2F2D68, asm, sce_libs/gcc/ee/libg/strchr] # .a
-      - [0x2F2EF8, asm, sce_libs/gcc/ee/libg/strcmp] # .a
-      - [0x2F303C, asm, sce_libs/gcc/ee/libg/strcpy] # .a
-      - [0x2F3150, asm, sce_libs/gcc/ee/libg/strlen] # .a
-      - [0x2F3288, asm, sce_libs/gcc/ee/libg/strlwr] # .a
-      - [0x2F32E0, asm, sce_libs/gcc/ee/libg/strncat] # .a
-      - [0x2F3490, asm, sce_libs/gcc/ee/libg/strncmp] # .a
-      - [0x2F3648, asm, sce_libs/gcc/ee/libg/strncpy] # .a
-      - [0x2F3808, asm, sce_libs/gcc/ee/libg/strrchr] # .a
-      - [0x2F3858, asm, sce_libs/gcc/ee/libg/strstr] # .a
-      - [0x2F38C8, asm, sce_libs/gcc/ee/libg/strtod] # .a
-      - [0x2F4800, asm, sce_libs/gcc/ee/libg/strtok] # .a
-      - [0x2F4808, asm, sce_libs/gcc/ee/libg/strtok_r] # .a
-      - [0x2F4810, asm, sce_libs/gcc/ee/libg/strtol] # .a
-      - [0x2F4A80, asm, sce_libs/gcc/ee/libg/strupr] # .a
-      - [0x2F4AD8, asm, sce_libs/gcc/ee/libg/vfiprintf] # .a
-      - [0x2F5820, asm, sce_libs/gcc/ee/libg/vfprintf] # .a
-      - [0x2F7140, asm, sce_libs/gcc/ee/libg/vsprintf] # .a
-      - [0x2F7198, asm, sce_libs/gcc/ee/libg/writer] # .a
-      - [0x2F71F8, asm, sce_libs/gcc/ee/libg/wsetup] # .a
-      - [0x2F7308, asm, sce_libs/gcc/ee/libg/abort] # .a
-      - [0x2F7328, asm, sce_libs/gcc/ee/libg/closer] # .a
-      - [0x2F7380, asm, sce_libs/gcc/ee/libg/dtoa] # .a
-      - [0x2F8768, asm, sce_libs/gcc/ee/libg/flags] # .a
-      - [0x2F8810, asm, sce_libs/gcc/ee/libg/fvwrite] # .a
-      - [0x2F8BE8, asm, sce_libs/gcc/ee/libg/locale] # .a
-      - [0x2F8C30, asm, sce_libs/gcc/ee/libg/lseekr] # .a
-      - [0x2F8C90, asm, sce_libs/gcc/ee/libg/mallinfor] # .a
-      - [0x2F8E38, asm, sce_libs/gcc/ee/libg/mallstatsr] # .a
-      - [0x2F8E40, asm, sce_libs/gcc/ee/libg/mbtowc_r] # .a
-      - [0x2F8E7C, asm, sce_libs/gcc/ee/libg/memchr] # .a
-      - [0x2F8F60, asm, sce_libs/gcc/ee/libg/mprec] # .a
-      - [0x2F9F18, asm, sce_libs/gcc/ee/libg/readr] # .a
-      - [0x2F9F78, asm, sce_libs/gcc/ee/libg/s_isinf] # .a
-      - [0x2F9FC0, asm, sce_libs/gcc/ee/libg/s_isnan] # .a
-      - [0x2F9FF8, asm, sce_libs/gcc/ee/libg/signal] # .a
-      - [0x2FA198, asm, sce_libs/gcc/ee/libg/signalr] # .a
-      - [0x2FA218, asm, sce_libs/gcc/ee/libstdc++/iostream] # .a
-      - [0x2FD630, asm, sce_libs/gcc/ee/libstdc++/isgetline] # .a
-      - [0x2FDB20, asm, sce_libs/gcc/ee/libstdc++/isscan] # .a
-      - [0x2FDC88, asm, sce_libs/gcc/ee/libstdc++/sbscan] # .a
-      - [0x2FDD08, asm, sce_libs/gcc/ee/libstdc++/stdstreams] # .a
-      - [0x2FDD88, asm, sce_libs/gcc/ee/libstdc++/streambuf] # .a
-      - [0x2FEF00, asm, sce_libs/gcc/ee/libstdc++/genops] # .a
-      - [0x300038, asm, sce_libs/gcc/ee/libstdc++/iovfscanf] # .a
-      - [0x300EB8, asm, sce_libs/gcc/ee/libstdc++/iopadn] # .a
-      - [0x300FD0, asm, sce_libs/gcc/ee/libstdc++/iogetline] # .a
-      - [0x301170, asm, sce_libs/gcc/ee/libstdc++/ioseekoff] # .a
-      - [0x301210, asm, sce_libs/gcc/ee/libstdc++/ioseekpos] # .a
-      - [0x301270, asm, sce_libs/gcc/ee/libstdc++/outfloat] # .a
-      - [0x301830, asm, sce_libs/gcc/ee/libstdc++/ioungetc] # .a
-      - [0x301860, asm, sce_libs/gcc/ee/libstdc++/iogetc] # .a
-      - [0x3018A8, asm, sce_libs/gcc/ee/libstdc++/ioputc] # .a
-      - [0x3018F8, asm, sce_libs/gcc/ee/libstdc++/filebuf] # .a
-      - [0x301EC0, asm, sce_libs/gcc/ee/libstdc++/ioassign] # .a
-      - [0x301F80, asm, sce_libs/gcc/ee/libstdc++/stdstrbufs] # .a
-      - [0x302158, asm, sce_libs/gcc/ee/libstdc++/filedoalloc] # .a
-      - [0x302240, asm, sce_libs/gcc/ee/libstdc++/floatconv] # .a
-      - [0x305498, asm, sce_libs/gcc/ee/libstdc++/fileops] # .a
-      - [0x306320, asm, sce_libs/gcc/ee/libstdc++/stdiostream] # .a
-      - [0x306D60, asm, sce_libs/lib/libgraph/graph001] # .a
-      - [0x306F00, asm, sce_libs/lib/libgraph/graph002] # .a
-      - [0x306F68, asm, sce_libs/lib/libgraph/graph009] # .a
-      - [0x307200, asm, sce_libs/lib/libgraph/graph010] # .a
-      - [0x307260, asm, sce_libs/lib/libgraph/graph011] # .a
-      - [0x3072F8, asm, sce_libs/lib/libgraph/graph012] # .a
-      - [0x307610, asm, sce_libs/lib/libgraph/graph014] # .a
-      - [0x307670, asm, sce_libs/lib/libgraph/graph020] # .a
-      - [0x3076B0, asm, sce_libs/lib/libgraph/graph021] # .a
-      - [0x307738, asm, sce_libs/lib/libgraph/graph029] # .a
-      - [0x307758, asm, sce_libs/lib/libgraph/graph003] # .a
-      - [0x307B80, asm, sce_libs/lib/libgraph/graph004] # .a
-      - [0x307C40, asm, sce_libs/lib/libgraph/graph005] # .a
-      - [0x307D08, asm, sce_libs/lib/libgraph/graph006] # .a
-      - [0x307EF0, asm, sce_libs/lib/libgraph/graph007] # .a
-      - [0x307FF8, asm, sce_libs/lib/libgraph/graph008] # .a
-      - [0x3080E0, asm, sce_libs/lib/libdma/libdma] # .a
-      - [0x308638, asm, sce_libs/lib/libdev/devvu0] # .a
-      - [0x308708, asm, sce_libs/lib/libdev/devvif0] # .a
-      - [0x308740, asm, sce_libs/lib/libdev/devfont] # .a
-      - [0x309908, asm, sce_libs/lib/libpkt/gifpk000] # .a
-      - [0x309918, asm, sce_libs/lib/libpkt/gifpk001] # .a
-      - [0x309928, asm, sce_libs/lib/libpkt/gifpk002] # .a
-      - [0x309980, asm, sce_libs/lib/libpkt/gifpk005] # .a
-      - [0x3099F8, asm, sce_libs/lib/libpkt/gifpk011] # .a
-      - [0x309A70, asm, sce_libs/lib/libpkt/gifpk014] # .a
-      - [0x309B18, asm, sce_libs/lib/libpkt/gifpk015] # .a
-      - [0x309B40, asm, sce_libs/lib/libpkt/vifpk025] # .a
-      - [0x309B50, asm, sce_libs/lib/libpkt/vifpk026] # .a
-      - [0x309B60, asm, sce_libs/lib/libpkt/vifpk027] # .a
-      - [0x309BB8, asm, sce_libs/lib/libpkt/vifpk030] # .a
-      - [0x309C10, asm, sce_libs/lib/libpkt/vifpk036] # .a
-      - [0x309C68, asm, sce_libs/lib/libpkt/vifpk039] # .a
-      - [0x309CC0, asm, sce_libs/lib/libpkt/vifpk040] # .a
-      - [0x309CF0, asm, sce_libs/lib/libpkt/vifpk041] # .a
-      - [0x309D08, asm, sce_libs/lib/libpkt/vifpk042] # .a
-      - [0x309DB0, asm, sce_libs/lib/libpkt/vifpk043] # .a
-      - [0x309DC8, asm, sce_libs/lib/libpkt/vifpk044] # .a
-      - [0x309E48, asm, sce_libs/lib/libpkt/vifpk045] # .a
-      - [0x309E60, asm, sce_libs/lib/libpkt/vifpk053] # .a
-      - [0x309E88, asm, sce_libs/lib/libpad/libpad] # .a
-      - [0x30ADC0, asm, sce_libs/lib/libipu/libipu] # .a
-      - [0x30AE40, asm, sce_libs/lib/libipu/ipuinit] # .a
-      - [0x30B0E0, asm, sce_libs/lib/libsdr/sdr_main] # .a
-      - [0x30B450, asm, sce_libs/lib/libsdr/sdr_cb] # .a
-      - [0x30B468, asm, sce_libs/lib/libcdvd/cdvd000] # .a
-      - [0x30C278, asm, sce_libs/lib/libcdvd/cdvd005] # .a
-      - [0x30C458, asm, sce_libs/lib/libcdvd/cdvd006] # .a
-      - [0x30C5B0, asm, sce_libs/lib/libcdvd/cdvd014] # .a
-      - [0x30C648, asm, sce_libs/lib/libcdvd/cdvd015] # .a
-      - [0x30C6E0, asm, sce_libs/lib/libcdvd/cdvd017] # .a
-      - [0x30C798, asm, sce_libs/lib/libcdvd/cdvd039] # .a
-      - [0x30C890, asm, sce_libs/lib/libcdvd/cdvd046] # .a
-      - [0x30C980, asm, sce_libs/lib/libmtap/libmtap] # .a
-      - [0x30CD78, asm, sce_libs/lib/libscf/libscf] # .a
-      - [0x30D338, asm, sce_libs/lib/libmc/libmc] # .a
-      - [0x30E480, asm, sce_libs/lib/libkernl/klib] # .a
-      - [0x30E930, asm, sce_libs/lib/libkernl/glue] # .a
-      - [0x30ECA8, asm, sce_libs/lib/libkernl/cache] # .a
-      - [0x30EDF0, asm, sce_libs/lib/libkernl/intr] # .a
-      - [0x30EF90, asm, sce_libs/lib/libkernl/thread] # .a
-      - [0x30F258, asm, sce_libs/lib/libkernl/tty] # .a
-      - [0x30F778, asm, sce_libs/lib/libkernl/kprintf] # .a
-      - [0x310118, asm, sce_libs/lib/libkernl/sifcmd] # .a
-      - [0x310810, asm, sce_libs/lib/libkernl/sifrpc] # .a
-      - [0x311650, asm, sce_libs/lib/libkernl/filestub] # .a
-      - [0x312790, asm, sce_libs/lib/libkernl/iopheap] # .a
-      - [0x3129A0, asm, sce_libs/lib/libkernl/eeloadfile] # .a
-      - [0x312DB0, asm, sce_libs/lib/libkernl/iopreset] # .a
-      - [0x313038, asm, sce_libs/lib/libkernl/diei] # .a
-      - [0x313098, asm, sce_libs/lib/libkernl/initsys] # .a
-      - [0x3132C0, asm, sce_libs/lib/libkernl/libosd] # .a
-      - [0x313440, asm, sce_libs/lib/libkernl/exit] # .a
-      - [0x313628, asm, sce_libs/lib/libkernl/alarm] # .a
-      - [0x313768, asm, sce_libs/lib/libkernl/deci2] # .a
-      - [0x3138B8, asm, sce_libs/lib/libkernl/tlbfunc] # .a
-      - [0x313C40, asm, sce_libs/lib/libkernl/tlbtrap] # .a
-      - [0x313DA0, asm, sce_libs/gcc/ee/libm/s_cos] # .a
-      - [0x313EA8, asm, sce_libs/gcc/ee/libm/sf_atan] # .a
-      - [0x314150, asm, sce_libs/gcc/ee/libm/sf_ceil] # .a
-      - [0x314228, asm, sce_libs/gcc/ee/libm/sf_cos] # .a
-      - [0x314310, asm, sce_libs/gcc/ee/libm/sf_fabs] # .a
-      - [0x314330, asm, sce_libs/gcc/ee/libm/sf_floor] # .a
-      - [0x314418, asm, sce_libs/gcc/ee/libm/sf_tan] # .a
-      - [0x3144A0, asm, sce_libs/gcc/ee/libm/w_pow] # .a
-      - [0x3148D0, asm, sce_libs/gcc/ee/libm/wf_acos] # .a
-      - [0x3149D0, asm, sce_libs/gcc/ee/libm/wf_asin] # .a
-      - [0x314AD0, asm, sce_libs/gcc/ee/libm/wf_atan2] # .a
-      - [0x314BF8, asm, sce_libs/gcc/ee/libm/wf_exp] # .a
-      - [0x314D70, asm, sce_libs/gcc/ee/libm/wf_fmod] # .a
-      - [0x314EB0, asm, sce_libs/gcc/ee/libm/wf_log] # .a
-      - [0x314FF8, asm, sce_libs/gcc/ee/libm/wf_pow] # .a
-      - [0x315500, asm, sce_libs/gcc/ee/libm/e_pow] # .a
-      - [0x316228, asm, sce_libs/gcc/ee/libm/e_rem_pio2] # .a
-      - [0x316748, asm, sce_libs/gcc/ee/libm/e_sqrt] # .a
-      - [0x316A50, asm, sce_libs/gcc/ee/libm/ef_acos] # .a
-      - [0x316E80, asm, sce_libs/gcc/ee/libm/ef_asin] # .a
-      - [0x317220, asm, sce_libs/gcc/ee/libm/ef_atan2] # .a
-      - [0x317508, asm, sce_libs/gcc/ee/libm/ef_exp] # .a
-      - [0x3177C0, asm, sce_libs/gcc/ee/libm/ef_fmod] # .a
-      - [0x317A10, asm, sce_libs/gcc/ee/libm/ef_log] # .a
-      - [0x317D38, asm, sce_libs/gcc/ee/libm/ef_pow] # .a
-      - [0x3185C8, asm, sce_libs/gcc/ee/libm/ef_rem_pio2] # .a
-      - [0x3189A8, asm, sce_libs/gcc/ee/libm/ef_sqrt] # .a
-      - [0x318AE0, asm, sce_libs/gcc/ee/libm/k_cos] # .a
-      - [0x318D30, asm, sce_libs/gcc/ee/libm/k_rem_pio2] # .a
-      - [0x319898, asm, sce_libs/gcc/ee/libm/k_sin] # .a
-      - [0x319A70, asm, sce_libs/gcc/ee/libm/kf_cos] # .a
-      - [0x319BC8, asm, sce_libs/gcc/ee/libm/kf_rem_pio2] # .a
-      - [0x31A518, asm, sce_libs/gcc/ee/libm/kf_sin] # .a
-      - [0x31A620, asm, sce_libs/gcc/ee/libm/kf_tan] # .a
-      - [0x31A8B8, asm, sce_libs/gcc/ee/libm/s_fabs] # .a
-      - [0x31A8F0, asm, sce_libs/gcc/ee/libm/s_finite] # .a
-      - [0x31A910, asm, sce_libs/gcc/ee/libm/s_floor] # .a
-      - [0x31AAE8, asm, sce_libs/gcc/ee/libm/s_matherr] # .a
-      - [0x31AB10, asm, sce_libs/gcc/ee/libm/s_rint] # .a
-      - [0x31AD10, asm, sce_libs/gcc/ee/libm/s_scalbn] # .a
-      - [0x31AEC8, asm, sce_libs/gcc/ee/libm/sf_finite] # .a
-      - [0x31AEF0, asm, sce_libs/gcc/ee/libm/sf_scalbn] # .a
-      - [0x31B050, asm, sce_libs/gcc/ee/libm/s_copysign] # .a
-      - [0x31B098, asm, sce_libs/gcc/ee/libm/sf_copysign] # .a
-      - [0x31B0C8, asm, sce_libs/gcc/ee/libc/errno] # .a
-      - [0x31B0D8, asm, sce_libs/gcc/ee/libc/fileno] # .a
-      - [0x31B130, asm, sce_libs/gcc/ee/libc/rget] # .a
-      - [0x31B178, asm, sce_libs/gcc/ee/libc/strtoul] # .a
-      - [0x31B3D0, asm, sce_libs/gcc_lib/ee/libgcc/__main] # .a # 2.95.3
-      - [0x31B4A8, asm, sce_libs/gcc_lib/ee/libgcc/_divdi3] # .a # 2.95.3
-      - [0x31BB98, asm, sce_libs/gcc_lib/ee/libgcc/_eh] # .a # 2.95.3
-      - [0x31CB08, asm, sce_libs/gcc_lib/ee/libgcc/_fixdfdi] # .a # 2.95.3
-      - [0x31CB68, asm, sce_libs/gcc_lib/ee/libgcc/_fixunsdfdi] # .a # 2.95.3
-      - [0x31CC58, asm, sce_libs/gcc_lib/ee/libgcc/_floatdidf] # .a # 2.95.3
-      - [0x31CCF0, asm, sce_libs/gcc_lib/ee/libgcc/_moddi3] # .a # 2.95.3
-      - [0x31D358, asm, sce_libs/gcc_lib/ee/libgcc/_muldi3] # .a # 2.95.3
-      - [0x31D3B8, asm, sce_libs/gcc_lib/ee/libgcc/_pure] # .a # 2.95.3
-      - [0x31D3C0, asm, sce_libs/gcc_lib/ee/libgcc/_udivdi3] # .a # 2.95.3
-      - [0x31D990, asm, sce_libs/gcc_lib/ee/libgcc/_umoddi3] # .a # 2.95.3
-      - [0x31DED0, asm, sce_libs/gcc_lib/ee/libgcc/dp-bit] # .a # 2.95.3
-      - [0x31EB90, asm, sce_libs/gcc_lib/ee/libgcc/exception] # .a # 2.95.3
-      - [0x31F2E8, asm, sce_libs/gcc_lib/ee/libgcc/fp-bit] # .a # 2.95.3
-      - [0x31F5C0, asm, sce_libs/gcc_lib/ee/libgcc/frame] # .a # 2.95.3
-      - [0x320548, asm, sce_libs/gcc_lib/ee/libgcc/tinfo] # .a # 2.95.3
-      - [0x320C18, asm, sce_libs/gcc_lib/ee/libgcc/tinfo2] # .a # 2.95.3
-      - [0x321994, asm, unk/321994] # Collect2
-      - [0x3219C0, vutext, unk/3219C0]
-      - [0x325680, data, code/allai]
-      - [0x3259B8, data, code/allactor]
-      - [0x325AA0, data, code/allsequencer]
-      - [0x325B44, data, code/allaivehicle]
-      - [0x325B58, data, code/allatc]
-      - [0x325B60, data, code/allcamera]
-      - [0x3279B8, data, code/allcards]
-      - [0x3279BC, data, code/allcheats]
-      - [0x3279E8, data, code/allconsole]
-      - [0x327B1C, data, code/allcontexts]
-      - [0x327BA4, data, code/allgameplay]
-      - [0x327BC8, data, code/alldemo]
-      - [0x327C08, data, code/alldata]
-      - [0x327D60, data, code/allmemcard]
-      - [0x327D98, data, code/allevents]
-      - [0x327D9C, data, code/allgameflow]
-      - [0x327DA8, data, code/allinput]
-      - [0x3280A0, data, code/allinteriors]
-      - [0x3280FC, data, code/allloadmanager]
-      - [0x328150, data, code/allps2main]
-      - [0x32BAF0, data, code/allmemory]
-      - [0x32D420, data, code/allmeta]
-      - [0x32D494, data, code/allmission]
-      - [0x32D4E8, data, code/allcharactersheet]
-      - [0x32D4EC, data, code/allrewards]
-      - [0x32D4F4, data, code/allconditions]
-      - [0x32D514, data, code/allobjectives]
-      - [0x32D550, data, code/allpresentation]
-      - [0x32DE20, data, code/allgui]
-      - [0x32DEF0, data, code/allbootup]
-      - [0x32DF0C, data, code/allbackend]
-      - [0x32DF50, data, code/allfrontend]
-      - [0x32E0C8, data, code/allminigame]
-      - [0x32E128, data, code/allingame]
-      - [0x32E9B0, data, code/allhudevents]
-      - [0x32E9D0, data, code/allutility]
-      - [0x32F104, data, code/allculling]
-      - [0x32F118, data, code/alldsg]
-      - [0x32F180, data, code/allbreakables]
-      - [0x32F188, data, code/allskidmarks]
-      - [0x32F1A4, data, code/allintersect]
-      - [0x32F1A8, data, code/allloaders]
-      - [0x32F1D0, data, code/allparticles]
-      - [0x32F1D8, data, code/allanimentitydsgmanager]
-      - [0x32F1E4, data, code/allrenderflow]
-      - [0x32F1F0, data, code/allrendermanager]
-      - [0x32F2C0, data, code/allroads]
-      - [0x32F4C0, data, code/allsound]
-      - [0x32F720, data, code/allsoundavatar]
-      - [0x32F750, data, code/alldialog]
-      - [0x330A98, data, code/allmusic]
-      - [0x330DFC, data, code/allsoundfx]
-      - [0x330E18, data, code/allsoundrenderer]
-      - [0x33133C, data, code/allsoundtuning]
-      - [0x331344, data, code/allsounddebug]
-      - [0x331370, data, code/allmovingposn]
-      - [0x331398, data, code/allworldsim]
-      - [0x3313F8, data, code/allcoins]
-      - [0x331428, data, code/allcharacter]
-      - [0x336E04, data, code/allredbrick]
-      - [0x336E80, data, code/allvehiclecontroller]
-      - [0x336EA8, data, code/alltraffic]
-      - [0x336FDC, data, code/allpedpaths]
-      - [0x336FE0, data, code/allped]
-      - [0x336FEC, data, code/allparkedcars]
-      - [0x336FF0, data, code/allsupersprintctx]
-      - [0x337038, data, code/allsupersprint]
-      - [0x3370FC, data, code/allfootprint]
-      - [0x337100, data, libs/choreo/choreopr/animation] # .a
-      - [0x33713C, data, libs/choreo/choreopr/bank] # .a
-      - [0x337150, data, libs/choreo/choreopr/basebank] # .a
-      - [0x337158, data, libs/choreo/choreopr/constants] # .a
-      - [0x337164, data, libs/choreo/choreopr/load] # .a
-      - [0x337178, data, libs/choreo/choreopr/locomotion] # .a
-      - [0x337200, data, libs/choreo/choreopr/partition] # .a
-      - [0x337244, data, libs/choreo/choreopr/puppet] # .a
-      - [0x33725C, data, libs/choreo/choreopr/replay] # .a
-      - [0x337280, data, libs/choreo/choreopr/rig] # .a
-      - [0x3372B8, data, libs/choreo/choreopr/scriptreader] # .a
-      - [0x3372C0, data, libs/choreo/choreopr/transition] # .a
-      - [0x337318, data, libs/sim/simpr/collision] # .a
-      - [0x337320, data, libs/sim/simpr/collisiondisplay] # .a
-      - [0x33732C, data, libs/sim/simpr/collisionmanager] # .a
-      - [0x337334, data, libs/sim/simpr/collisionvolume] # .a
-      - [0x337338, data, libs/sim/simpr/impulsebasedcollisionsolver] # .a
-      - [0x337368, data, libs/sim/simpr/proximitydetection] # .a
-      - [0x33737C, data, libs/sim/simpr/dline2] # .a
-      - [0x337388, data, libs/sim/simpr/simenvironment] # .a
-      - [0x3373A8, data, libs/sim/simpr/simmath] # .a
-      - [0x3373B0, data, libs/sim/simpr/simstate] # .a
-      - [0x337400, data, libs/sim/simpr/simstatearticulated] # .a
-      - [0x337414, data, libs/sim/simpr/simulatedobject] # .a
-      - [0x337418, data, libs/sim/simpr/physicsobject] # .a
-      - [0x337438, data, libs/sim/simpr/articulatedphysicsobject] # .a
-      - [0x337444, data, libs/sim/simpr/physicsjoint] # .a
-      - [0x3374A0, data, libs/sim/simpr/virtualcm] # .a
-      - [0x3374C4, data, libs/sim/simpr/restingdetector] # .a
-      - [0x3374D8, data, libs/sim/simpr/collisionanalyser] # .a
-      - [0x3374DC, data, libs/sim/simpr/collisionanalyserdata] # .a
-      - [0x3374E0, data, libs/sim/simpr/collisionanalyserinfo] # .a
-      - [0x3374F4, data, libs/sim/simpr/collisiondetector] # .a
-      - [0x337500, data, libs/sim/simpr/subcollisiondetector] # .a
-      - [0x337504, data, libs/scrooby/scroobypr/FeLoaders] # .a
-      - [0x337508, data, libs/scrooby/scroobypr/FePure3dObject] # .a
-      - [0x337510, data, libs/scrooby/scroobypr/FeScreen] # .a
-      - [0x337520, data, libs/scrooby/scroobypr/FeText] # .a
-      - [0x337524, data, libs/scrooby/scroobypr/FeTextBible] # .a
-      - [0x337528, data, libs/scrooby/scroobypr/FeResourceManager] # .a
-      - [0x337534, data, libs/scrooby/scroobypr/App] # .a
-      - [0x337538, data, libs/scrooby/scroobypr/pcstring] # .a
-      - [0x33753C, data, libs/scrooby/scroobypr/UnicodeString] # .a
-      - [0x337540, data, libs/scrooby/scroobypr/FeApp] # .a
-      - [0x337544, data, libs/scrooby/scroobypr/FeBoundedDrawable] # .a
-      - [0x33755C, data, libs/pure3d/pure3dpr/billboardobject] # .a
-      # - [0x337562, data, libs/pure3d/pure3dpr/drawable] # .a
-      - [0x337568, data, libs/pure3d/pure3dpr/entity] # .a
-      - [0x337580, data, libs/pure3d/pure3dpr/error] # .a
-      - [0x337588, data, libs/pure3d/pure3dpr/matrixstack] # .a
-      - [0x3375D4, data, libs/pure3d/pure3dpr/memory] # .a
-      - [0x3375DC, data, libs/pure3d/pure3dpr/sprite] # .a
-      - [0x3375E8, data, libs/pure3d/pure3dpr/texture] # .a
-      - [0x3375F0, data, libs/pure3d/pure3dpr/utility] # .a
-      - [0x337614, data, libs/pure3d/pure3dpr/multicontroller] # .a
-      - [0x337618, data, libs/pure3d/pure3dpr/particleutility] # .a
-      - [0x337620, data, libs/pure3d/pure3dpr/fileftt] # .a
-      - [0x337638, data, libs/pure3d/pure3dpr/particlegenerator] # .a
-      - [0x337640, data, libs/pure3d/pddipr/ps2display] # .a
-      - [0x337648, data, libs/pure3d/pddipr/ps2lightmapshader] # .a
-      - [0x3376B8, data, libs/pure3d/pddipr/ps2lightweightshader] # .a
-      - [0x3376F0, data, libs/pure3d/pddipr/ps2toonshader] # .a
-      - [0x3377E8, data, libs/pure3d/pddipr/ps2simpleshader] # .a
-      - [0x3378E0, data, libs/pure3d/pddipr/ps2refractionshader] # .a
-      - [0x3379D8, data, libs/pure3d/pddipr/ps2reflectionshader] # .a
-      - [0x337AB8, data, libs/pure3d/pddipr/ps2streamprim] # .a
-      - [0x337AE0, data, libs/pure3d/pddipr/ps2texcache] # .a
-      - [0x339AF4, data, libs/pure3d/pddipr/ps2vucode] # .a
-      - [0x339B34, data, libs/pure3d/pddipr/basecontext] # .a
-      - [0x339B58, data, libs/pure3d/pddipr/baseshader] # .a
-      - [0x339FF0, data, libs/pure3d/pddipr/dma] # .a
-      - [0x33A000, data, libs/pure3d/pddipr/font] # .a
-      - [0x33ABB8, data, libs/pure3d/pddipr/ps2context] # .a
-      - [0x33ABD8, data, libs/pure3d/pngpr/png] # .a
-      - [0x33AD38, data, libs/pure3d/pngpr/pngrtran] # .a
-      - [0x33AD58, data, libs/pure3d/pngpr/pngrutil] # .a
-      - [0x33AD78, data, libs/pure3d/pngpr/pngtrans] # .a
-      - [0x33B078, data, libs/pure3d/zlibpr/zutil] # .a
-      - [0x33B0A0, data, libs/pure3d/zlibpr/inftrees] # .a
-      - [0x33C1A8, data, libs/pure3d/zlibpr/infutil] # .a
-      - [0x33C1F0, data, libs/radmath/radmathpr/spline] # .a
-      - [0x33C430, data, libs/radmusic/radmusicpr/framework] # .a
-      - [0x33C434, data, libs/radmusic/radmusicpr/music_performance] # .a
-      - [0x33C438, data, libs/radmusic/radmusicpr/schema_util] # .a
-      - [0x33C470, data, libs/radmusic/radmusicpr/resource_manager] # .a
-      - [0x33D578, data, libs/radmusic/radmusicpr/memory] # .a
-      - [0x33D580, data, libs/radmusic/radmusicpr/ods] # .a
-      - [0x33D680, data, libs/radmusic/radmusicpr/ods_memory] # .a
-      - [0x33D6A8, data, libs/radmusic/radmusicpr/music_engine] # .a
-      - [0x33D738, data, libs/radmusic/radmusicpr/sequence_player] # .a
-      - [0x33D8A0, data, libs/radmusic/radmusicpr/sequence_stream_graph] # .a
-      - [0x33D8A4, data, libs/radsound/radsoundpr/softwarelistener] # .a
-      - [0x33D8A8, data, libs/radsound/radsoundpr/softwarepositionalgroup] # .a
-      - [0x33D8B0, data, libs/radsound/radsoundpr/memoryregion] # .a
-      - [0x33D8BC, data, libs/radsound/radsoundpr/system] # .a
-      - [0x33D8C0, data, libs/radsound/radsoundpr/effect] # .a
-      - [0x33D940, data, libs/radsound/radsoundpr/iopclient] # .a
-      - [0x33E400, data, libs/radsound/radsoundpr/adpcmasyncrequest] # .a
-      - [0x33E404, data, libs/radsound/radsoundpr/adpcmbuffer] # .a
-      - [0x33E40C, data, libs/radsound/radsoundpr/adpcmbufferclearer] # .a
-      - [0x33E410, data, libs/radsound/radsoundpr/adpcmbufferloader] # .a
-      - [0x33E418, data, libs/radsound/radsoundpr/adpcmvoice] # .a
-      - [0x33E428, data, libs/radsound/radsoundpr/clip] # .a
-      - [0x33E430, data, libs/radsound/radsoundpr/rsdfiledatasource] # .a
-      - [0x33E434, data, libs/radsound/radsoundpr/streamplayer] # .a
-      - [0x33E438, data, libs/radsound/radsoundpr/radsoundobject] # .a
-      - [0x33E440, data, libs/radsound/radsoundpr/radsoundupdatableobject] # .a
-      - [0x33E450, data, libs/radsound/radsoundpr/banner] # .a
-      - [0x33E454, data, libs/radsound/radsoundpr/rolloff] # .a
-      - [0x33E45C, data, libs/radscript/radscriptpr/script] # .a
-      - [0x33E460, data, libs/radscript/radscriptpr/namespace] # .a
-      - [0x33E468, data, libs/radscript/radscriptpr/radfactory] # .a
-      - [0x33E470, data, libs/radscript/radscriptpr/TypeInfoSystem] # .a
-      - [0x33E544, data, libs/radmovie/radmoviepr/movieplayer] # .a
-      - [0x33E550, data, libs/radmovie/radmoviepr/ipups2] # .a
-      - [0x33E554, data, libs/radcore/radcorepr/debug] # .a
-      - [0x33E568, data, libs/radcore/radcorepr/object] # .a
-      - [0x33E570, data, libs/radcore/radcorepr/time] # .a
-      - [0x33E5A8, data, libs/radcore/radcorepr/dlheap] # .a
-      - [0x33E5B8, data, libs/radcore/radcorepr/memorymanager] # .a
-      - [0x33E6E8, data, libs/radcore/radcorepr/memoryspaceps2] # .a
-      - [0x33E704, data, libs/radcore/radcorepr/staticheap] # .a
-      - [0x33E708, data, libs/radcore/radcorepr/trackingheap] # .a
-      - [0x33E760, data, libs/radcore/radcorepr/string] # .a
-      - [0x33E7F4, data, libs/radcore/radcorepr/targetx] # .a
-      - [0x33E7FC, data, libs/radcore/radcorepr/consoleclient] # .a
-      - [0x33E808, data, libs/radcore/radcorepr/ps2controller] # .a
-      - [0x33E954, data, libs/radcore/radcorepr/system] # .a
-      - [0x33E958, data, libs/radcore/radcorepr/thread] # .a
-      - [0x33E970, data, libs/radcore/radcorepr/textdisplay] # .a
-      - [0x33E978, data, libs/radcore/radcorepr/filesystem] # .a
-      - [0x33E990, data, libs/radcore/radcorepr/ps2cddrive] # .a
-      - [0x33E998, data, libs/radcore/radcorepr/ps2memcarddrive] # .a
-      - [0x33EE00, data, libs/radcore/radcorepr/radkey] # .a
-      - [0x33F208, data, libs/radcore/radcorepr/requests] # .a
-      - [0x33F210, data, libs/radcore/radcorepr/file] # .a
-      - [0x33F218, data, libs/radcore/radcorepr/instancedrive] # .a
-      - [0x33F240, data, sce_libs/lib/liblgdev/liblgdev] # .a
-      - [0x33F500, data, libs/radcontent/radcontentpr/manager] # .a
-      - [0x33F50C, data, libs/radcontent/radcontentpr/object] # .a
-      - [0x33F510, data, sce_libs/gcc/ee/libg/impure] # .a
-      - [0x33F800, data, sce_libs/gcc/ee/libg/mallocr] # .a
-      - [0x33FC58, data, sce_libs/gcc/ee/libg/locale] # .a
-      - [0x33FC70, data, sce_libs/gcc/ee/libstdc++/iostream] # .a
-      - [0x340EBC, data, sce_libs/gcc/ee/libstdc++/isgetline] # .a
-      - [0x340FD4, data, sce_libs/gcc/ee/libstdc++/isscan] # .a
-      - [0x341050, data, sce_libs/gcc/ee/libstdc++/sbscan] # .a
-      - [0x3410B0, data, sce_libs/gcc/ee/libstdc++/stdstreams] # .a
-      - [0x3411E8, data, sce_libs/gcc/ee/libstdc++/streambuf] # .a
-      - [0x341EC8, data, sce_libs/gcc/ee/libstdc++/iovfscanf] # .a
-      - [0x341EEC, data, sce_libs/gcc/ee/libstdc++/filebuf] # .a
-      - [0x34222C, data, sce_libs/gcc/ee/libstdc++/ioassign] # .a
-      - [0x342268, data, sce_libs/gcc/ee/libstdc++/stdstrbufs] # .a
-      - [0x3424F8, data, sce_libs/gcc/ee/libstdc++/floatconv] # .a
-      - [0x342518, data, sce_libs/gcc/ee/libstdc++/fileops] # .a
-      - [0x3425A8, data, sce_libs/gcc/ee/libstdc++/stdiostream] # .a
-      - [0x342940, data, sce_libs/gcc/ee/libstdc++/cleanup] # .a
-      - [0x342950, data, sce_libs/lib/libgraph/graph001] # .a
-      - [0x342970, data, sce_libs/lib/libgraph/graph002] # .a
-      - [0x342990, data, sce_libs/lib/libdma/libdma] # .a
-      - [0x3429C8, data, sce_libs/lib/libdev/devfont] # .a
-      - [0x34C9C8, data, sce_libs/lib/libpkt/gifpk000] # .a
-      - [0x34C9D8, data, sce_libs/lib/libpkt/vifpk025] # .a
-      - [0x34C9E8, data, sce_libs/lib/libpad/libpad] # .a
-      - [0x34CA30, data, sce_libs/lib/libipu/ipuinit] # .a
-      - [0x34CAB0, data, sce_libs/lib/libsdr/sdr_main] # .a
-      - [0x34CAC4, data, sce_libs/lib/libsdr/sdr_cb] # .a
-      - [0x34CB00, data, sce_libs/lib/libcdvd/cdvd000] # .a
-      - [0x34E570, data, sce_libs/lib/libmtap/libmtap] # .a
-      - [0x34E580, data, sce_libs/lib/libscf/libscf] # .a
-      - [0x34E5A8, data, sce_libs/lib/libmc/libmc] # .a
-      - [0x34E5C0, data, sce_libs/lib/libkernl/klib] # .a
-      - [0x34E5D0, data, sce_libs/lib/libkernl/glue] # .a
-      - [0x34E5D8, data, sce_libs/lib/libkernl/thread] # .a
-      - [0x34E5DC, data, sce_libs/lib/libkernl/kprintf] # .a
-      - [0x34E5E4, data, sce_libs/lib/libkernl/sifcmd] # .a
-      - [0x34E5E8, data, sce_libs/lib/libkernl/sifrpc] # .a
-      - [0x34E5F0, data, sce_libs/lib/libkernl/filestub] # .a
-      - [0x34E68C, data, sce_libs/lib/libkernl/iopheap] # .a
-      - [0x34E690, data, sce_libs/lib/libkernl/eeloadfile] # .a
-      - [0x34E698, data, sce_libs/lib/libkernl/initsys] # .a
-      - [0x34E6B8, data, sce_libs/lib/libkernl/libosd] # .a
-      - [0x34EE78, data, sce_libs/lib/libkernl/exit] # .a
-      - [0x34EE80, data, sce_libs/lib/libkernl/alarm] # .a
-      - [0x34F628, data, sce_libs/lib/libkernl/tlbfunc] # .a
-      - [0x34FC74, data, sce_libs/gcc_lib/ee/libgcc/__main] # .a # 2.95.3
-      - [0x34FC78, data, sce_libs/gcc_lib/ee/libgcc/_eh] # .a # 2.95.3
-      - [0x350270, data, sce_libs/gcc_lib/ee/libgcc/exception] # .a # 2.95.3
-      - [0x350604, data, sce_libs/gcc_lib/ee/libgcc/frame] # .a # 2.95.3
-      - [0x350608, data, sce_libs/gcc_lib/ee/libgcc/tinfo] # .a # 2.95.3
-      - [0x350990, data, sce_libs/gcc_lib/ee/libgcc/tinfo2] # .a # 2.95.3
-      - [0x350E90, data, unk/350E90] # Collect2
-      - [0x351100, rodata, code/allai]
-      - [0x354868, rodata, code/allactor]
-      - [0x355A68, rodata, code/allsequencer]
-      - [0x356960, rodata, code/allaivehicle]
-      - [0x356FB8, rodata, code/allatc]
-      - [0x3570A8, rodata, code/allcamera]
-      - [0x358B18, rodata, code/allcards]
-      - [0x359778, rodata, code/allcheats]
-      - [0x359CA0, rodata, code/allconsole]
-      - [0x35A328, rodata, code/allcontexts]
-      - [0x35ADD8, rodata, code/allgameplay]
-      - [0x35B360, rodata, code/alldemo]
-      - [0x35B7F0, rodata, code/alldata]
-      - [0x35BBA8, rodata, code/allmemcard]
-      - [0x35BE48, rodata, code/alldebug]
-      - [0x35BE80, rodata, code/allevents]
-      - [0x35BEE8, rodata, code/allgameflow]
-      - [0x35C008, rodata, code/allinput]
-      - [0x35C510, rodata, code/allinteriors]
-      - [0x35D150, rodata, code/allloadmanager]
-      - [0x35E010, .rodata, code/allps2main]
-      - [0x35E940, rodata, code/allmemory]
-      - [0x35F000, rodata, code/allmeta]
-      - [0x35FD90, rodata, code/allmission]
-      - [0x362688, rodata, code/allsafezone]
-      - [0x3626B0, rodata, code/allcharactersheet]
-      - [0x3627F0, rodata, code/allrewards]
-      - [0x362950, rodata, code/allconditions]
-      - [0x362F10, rodata, code/allobjectives]
-      - [0x363E30, rodata, code/allpresentation]
-      - [0x364D90, rodata, code/allrespawnmanager]
-      - [0x364DF0, rodata, code/allfmvplayerps2]
-      - [0x365290, rodata, code/allgui]
-      - [0x366610, rodata, code/allbootup]
-      - [0x366A70, rodata, code/allbackend]
-      - [0x367330, rodata, code/allfrontend]
-      - [0x368EE0, rodata, code/allminigame]
-      - [0x369930, rodata, code/allingame]
-      - [0x36C890, rodata, code/allhudevents]
-      - [0x36CD60, rodata, code/allutility]
-      - [0x36DFA0, rodata, code/allpresevents]
-      - [0x36E160, rodata, code/allculling]
-      - [0x36E400, rodata, code/alldsg]
-      - [0x36FE30, rodata, code/allbreakables]
-      - [0x36FF18, rodata, code/allskidmarks]
-      - [0x370190, rodata, code/allintersect]
-      - [0x370260, rodata, code/allloaders]
-      - [0x371300, rodata, code/allparticles]
-      - [0x371720, rodata, code/allanimentitydsgmanager]
-      - [0x371860, rodata, code/allrenderflow]
-      - [0x3718D8, rodata, code/allrendermanager]
-      - [0x3723D8, rodata, code/allroads]
-      - [0x372688, rodata, code/allsound]
-      - [0x3731B0, rodata, code/allsoundavatar]
-      - [0x373B00, rodata, code/alldialog]
-      - [0x374DC0, rodata, code/allmusic]
-      - [0x375A38, rodata, code/allnissound]
-      - [0x375BB0, rodata, code/allsoundfx]
-      - [0x376E20, rodata, code/allsoundrenderer]
-      - [0x378AF0, rodata, code/allsoundtuning]
-      - [0x3790E0, rodata, code/allsounddebug]
-      - [0x379320, rodata, code/allmovingposn]
-      - [0x3799E8, rodata, code/allworldsim]
-      - [0x37A408, rodata, code/allcoins]
-      - [0x37A550, rodata, code/allcharacter]
-      - [0x37BC10, rodata, code/allredbrick]
-      - [0x37D560, rodata, code/allvehiclecontroller]
-      - [0x37DA10, rodata, code/alltraffic]
-      - [0x37DC50, rodata, code/allpedpaths]
-      - [0x37DD58, rodata, code/allped]
-      - [0x37DF88, rodata, code/allspawn]
-      - [0x37E038, rodata, code/allharass]
-      - [0x37E148, rodata, code/allstateprop]
-      - [0x37E348, rodata, code/allufo]
-      - [0x37E630, rodata, code/allparkedcars]
-      - [0x37E7B8, rodata, code/allsupersprintctx]
-      - [0x37EF28, rodata, code/allsupersprint]
-      - [0x37FD58, rodata, code/allfootprint]
-      - [0x37FE30, rodata, libs/choreo/choreopr/animation] # .a
-      - [0x380770, rodata, libs/choreo/choreopr/bank] # .a
-      - [0x380BA8, rodata, libs/choreo/choreopr/basebank] # .a
-      - [0x380E68, rodata, libs/choreo/choreopr/engine] # .a
-      - [0x380FD8, rodata, libs/choreo/choreopr/footblender] # .a
-      - [0x381068, rodata, libs/choreo/choreopr/footplanter] # .a
-      - [0x3810D8, rodata, libs/choreo/choreopr/jointblender] # .a
-      - [0x381160, rodata, libs/choreo/choreopr/load] # .a
-      - [0x381328, rodata, libs/choreo/choreopr/locomotion] # .a
-      - [0x381D38, rodata, libs/choreo/choreopr/partition] # .a
-      - [0x3824A0, rodata, libs/choreo/choreopr/puppet] # .a
-      - [0x3826C8, rodata, libs/choreo/choreopr/replay] # .a
-      - [0x382BD8, rodata, libs/choreo/choreopr/replayblender] # .a
-      - [0x382C50, rodata, libs/choreo/choreopr/rig] # .a
-      - [0x383398, rodata, libs/choreo/choreopr/root] # .a
-      - [0x383960, rodata, libs/choreo/choreopr/rootblender] # .a
-      - [0x383A50, rodata, libs/choreo/choreopr/scriptreader] # .a
-      - [0x384250, rodata, libs/choreo/choreopr/synchronization] # .a
-      - [0x384518, rodata, libs/choreo/choreopr/transition] # .a
-      - [0x3848A8, rodata, libs/choreo/choreopr/utility] # .a
-      - [0x3848B0, rodata, libs/choreo/choreopr/blend] # .a
-      - [0x384F20, rodata, libs/sim/simpr/collisiondisplay] # .a
-      - [0x384F68, rodata, libs/sim/simpr/collisionmanager] # .a
-      - [0x385030, rodata, libs/sim/simpr/collisionobject] # .a
-      - [0x385170, rodata, libs/sim/simpr/collisionvolume] # .a
-      - [0x385548, rodata, libs/sim/simpr/impulsebasedcollisionsolver] # .a
-      - [0x385670, rodata, libs/sim/simpr/proximitydetection] # .a
-      - [0x3856B0, rodata, libs/sim/simpr/dline2] # .a
-      - [0x3856B8, rodata, libs/sim/simpr/physicsproperties] # .a
-      - [0x3858C8, rodata, libs/sim/simpr/simenvironment] # .a
-      - [0x385AE8, rodata, libs/sim/simpr/simstate] # .a
-      - [0x385DE8, rodata, libs/sim/simpr/simstatearticulated] # .a
-      - [0x386098, rodata, libs/sim/simpr/simtarget] # .a
-      - [0x386270, rodata, libs/sim/simpr/simulatedobject] # .a
-      - [0x386390, rodata, libs/sim/simpr/simutility] # .a
-      - [0x386580, rodata, libs/sim/simpr/skeletoninfo] # .a
-      - [0x3865C8, rodata, libs/sim/simpr/symmatrix] # .a
-      - [0x3865F8, rodata, libs/sim/simpr/tlist] # .a
-      - [0x386630, rodata, libs/sim/simpr/physicsobject] # .a
-      - [0x386880, rodata, libs/sim/simpr/articulatedphysicsobject] # .a
-      - [0x3869F0, rodata, libs/sim/simpr/physicsjoint] # .a
-      - [0x386E70, rodata, libs/sim/simpr/virtualcm] # .a
-      - [0x386F10, rodata, libs/sim/simpr/collisionanalyser] # .a
-      - [0x386F70, rodata, libs/sim/simpr/collisiondetector] # .a
-      - [0x386FD0, rodata, libs/sim/simpr/subcollisiondetector] # .a
-      - [0x387008, rodata, libs/sim/simpr/kalmann] # .a
-      - [0x387170, rodata, libs/poser/poserpr/pose] # .a
-      - [0x3871E0, rodata, libs/poser/poserpr/posedriver] # .a
-      - [0x387248, rodata, libs/poser/poserpr/poseengine] # .a
-      - [0x3872C0, rodata, libs/scrooby/scroobypr/FeLoaders] # .a
-      - [0x387768, rodata, libs/scrooby/scroobypr/FePage] # .a
-      - [0x387CF8, rodata, libs/scrooby/scroobypr/FeParent] # .a
-      - [0x387E88, rodata, libs/scrooby/scroobypr/FePolygon] # .a
-      - [0x388270, rodata, libs/scrooby/scroobypr/FeProject] # .a
-      - [0x388600, rodata, libs/scrooby/scroobypr/FePure3dObject] # .a
-      - [0x389018, rodata, libs/scrooby/scroobypr/FeScreen] # .a
-      - [0x389558, rodata, libs/scrooby/scroobypr/FeSprite] # .a
-      - [0x389E68, rodata, libs/scrooby/scroobypr/FeText] # .a
-      - [0x38A9C8, rodata, libs/scrooby/scroobypr/FeTextBible] # .a
-      - [0x38AAC8, rodata, libs/scrooby/scroobypr/FeTextStyle] # .a
-      - [0x38AB10, rodata, libs/scrooby/scroobypr/tLinearTable] # .a
-      - [0x38ABC8, rodata, libs/scrooby/scroobypr/FeResourceManager] # .a
-      - [0x38B230, rodata, libs/scrooby/scroobypr/App] # .a
-      - [0x38B310, rodata, libs/scrooby/scroobypr/pcstring] # .a
-      - [0x38B370, rodata, libs/scrooby/scroobypr/UnicodeString] # .a
-      - [0x38B428, rodata, libs/scrooby/scroobypr/EnumConversion] # .a
-      - [0x38B480, rodata, libs/scrooby/scroobypr/XMLTree] # .a
-      - [0x38B500, rodata, libs/scrooby/scroobypr/FeApp] # .a
-      - [0x38B6B8, rodata, libs/scrooby/scroobypr/FeBoundedDrawable] # .a
-      - [0x38BD00, rodata, libs/scrooby/scroobypr/FeChunkHandler] # .a
-      - [0x38BE98, rodata, libs/scrooby/scroobypr/FeDrawable] # .a
-      - [0x38C0F0, rodata, libs/scrooby/scroobypr/FeEntity] # .a
-      - [0x38C138, rodata, libs/scrooby/scroobypr/FeGroup] # .a
-      - [0x38C7B0, rodata, libs/scrooby/scroobypr/FeLanguage] # .a
-      - [0x38C7F8, rodata, libs/scrooby/scroobypr/FeLayer] # .a
-      - [0x38CCD8, rodata, libs/scrooby/scroobypr/FeMovie] # .a
-      - [0x38D560, rodata, libs/scrooby/scroobypr/FeOwner] # .a
-      - [0x38D8E0, rodata, libs/scrooby/scroobypr/XMLParser] # .a
-      - [0x38D9B8, .rodata, libs/pure3d/pure3dpr/platform] # .a
-      - [0x38D9F8, rodata, libs/pure3d/pure3dpr/billboardobject] # .a
-      - [0x38DD88, rodata, libs/pure3d/pure3dpr/bmp] # .a
-      - [0x38DE90, rodata, libs/pure3d/pure3dpr/camera] # .a
-      - [0x38E018, rodata, libs/pure3d/pure3dpr/cameraloader] # .a
-      - [0x38E0D8, rodata, libs/pure3d/pure3dpr/chunkfile] # .a
-      - [0x38E148, rodata, libs/pure3d/pure3dpr/context] # .a
-      - [0x38E1D0, rodata, libs/pure3d/pure3dpr/drawable] # .a
-      - [0x38E3A8, rodata, libs/pure3d/pure3dpr/entity] # .a
-      - [0x38E420, rodata, libs/pure3d/pure3dpr/error] # .a
-      - [0x38E4B0, rodata, libs/pure3d/pure3dpr/file] # .a
-      - [0x38E5F0, rodata, libs/pure3d/pure3dpr/font] # .a
-      - [0x38E6A0, rodata, libs/pure3d/pure3dpr/gameattr] # .a
-      - [0x38E820, rodata, libs/pure3d/pure3dpr/geometry] # .a
-      - [0x38EA20, rodata, libs/pure3d/pure3dpr/image] # .a
-      - [0x38EC08, rodata, libs/pure3d/pure3dpr/imagefactory] # .a
-      - [0x38EF80, rodata, libs/pure3d/pure3dpr/imagefont] # .a
-      - [0x38F0E8, rodata, libs/pure3d/pure3dpr/inventory] # .a
-      - [0x38F458, rodata, libs/pure3d/pure3dpr/light] # .a
-      - [0x38F560, rodata, libs/pure3d/pure3dpr/lightloader] # .a
-      - [0x38F768, rodata, libs/pure3d/pure3dpr/locator] # .a
-      - [0x38F860, rodata, libs/pure3d/pure3dpr/loadmanager] # .a
-      - [0x38FCC8, rodata, libs/pure3d/pure3dpr/memory] # .a
-      - [0x38FD38, rodata, libs/pure3d/pure3dpr/pointcamera] # .a
-      - [0x38FE30, rodata, libs/pure3d/pure3dpr/pointlight] # .a
-      - [0x38FE98, rodata, libs/pure3d/pure3dpr/png] # .a
-      - [0x38FF60, rodata, libs/pure3d/pure3dpr/primgroup] # .a
-      - [0x3904D0, rodata, libs/pure3d/pure3dpr/rawimage] # .a
-      - [0x3905C8, rodata, libs/pure3d/pure3dpr/refcounted] # .a
-      - [0x3905D0, rodata, libs/pure3d/pure3dpr/shader] # .a
-      - [0x390890, rodata, libs/pure3d/pure3dpr/sprite] # .a
-      - [0x390A80, rodata, libs/pure3d/pure3dpr/spotlight] # .a
-      - [0x390AE8, rodata, libs/pure3d/pure3dpr/targa] # .a
-      - [0x390C00, rodata, libs/pure3d/pure3dpr/textstring] # .a
-      - [0x390C60, rodata, libs/pure3d/pure3dpr/texture] # .a
-      - [0x390DC0, rodata, libs/pure3d/pure3dpr/texturefont] # .a
-      - [0x390FE8, rodata, libs/pure3d/pure3dpr/utility] # .a
-      - [0x390FF0, rodata, libs/pure3d/pure3dpr/vectorcamera] # .a
-      - [0x3910F0, rodata, libs/pure3d/pure3dpr/vertexlist] # .a
-      - [0x3911F8, rodata, libs/pure3d/pure3dpr/view] # .a
-      - [0x391268, rodata, libs/pure3d/pure3dpr/animate] # .a
-      - [0x391C28, rodata, libs/pure3d/pure3dpr/animatedobject] # .a
-      - [0x392028, rodata, libs/pure3d/pure3dpr/billboardobjectanimation] # .a
-      - [0x392108, rodata, libs/pure3d/pure3dpr/cameraanimation] # .a
-      - [0x392200, rodata, libs/pure3d/pure3dpr/channel] # .a
-      - [0x392708, rodata, libs/pure3d/pure3dpr/compositedrawable] # .a
-      - [0x392D70, rodata, libs/pure3d/pure3dpr/drawablepose] # .a
-      - [0x392E30, rodata, libs/pure3d/pure3dpr/event] # .a
-      - [0x392F50, rodata, libs/pure3d/pure3dpr/expression] # .a
-      - [0x3934F8, rodata, libs/pure3d/pure3dpr/expressionanimation] # .a
-      - [0x393608, rodata, libs/pure3d/pure3dpr/lightanimation] # .a
-      - [0x393700, rodata, libs/pure3d/pure3dpr/multicontroller] # .a
-      - [0x393A28, rodata, libs/pure3d/pure3dpr/polyskin] # .a
-      - [0x393CF0, rodata, libs/pure3d/pure3dpr/pose] # .a
-      - [0x393D58, rodata, libs/pure3d/pure3dpr/poseanimation] # .a
-      - [0x393E50, rodata, libs/pure3d/pure3dpr/sequencer] # .a
-      - [0x394A30, rodata, libs/pure3d/pure3dpr/skeleton] # .a
-      - [0x394BB0, rodata, libs/pure3d/pure3dpr/shaderanimation] # .a
-      - [0x394CD0, rodata, libs/pure3d/pure3dpr/textureanimation] # .a
-      - [0x394DA8, rodata, libs/pure3d/pure3dpr/vertexoffsetexpression] # .a
-      - [0x394E50, rodata, libs/pure3d/pure3dpr/visibilityanimation] # .a
-      - [0x395138, rodata, libs/pure3d/pure3dpr/vertexanimcontroller] # .a
-      - [0x395200, rodata, libs/pure3d/pure3dpr/vertexanimkey] # .a
-      - [0x395438, rodata, libs/pure3d/pure3dpr/vertexanimobject] # .a
-      - [0x395550, rodata, libs/pure3d/pure3dpr/effect] # .a
-      - [0x3955F8, rodata, libs/pure3d/pure3dpr/opticloader] # .a
-      - [0x395770, rodata, libs/pure3d/pure3dpr/particleloader] # .a
-      - [0x3959C0, rodata, libs/pure3d/pure3dpr/particlesystem] # .a
-      - [0x395BF0, rodata, libs/pure3d/pure3dpr/nodeanimation] # .a
-      - [0x395D00, rodata, libs/pure3d/pure3dpr/scenegraph] # .a
-      - [0x396720, rodata, libs/pure3d/pure3dpr/plat_filemap] # .a
-      - [0x3967F8, rodata, libs/pure3d/pure3dpr/ambientlight] # .a
-      - [0x396860, rodata, libs/pure3d/pure3dpr/directionallight] # .a
-      - [0x3968D0, rodata, libs/pure3d/pure3dpr/displaylist] # .a
-      - [0x396918, rodata, libs/pure3d/pure3dpr/fileftt] # .a
-      - [0x396AA8, rodata, libs/pure3d/pure3dpr/imageconverter] # .a
-      - [0x396C48, rodata, libs/pure3d/pure3dpr/eventanimation] # .a
-      - [0x3971F0, rodata, libs/pure3d/pure3dpr/expressionoffsets] # .a
-      - [0x397270, rodata, libs/pure3d/pure3dpr/opticlensflare] # .a
-      - [0x397398, rodata, libs/pure3d/pure3dpr/particlepool] # .a
-      - [0x397490, rodata, libs/pure3d/pure3dpr/particlearray] # .a
-      - [0x397518, rodata, libs/pure3d/pure3dpr/particleemitter] # .a
-      - [0x397798, rodata, libs/pure3d/pure3dpr/particlegenerator] # .a
-      - [0x397A68, rodata, libs/pure3d/pure3dpr/optic] # .a
-      - [0x397AD0, rodata, libs/pure3d/pddipr/ps2device] # .a
-      - [0x397BC0, rodata, libs/pure3d/pddipr/ps2display] # .a
-      - [0x397DF0, rodata, libs/pure3d/pddipr/ps2prim] # .a
-      - [0x398228, rodata, libs/pure3d/pddipr/ps2errorshader] # .a
-      - [0x398438, rodata, libs/pure3d/pddipr/ps2layeredshader] # .a
-      - [0x398520, rodata, libs/pure3d/pddipr/ps2lightmapshader] # .a
-      - [0x398740, rodata, libs/pure3d/pddipr/ps2lightweightshader] # .a
-      - [0x398958, rodata, libs/pure3d/pddipr/ps2toonshader] # .a
-      - [0x398A40, rodata, libs/pure3d/pddipr/ps2simpleshader] # .a
-      - [0x398C50, rodata, libs/pure3d/pddipr/ps2refractionshader] # .a
-      - [0x398D28, rodata, libs/pure3d/pddipr/ps2reflectionshader] # .a
-      - [0x398F50, rodata, libs/pure3d/pddipr/ps2shadowshader] # .a
-      - [0x399160, rodata, libs/pure3d/pddipr/ps2streamprim] # .a
-      - [0x399208, rodata, libs/pure3d/pddipr/ps2texture] # .a
-      - [0x3996D0, rodata, libs/pure3d/pddipr/ps2texcache] # .a
-      - [0x3996F8, rodata, libs/pure3d/pddipr/ps2vram] # .a
-      - [0x399700, rodata, libs/pure3d/pddipr/basecontext] # .a
-      - [0x39A1F8, rodata, libs/pure3d/pddipr/baseshader] # .a
-      - [0x39A330, rodata, libs/pure3d/pddipr/pddiobj] # .a
-      - [0x39A370, rodata, libs/pure3d/pddipr/packet] # .a
-      - [0x39A3E0, rodata, libs/pure3d/pddipr/ps2context] # .a
-      - [0x39AA80, rodata, libs/pure3d/pddipr/ps2shader] # .a
-      - [0x39ABF8, rodata, libs/pure3d/pddipr/ps2skin] # .a
-      - [0x39ACF0, rodata, libs/pure3d/pngpr/png] # .a
-      - [0x39AE68, rodata, libs/pure3d/pngpr/pngerror] # .a
-      - [0x39AEA8, rodata, libs/pure3d/pngpr/pngget] # .a
-      - [0x39AEE0, rodata, libs/pure3d/pngpr/pngmem] # .a
-      - [0x39AF30, rodata, libs/pure3d/pngpr/pngread] # .a
-      - [0x39B0F8, rodata, libs/pure3d/pngpr/pngrio] # .a
-      - [0x39B1B0, rodata, libs/pure3d/pngpr/pngrtran] # .a
-      - [0x39B410, rodata, libs/pure3d/pngpr/pngrutil] # .a
-      - [0x39BF20, rodata, libs/pure3d/pngpr/pngset] # .a
-      - [0x39BF68, rodata, libs/pure3d/zlibpr/crc32] # .a
-      - [0x39C770, rodata, libs/pure3d/zlibpr/inflate] # .a
-      - [0x39C830, rodata, libs/pure3d/zlibpr/zutil] # .a
-      - [0x39C8D0, rodata, libs/pure3d/zlibpr/infblock] # .a
-      - [0x39C9D0, rodata, libs/pure3d/zlibpr/infcodes] # .a
-      - [0x39CA38, rodata, libs/pure3d/zlibpr/inffast] # .a
-      - [0x39CA70, rodata, libs/pure3d/zlibpr/inftrees] # .a
-      - [0x39CD90, rodata, libs/radmath/radmathpr/quaternion] # .a
-      - [0x39CDA0, rodata, libs/radmath/radmathpr/spline] # .a
-      - [0x39CE28, rodata, libs/radmath/radmathpr/numerical] # .a
-      - [0x39CE58, rodata, libs/radmusic/radmusicpr/framework] # .a
-      - [0x39D170, rodata, libs/radmusic/radmusicpr/music_composition] # .a
-      - [0x39D6D0, rodata, libs/radmusic/radmusicpr/music_performance] # .a
-      - [0x39DA30, rodata, libs/radmusic/radmusicpr/schema_util] # .a
-      - [0x39DF00, rodata, libs/radmusic/radmusicpr/resource_manager] # .a
-      - [0x39E2F8, rodata, libs/radmusic/radmusicpr/memory] # .a
-      - [0x39E320, rodata, libs/radmusic/radmusicpr/ods] # .a
-      - [0x39E4A8, rodata, libs/radmusic/radmusicpr/ods_memory] # .a
-      - [0x39E510, rodata, libs/radmusic/radmusicpr/music_engine] # .a
-      - [0x39E888, rodata, libs/radmusic/radmusicpr/music_engine_state_fade] # .a
-      - [0x39EBB8, rodata, libs/radmusic/radmusicpr/music_engine_state_steady] # .a
-      - [0x39EEE8, rodata, libs/radmusic/radmusicpr/music_engine_state_stitch] # .a
-      - [0x39F220, rodata, libs/radmusic/radmusicpr/music_engine_state_stopped] # .a
-      - [0x39F550, rodata, libs/radmusic/radmusicpr/sequence_player] # .a
-      - [0x39F8A0, rodata, libs/radmusic/radmusicpr/sequence_region] # .a
-      - [0x39FC30, rodata, libs/radmusic/radmusicpr/sequence_stream_graph] # .a
-      - [0x3A0010, rodata, libs/radsound/radsoundpr/audioformat] # .a
-      - [0x3A0338, rodata, libs/radsound/radsoundpr/softwarelistener] # .a
-      - [0x3A05F8, rodata, libs/radsound/radsoundpr/softwarepositionalgroup] # .a
-      - [0x3A0910, rodata, libs/radsound/radsoundpr/memoryregion] # .a
-      - [0x3A0B50, rodata, libs/radsound/radsoundpr/system] # .a
-      - [0x3A0DF8, rodata, libs/radsound/radsoundpr/effect] # .a
-      - [0x3A10D0, rodata, libs/radsound/radsoundpr/iopclient] # .a
-      - [0x3A11C0, rodata, libs/radsound/radsoundpr/adpcmasyncrequest] # .a
-      - [0x3A1260, rodata, libs/radsound/radsoundpr/adpcmbuffer] # .a
-      - [0x3A1510, rodata, libs/radsound/radsoundpr/adpcmbufferclearer] # .a
-      - [0x3A1680, rodata, libs/radsound/radsoundpr/adpcmbufferloader] # .a
-      - [0x3A18D8, rodata, libs/radsound/radsoundpr/adpcmvoice] # .a
-      - [0x3A2238, rodata, libs/radsound/radsoundpr/buffereddatasource] # .a
-      - [0x3A2618, rodata, libs/radsound/radsoundpr/clip] # .a
-      - [0x3A2A20, rodata, libs/radsound/radsoundpr/clipplayer] # .a
-      - [0x3A2EB0, rodata, libs/radsound/radsoundpr/datacache] # .a
-      - [0x3A3280, rodata, libs/radsound/radsoundpr/rsdfiledatasource] # .a
-      - [0x3A3610, rodata, libs/radsound/radsoundpr/memorydatasource] # .a
-      - [0x3A38F0, rodata, libs/radsound/radsoundpr/memoryspaceobject] # .a
-      - [0x3A3AF0, rodata, libs/radsound/radsoundpr/stitcheddatasource] # .a
-      - [0x3A3E90, rodata, libs/radsound/radsoundpr/streamplayer] # .a
-      - [0x3A4450, rodata, libs/radsound/radsoundpr/radsoundobject] # .a
-      - [0x3A4458, rodata, libs/radsound/radsoundpr/banner] # .a
-      - [0x3A4468, rodata, libs/radsound/radsoundpr/radsoundfile] # .a
-      - [0x3A4498, rodata, libs/radscript/radscriptpr/script] # .a
-      - [0x3A46D0, rodata, libs/radscript/radscriptpr/namespace] # .a
-      - [0x3A47F0, rodata, libs/radscript/radscriptpr/radfactory] # .a
-      - [0x3A4870, rodata, libs/radscript/radscriptpr/TypeInfoLoader] # .a
-      - [0x3A4C98, rodata, libs/radscript/radscriptpr/TypeInfoMethod] # .a
-      - [0x3A4CD0, rodata, libs/radscript/radscriptpr/TypeInfoSystem] # .a
-      - [0x3A4F78, rodata, libs/radmovie/radmoviepr/movieplayer] # .a
-      - [0x3A52D0, rodata, libs/radmovie/radmoviepr/ipups2] # .a
-      - [0x3A5370, rodata, libs/radmovie/radmoviepr/videodecoderps2] # .a
-      - [0x3A55C0, rodata, libs/radmovie/radmoviepr/renderstrategyps2] # .a
-      - [0x3A5740, rodata, libs/radmovie/radmoviepr/audiodatasource] # .a
-      - [0x3A59F8, rodata, libs/radcore/radcorepr/debug] # .a
-      - [0x3A5C10, rodata, libs/radcore/radcorepr/object] # .a
-      - [0x3A5C20, rodata, libs/radcore/radcorepr/time] # .a
-      - [0x3A5E70, rodata, libs/radcore/radcorepr/stopwatch] # .a
-      - [0x3A60D0, rodata, libs/radcore/radcorepr/dlheap] # .a
-      - [0x3A6390, rodata, libs/radcore/radcorepr/externalmemoryheap] # .a
-      - [0x3A6608, rodata, libs/radcore/radcorepr/externalmemoryobject] # .a
-      - [0x3A6748, rodata, libs/radcore/radcorepr/memorymanager] # .a
-      - [0x3A6920, rodata, libs/radcore/radcorepr/memoryspaceps2] # .a
-      - [0x3A6DD8, rodata, libs/radcore/radcorepr/memorypool] # .a
-      - [0x3A6F58, rodata, libs/radcore/radcorepr/staticheap] # .a
-      - [0x3A71C0, rodata, libs/radcore/radcorepr/trackingheap] # .a
-      - [0x3A73D8, rodata, libs/radcore/radcorepr/string] # .a
-      - [0x3A7698, rodata, libs/radcore/radcorepr/objectbtree] # .a
-      - [0x3A77A0, rodata, libs/radcore/radcorepr/consoleclient] # .a
-      - [0x3A7B20, rodata, libs/radcore/radcorepr/ps2controller] # .a
-      - [0x3A8FF8, rodata, libs/radcore/radcorepr/radfile] # .a
-      - [0x3A90A0, rodata, libs/radcore/radcorepr/platform] # .a
-      - [0x3A92D0, rodata, libs/radcore/radcorepr/mutex] # .a
-      - [0x3A9418, rodata, libs/radcore/radcorepr/semaphore] # .a
-      - [0x3A9568, rodata, libs/radcore/radcorepr/thread] # .a
-      - [0x3A9890, rodata, libs/radcore/radcorepr/textdisplay] # .a
-      - [0x3A99D0, rodata, libs/radcore/radcorepr/weakcallbackwrapper] # .a
-      - [0x3A9BD0, rodata, libs/radcore/radcorepr/controllerbuffer] # .a
-      - [0x3A9D60, rodata, libs/radcore/radcorepr/filesystem] # .a
-      - [0x3A9E08, rodata, libs/radcore/radcorepr/platformdrives] # .a
-      - [0x3A9E40, rodata, libs/radcore/radcorepr/remotedrive] # .a
-      - [0x3AA0E8, rodata, libs/radcore/radcorepr/cementer] # .a
-      - [0x3AA370, rodata, libs/radcore/radcorepr/ps2cddrive] # .a
-      - [0x3AA608, rodata, libs/radcore/radcorepr/ps2hostdrive] # .a
-      - [0x3AA7A0, rodata, libs/radcore/radcorepr/ps2memcarddrive] # .a
-      - [0x3AAA38, rodata, libs/radcore/radcorepr/requests] # .a
-      - [0x3AB360, rodata, libs/radcore/radcorepr/file] # .a
-      - [0x3AB628, rodata, libs/radcore/radcorepr/instancedrive] # .a
-      - [0x3AB9B8, rodata, libs/radcore/radcorepr/drive] # .a
-      - [0x3ABBC0, rodata, libs/radcore/radcorepr/drivethread] # .a
-      - [0x3ABD40, rodata, sce_libs/lib/liblgdev/liblgdev] # .a
-      - [0x3AC948, rodata, libs/radcontent/radcontentpr/hashtable] # .a
-      - [0x3AC990, rodata, libs/radcontent/radcontentpr/inventory] # .a
-      - [0x3ACB90, rodata, libs/radcontent/radcontentpr/manager] # .a
-      - [0x3ACF80, rodata, libs/radcontent/radcontentpr/object] # .a
-      - [0x3ACFE8, rodata, libs/radcontent/radcontentpr/queue] # .a
-      - [0x3AD030, rodata, libs/radcontent/radcontentpr/request] # .a
-      - [0x3AD0C8, rodata, libs/radcontent/radcontentpr/stream] # .a
-      - [0x3AD370, rodata, sce_libs/gcc/ee/libg/assert] # .a
-      - [0x3AD3A0, rodata, sce_libs/gcc/ee/libg/ctype_] # .a
-      - [0x3AD4A8, rodata, sce_libs/gcc/ee/libg/impure] # .a
-      - [0x3AD4B0, rodata, sce_libs/gcc/ee/libg/mstats] # .a
-      - [0x3AD4E0, rodata, sce_libs/gcc/ee/libg/strtod] # .a
-      - [0x3AD5B0, rodata, sce_libs/gcc/ee/libg/vfiprintf] # .a
-      - [0x3AD7A0, rodata, sce_libs/gcc/ee/libg/vfprintf] # .a
-      - [0x3AD9B0, rodata, sce_libs/gcc/ee/libg/dtoa] # .a
-      - [0x3ADA08, rodata, sce_libs/gcc/ee/libg/locale] # .a
-      - [0x3ADA50, rodata, sce_libs/gcc/ee/libg/mallstatsr] # .a
-      - [0x3ADAB0, rodata, sce_libs/gcc/ee/libg/mprec] # .a
-      - [0x3ADBD8, rodata, sce_libs/gcc/ee/libg/s_infconst] # .a
-      - [0x3ADBE0, rodata, sce_libs/gcc/ee/libstdc++/iostream] # .a
-      - [0x3ADD18, rodata, sce_libs/gcc/ee/libstdc++/streambuf] # .a
-      - [0x3ADE90, rodata, sce_libs/gcc/ee/libstdc++/iovfscanf] # .a
-      - [0x3AE2D0, rodata, sce_libs/gcc/ee/libstdc++/iopadn] # .a
-      - [0x3AE2F0, rodata, sce_libs/gcc/ee/libstdc++/outfloat] # .a
-      - [0x3AE37C, rodata, sce_libs/gcc/ee/libstdc++/filebuf] # .a
-      - [0x3AE380, rodata, sce_libs/gcc/ee/libstdc++/floatconv] # .a
-      - [0x3AE5B8, rodata, sce_libs/gcc/ee/libstdc++/stdiostream] # .a
-      - [0x3AE6A8, rodata, sce_libs/lib/libgraph/graph012] # .a
-      - [0x3AE838, rodata, sce_libs/lib/libgraph/graph003] # .a
-      - [0x3AE880, rodata, sce_libs/lib/libgraph/graph008] # .a
-      - [0x3AE8B0, rodata, sce_libs/lib/libdma/libdma] # .a
-      - [0x3AE920, rodata, sce_libs/lib/libdev/devvu0] # .a
-      - [0x3AE938, rodata, sce_libs/lib/libdev/devfont] # .a
-      - [0x3AF948, rodata, sce_libs/lib/libpad/libpad] # .a
-      - [0x3AFAA0, rodata, sce_libs/lib/libsdr/sdr_main] # .a
-      - [0x3AFAC8, rodata, sce_libs/lib/libsdr/sdr_cb] # .a
-      - [0x3AFAF0, rodata, sce_libs/lib/libcdvd/cdvd000] # .a
-      - [0x3AFCA0, rodata, sce_libs/lib/libcdvd/cdvd005] # .a
-      - [0x3AFCC8, rodata, sce_libs/lib/libcdvd/cdvd006] # .a
-      - [0x3AFCD8, rodata, sce_libs/lib/libcdvd/cdvd017] # .a
-      - [0x3AFCE8, rodata, sce_libs/lib/libcdvd/cdvd039] # .a
-      - [0x3AFD28, rodata, sce_libs/lib/libmtap/libmtap] # .a
-      - [0x3AFE50, rodata, sce_libs/lib/libscf/libscf] # .a
-      - [0x3AFEA0, rodata, sce_libs/lib/libmc/libmc] # .a
-      - [0x3AFF28, rodata, sce_libs/lib/libkernl/thread] # .a
-      - [0x3AFF50, rodata, sce_libs/lib/libkernl/tty] # .a
-      - [0x3AFFC0, rodata, sce_libs/lib/libkernl/kprintf] # .a
-      - [0x3B0120, rodata, sce_libs/lib/libkernl/filestub] # .a
-      - [0x3B0190, rodata, sce_libs/lib/libkernl/eeloadfile] # .a
-      - [0x3B01A0, rodata, sce_libs/lib/libkernl/iopreset] # .a
-      - [0x3B01D0, rodata, sce_libs/lib/libkernl/exit] # .a
-      - [0x3B01D8, rodata, sce_libs/lib/libkernl/tlbfunc] # .a
-      - [0x3B0258, rodata, sce_libs/gcc/ee/libm/sf_atan] # .a
-      - [0x3B02AC, rodata, sce_libs/gcc/ee/libm/sf_ceil] # .a
-      - [0x3B02B0, rodata, sce_libs/gcc/ee/libm/sf_cos] # .a
-      - [0x3B02B4, rodata, sce_libs/gcc/ee/libm/sf_floor] # .a
-      - [0x3B02B8, rodata, sce_libs/gcc/ee/libm/w_pow] # .a
-      - [0x3B02D8, rodata, sce_libs/gcc/ee/libm/wf_acos] # .a
-      - [0x3B02E0, rodata, sce_libs/gcc/ee/libm/wf_asin] # .a
-      - [0x3B02E8, rodata, sce_libs/gcc/ee/libm/wf_atan2] # .a
-      - [0x3B02F0, rodata, sce_libs/gcc/ee/libm/wf_exp] # .a
-      - [0x3B0308, rodata, sce_libs/gcc/ee/libm/wf_fmod] # .a
-      - [0x3B0318, rodata, sce_libs/gcc/ee/libm/wf_log] # .a
-      - [0x3B0328, rodata, sce_libs/gcc/ee/libm/wf_pow] # .a
-      - [0x3B0348, rodata, sce_libs/gcc/ee/libm/e_pow] # .a
-      - [0x3B0518, rodata, sce_libs/gcc/ee/libm/e_rem_pio2] # .a
-      - [0x3B0768, rodata, sce_libs/gcc/ee/libm/e_sqrt] # .a
-      - [0x3B0778, rodata, sce_libs/gcc/ee/libm/ef_acos] # .a
-      - [0x3B07B0, rodata, sce_libs/gcc/ee/libm/ef_asin] # .a
-      - [0x3B07EC, rodata, sce_libs/gcc/ee/libm/ef_atan2] # .a
-      - [0x3B0808, rodata, sce_libs/gcc/ee/libm/ef_exp] # .a
-      - [0x3B0858, rodata, sce_libs/gcc/ee/libm/ef_fmod] # .a
-      - [0x3B0868, rodata, sce_libs/gcc/ee/libm/ef_log] # .a
-      - [0x3B0898, rodata, sce_libs/gcc/ee/libm/ef_pow] # .a
-      - [0x3B0920, rodata, sce_libs/gcc/ee/libm/ef_rem_pio2] # .a
-      - [0x3B0CE0, rodata, sce_libs/gcc/ee/libm/ef_sqrt] # .a
-      - [0x3B0CE8, rodata, sce_libs/gcc/ee/libm/k_cos] # .a
-      - [0x3B0D50, rodata, sce_libs/gcc/ee/libm/k_rem_pio2] # .a
-      - [0x3B0DC0, rodata, sce_libs/gcc/ee/libm/k_sin] # .a
-      - [0x3B0E30, rodata, sce_libs/gcc/ee/libm/kf_cos] # .a
-      - [0x3B0E50, rodata, sce_libs/gcc/ee/libm/kf_rem_pio2] # .a
-      - [0x3B0E9C, rodata, sce_libs/gcc/ee/libm/kf_sin] # .a
-      - [0x3B0EB8, rodata, sce_libs/gcc/ee/libm/kf_tan] # .a
-      - [0x3B0F00, rodata, sce_libs/gcc/ee/libm/s_floor] # .a
-      - [0x3B0F10, rodata, sce_libs/gcc/ee/libm/s_lib_ver] # .a
-      - [0x3B0F18, rodata, sce_libs/gcc/ee/libm/s_rint] # .a
-      - [0x3B0F28, rodata, sce_libs/gcc/ee/libm/s_scalbn] # .a
-      - [0x3B0F58, rodata, sce_libs/gcc/ee/libm/sf_scalbn] # .a
-      - [0x3B0F68, rodata, sce_libs/gcc_lib/ee/libgcc/_divdi3] # .a # 2.95.3
-      - [0x3B1068, rodata, sce_libs/gcc_lib/ee/libgcc/_moddi3] # .a # 2.95.3
-      - [0x3B1168, rodata, sce_libs/gcc_lib/ee/libgcc/_udivdi3] # .a # 2.95.3
-      - [0x3B1268, rodata, sce_libs/gcc_lib/ee/libgcc/_umoddi3] # .a # 2.95.3
-      - [0x3B1368, rodata, sce_libs/gcc_lib/ee/libgcc/exception] # .a # 2.95.3
-      - [0x3B13C0, rodata, sce_libs/gcc_lib/ee/libgcc/frame] # .a # 2.95.3
-      - [0x3B1490, rodata, sce_libs/gcc_lib/ee/libgcc/tinfo] # .a # 2.95.3
-      - [0x3B15A0, rodata, sce_libs/gcc_lib/ee/libgcc/tinfo2] # .a # 2.95.3
-      - [0x3B1780, gcc_except_table, sce_libs/gcc/ee/libstdc++/filebuf] # .a
-      - [0x3B17D0, gcc_except_table, sce_libs/gcc/ee/libstdc++/stdiostream] # .a
-      - [0x3B1808, gcc_except_table, sce_libs/gcc_lib/ee/libgcc/exception] # .a # 2.95.3
+      - [0x000000, asm, crt0/crt0]
+      - [0x000100, asm, code/allai]
+      - [0x0113E8, asm, code/allactor]
+      - [0x020CD8, asm, code/allsequencer]
+      - [0x0284B8, asm, code/allaivehicle]
+      - [0x02FEE0, asm, code/allatc]
+      - [0x0305B0, asm, code/allcamera]
+      - [0x044790, asm, code/allcards]
+      - [0x045720, asm, code/allcheats]
+      - [0x046468, asm, code/allconsole]
+      - [0x048828, asm, code/allcontexts]
+      - [0x04AAB8, asm, code/allgameplay]
+      - [0x04BA98, asm, code/alldemo]
+      - [0x04C968, asm, code/alldata]
+      - [0x04E310, asm, code/allmemcard]
+      - [0x04F478, asm, code/alldebug]
+      - [0x04F480, asm, code/allevents]
+      - [0x04FCF0, asm, code/allgameflow]
+      - [0x0503D0, asm, code/allinput]
+      - [0x053E48, asm, code/allinteriors]
+      - [0x05C690, asm, code/allloadmanager]
+      - [0x062648, cpp, code/allps2main]
+      - [0x065EE0, asm, code/allmemory]
+      - [0x068D80, asm, code/allmeta]
+      - [0x06DC90, asm, code/allmission]
+      - [0x087FA0, asm, code/allsafezone]
+      - [0x0880F0, asm, code/allcharactersheet]
+      - [0x08A258, asm, code/allrewards]
+      - [0x08B520, asm, code/allconditions]
+      - [0x08CF90, asm, code/allobjectives]
+      - [0x099B88, asm, code/allpresentation]
+      - [0x0A2DA8, asm, code/allrespawnmanager]
+      - [0x0A2FF0, asm, code/allfmvplayerps2]
+      - [0x0A4930, asm, code/allgui]
+      - [0x0AF318, asm, code/allbootup]
+      - [0x0B0ED0, asm, code/allbackend]
+      - [0x0B3388, asm, code/allfrontend]
+      - [0x0C2478, asm, code/allminigame]
+      - [0x0C6CF0, asm, code/allingame]
+      - [0x0DEF68, asm, code/allhudevents]
+      - [0x0E2890, asm, code/allutility]
+      - [0x0E9DB8, asm, code/allpresevents]
+      - [0x0EA550, asm, code/allculling]
+      - [0x0F3EA0, asm, code/alldsg]
+      - [0x100F80, asm, code/allbreakables]
+      - [0x1023A0, asm, code/allskidmarks]
+      - [0x104CE0, asm, code/allintersect]
+      - [0x106E48, asm, code/allloaders]
+      - [0x110B38, asm, code/allparticles]
+      - [0x114C00, asm, code/allanimentitydsgmanager]
+      - [0x115DE0, asm, code/allrenderflow]
+      - [0x116220, asm, code/allrendermanager]
+      - [0x11EEE0, asm, code/allroads]
+      - [0x127B08, asm, code/allsound]
+      - [0x12BF78, asm, code/allsoundavatar]
+      - [0x130030, asm, code/alldialog]
+      - [0x1368F0, asm, code/allmusic]
+      - [0x139108, asm, code/allnissound]
+      - [0x1399A8, asm, code/allsoundfx]
+      - [0x13D640, asm, code/allsoundrenderer]
+      - [0x148448, asm, code/allsoundtuning]
+      - [0x149190, asm, code/allsounddebug]
+      - [0x149360, asm, code/allmovingposn]
+      - [0x14C2F0, asm, code/allworldsim]
+      - [0x157DF0, asm, code/allcoins]
+      - [0x15DEB8, asm, code/allcharacter]
+      - [0x173470, asm, code/allredbrick]
+      - [0x18DDC8, asm, code/allvehiclecontroller]
+      - [0x18F9C8, asm, code/alltraffic]
+      - [0x192E20, asm, code/allpedpaths]
+      - [0x193610, asm, code/allped]
+      - [0x196550, asm, code/allspawn]
+      - [0x196740, asm, code/allharass]
+      - [0x1980B0, asm, code/allstateprop]
+      - [0x199E10, asm, code/allufo]
+      - [0x19C898, asm, code/allparkedcars]
+      - [0x19E000, asm, code/allsupersprintctx]
+      - [0x19F2F0, asm, code/allsupersprint]
+      - [0x1A4330, asm, code/allfootprint]
+      - [0x1A4950, asm, libs/choreo/choreopr/animation] # .a
+      - [0x1A7C18, asm, libs/choreo/choreopr/bank] # .a
+      - [0x1A8930, asm, libs/choreo/choreopr/basebank] # .a
+      - [0x1A9118, asm, libs/choreo/choreopr/constants] # .a
+      - [0x1A9170, asm, libs/choreo/choreopr/engine] # .a
+      - [0x1A9D60, asm, libs/choreo/choreopr/footblender] # .a
+      - [0x1AB610, asm, libs/choreo/choreopr/footplanter] # .a
+      - [0x1ABDD0, asm, libs/choreo/choreopr/internalanimation] # .a
+      - [0x1AC2B0, asm, libs/choreo/choreopr/jointblender] # .a
+      - [0x1AD0B8, asm, libs/choreo/choreopr/load] # .a
+      - [0x1AD960, asm, libs/choreo/choreopr/locomotion] # .a
+      - [0x1B16F8, asm, libs/choreo/choreopr/partition] # .a
+      - [0x1B4C78, asm, libs/choreo/choreopr/puppet] # .a
+      - [0x1B5CF8, asm, libs/choreo/choreopr/replay] # .a
+      - [0x1B7040, asm, libs/choreo/choreopr/replayblender] # .a
+      - [0x1B7570, asm, libs/choreo/choreopr/rig] # .a
+      - [0x1B8908, asm, libs/choreo/choreopr/root] # .a
+      - [0x1B94C0, asm, libs/choreo/choreopr/rootblender] # .a
+      - [0x1BB3B0, asm, libs/choreo/choreopr/scriptreader] # .a
+      - [0x1BE380, asm, libs/choreo/choreopr/synchronization] # .a
+      - [0x1BEC68, asm, libs/choreo/choreopr/transition] # .a
+      - [0x1BF428, asm, libs/choreo/choreopr/utility] # .a
+      - [0x1BF8D0, asm, libs/choreo/choreopr/blend] # .a
+      - [0x1C46C0, asm, libs/sim/simpr/collision] # .a
+      - [0x1C4A50, asm, libs/sim/simpr/collisiondisplay] # .a
+      - [0x1C5478, asm, libs/sim/simpr/collisionmanager] # .a
+      - [0x1C7068, asm, libs/sim/simpr/collisionobject] # .a
+      - [0x1C9208, asm, libs/sim/simpr/collisionvolume] # .a
+      - [0x1CC318, asm, libs/sim/simpr/impulsebasedcollisionsolver] # .a
+      - [0x1CE0C0, asm, libs/sim/simpr/proximitydetection] # .a
+      - [0x1D0AA0, asm, libs/sim/simpr/dline2] # .a
+      - [0x1D1410, asm, libs/sim/simpr/physicsproperties] # .a
+      - [0x1D1B48, asm, libs/sim/simpr/simenvironment] # .a
+      - [0x1D2460, asm, libs/sim/simpr/simmath] # .a
+      - [0x1D3178, asm, libs/sim/simpr/simstate] # .a
+      - [0x1D49E8, asm, libs/sim/simpr/simstatearticulated] # .a
+      - [0x1D6ED0, asm, libs/sim/simpr/simtarget] # .a
+      - [0x1D74C0, asm, libs/sim/simpr/simulatedobject] # .a
+      - [0x1D79A0, asm, libs/sim/simpr/simutility] # .a
+      - [0x1D82B0, asm, libs/sim/simpr/skeletoninfo] # .a
+      - [0x1D8940, asm, libs/sim/simpr/symmatrix] # .a
+      - [0x1D91F0, asm, libs/sim/simpr/tlist] # .a
+      - [0x1D95B0, asm, libs/sim/simpr/physicsobject] # .a
+      - [0x1DC2D8, asm, libs/sim/simpr/articulatedphysicsobject] # .a
+      - [0x1DDFD0, asm, libs/sim/simpr/physicsjoint] # .a
+      - [0x1E23A0, asm, libs/sim/simpr/virtualcm] # .a
+      - [0x1E2978, asm, libs/sim/simpr/restingdetector] # .a
+      - [0x1E2E10, asm, libs/sim/simpr/collisionanalyser] # .a
+      - [0x1E3C80, asm, libs/sim/simpr/collisionanalyserdata] # .a
+      - [0x1E48A8, asm, libs/sim/simpr/collisionanalyserevent] # .a
+      - [0x1E4968, asm, libs/sim/simpr/collisionanalyserinfo] # .a
+      - [0x1E4AF0, asm, libs/sim/simpr/collisiondetector] # .a
+      - [0x1E6D20, asm, libs/sim/simpr/subcollisiondetector] # .a
+      - [0x1EEA68, asm, libs/sim/simpr/kalmann] # .a
+      - [0x1EF388, asm, libs/poser/poserpr/joint] # .a
+      - [0x1EFD20, asm, libs/poser/poserpr/pose] # .a
+      - [0x1F0610, asm, libs/poser/poserpr/posedriver] # .a
+      - [0x1F0718, asm, libs/poser/poserpr/poseengine] # .a
+      - [0x1F0F38, asm, libs/poser/poserpr/transform] # .a
+      - [0x1F1330, asm, libs/scrooby/scroobypr/FeLoaders] # .a
+      - [0x1F4AC0, asm, libs/scrooby/scroobypr/FePage] # .a
+      - [0x1F5C78, asm, libs/scrooby/scroobypr/FeParent] # .a
+      - [0x1F7030, asm, libs/scrooby/scroobypr/FePolygon] # .a
+      - [0x1F83B8, asm, libs/scrooby/scroobypr/FeProject] # .a
+      - [0x1F9350, asm, libs/scrooby/scroobypr/FePure3dObject] # .a
+      - [0x1FB2E0, asm, libs/scrooby/scroobypr/FeScreen] # .a
+      - [0x1FC9A0, asm, libs/scrooby/scroobypr/FeSprite] # .a
+      - [0x1FE3B8, asm, libs/scrooby/scroobypr/FeText] # .a
+      - [0x200CE8, asm, libs/scrooby/scroobypr/FeTextBible] # .a
+      - [0x2011D8, asm, libs/scrooby/scroobypr/FeTextStyle] # .a
+      - [0x201458, asm, libs/scrooby/scroobypr/tLinearTable] # .a
+      - [0x202120, asm, libs/scrooby/scroobypr/FeResourceManager] # .a
+      - [0x2050C0, asm, libs/scrooby/scroobypr/App] # .a
+      - [0x205218, asm, libs/scrooby/scroobypr/pcstring] # .a
+      - [0x206010, asm, libs/scrooby/scroobypr/UnicodeString] # .a
+      - [0x206AE0, asm, libs/scrooby/scroobypr/stricmp] # .a
+      - [0x206BB8, asm, libs/scrooby/scroobypr/EnumConversion] # .a
+      - [0x206C80, asm, libs/scrooby/scroobypr/XMLTree] # .a
+      - [0x2075D0, asm, libs/scrooby/scroobypr/FeApp] # .a
+      - [0x208790, asm, libs/scrooby/scroobypr/FeBoundedDrawable] # .a
+      - [0x209A50, asm, libs/scrooby/scroobypr/FeChunkHandler] # .a
+      - [0x20C998, asm, libs/scrooby/scroobypr/FeDrawable] # .a
+      - [0x20D9B8, asm, libs/scrooby/scroobypr/FeEntity] # .a
+      - [0x20DAA8, asm, libs/scrooby/scroobypr/FeGroup] # .a
+      - [0x20EF28, asm, libs/scrooby/scroobypr/FeLanguage] # .a
+      - [0x20F168, asm, libs/scrooby/scroobypr/FeLayer] # .a
+      - [0x20FB70, asm, libs/scrooby/scroobypr/FeMovie] # .a
+      - [0x210398, asm, libs/scrooby/scroobypr/FeOwner] # .a
+      - [0x211100, asm, libs/scrooby/scroobypr/XMLParser] # .a
+      - [0x2120D8, asm, libs/scrooby/scroobypr/BufferReader] # .a
+      - [0x2120E8, cpp, libs/pure3d/pure3dpr/platform] # .a
+      - [0x212368, asm, libs/pure3d/pure3dpr/billboardobject] # .a
+      - [0x21A990, asm, libs/pure3d/pure3dpr/bmp] # .a
+      - [0x21B4C8, asm, libs/pure3d/pure3dpr/camera] # .a
+      - [0x21C198, asm, libs/pure3d/pure3dpr/cameraloader] # .a
+      - [0x21C650, asm, libs/pure3d/pure3dpr/chunkfile] # .a
+      - [0x21CEB0, asm, libs/pure3d/pure3dpr/context] # .a
+      - [0x21D670, asm, libs/pure3d/pure3dpr/drawable] # .a
+      - [0x21DCA8, asm, libs/pure3d/pure3dpr/entity] # .a
+      - [0x21E180, asm, libs/pure3d/pure3dpr/error] # .a
+      - [0x21E3D0, asm, libs/pure3d/pure3dpr/file] # .a
+      - [0x21EAA8, asm, libs/pure3d/pure3dpr/font] # .a
+      - [0x21ED60, asm, libs/pure3d/pure3dpr/gameattr] # .a
+      - [0x21F818, asm, libs/pure3d/pure3dpr/geometry] # .a
+      - [0x2205F8, asm, libs/pure3d/pure3dpr/image] # .a
+      - [0x221348, asm, libs/pure3d/pure3dpr/imagefactory] # .a
+      - [0x222D38, asm, libs/pure3d/pure3dpr/imagefont] # .a
+      - [0x223C40, asm, libs/pure3d/pure3dpr/inventory] # .a
+      - [0x224F80, asm, libs/pure3d/pure3dpr/light] # .a
+      - [0x225868, asm, libs/pure3d/pure3dpr/lightloader] # .a
+      - [0x2267F8, asm, libs/pure3d/pure3dpr/locator] # .a
+      - [0x226B88, asm, libs/pure3d/pure3dpr/loadmanager] # .a
+      - [0x2281A0, asm, libs/pure3d/pure3dpr/lzr] # .a
+      - [0x228408, asm, libs/pure3d/pure3dpr/matrixstack] # .a
+      - [0x2285B8, asm, libs/pure3d/pure3dpr/memory] # .a
+      - [0x228908, asm, libs/pure3d/pure3dpr/pointcamera] # .a
+      - [0x228CA8, asm, libs/pure3d/pure3dpr/pointlight] # .a
+      - [0x228F38, asm, libs/pure3d/pure3dpr/png] # .a
+      - [0x2298A8, asm, libs/pure3d/pure3dpr/primgroup] # .a
+      - [0x22D648, asm, libs/pure3d/pure3dpr/rawimage] # .a
+      - [0x22D870, asm, libs/pure3d/pure3dpr/refcounted] # .a
+      - [0x22D8B0, asm, libs/pure3d/pure3dpr/shader] # .a
+      - [0x22E828, asm, libs/pure3d/pure3dpr/sprite] # .a
+      - [0x2313F8, asm, libs/pure3d/pure3dpr/spotlight] # .a
+      - [0x2317A0, asm, libs/pure3d/pure3dpr/targa] # .a
+      - [0x232260, asm, libs/pure3d/pure3dpr/textstring] # .a
+      - [0x232540, asm, libs/pure3d/pure3dpr/texture] # .a
+      - [0x2334D0, asm, libs/pure3d/pure3dpr/texturefont] # .a
+      - [0x235568, asm, libs/pure3d/pure3dpr/unicode] # .a
+      - [0x235710, asm, libs/pure3d/pure3dpr/utility] # .a
+      - [0x235798, asm, libs/pure3d/pure3dpr/vectorcamera] # .a
+      - [0x235A20, asm, libs/pure3d/pure3dpr/vertexlist] # .a
+      - [0x236910, asm, libs/pure3d/pure3dpr/view] # .a
+      - [0x237158, asm, libs/pure3d/pure3dpr/animate] # .a
+      - [0x23B928, asm, libs/pure3d/pure3dpr/animatedobject] # .a
+      - [0x23DB70, asm, libs/pure3d/pure3dpr/billboardobjectanimation] # .a
+      - [0x23E148, asm, libs/pure3d/pure3dpr/cameraanimation] # .a
+      - [0x23EE30, asm, libs/pure3d/pure3dpr/channel] # .a
+      - [0x243A40, asm, libs/pure3d/pure3dpr/compositedrawable] # .a
+      - [0x246C70, asm, libs/pure3d/pure3dpr/drawablepose] # .a
+      - [0x246EA0, asm, libs/pure3d/pure3dpr/event] # .a
+      - [0x2471A8, asm, libs/pure3d/pure3dpr/expression] # .a
+      - [0x248E58, asm, libs/pure3d/pure3dpr/expressionanimation] # .a
+      - [0x249590, asm, libs/pure3d/pure3dpr/lightanimation] # .a
+      - [0x24A170, asm, libs/pure3d/pure3dpr/multicontroller] # .a
+      - [0x24B3D8, asm, libs/pure3d/pure3dpr/polyskin] # .a
+      - [0x24C330, asm, libs/pure3d/pure3dpr/pose] # .a
+      - [0x24C9F8, asm, libs/pure3d/pure3dpr/poseanimation] # .a
+      - [0x24D290, asm, libs/pure3d/pure3dpr/sequencer] # .a
+      - [0x250700, asm, libs/pure3d/pure3dpr/skeleton] # .a
+      - [0x2513B8, asm, libs/pure3d/pure3dpr/shaderanimation] # .a
+      - [0x2518E8, asm, libs/pure3d/pure3dpr/textureanimation] # .a
+      - [0x251BC0, asm, libs/pure3d/pure3dpr/vertexoffsetexpression] # .a
+      - [0x2536D8, asm, libs/pure3d/pure3dpr/visibilityanimation] # .a
+      - [0x254060, asm, libs/pure3d/pure3dpr/vertexanimcontroller] # .a
+      - [0x2543B0, asm, libs/pure3d/pure3dpr/vertexanimkey] # .a
+      - [0x255400, asm, libs/pure3d/pure3dpr/vertexanimobject] # .a
+      - [0x256CF0, asm, libs/pure3d/pure3dpr/effect] # .a
+      - [0x257128, asm, libs/pure3d/pure3dpr/opticloader] # .a
+      - [0x257A90, asm, libs/pure3d/pure3dpr/particleloader] # .a
+      - [0x259430, asm, libs/pure3d/pure3dpr/particlesystem] # .a
+      - [0x25AD40, asm, libs/pure3d/pure3dpr/particleutility] # .a
+      - [0x25ADD0, asm, libs/pure3d/pure3dpr/nodeanimation] # .a
+      - [0x25B368, asm, libs/pure3d/pure3dpr/scenegraph] # .a
+      - [0x25EFD0, asm, libs/pure3d/pure3dpr/plat_filemap] # .a
+      - [0x25F090, asm, libs/pure3d/pure3dpr/ambientlight] # .a
+      - [0x25F1B8, asm, libs/pure3d/pure3dpr/directionallight] # .a
+      - [0x25F3D8, asm, libs/pure3d/pure3dpr/displaylist] # .a
+      - [0x25FA68, asm, libs/pure3d/pure3dpr/fileftt] # .a
+      - [0x2605B8, asm, libs/pure3d/pure3dpr/imageconverter] # .a
+      - [0x2610C8, asm, libs/pure3d/pure3dpr/textdataparser] # .a
+      - [0x261870, asm, libs/pure3d/pure3dpr/eventanimation] # .a
+      - [0x262D90, asm, libs/pure3d/pure3dpr/expressionoffsets] # .a
+      - [0x263360, asm, libs/pure3d/pure3dpr/opticlensflare] # .a
+      - [0x2643D0, asm, libs/pure3d/pure3dpr/particlepool] # .a
+      - [0x265808, asm, libs/pure3d/pure3dpr/particlearray] # .a
+      - [0x265DF8, asm, libs/pure3d/pure3dpr/particleemitter] # .a
+      - [0x2697C8, asm, libs/pure3d/pure3dpr/particlegenerator] # .a
+      - [0x26B480, asm, libs/pure3d/pure3dpr/optic] # .a
+      - [0x26B6E0, asm, libs/pure3d/pddipr/misc] # .a
+      - [0x26B718, asm, libs/pure3d/pddipr/ps2device] # .a
+      - [0x26BB88, asm, libs/pure3d/pddipr/ps2display] # .a
+      - [0x26D128, asm, libs/pure3d/pddipr/ps2prim] # .a
+      - [0x26F3F8, asm, libs/pure3d/pddipr/ps2errorshader] # .a
+      - [0x26F8D8, asm, libs/pure3d/pddipr/ps2layeredshader] # .a
+      - [0x26FA20, asm, libs/pure3d/pddipr/ps2lightmapshader] # .a
+      - [0x2708F0, asm, libs/pure3d/pddipr/ps2lightweightshader] # .a
+      - [0x2712F8, asm, libs/pure3d/pddipr/ps2toonshader] # .a
+      - [0x271B00, asm, libs/pure3d/pddipr/ps2simpleshader] # .a
+      - [0x272DF8, asm, libs/pure3d/pddipr/ps2refractionshader] # .a
+      - [0x273790, asm, libs/pure3d/pddipr/ps2reflectionshader] # .a
+      - [0x274BA8, asm, libs/pure3d/pddipr/ps2shadowshader] # .a
+      - [0x274F60, asm, libs/pure3d/pddipr/ps2streamprim] # .a
+      - [0x275928, asm, libs/pure3d/pddipr/ps2texture] # .a
+      - [0x276F60, asm, libs/pure3d/pddipr/ps2texcache] # .a
+      - [0x277A20, asm, libs/pure3d/pddipr/ps2vram] # .a
+      - [0x279038, asm, libs/pure3d/pddipr/ps2vucode] # .a
+      - [0x2791F0, asm, libs/pure3d/pddipr/basecontext] # .a
+      - [0x27CE50, asm, libs/pure3d/pddipr/baseshader] # .a
+      - [0x27D740, asm, libs/pure3d/pddipr/dma] # .a
+      - [0x27DB10, asm, libs/pure3d/pddipr/ee] # .a
+      - [0x27DB50, asm, libs/pure3d/pddipr/font] # .a
+      - [0x27E058, asm, libs/pure3d/pddipr/mfifo] # .a
+      - [0x27E458, asm, libs/pure3d/pddipr/pddiobj] # .a
+      - [0x27E550, asm, libs/pure3d/pddipr/packet] # .a
+      - [0x27E708, asm, libs/pure3d/pddipr/ps2context] # .a
+      - [0x282D78, asm, libs/pure3d/pddipr/ps2skin] # .a
+      - [0x283158, asm, libs/pure3d/pngpr/png] # .a
+      - [0x283510, asm, libs/pure3d/pngpr/pngerror] # .a
+      - [0x2837E0, asm, libs/pure3d/pngpr/pngget] # .a
+      - [0x2839D0, asm, libs/pure3d/pngpr/pngmem] # .a
+      - [0x283C20, asm, libs/pure3d/pngpr/pngread] # .a
+      - [0x284C20, asm, libs/pure3d/pngpr/pngrio] # .a
+      - [0x284D18, asm, libs/pure3d/pngpr/pngrtran] # .a
+      - [0x28A290, asm, libs/pure3d/pngpr/pngrutil] # .a
+      - [0x28DDE0, asm, libs/pure3d/pngpr/pngset] # .a
+      - [0x28E628, asm, libs/pure3d/pngpr/pngtrans] # .a
+      - [0x28EC80, asm, libs/pure3d/zlibpr/crc32] # .a
+      - [0x28EE88, asm, libs/pure3d/zlibpr/inflate] # .a
+      - [0x28F5E0, asm, libs/pure3d/zlibpr/zutil] # .a
+      - [0x28F628, asm, libs/pure3d/zlibpr/adler32] # .a
+      - [0x28F7C0, asm, libs/pure3d/zlibpr/infblock] # .a
+      - [0x2905C0, asm, libs/pure3d/zlibpr/infcodes] # .a
+      - [0x290E50, asm, libs/pure3d/zlibpr/inffast] # .a
+      - [0x291228, asm, libs/pure3d/zlibpr/inftrees] # .a
+      - [0x291AE0, asm, libs/pure3d/zlibpr/infutil] # .a
+      - [0x291C60, asm, libs/radmath/radmathpr/radmath] # .a
+      - [0x291CC0, asm, libs/radmath/radmathpr/matrix] # .a
+      - [0x292AE8, asm, libs/radmath/radmathpr/plane] # .a
+      - [0x292C80, asm, libs/radmath/radmathpr/quaternion] # .a
+      - [0x293400, asm, libs/radmath/radmathpr/random] # .a
+      - [0x293680, asm, libs/radmath/radmathpr/spline] # .a
+      - [0x294750, asm, libs/radmath/radmathpr/trig] # .a
+      - [0x294A08, asm, libs/radmath/radmathpr/vector] # .a
+      - [0x2950C0, asm, libs/radmath/radmathpr/matrix_ps2] # .a
+      - [0x2951E8, asm, libs/radmath/radmathpr/numerical] # .a
+      - [0x2951F8, asm, libs/radmusic/radmusicpr/framework] # .a
+      - [0x295270, asm, libs/radmusic/radmusicpr/music_composition] # .a
+      - [0x295AE8, asm, libs/radmusic/radmusicpr/music_performance] # .a
+      - [0x296A88, asm, libs/radmusic/radmusicpr/schema_util] # .a
+      - [0x298D30, asm, libs/radmusic/radmusicpr/resource_manager] # .a
+      - [0x29B1E0, asm, libs/radmusic/radmusicpr/memory] # .a
+      - [0x29B390, asm, libs/radmusic/radmusicpr/ods] # .a
+      - [0x29E308, asm, libs/radmusic/radmusicpr/ods_memory] # .a
+      - [0x2A0010, asm, libs/radmusic/radmusicpr/ods_parser] # .a
+      - [0x2A05B8, asm, libs/radmusic/radmusicpr/music_engine] # .a
+      - [0x2A1A10, asm, libs/radmusic/radmusicpr/music_engine_state_fade] # .a
+      - [0x2A2810, asm, libs/radmusic/radmusicpr/music_engine_state_steady] # .a
+      - [0x2A3360, asm, libs/radmusic/radmusicpr/music_engine_state_stitch] # .a
+      - [0x2A40B8, asm, libs/radmusic/radmusicpr/music_engine_state_stopped] # .a
+      - [0x2A4478, asm, libs/radmusic/radmusicpr/sequence_player] # .a
+      - [0x2A8458, asm, libs/radmusic/radmusicpr/sequence_region] # .a
+      - [0x2A95A8, asm, libs/radmusic/radmusicpr/sequence_stream_graph] # .a
+      - [0x2A9F50, asm, libs/radsound/radsoundpr/audioformat] # .a
+      - [0x2AAB38, asm, libs/radsound/radsoundpr/softwarelistener] # .a
+      - [0x2AB988, asm, libs/radsound/radsoundpr/softwarepositionalgroup] # .a
+      - [0x2AC150, asm, libs/radsound/radsoundpr/memoryregion] # .a
+      - [0x2ACB88, asm, libs/radsound/radsoundpr/system] # .a
+      - [0x2AD9B0, asm, libs/radsound/radsoundpr/effect] # .a
+      - [0x2AE138, asm, libs/radsound/radsoundpr/iopclient] # .a
+      - [0x2AEC08, asm, libs/radsound/radsoundpr/adpcm] # .a
+      - [0x2AED28, asm, libs/radsound/radsoundpr/adpcmasyncrequest] # .a
+      - [0x2AF070, asm, libs/radsound/radsoundpr/adpcmbuffer] # .a
+      - [0x2AF7A8, asm, libs/radsound/radsoundpr/adpcmbufferclearer] # .a
+      - [0x2AFC48, asm, libs/radsound/radsoundpr/adpcmbufferloader] # .a
+      - [0x2B03F0, asm, libs/radsound/radsoundpr/adpcmvoice] # .a
+      - [0x2B32E0, asm, libs/radsound/radsoundpr/buffereddatasource] # .a
+      - [0x2B4938, asm, libs/radsound/radsoundpr/clip] # .a
+      - [0x2B5800, asm, libs/radsound/radsoundpr/clipplayer] # .a
+      - [0x2B6750, asm, libs/radsound/radsoundpr/datacache] # .a
+      - [0x2B76F8, asm, libs/radsound/radsoundpr/rsdfiledatasource] # .a
+      - [0x2B8360, asm, libs/radsound/radsoundpr/memorydatasource] # .a
+      - [0x2B8D80, asm, libs/radsound/radsoundpr/memoryspaceobject] # .a
+      - [0x2B9238, asm, libs/radsound/radsoundpr/stitcheddatasource] # .a
+      - [0x2BA0E0, asm, libs/radsound/radsoundpr/streamplayer] # .a
+      - [0x2BBAC8, asm, libs/radsound/radsoundpr/banner] # .a
+      - [0x2BBAD0, asm, libs/radsound/radsoundpr/radsoundfile] # .a
+      - [0x2BBC48, asm, libs/radsound/radsoundpr/rolloff] # .a
+      - [0x2BBCE0, asm, libs/radscript/radscriptpr/script] # .a
+      - [0x2BC3C0, asm, libs/radscript/radscriptpr/namespace] # .a
+      - [0x2BC730, asm, libs/radscript/radscriptpr/radfactory] # .a
+      - [0x2BCB60, asm, libs/radscript/radscriptpr/TypeInfoLoader] # .a
+      - [0x2BEE70, asm, libs/radscript/radscriptpr/TypeInfoMethod] # .a
+      - [0x2BF030, asm, libs/radscript/radscriptpr/ps2typeinfovfcall] # .a
+      - [0x2BF0C0, asm, libs/radscript/radscriptpr/TypeInfoSystem] # .a
+      - [0x2BFF88, asm, libs/radmovie/radmoviepr/movieplayer] # .a
+      - [0x2C1650, asm, libs/radmovie/radmoviepr/ipups2] # .a
+      - [0x2C1E78, asm, libs/radmovie/radmoviepr/videodecoderps2] # .a
+      - [0x2C2C38, asm, libs/radmovie/radmoviepr/renderstrategyps2] # .a
+      - [0x2C33D0, asm, libs/radmovie/radmoviepr/audiodatasource] # .a
+      - [0x2C3CC8, asm, libs/radcore/radcorepr/debug] # .a
+      - [0x2C3F90, asm, libs/radcore/radcorepr/time] # .a
+      - [0x2C4D10, asm, libs/radcore/radcorepr/stopwatch] # .a
+      - [0x2C54C8, asm, libs/radcore/radcorepr/align] # .a
+      - [0x2C5540, asm, libs/radcore/radcorepr/dlheap] # .a
+      - [0x2C6B20, asm, libs/radcore/radcorepr/externalmemoryheap] # .a
+      - [0x2C76E8, asm, libs/radcore/radcorepr/externalmemoryobject] # .a
+      - [0x2C7808, asm, libs/radcore/radcorepr/memorymanager] # .a
+      - [0x2C87D0, asm, libs/radcore/radcorepr/memoryspaceps2] # .a
+      - [0x2C9B58, asm, libs/radcore/radcorepr/memorypool] # .a
+      - [0x2CA318, asm, libs/radcore/radcorepr/platalloc] # .a
+      - [0x2CA3B0, asm, libs/radcore/radcorepr/staticheap] # .a
+      - [0x2CA9A8, asm, libs/radcore/radcorepr/trackingheap] # .a
+      - [0x2CC1C8, asm, libs/radcore/radcorepr/string] # .a
+      - [0x2CCF50, asm, libs/radcore/radcorepr/objectbtree] # .a
+      - [0x2CDA58, asm, libs/radcore/radcorepr/targetx] # .a
+      - [0x2CDA88, asm, libs/radcore/radcorepr/consoleclient] # .a
+      - [0x2CF2D8, asm, libs/radcore/radcorepr/ps2controller] # .a
+      - [0x2D7070, asm, libs/radcore/radcorepr/radfile] # .a
+      - [0x2D75C8, asm, libs/radcore/radcorepr/platform] # .a
+      - [0x2D7FD0, asm, libs/radcore/radcorepr/system] # .a
+      - [0x2D80A8, asm, libs/radcore/radcorepr/mutex] # .a
+      - [0x2D8440, asm, libs/radcore/radcorepr/semaphore] # .a
+      - [0x2D8788, asm, libs/radcore/radcorepr/thread] # .a
+      - [0x2D9A78, asm, libs/radcore/radcorepr/textdisplay] # .a
+      - [0x2DA6C0, asm, libs/radcore/radcorepr/weakcallbackwrapper] # .a
+      - [0x2DA988, asm, libs/radcore/radcorepr/controllerbuffer] # .a
+      - [0x2DAEB0, asm, libs/radcore/radcorepr/filesystem] # .a
+      - [0x2DBB88, asm, libs/radcore/radcorepr/platformdrives] # .a
+      - [0x2DBD18, asm, libs/radcore/radcorepr/remotedrive] # .a
+      - [0x2DD2B0, asm, libs/radcore/radcorepr/cementer] # .a
+      - [0x2DE108, asm, libs/radcore/radcorepr/ps2cddrive] # .a
+      - [0x2DFB50, asm, libs/radcore/radcorepr/ps2hostdrive] # .a
+      - [0x2E0368, asm, libs/radcore/radcorepr/ps2memcarddrive] # .a
+      - [0x2E2740, asm, libs/radcore/radcorepr/requests] # .a
+      - [0x2E5358, asm, libs/radcore/radcorepr/file] # .a
+      - [0x2E62A0, asm, libs/radcore/radcorepr/instancedrive] # .a
+      - [0x2E7348, asm, libs/radcore/radcorepr/drive] # .a
+      - [0x2E7DB8, asm, libs/radcore/radcorepr/buffereddrive] # .a
+      - [0x2E81E0, asm, libs/radcore/radcorepr/drivethread] # .a
+      - [0x2E8CC8, asm, libs/radcore/radcorepr/signeddrive] # .a
+      - [0x2E9080, asm, libs/radcore/radcorepr/filecache] # .a
+      - [0x2E9540, asm, sce_libs/lib/liblgdev/liblgdev] # .a
+      - [0x2EA468, asm, libs/radcontent/radcontentpr/hashtable] # .a
+      - [0x2EAFA0, asm, libs/radcontent/radcontentpr/inventory] # .a
+      - [0x2EBA60, asm, libs/radcontent/radcontentpr/manager] # .a
+      - [0x2ED458, asm, libs/radcontent/radcontentpr/object] # .a
+      - [0x2ED628, asm, libs/radcontent/radcontentpr/queue] # .a
+      - [0x2ED838, asm, libs/radcontent/radcontentpr/request] # .a
+      - [0x2EDD20, asm, libs/radcontent/radcontentpr/stream] # .a
+      - [0x2EE6E0, asm, sce_libs/gcc/ee/libg/assert] # .a
+      - [0x2EE718, asm, sce_libs/gcc/ee/libg/atexit] # .a
+      - [0x2EE7B0, asm, sce_libs/gcc/ee/libg/atof] # .a
+      - [0x2EE7D0, asm, sce_libs/gcc/ee/libg/atoi] # .a
+      - [0x2EE7F8, asm, sce_libs/gcc/ee/libg/bsearch] # .a
+      - [0x2EE800, asm, sce_libs/gcc/ee/libg/calloc] # .a
+      - [0x2EE830, asm, sce_libs/gcc/ee/libg/callocr] # .a
+      - [0x2EE8F0, asm, sce_libs/gcc/ee/libg/exit] # .a
+      - [0x2EE9A0, asm, sce_libs/gcc/ee/libg/fclose] # .a
+      - [0x2EEAA8, asm, sce_libs/gcc/ee/libg/fflush] # .a
+      - [0x2EEBB0, asm, sce_libs/gcc/ee/libg/findfp] # .a
+      - [0x2EEE00, asm, sce_libs/gcc/ee/libg/fiprintf] # .a
+      - [0x2EEE38, asm, sce_libs/gcc/ee/libg/fopen] # .a
+      - [0x2EEF48, asm, sce_libs/gcc/ee/libg/fprintf] # .a
+      - [0x2EEF80, asm, sce_libs/gcc/ee/libg/fread] # .a
+      - [0x2EF0A0, asm, sce_libs/gcc/ee/libg/freer] # .a
+      - [0x2EF530, asm, sce_libs/gcc/ee/libg/fseek] # .a
+      - [0x2EF9C0, asm, sce_libs/gcc/ee/libg/fstatr] # .a
+      - [0x2EFA20, asm, sce_libs/gcc/ee/libg/fwalk] # .a
+      - [0x2EFAB8, asm, sce_libs/gcc/ee/libg/fwrite] # .a
+      - [0x2EFB40, asm, sce_libs/gcc/ee/libg/makebuf] # .a
+      - [0x2EFC90, asm, sce_libs/gcc/ee/libg/malign] # .a
+      - [0x2EFCC0, asm, sce_libs/gcc/ee/libg/malignr] # .a
+      - [0x2EFE90, asm, sce_libs/gcc/ee/libg/malloc] # .a
+      - [0x2EFEC8, asm, sce_libs/gcc/ee/libg/mallocr] # .a
+      - [0x2F0898, asm, sce_libs/gcc/ee/libg/memcmp] # .a
+      - [0x2F092C, asm, sce_libs/gcc/ee/libg/memcpy] # .a
+      - [0x2F09DC, asm, sce_libs/gcc/ee/libg/memmove] # .a
+      - [0x2F0AE0, asm, sce_libs/gcc/ee/libg/memset] # .a
+      - [0x2F0BA0, asm, sce_libs/gcc/ee/libg/mlock] # .a
+      - [0x2F0BB0, asm, sce_libs/gcc/ee/libg/mstats] # .a
+      - [0x2F0BF0, asm, sce_libs/gcc/ee/libg/openr] # .a
+      - [0x2F0C50, asm, sce_libs/gcc/ee/libg/printf] # .a
+      - [0x2F0CA8, asm, sce_libs/gcc/ee/libg/qsort] # .a
+      - [0x2F16D0, asm, sce_libs/gcc/ee/libg/rand] # .a
+      - [0x2F1710, asm, sce_libs/gcc/ee/libg/refill] # .a
+      - [0x2F18A8, asm, sce_libs/gcc/ee/libg/sbrkr] # .a
+      - [0x2F1904, asm, sce_libs/gcc/ee/libg/setjmp] # .a
+      - [0x2F1980, asm, sce_libs/gcc/ee/libg/sf_isnan] # .a
+      - [0x2F19A8, asm, sce_libs/gcc/ee/libg/sprintf] # .a
+      - [0x2F1A18, asm, sce_libs/gcc/ee/libg/stdio] # .a
+      - [0x2F1B88, asm, sce_libs/gcc/ee/libg/strcasecmp] # .a
+      - [0x2F1C3C, asm, sce_libs/gcc/ee/libg/strcat] # .a
+      - [0x2F1D68, asm, sce_libs/gcc/ee/libg/strchr] # .a
+      - [0x2F1EF8, asm, sce_libs/gcc/ee/libg/strcmp] # .a
+      - [0x2F203C, asm, sce_libs/gcc/ee/libg/strcpy] # .a
+      - [0x2F2150, asm, sce_libs/gcc/ee/libg/strlen] # .a
+      - [0x2F2288, asm, sce_libs/gcc/ee/libg/strlwr] # .a
+      - [0x2F22E0, asm, sce_libs/gcc/ee/libg/strncat] # .a
+      - [0x2F2490, asm, sce_libs/gcc/ee/libg/strncmp] # .a
+      - [0x2F2648, asm, sce_libs/gcc/ee/libg/strncpy] # .a
+      - [0x2F2808, asm, sce_libs/gcc/ee/libg/strrchr] # .a
+      - [0x2F2858, asm, sce_libs/gcc/ee/libg/strstr] # .a
+      - [0x2F28C8, asm, sce_libs/gcc/ee/libg/strtod] # .a
+      - [0x2F3800, asm, sce_libs/gcc/ee/libg/strtok] # .a
+      - [0x2F3808, asm, sce_libs/gcc/ee/libg/strtok_r] # .a
+      - [0x2F3810, asm, sce_libs/gcc/ee/libg/strtol] # .a
+      - [0x2F3A80, asm, sce_libs/gcc/ee/libg/strupr] # .a
+      - [0x2F3AD8, asm, sce_libs/gcc/ee/libg/vfiprintf] # .a
+      - [0x2F4820, asm, sce_libs/gcc/ee/libg/vfprintf] # .a
+      - [0x2F6140, asm, sce_libs/gcc/ee/libg/vsprintf] # .a
+      - [0x2F6198, asm, sce_libs/gcc/ee/libg/writer] # .a
+      - [0x2F61F8, asm, sce_libs/gcc/ee/libg/wsetup] # .a
+      - [0x2F6308, asm, sce_libs/gcc/ee/libg/abort] # .a
+      - [0x2F6328, asm, sce_libs/gcc/ee/libg/closer] # .a
+      - [0x2F6380, asm, sce_libs/gcc/ee/libg/dtoa] # .a
+      - [0x2F7768, asm, sce_libs/gcc/ee/libg/flags] # .a
+      - [0x2F7810, asm, sce_libs/gcc/ee/libg/fvwrite] # .a
+      - [0x2F7BE8, asm, sce_libs/gcc/ee/libg/locale] # .a
+      - [0x2F7C30, asm, sce_libs/gcc/ee/libg/lseekr] # .a
+      - [0x2F7C90, asm, sce_libs/gcc/ee/libg/mallinfor] # .a
+      - [0x2F7E38, asm, sce_libs/gcc/ee/libg/mallstatsr] # .a
+      - [0x2F7E40, asm, sce_libs/gcc/ee/libg/mbtowc_r] # .a
+      - [0x2F7E7C, asm, sce_libs/gcc/ee/libg/memchr] # .a
+      - [0x2F7F60, asm, sce_libs/gcc/ee/libg/mprec] # .a
+      - [0x2F8F18, asm, sce_libs/gcc/ee/libg/readr] # .a
+      - [0x2F8F78, asm, sce_libs/gcc/ee/libg/s_isinf] # .a
+      - [0x2F8FC0, asm, sce_libs/gcc/ee/libg/s_isnan] # .a
+      - [0x2F8FF8, asm, sce_libs/gcc/ee/libg/signal] # .a
+      - [0x2F9198, asm, sce_libs/gcc/ee/libg/signalr] # .a
+      - [0x2F9218, asm, sce_libs/gcc/ee/libstdc++/iostream] # .a
+      - [0x2FC630, asm, sce_libs/gcc/ee/libstdc++/isgetline] # .a
+      - [0x2FCB20, asm, sce_libs/gcc/ee/libstdc++/isscan] # .a
+      - [0x2FCC88, asm, sce_libs/gcc/ee/libstdc++/sbscan] # .a
+      - [0x2FCD08, asm, sce_libs/gcc/ee/libstdc++/stdstreams] # .a
+      - [0x2FCD88, asm, sce_libs/gcc/ee/libstdc++/streambuf] # .a
+      - [0x2FDF00, asm, sce_libs/gcc/ee/libstdc++/genops] # .a
+      - [0x2FF038, asm, sce_libs/gcc/ee/libstdc++/iovfscanf] # .a
+      - [0x2FFEB8, asm, sce_libs/gcc/ee/libstdc++/iopadn] # .a
+      - [0x2FFFD0, asm, sce_libs/gcc/ee/libstdc++/iogetline] # .a
+      - [0x300170, asm, sce_libs/gcc/ee/libstdc++/ioseekoff] # .a
+      - [0x300210, asm, sce_libs/gcc/ee/libstdc++/ioseekpos] # .a
+      - [0x300270, asm, sce_libs/gcc/ee/libstdc++/outfloat] # .a
+      - [0x300830, asm, sce_libs/gcc/ee/libstdc++/ioungetc] # .a
+      - [0x300860, asm, sce_libs/gcc/ee/libstdc++/iogetc] # .a
+      - [0x3008A8, asm, sce_libs/gcc/ee/libstdc++/ioputc] # .a
+      - [0x3008F8, asm, sce_libs/gcc/ee/libstdc++/filebuf] # .a
+      - [0x300EC0, asm, sce_libs/gcc/ee/libstdc++/ioassign] # .a
+      - [0x300F80, asm, sce_libs/gcc/ee/libstdc++/stdstrbufs] # .a
+      - [0x301158, asm, sce_libs/gcc/ee/libstdc++/filedoalloc] # .a
+      - [0x301240, asm, sce_libs/gcc/ee/libstdc++/floatconv] # .a
+      - [0x304498, asm, sce_libs/gcc/ee/libstdc++/fileops] # .a
+      - [0x305320, asm, sce_libs/gcc/ee/libstdc++/stdiostream] # .a
+      - [0x305D60, asm, sce_libs/lib/libgraph/graph001] # .a
+      - [0x305F00, asm, sce_libs/lib/libgraph/graph002] # .a
+      - [0x305F68, asm, sce_libs/lib/libgraph/graph009] # .a
+      - [0x306200, asm, sce_libs/lib/libgraph/graph010] # .a
+      - [0x306260, asm, sce_libs/lib/libgraph/graph011] # .a
+      - [0x3062F8, asm, sce_libs/lib/libgraph/graph012] # .a
+      - [0x306610, asm, sce_libs/lib/libgraph/graph014] # .a
+      - [0x306670, asm, sce_libs/lib/libgraph/graph020] # .a
+      - [0x3066B0, asm, sce_libs/lib/libgraph/graph021] # .a
+      - [0x306738, asm, sce_libs/lib/libgraph/graph029] # .a
+      - [0x306758, asm, sce_libs/lib/libgraph/graph003] # .a
+      - [0x306B80, asm, sce_libs/lib/libgraph/graph004] # .a
+      - [0x306C40, asm, sce_libs/lib/libgraph/graph005] # .a
+      - [0x306D08, asm, sce_libs/lib/libgraph/graph006] # .a
+      - [0x306EF0, asm, sce_libs/lib/libgraph/graph007] # .a
+      - [0x306FF8, asm, sce_libs/lib/libgraph/graph008] # .a
+      - [0x3070E0, asm, sce_libs/lib/libdma/libdma] # .a
+      - [0x307638, asm, sce_libs/lib/libdev/devvu0] # .a
+      - [0x307708, asm, sce_libs/lib/libdev/devvif0] # .a
+      - [0x307740, asm, sce_libs/lib/libdev/devfont] # .a
+      - [0x308908, asm, sce_libs/lib/libpkt/gifpk000] # .a
+      - [0x308918, asm, sce_libs/lib/libpkt/gifpk001] # .a
+      - [0x308928, asm, sce_libs/lib/libpkt/gifpk002] # .a
+      - [0x308980, asm, sce_libs/lib/libpkt/gifpk005] # .a
+      - [0x3089F8, asm, sce_libs/lib/libpkt/gifpk011] # .a
+      - [0x308A70, asm, sce_libs/lib/libpkt/gifpk014] # .a
+      - [0x308B18, asm, sce_libs/lib/libpkt/gifpk015] # .a
+      - [0x308B40, asm, sce_libs/lib/libpkt/vifpk025] # .a
+      - [0x308B50, asm, sce_libs/lib/libpkt/vifpk026] # .a
+      - [0x308B60, asm, sce_libs/lib/libpkt/vifpk027] # .a
+      - [0x308BB8, asm, sce_libs/lib/libpkt/vifpk030] # .a
+      - [0x308C10, asm, sce_libs/lib/libpkt/vifpk036] # .a
+      - [0x308C68, asm, sce_libs/lib/libpkt/vifpk039] # .a
+      - [0x308CC0, asm, sce_libs/lib/libpkt/vifpk040] # .a
+      - [0x308CF0, asm, sce_libs/lib/libpkt/vifpk041] # .a
+      - [0x308D08, asm, sce_libs/lib/libpkt/vifpk042] # .a
+      - [0x308DB0, asm, sce_libs/lib/libpkt/vifpk043] # .a
+      - [0x308DC8, asm, sce_libs/lib/libpkt/vifpk044] # .a
+      - [0x308E48, asm, sce_libs/lib/libpkt/vifpk045] # .a
+      - [0x308E60, asm, sce_libs/lib/libpkt/vifpk053] # .a
+      - [0x308E88, asm, sce_libs/lib/libpad/libpad] # .a
+      - [0x309DC0, asm, sce_libs/lib/libipu/libipu] # .a
+      - [0x309E40, asm, sce_libs/lib/libipu/ipuinit] # .a
+      - [0x30A0E0, asm, sce_libs/lib/libsdr/sdr_main] # .a
+      - [0x30A450, asm, sce_libs/lib/libsdr/sdr_cb] # .a
+      - [0x30A468, asm, sce_libs/lib/libcdvd/cdvd000] # .a
+      - [0x30B278, asm, sce_libs/lib/libcdvd/cdvd005] # .a
+      - [0x30B458, asm, sce_libs/lib/libcdvd/cdvd006] # .a
+      - [0x30B5B0, asm, sce_libs/lib/libcdvd/cdvd014] # .a
+      - [0x30B648, asm, sce_libs/lib/libcdvd/cdvd015] # .a
+      - [0x30B6E0, asm, sce_libs/lib/libcdvd/cdvd017] # .a
+      - [0x30B798, asm, sce_libs/lib/libcdvd/cdvd039] # .a
+      - [0x30B890, asm, sce_libs/lib/libcdvd/cdvd046] # .a
+      - [0x30B980, asm, sce_libs/lib/libmtap/libmtap] # .a
+      - [0x30BD78, asm, sce_libs/lib/libscf/libscf] # .a
+      - [0x30C338, asm, sce_libs/lib/libmc/libmc] # .a
+      - [0x30D480, asm, sce_libs/lib/libkernl/klib] # .a
+      - [0x30D930, asm, sce_libs/lib/libkernl/glue] # .a
+      - [0x30DCA8, asm, sce_libs/lib/libkernl/cache] # .a
+      - [0x30DDF0, asm, sce_libs/lib/libkernl/intr] # .a
+      - [0x30DF90, asm, sce_libs/lib/libkernl/thread] # .a
+      - [0x30E258, asm, sce_libs/lib/libkernl/tty] # .a
+      - [0x30E778, asm, sce_libs/lib/libkernl/kprintf] # .a
+      - [0x30F118, asm, sce_libs/lib/libkernl/sifcmd] # .a
+      - [0x30F810, asm, sce_libs/lib/libkernl/sifrpc] # .a
+      - [0x310650, asm, sce_libs/lib/libkernl/filestub] # .a
+      - [0x311790, asm, sce_libs/lib/libkernl/iopheap] # .a
+      - [0x3119A0, asm, sce_libs/lib/libkernl/eeloadfile] # .a
+      - [0x311DB0, asm, sce_libs/lib/libkernl/iopreset] # .a
+      - [0x312038, asm, sce_libs/lib/libkernl/diei] # .a
+      - [0x312098, asm, sce_libs/lib/libkernl/initsys] # .a
+      - [0x3122C0, asm, sce_libs/lib/libkernl/libosd] # .a
+      - [0x312440, asm, sce_libs/lib/libkernl/exit] # .a
+      - [0x312628, asm, sce_libs/lib/libkernl/alarm] # .a
+      - [0x312768, asm, sce_libs/lib/libkernl/deci2] # .a
+      - [0x3128B8, asm, sce_libs/lib/libkernl/tlbfunc] # .a
+      - [0x312C40, asm, sce_libs/lib/libkernl/tlbtrap] # .a
+      - [0x312DA0, asm, sce_libs/gcc/ee/libm/s_cos] # .a
+      - [0x312EA8, asm, sce_libs/gcc/ee/libm/sf_atan] # .a
+      - [0x313150, asm, sce_libs/gcc/ee/libm/sf_ceil] # .a
+      - [0x313228, asm, sce_libs/gcc/ee/libm/sf_cos] # .a
+      - [0x313310, asm, sce_libs/gcc/ee/libm/sf_fabs] # .a
+      - [0x313330, asm, sce_libs/gcc/ee/libm/sf_floor] # .a
+      - [0x313418, asm, sce_libs/gcc/ee/libm/sf_tan] # .a
+      - [0x3134A0, asm, sce_libs/gcc/ee/libm/w_pow] # .a
+      - [0x3138D0, asm, sce_libs/gcc/ee/libm/wf_acos] # .a
+      - [0x3139D0, asm, sce_libs/gcc/ee/libm/wf_asin] # .a
+      - [0x313AD0, asm, sce_libs/gcc/ee/libm/wf_atan2] # .a
+      - [0x313BF8, asm, sce_libs/gcc/ee/libm/wf_exp] # .a
+      - [0x313D70, asm, sce_libs/gcc/ee/libm/wf_fmod] # .a
+      - [0x313EB0, asm, sce_libs/gcc/ee/libm/wf_log] # .a
+      - [0x313FF8, asm, sce_libs/gcc/ee/libm/wf_pow] # .a
+      - [0x314500, asm, sce_libs/gcc/ee/libm/e_pow] # .a
+      - [0x315228, asm, sce_libs/gcc/ee/libm/e_rem_pio2] # .a
+      - [0x315748, asm, sce_libs/gcc/ee/libm/e_sqrt] # .a
+      - [0x315A50, asm, sce_libs/gcc/ee/libm/ef_acos] # .a
+      - [0x315E80, asm, sce_libs/gcc/ee/libm/ef_asin] # .a
+      - [0x316220, asm, sce_libs/gcc/ee/libm/ef_atan2] # .a
+      - [0x316508, asm, sce_libs/gcc/ee/libm/ef_exp] # .a
+      - [0x3167C0, asm, sce_libs/gcc/ee/libm/ef_fmod] # .a
+      - [0x316A10, asm, sce_libs/gcc/ee/libm/ef_log] # .a
+      - [0x316D38, asm, sce_libs/gcc/ee/libm/ef_pow] # .a
+      - [0x3175C8, asm, sce_libs/gcc/ee/libm/ef_rem_pio2] # .a
+      - [0x3179A8, asm, sce_libs/gcc/ee/libm/ef_sqrt] # .a
+      - [0x317AE0, asm, sce_libs/gcc/ee/libm/k_cos] # .a
+      - [0x317D30, asm, sce_libs/gcc/ee/libm/k_rem_pio2] # .a
+      - [0x318898, asm, sce_libs/gcc/ee/libm/k_sin] # .a
+      - [0x318A70, asm, sce_libs/gcc/ee/libm/kf_cos] # .a
+      - [0x318BC8, asm, sce_libs/gcc/ee/libm/kf_rem_pio2] # .a
+      - [0x319518, asm, sce_libs/gcc/ee/libm/kf_sin] # .a
+      - [0x319620, asm, sce_libs/gcc/ee/libm/kf_tan] # .a
+      - [0x3198B8, asm, sce_libs/gcc/ee/libm/s_fabs] # .a
+      - [0x3198F0, asm, sce_libs/gcc/ee/libm/s_finite] # .a
+      - [0x319910, asm, sce_libs/gcc/ee/libm/s_floor] # .a
+      - [0x319AE8, asm, sce_libs/gcc/ee/libm/s_matherr] # .a
+      - [0x319B10, asm, sce_libs/gcc/ee/libm/s_rint] # .a
+      - [0x319D10, asm, sce_libs/gcc/ee/libm/s_scalbn] # .a
+      - [0x319EC8, asm, sce_libs/gcc/ee/libm/sf_finite] # .a
+      - [0x319EF0, asm, sce_libs/gcc/ee/libm/sf_scalbn] # .a
+      - [0x31A050, asm, sce_libs/gcc/ee/libm/s_copysign] # .a
+      - [0x31A098, asm, sce_libs/gcc/ee/libm/sf_copysign] # .a
+      - [0x31A0C8, asm, sce_libs/gcc/ee/libc/errno] # .a
+      - [0x31A0D8, asm, sce_libs/gcc/ee/libc/fileno] # .a
+      - [0x31A130, asm, sce_libs/gcc/ee/libc/rget] # .a
+      - [0x31A178, asm, sce_libs/gcc/ee/libc/strtoul] # .a
+      - [0x31A3D0, asm, sce_libs/gcc_lib/ee/libgcc/__main] # .a # 2.95.3
+      - [0x31A4A8, asm, sce_libs/gcc_lib/ee/libgcc/_divdi3] # .a # 2.95.3
+      - [0x31AB98, asm, sce_libs/gcc_lib/ee/libgcc/_eh] # .a # 2.95.3
+      - [0x31BB08, asm, sce_libs/gcc_lib/ee/libgcc/_fixdfdi] # .a # 2.95.3
+      - [0x31BB68, asm, sce_libs/gcc_lib/ee/libgcc/_fixunsdfdi] # .a # 2.95.3
+      - [0x31BC58, asm, sce_libs/gcc_lib/ee/libgcc/_floatdidf] # .a # 2.95.3
+      - [0x31BCF0, asm, sce_libs/gcc_lib/ee/libgcc/_moddi3] # .a # 2.95.3
+      - [0x31C358, asm, sce_libs/gcc_lib/ee/libgcc/_muldi3] # .a # 2.95.3
+      - [0x31C3B8, asm, sce_libs/gcc_lib/ee/libgcc/_pure] # .a # 2.95.3
+      - [0x31C3C0, asm, sce_libs/gcc_lib/ee/libgcc/_udivdi3] # .a # 2.95.3
+      - [0x31C990, asm, sce_libs/gcc_lib/ee/libgcc/_umoddi3] # .a # 2.95.3
+      - [0x31CED0, asm, sce_libs/gcc_lib/ee/libgcc/dp-bit] # .a # 2.95.3
+      - [0x31DB90, asm, sce_libs/gcc_lib/ee/libgcc/exception] # .a # 2.95.3
+      - [0x31E2E8, asm, sce_libs/gcc_lib/ee/libgcc/fp-bit] # .a # 2.95.3
+      - [0x31E5C0, asm, sce_libs/gcc_lib/ee/libgcc/frame] # .a # 2.95.3
+      - [0x31F548, asm, sce_libs/gcc_lib/ee/libgcc/tinfo] # .a # 2.95.3
+      - [0x31FC18, asm, sce_libs/gcc_lib/ee/libgcc/tinfo2] # .a # 2.95.3
+      - [0x320994, asm, unk/321994] # Collect2
+      - [0x3209C0, vutext, unk/3219C0]
+      - [0x324680, data, code/allai]
+      - [0x3249B8, data, code/allactor]
+      - [0x324AA0, data, code/allsequencer]
+      - [0x324B44, data, code/allaivehicle]
+      - [0x324B58, data, code/allatc]
+      - [0x324B60, data, code/allcamera]
+      - [0x3269B8, data, code/allcards]
+      - [0x3269BC, data, code/allcheats]
+      - [0x3269E8, data, code/allconsole]
+      - [0x326B1C, data, code/allcontexts]
+      - [0x326BA4, data, code/allgameplay]
+      - [0x326BC8, data, code/alldemo]
+      - [0x326C08, data, code/alldata]
+      - [0x326D60, data, code/allmemcard]
+      - [0x326D98, data, code/allevents]
+      - [0x326D9C, data, code/allgameflow]
+      - [0x326DA8, data, code/allinput]
+      - [0x3270A0, data, code/allinteriors]
+      - [0x3270FC, data, code/allloadmanager]
+      - [0x327150, data, code/allps2main]
+      - [0x32AAF0, data, code/allmemory]
+      - [0x32C420, data, code/allmeta]
+      - [0x32C494, data, code/allmission]
+      - [0x32C4E8, data, code/allcharactersheet]
+      - [0x32C4EC, data, code/allrewards]
+      - [0x32C4F4, data, code/allconditions]
+      - [0x32C514, data, code/allobjectives]
+      - [0x32C550, data, code/allpresentation]
+      - [0x32CE20, data, code/allgui]
+      - [0x32CEF0, data, code/allbootup]
+      - [0x32CF0C, data, code/allbackend]
+      - [0x32CF50, data, code/allfrontend]
+      - [0x32D0C8, data, code/allminigame]
+      - [0x32D128, data, code/allingame]
+      - [0x32D9B0, data, code/allhudevents]
+      - [0x32D9D0, data, code/allutility]
+      - [0x32E104, data, code/allculling]
+      - [0x32E118, data, code/alldsg]
+      - [0x32E180, data, code/allbreakables]
+      - [0x32E188, data, code/allskidmarks]
+      - [0x32E1A4, data, code/allintersect]
+      - [0x32E1A8, data, code/allloaders]
+      - [0x32E1D0, data, code/allparticles]
+      - [0x32E1D8, data, code/allanimentitydsgmanager]
+      - [0x32E1E4, data, code/allrenderflow]
+      - [0x32E1F0, data, code/allrendermanager]
+      - [0x32E2C0, data, code/allroads]
+      - [0x32E4C0, data, code/allsound]
+      - [0x32E720, data, code/allsoundavatar]
+      - [0x32E750, data, code/alldialog]
+      - [0x32FA98, data, code/allmusic]
+      - [0x32FDFC, data, code/allsoundfx]
+      - [0x32FE18, data, code/allsoundrenderer]
+      - [0x33033C, data, code/allsoundtuning]
+      - [0x330344, data, code/allsounddebug]
+      - [0x330370, data, code/allmovingposn]
+      - [0x330398, data, code/allworldsim]
+      - [0x3303F8, data, code/allcoins]
+      - [0x330428, data, code/allcharacter]
+      - [0x335E04, data, code/allredbrick]
+      - [0x335E80, data, code/allvehiclecontroller]
+      - [0x335EA8, data, code/alltraffic]
+      - [0x335FDC, data, code/allpedpaths]
+      - [0x335FE0, data, code/allped]
+      - [0x335FEC, data, code/allparkedcars]
+      - [0x335FF0, data, code/allsupersprintctx]
+      - [0x336038, data, code/allsupersprint]
+      - [0x3360FC, data, code/allfootprint]
+      - [0x336100, data, libs/choreo/choreopr/animation] # .a
+      - [0x33613C, data, libs/choreo/choreopr/bank] # .a
+      - [0x336150, data, libs/choreo/choreopr/basebank] # .a
+      - [0x336158, data, libs/choreo/choreopr/constants] # .a
+      - [0x336164, data, libs/choreo/choreopr/load] # .a
+      - [0x336178, data, libs/choreo/choreopr/locomotion] # .a
+      - [0x336200, data, libs/choreo/choreopr/partition] # .a
+      - [0x336244, data, libs/choreo/choreopr/puppet] # .a
+      - [0x33625C, data, libs/choreo/choreopr/replay] # .a
+      - [0x336280, data, libs/choreo/choreopr/rig] # .a
+      - [0x3362B8, data, libs/choreo/choreopr/scriptreader] # .a
+      - [0x3362C0, data, libs/choreo/choreopr/transition] # .a
+      - [0x336318, data, libs/sim/simpr/collision] # .a
+      - [0x336320, data, libs/sim/simpr/collisiondisplay] # .a
+      - [0x33632C, data, libs/sim/simpr/collisionmanager] # .a
+      - [0x336334, data, libs/sim/simpr/collisionvolume] # .a
+      - [0x336338, data, libs/sim/simpr/impulsebasedcollisionsolver] # .a
+      - [0x336368, data, libs/sim/simpr/proximitydetection] # .a
+      - [0x33637C, data, libs/sim/simpr/dline2] # .a
+      - [0x336388, data, libs/sim/simpr/simenvironment] # .a
+      - [0x3363A8, data, libs/sim/simpr/simmath] # .a
+      - [0x3363B0, data, libs/sim/simpr/simstate] # .a
+      - [0x336400, data, libs/sim/simpr/simstatearticulated] # .a
+      - [0x336414, data, libs/sim/simpr/simulatedobject] # .a
+      - [0x336418, data, libs/sim/simpr/physicsobject] # .a
+      - [0x336438, data, libs/sim/simpr/articulatedphysicsobject] # .a
+      - [0x336444, data, libs/sim/simpr/physicsjoint] # .a
+      - [0x3364A0, data, libs/sim/simpr/virtualcm] # .a
+      - [0x3364C4, data, libs/sim/simpr/restingdetector] # .a
+      - [0x3364D8, data, libs/sim/simpr/collisionanalyser] # .a
+      - [0x3364DC, data, libs/sim/simpr/collisionanalyserdata] # .a
+      - [0x3364E0, data, libs/sim/simpr/collisionanalyserinfo] # .a
+      - [0x3364F4, data, libs/sim/simpr/collisiondetector] # .a
+      - [0x336500, data, libs/sim/simpr/subcollisiondetector] # .a
+      - [0x336504, data, libs/scrooby/scroobypr/FeLoaders] # .a
+      - [0x336508, data, libs/scrooby/scroobypr/FePure3dObject] # .a
+      - [0x336510, data, libs/scrooby/scroobypr/FeScreen] # .a
+      - [0x336520, data, libs/scrooby/scroobypr/FeText] # .a
+      - [0x336524, data, libs/scrooby/scroobypr/FeTextBible] # .a
+      - [0x336528, data, libs/scrooby/scroobypr/FeResourceManager] # .a
+      - [0x336534, data, libs/scrooby/scroobypr/App] # .a
+      - [0x336538, data, libs/scrooby/scroobypr/pcstring] # .a
+      - [0x33653C, data, libs/scrooby/scroobypr/UnicodeString] # .a
+      - [0x336540, data, libs/scrooby/scroobypr/FeApp] # .a
+      - [0x336544, data, libs/scrooby/scroobypr/FeBoundedDrawable] # .a
+      - [0x33655C, data, libs/pure3d/pure3dpr/billboardobject] # .a
+      # - [0x336562, data, libs/pure3d/pure3dpr/drawable] # .a
+      - [0x336568, data, libs/pure3d/pure3dpr/entity] # .a
+      - [0x336580, data, libs/pure3d/pure3dpr/error] # .a
+      - [0x336588, data, libs/pure3d/pure3dpr/matrixstack] # .a
+      - [0x3365D4, data, libs/pure3d/pure3dpr/memory] # .a
+      - [0x3365DC, data, libs/pure3d/pure3dpr/sprite] # .a
+      - [0x3365E8, data, libs/pure3d/pure3dpr/texture] # .a
+      - [0x3365F0, data, libs/pure3d/pure3dpr/utility] # .a
+      - [0x336614, data, libs/pure3d/pure3dpr/multicontroller] # .a
+      - [0x336618, data, libs/pure3d/pure3dpr/particleutility] # .a
+      - [0x336620, data, libs/pure3d/pure3dpr/fileftt] # .a
+      - [0x336638, data, libs/pure3d/pure3dpr/particlegenerator] # .a
+      - [0x336640, data, libs/pure3d/pddipr/ps2display] # .a
+      - [0x336648, data, libs/pure3d/pddipr/ps2lightmapshader] # .a
+      - [0x3366B8, data, libs/pure3d/pddipr/ps2lightweightshader] # .a
+      - [0x3366F0, data, libs/pure3d/pddipr/ps2toonshader] # .a
+      - [0x3367E8, data, libs/pure3d/pddipr/ps2simpleshader] # .a
+      - [0x3368E0, data, libs/pure3d/pddipr/ps2refractionshader] # .a
+      - [0x3369D8, data, libs/pure3d/pddipr/ps2reflectionshader] # .a
+      - [0x336AB8, data, libs/pure3d/pddipr/ps2streamprim] # .a
+      - [0x336AE0, data, libs/pure3d/pddipr/ps2texcache] # .a
+      - [0x338AF4, data, libs/pure3d/pddipr/ps2vucode] # .a
+      - [0x338B34, data, libs/pure3d/pddipr/basecontext] # .a
+      - [0x338B58, data, libs/pure3d/pddipr/baseshader] # .a
+      - [0x338FF0, data, libs/pure3d/pddipr/dma] # .a
+      - [0x339000, data, libs/pure3d/pddipr/font] # .a
+      - [0x339BB8, data, libs/pure3d/pddipr/ps2context] # .a
+      - [0x339BD8, data, libs/pure3d/pngpr/png] # .a
+      - [0x339D38, data, libs/pure3d/pngpr/pngrtran] # .a
+      - [0x339D58, data, libs/pure3d/pngpr/pngrutil] # .a
+      - [0x339D78, data, libs/pure3d/pngpr/pngtrans] # .a
+      - [0x33A078, data, libs/pure3d/zlibpr/zutil] # .a
+      - [0x33A0A0, data, libs/pure3d/zlibpr/inftrees] # .a
+      - [0x33B1A8, data, libs/pure3d/zlibpr/infutil] # .a
+      - [0x33B1F0, data, libs/radmath/radmathpr/spline] # .a
+      - [0x33B430, data, libs/radmusic/radmusicpr/framework] # .a
+      - [0x33B434, data, libs/radmusic/radmusicpr/music_performance] # .a
+      - [0x33B438, data, libs/radmusic/radmusicpr/schema_util] # .a
+      - [0x33B470, data, libs/radmusic/radmusicpr/resource_manager] # .a
+      - [0x33C578, data, libs/radmusic/radmusicpr/memory] # .a
+      - [0x33C580, data, libs/radmusic/radmusicpr/ods] # .a
+      - [0x33C680, data, libs/radmusic/radmusicpr/ods_memory] # .a
+      - [0x33C6A8, data, libs/radmusic/radmusicpr/music_engine] # .a
+      - [0x33C738, data, libs/radmusic/radmusicpr/sequence_player] # .a
+      - [0x33C8A0, data, libs/radmusic/radmusicpr/sequence_stream_graph] # .a
+      - [0x33C8A4, data, libs/radsound/radsoundpr/softwarelistener] # .a
+      - [0x33C8A8, data, libs/radsound/radsoundpr/softwarepositionalgroup] # .a
+      - [0x33C8B0, data, libs/radsound/radsoundpr/memoryregion] # .a
+      - [0x33C8BC, data, libs/radsound/radsoundpr/system] # .a
+      - [0x33C8C0, data, libs/radsound/radsoundpr/effect] # .a
+      - [0x33C940, data, libs/radsound/radsoundpr/iopclient] # .a
+      - [0x33D400, data, libs/radsound/radsoundpr/adpcmasyncrequest] # .a
+      - [0x33D404, data, libs/radsound/radsoundpr/adpcmbuffer] # .a
+      - [0x33D40C, data, libs/radsound/radsoundpr/adpcmbufferclearer] # .a
+      - [0x33D410, data, libs/radsound/radsoundpr/adpcmbufferloader] # .a
+      - [0x33D418, data, libs/radsound/radsoundpr/adpcmvoice] # .a
+      - [0x33D428, data, libs/radsound/radsoundpr/clip] # .a
+      - [0x33D430, data, libs/radsound/radsoundpr/rsdfiledatasource] # .a
+      - [0x33D434, data, libs/radsound/radsoundpr/streamplayer] # .a
+      - [0x33D438, data, libs/radsound/radsoundpr/radsoundobject] # .a
+      - [0x33D440, data, libs/radsound/radsoundpr/radsoundupdatableobject] # .a
+      - [0x33D450, data, libs/radsound/radsoundpr/banner] # .a
+      - [0x33D454, data, libs/radsound/radsoundpr/rolloff] # .a
+      - [0x33D45C, data, libs/radscript/radscriptpr/script] # .a
+      - [0x33D460, data, libs/radscript/radscriptpr/namespace] # .a
+      - [0x33D468, data, libs/radscript/radscriptpr/radfactory] # .a
+      - [0x33D470, data, libs/radscript/radscriptpr/TypeInfoSystem] # .a
+      - [0x33D544, data, libs/radmovie/radmoviepr/movieplayer] # .a
+      - [0x33D550, data, libs/radmovie/radmoviepr/ipups2] # .a
+      - [0x33D554, data, libs/radcore/radcorepr/debug] # .a
+      - [0x33D568, data, libs/radcore/radcorepr/object] # .a
+      - [0x33D570, data, libs/radcore/radcorepr/time] # .a
+      - [0x33D5A8, data, libs/radcore/radcorepr/dlheap] # .a
+      - [0x33D5B8, data, libs/radcore/radcorepr/memorymanager] # .a
+      - [0x33D6E8, data, libs/radcore/radcorepr/memoryspaceps2] # .a
+      - [0x33D704, data, libs/radcore/radcorepr/staticheap] # .a
+      - [0x33D708, data, libs/radcore/radcorepr/trackingheap] # .a
+      - [0x33D760, data, libs/radcore/radcorepr/string] # .a
+      - [0x33D7F4, data, libs/radcore/radcorepr/targetx] # .a
+      - [0x33D7FC, data, libs/radcore/radcorepr/consoleclient] # .a
+      - [0x33D808, data, libs/radcore/radcorepr/ps2controller] # .a
+      - [0x33D954, data, libs/radcore/radcorepr/system] # .a
+      - [0x33D958, data, libs/radcore/radcorepr/thread] # .a
+      - [0x33D970, data, libs/radcore/radcorepr/textdisplay] # .a
+      - [0x33D978, data, libs/radcore/radcorepr/filesystem] # .a
+      - [0x33D990, data, libs/radcore/radcorepr/ps2cddrive] # .a
+      - [0x33D998, data, libs/radcore/radcorepr/ps2memcarddrive] # .a
+      - [0x33DE00, data, libs/radcore/radcorepr/radkey] # .a
+      - [0x33E208, data, libs/radcore/radcorepr/requests] # .a
+      - [0x33E210, data, libs/radcore/radcorepr/file] # .a
+      - [0x33E218, data, libs/radcore/radcorepr/instancedrive] # .a
+      - [0x33E240, data, sce_libs/lib/liblgdev/liblgdev] # .a
+      - [0x33E500, data, libs/radcontent/radcontentpr/manager] # .a
+      - [0x33E50C, data, libs/radcontent/radcontentpr/object] # .a
+      - [0x33E510, data, sce_libs/gcc/ee/libg/impure] # .a
+      - [0x33E800, data, sce_libs/gcc/ee/libg/mallocr] # .a
+      - [0x33EC58, data, sce_libs/gcc/ee/libg/locale] # .a
+      - [0x33EC70, data, sce_libs/gcc/ee/libstdc++/iostream] # .a
+      - [0x33FEBC, data, sce_libs/gcc/ee/libstdc++/isgetline] # .a
+      - [0x33FFD4, data, sce_libs/gcc/ee/libstdc++/isscan] # .a
+      - [0x340050, data, sce_libs/gcc/ee/libstdc++/sbscan] # .a
+      - [0x3400B0, data, sce_libs/gcc/ee/libstdc++/stdstreams] # .a
+      - [0x3401E8, data, sce_libs/gcc/ee/libstdc++/streambuf] # .a
+      - [0x340EC8, data, sce_libs/gcc/ee/libstdc++/iovfscanf] # .a
+      - [0x340EEC, data, sce_libs/gcc/ee/libstdc++/filebuf] # .a
+      - [0x34122C, data, sce_libs/gcc/ee/libstdc++/ioassign] # .a
+      - [0x341268, data, sce_libs/gcc/ee/libstdc++/stdstrbufs] # .a
+      - [0x3414F8, data, sce_libs/gcc/ee/libstdc++/floatconv] # .a
+      - [0x341518, data, sce_libs/gcc/ee/libstdc++/fileops] # .a
+      - [0x3415A8, data, sce_libs/gcc/ee/libstdc++/stdiostream] # .a
+      - [0x341940, data, sce_libs/gcc/ee/libstdc++/cleanup] # .a
+      - [0x341950, data, sce_libs/lib/libgraph/graph001] # .a
+      - [0x341970, data, sce_libs/lib/libgraph/graph002] # .a
+      - [0x341990, data, sce_libs/lib/libdma/libdma] # .a
+      - [0x3419C8, data, sce_libs/lib/libdev/devfont] # .a
+      - [0x34B9C8, data, sce_libs/lib/libpkt/gifpk000] # .a
+      - [0x34B9D8, data, sce_libs/lib/libpkt/vifpk025] # .a
+      - [0x34B9E8, data, sce_libs/lib/libpad/libpad] # .a
+      - [0x34BA30, data, sce_libs/lib/libipu/ipuinit] # .a
+      - [0x34BAB0, data, sce_libs/lib/libsdr/sdr_main] # .a
+      - [0x34BAC4, data, sce_libs/lib/libsdr/sdr_cb] # .a
+      - [0x34BB00, data, sce_libs/lib/libcdvd/cdvd000] # .a
+      - [0x34D570, data, sce_libs/lib/libmtap/libmtap] # .a
+      - [0x34D580, data, sce_libs/lib/libscf/libscf] # .a
+      - [0x34D5A8, data, sce_libs/lib/libmc/libmc] # .a
+      - [0x34D5C0, data, sce_libs/lib/libkernl/klib] # .a
+      - [0x34D5D0, data, sce_libs/lib/libkernl/glue] # .a
+      - [0x34D5D8, data, sce_libs/lib/libkernl/thread] # .a
+      - [0x34D5DC, data, sce_libs/lib/libkernl/kprintf] # .a
+      - [0x34D5E4, data, sce_libs/lib/libkernl/sifcmd] # .a
+      - [0x34D5E8, data, sce_libs/lib/libkernl/sifrpc] # .a
+      - [0x34D5F0, data, sce_libs/lib/libkernl/filestub] # .a
+      - [0x34D68C, data, sce_libs/lib/libkernl/iopheap] # .a
+      - [0x34D690, data, sce_libs/lib/libkernl/eeloadfile] # .a
+      - [0x34D698, data, sce_libs/lib/libkernl/initsys] # .a
+      - [0x34D6B8, data, sce_libs/lib/libkernl/libosd] # .a
+      - [0x34DE78, data, sce_libs/lib/libkernl/exit] # .a
+      - [0x34DE80, data, sce_libs/lib/libkernl/alarm] # .a
+      - [0x34E628, data, sce_libs/lib/libkernl/tlbfunc] # .a
+      - [0x34EC74, data, sce_libs/gcc_lib/ee/libgcc/__main] # .a # 2.95.3
+      - [0x34EC78, data, sce_libs/gcc_lib/ee/libgcc/_eh] # .a # 2.95.3
+      - [0x34F270, data, sce_libs/gcc_lib/ee/libgcc/exception] # .a # 2.95.3
+      - [0x34F604, data, sce_libs/gcc_lib/ee/libgcc/frame] # .a # 2.95.3
+      - [0x34F608, data, sce_libs/gcc_lib/ee/libgcc/tinfo] # .a # 2.95.3
+      - [0x34F990, data, sce_libs/gcc_lib/ee/libgcc/tinfo2] # .a # 2.95.3
+      - [0x34FE90, data, unk/350E90] # Collect2
+      - [0x350100, rodata, code/allai]
+      - [0x353868, rodata, code/allactor]
+      - [0x354A68, rodata, code/allsequencer]
+      - [0x355960, rodata, code/allaivehicle]
+      - [0x355FB8, rodata, code/allatc]
+      - [0x3560A8, rodata, code/allcamera]
+      - [0x357B18, rodata, code/allcards]
+      - [0x358778, rodata, code/allcheats]
+      - [0x358CA0, rodata, code/allconsole]
+      - [0x359328, rodata, code/allcontexts]
+      - [0x359DD8, rodata, code/allgameplay]
+      - [0x35A360, rodata, code/alldemo]
+      - [0x35A7F0, rodata, code/alldata]
+      - [0x35ABA8, rodata, code/allmemcard]
+      - [0x35AE48, rodata, code/alldebug]
+      - [0x35AE80, rodata, code/allevents]
+      - [0x35AEE8, rodata, code/allgameflow]
+      - [0x35B008, rodata, code/allinput]
+      - [0x35B510, rodata, code/allinteriors]
+      - [0x35C150, rodata, code/allloadmanager]
+      - [0x35D010, .rodata, code/allps2main]
+      - [0x35D940, rodata, code/allmemory]
+      - [0x35E000, rodata, code/allmeta]
+      - [0x35ED90, rodata, code/allmission]
+      - [0x361688, rodata, code/allsafezone]
+      - [0x3616B0, rodata, code/allcharactersheet]
+      - [0x3617F0, rodata, code/allrewards]
+      - [0x361950, rodata, code/allconditions]
+      - [0x361F10, rodata, code/allobjectives]
+      - [0x362E30, rodata, code/allpresentation]
+      - [0x363D90, rodata, code/allrespawnmanager]
+      - [0x363DF0, rodata, code/allfmvplayerps2]
+      - [0x364290, rodata, code/allgui]
+      - [0x365610, rodata, code/allbootup]
+      - [0x365A70, rodata, code/allbackend]
+      - [0x366330, rodata, code/allfrontend]
+      - [0x367EE0, rodata, code/allminigame]
+      - [0x368930, rodata, code/allingame]
+      - [0x36B890, rodata, code/allhudevents]
+      - [0x36BD60, rodata, code/allutility]
+      - [0x36CFA0, rodata, code/allpresevents]
+      - [0x36D160, rodata, code/allculling]
+      - [0x36D400, rodata, code/alldsg]
+      - [0x36EE30, rodata, code/allbreakables]
+      - [0x36EF18, rodata, code/allskidmarks]
+      - [0x36F190, rodata, code/allintersect]
+      - [0x36F260, rodata, code/allloaders]
+      - [0x370300, rodata, code/allparticles]
+      - [0x370720, rodata, code/allanimentitydsgmanager]
+      - [0x370860, rodata, code/allrenderflow]
+      - [0x3708D8, rodata, code/allrendermanager]
+      - [0x3713D8, rodata, code/allroads]
+      - [0x371688, rodata, code/allsound]
+      - [0x3721B0, rodata, code/allsoundavatar]
+      - [0x372B00, rodata, code/alldialog]
+      - [0x373DC0, rodata, code/allmusic]
+      - [0x374A38, rodata, code/allnissound]
+      - [0x374BB0, rodata, code/allsoundfx]
+      - [0x375E20, rodata, code/allsoundrenderer]
+      - [0x377AF0, rodata, code/allsoundtuning]
+      - [0x3780E0, rodata, code/allsounddebug]
+      - [0x378320, rodata, code/allmovingposn]
+      - [0x3789E8, rodata, code/allworldsim]
+      - [0x379408, rodata, code/allcoins]
+      - [0x379550, rodata, code/allcharacter]
+      - [0x37AC10, rodata, code/allredbrick]
+      - [0x37C560, rodata, code/allvehiclecontroller]
+      - [0x37CA10, rodata, code/alltraffic]
+      - [0x37CC50, rodata, code/allpedpaths]
+      - [0x37CD58, rodata, code/allped]
+      - [0x37CF88, rodata, code/allspawn]
+      - [0x37D038, rodata, code/allharass]
+      - [0x37D148, rodata, code/allstateprop]
+      - [0x37D348, rodata, code/allufo]
+      - [0x37D630, rodata, code/allparkedcars]
+      - [0x37D7B8, rodata, code/allsupersprintctx]
+      - [0x37DF28, rodata, code/allsupersprint]
+      - [0x37ED58, rodata, code/allfootprint]
+      - [0x37EE30, rodata, libs/choreo/choreopr/animation] # .a
+      - [0x37F770, rodata, libs/choreo/choreopr/bank] # .a
+      - [0x37FBA8, rodata, libs/choreo/choreopr/basebank] # .a
+      - [0x37FE68, rodata, libs/choreo/choreopr/engine] # .a
+      - [0x37FFD8, rodata, libs/choreo/choreopr/footblender] # .a
+      - [0x380068, rodata, libs/choreo/choreopr/footplanter] # .a
+      - [0x3800D8, rodata, libs/choreo/choreopr/jointblender] # .a
+      - [0x380160, rodata, libs/choreo/choreopr/load] # .a
+      - [0x380328, rodata, libs/choreo/choreopr/locomotion] # .a
+      - [0x380D38, rodata, libs/choreo/choreopr/partition] # .a
+      - [0x3814A0, rodata, libs/choreo/choreopr/puppet] # .a
+      - [0x3816C8, rodata, libs/choreo/choreopr/replay] # .a
+      - [0x381BD8, rodata, libs/choreo/choreopr/replayblender] # .a
+      - [0x381C50, rodata, libs/choreo/choreopr/rig] # .a
+      - [0x382398, rodata, libs/choreo/choreopr/root] # .a
+      - [0x382960, rodata, libs/choreo/choreopr/rootblender] # .a
+      - [0x382A50, rodata, libs/choreo/choreopr/scriptreader] # .a
+      - [0x383250, rodata, libs/choreo/choreopr/synchronization] # .a
+      - [0x383518, rodata, libs/choreo/choreopr/transition] # .a
+      - [0x3838A8, rodata, libs/choreo/choreopr/utility] # .a
+      - [0x3838B0, rodata, libs/choreo/choreopr/blend] # .a
+      - [0x383F20, rodata, libs/sim/simpr/collisiondisplay] # .a
+      - [0x383F68, rodata, libs/sim/simpr/collisionmanager] # .a
+      - [0x384030, rodata, libs/sim/simpr/collisionobject] # .a
+      - [0x384170, rodata, libs/sim/simpr/collisionvolume] # .a
+      - [0x384548, rodata, libs/sim/simpr/impulsebasedcollisionsolver] # .a
+      - [0x384670, rodata, libs/sim/simpr/proximitydetection] # .a
+      - [0x3846B0, rodata, libs/sim/simpr/dline2] # .a
+      - [0x3846B8, rodata, libs/sim/simpr/physicsproperties] # .a
+      - [0x3848C8, rodata, libs/sim/simpr/simenvironment] # .a
+      - [0x384AE8, rodata, libs/sim/simpr/simstate] # .a
+      - [0x384DE8, rodata, libs/sim/simpr/simstatearticulated] # .a
+      - [0x385098, rodata, libs/sim/simpr/simtarget] # .a
+      - [0x385270, rodata, libs/sim/simpr/simulatedobject] # .a
+      - [0x385390, rodata, libs/sim/simpr/simutility] # .a
+      - [0x385580, rodata, libs/sim/simpr/skeletoninfo] # .a
+      - [0x3855C8, rodata, libs/sim/simpr/symmatrix] # .a
+      - [0x3855F8, rodata, libs/sim/simpr/tlist] # .a
+      - [0x385630, rodata, libs/sim/simpr/physicsobject] # .a
+      - [0x385880, rodata, libs/sim/simpr/articulatedphysicsobject] # .a
+      - [0x3859F0, rodata, libs/sim/simpr/physicsjoint] # .a
+      - [0x385E70, rodata, libs/sim/simpr/virtualcm] # .a
+      - [0x385F10, rodata, libs/sim/simpr/collisionanalyser] # .a
+      - [0x385F70, rodata, libs/sim/simpr/collisiondetector] # .a
+      - [0x385FD0, rodata, libs/sim/simpr/subcollisiondetector] # .a
+      - [0x386008, rodata, libs/sim/simpr/kalmann] # .a
+      - [0x386170, rodata, libs/poser/poserpr/pose] # .a
+      - [0x3861E0, rodata, libs/poser/poserpr/posedriver] # .a
+      - [0x386248, rodata, libs/poser/poserpr/poseengine] # .a
+      - [0x3862C0, rodata, libs/scrooby/scroobypr/FeLoaders] # .a
+      - [0x386768, rodata, libs/scrooby/scroobypr/FePage] # .a
+      - [0x386CF8, rodata, libs/scrooby/scroobypr/FeParent] # .a
+      - [0x386E88, rodata, libs/scrooby/scroobypr/FePolygon] # .a
+      - [0x387270, rodata, libs/scrooby/scroobypr/FeProject] # .a
+      - [0x387600, rodata, libs/scrooby/scroobypr/FePure3dObject] # .a
+      - [0x388018, rodata, libs/scrooby/scroobypr/FeScreen] # .a
+      - [0x388558, rodata, libs/scrooby/scroobypr/FeSprite] # .a
+      - [0x388E68, rodata, libs/scrooby/scroobypr/FeText] # .a
+      - [0x3899C8, rodata, libs/scrooby/scroobypr/FeTextBible] # .a
+      - [0x389AC8, rodata, libs/scrooby/scroobypr/FeTextStyle] # .a
+      - [0x389B10, rodata, libs/scrooby/scroobypr/tLinearTable] # .a
+      - [0x389BC8, rodata, libs/scrooby/scroobypr/FeResourceManager] # .a
+      - [0x38A230, rodata, libs/scrooby/scroobypr/App] # .a
+      - [0x38A310, rodata, libs/scrooby/scroobypr/pcstring] # .a
+      - [0x38A370, rodata, libs/scrooby/scroobypr/UnicodeString] # .a
+      - [0x38A428, rodata, libs/scrooby/scroobypr/EnumConversion] # .a
+      - [0x38A480, rodata, libs/scrooby/scroobypr/XMLTree] # .a
+      - [0x38A500, rodata, libs/scrooby/scroobypr/FeApp] # .a
+      - [0x38A6B8, rodata, libs/scrooby/scroobypr/FeBoundedDrawable] # .a
+      - [0x38AD00, rodata, libs/scrooby/scroobypr/FeChunkHandler] # .a
+      - [0x38AE98, rodata, libs/scrooby/scroobypr/FeDrawable] # .a
+      - [0x38B0F0, rodata, libs/scrooby/scroobypr/FeEntity] # .a
+      - [0x38B138, rodata, libs/scrooby/scroobypr/FeGroup] # .a
+      - [0x38B7B0, rodata, libs/scrooby/scroobypr/FeLanguage] # .a
+      - [0x38B7F8, rodata, libs/scrooby/scroobypr/FeLayer] # .a
+      - [0x38BCD8, rodata, libs/scrooby/scroobypr/FeMovie] # .a
+      - [0x38C560, rodata, libs/scrooby/scroobypr/FeOwner] # .a
+      - [0x38C8E0, rodata, libs/scrooby/scroobypr/XMLParser] # .a
+      - [0x38C9B8, .rodata, libs/pure3d/pure3dpr/platform] # .a
+      - [0x38C9F8, rodata, libs/pure3d/pure3dpr/billboardobject] # .a
+      - [0x38CD88, rodata, libs/pure3d/pure3dpr/bmp] # .a
+      - [0x38CE90, rodata, libs/pure3d/pure3dpr/camera] # .a
+      - [0x38D018, rodata, libs/pure3d/pure3dpr/cameraloader] # .a
+      - [0x38D0D8, rodata, libs/pure3d/pure3dpr/chunkfile] # .a
+      - [0x38D148, rodata, libs/pure3d/pure3dpr/context] # .a
+      - [0x38D1D0, rodata, libs/pure3d/pure3dpr/drawable] # .a
+      - [0x38D3A8, rodata, libs/pure3d/pure3dpr/entity] # .a
+      - [0x38D420, rodata, libs/pure3d/pure3dpr/error] # .a
+      - [0x38D4B0, rodata, libs/pure3d/pure3dpr/file] # .a
+      - [0x38D5F0, rodata, libs/pure3d/pure3dpr/font] # .a
+      - [0x38D6A0, rodata, libs/pure3d/pure3dpr/gameattr] # .a
+      - [0x38D820, rodata, libs/pure3d/pure3dpr/geometry] # .a
+      - [0x38DA20, rodata, libs/pure3d/pure3dpr/image] # .a
+      - [0x38DC08, rodata, libs/pure3d/pure3dpr/imagefactory] # .a
+      - [0x38DF80, rodata, libs/pure3d/pure3dpr/imagefont] # .a
+      - [0x38E0E8, rodata, libs/pure3d/pure3dpr/inventory] # .a
+      - [0x38E458, rodata, libs/pure3d/pure3dpr/light] # .a
+      - [0x38E560, rodata, libs/pure3d/pure3dpr/lightloader] # .a
+      - [0x38E768, rodata, libs/pure3d/pure3dpr/locator] # .a
+      - [0x38E860, rodata, libs/pure3d/pure3dpr/loadmanager] # .a
+      - [0x38ECC8, rodata, libs/pure3d/pure3dpr/memory] # .a
+      - [0x38ED38, rodata, libs/pure3d/pure3dpr/pointcamera] # .a
+      - [0x38EE30, rodata, libs/pure3d/pure3dpr/pointlight] # .a
+      - [0x38EE98, rodata, libs/pure3d/pure3dpr/png] # .a
+      - [0x38EF60, rodata, libs/pure3d/pure3dpr/primgroup] # .a
+      - [0x38F4D0, rodata, libs/pure3d/pure3dpr/rawimage] # .a
+      - [0x38F5C8, rodata, libs/pure3d/pure3dpr/refcounted] # .a
+      - [0x38F5D0, rodata, libs/pure3d/pure3dpr/shader] # .a
+      - [0x38F890, rodata, libs/pure3d/pure3dpr/sprite] # .a
+      - [0x38FA80, rodata, libs/pure3d/pure3dpr/spotlight] # .a
+      - [0x38FAE8, rodata, libs/pure3d/pure3dpr/targa] # .a
+      - [0x38FC00, rodata, libs/pure3d/pure3dpr/textstring] # .a
+      - [0x38FC60, rodata, libs/pure3d/pure3dpr/texture] # .a
+      - [0x38FDC0, rodata, libs/pure3d/pure3dpr/texturefont] # .a
+      - [0x38FFE8, rodata, libs/pure3d/pure3dpr/utility] # .a
+      - [0x38FFF0, rodata, libs/pure3d/pure3dpr/vectorcamera] # .a
+      - [0x3900F0, rodata, libs/pure3d/pure3dpr/vertexlist] # .a
+      - [0x3901F8, rodata, libs/pure3d/pure3dpr/view] # .a
+      - [0x390268, rodata, libs/pure3d/pure3dpr/animate] # .a
+      - [0x390C28, rodata, libs/pure3d/pure3dpr/animatedobject] # .a
+      - [0x391028, rodata, libs/pure3d/pure3dpr/billboardobjectanimation] # .a
+      - [0x391108, rodata, libs/pure3d/pure3dpr/cameraanimation] # .a
+      - [0x391200, rodata, libs/pure3d/pure3dpr/channel] # .a
+      - [0x391708, rodata, libs/pure3d/pure3dpr/compositedrawable] # .a
+      - [0x391D70, rodata, libs/pure3d/pure3dpr/drawablepose] # .a
+      - [0x391E30, rodata, libs/pure3d/pure3dpr/event] # .a
+      - [0x391F50, rodata, libs/pure3d/pure3dpr/expression] # .a
+      - [0x3924F8, rodata, libs/pure3d/pure3dpr/expressionanimation] # .a
+      - [0x392608, rodata, libs/pure3d/pure3dpr/lightanimation] # .a
+      - [0x392700, rodata, libs/pure3d/pure3dpr/multicontroller] # .a
+      - [0x392A28, rodata, libs/pure3d/pure3dpr/polyskin] # .a
+      - [0x392CF0, rodata, libs/pure3d/pure3dpr/pose] # .a
+      - [0x392D58, rodata, libs/pure3d/pure3dpr/poseanimation] # .a
+      - [0x392E50, rodata, libs/pure3d/pure3dpr/sequencer] # .a
+      - [0x393A30, rodata, libs/pure3d/pure3dpr/skeleton] # .a
+      - [0x393BB0, rodata, libs/pure3d/pure3dpr/shaderanimation] # .a
+      - [0x393CD0, rodata, libs/pure3d/pure3dpr/textureanimation] # .a
+      - [0x393DA8, rodata, libs/pure3d/pure3dpr/vertexoffsetexpression] # .a
+      - [0x393E50, rodata, libs/pure3d/pure3dpr/visibilityanimation] # .a
+      - [0x394138, rodata, libs/pure3d/pure3dpr/vertexanimcontroller] # .a
+      - [0x394200, rodata, libs/pure3d/pure3dpr/vertexanimkey] # .a
+      - [0x394438, rodata, libs/pure3d/pure3dpr/vertexanimobject] # .a
+      - [0x394550, rodata, libs/pure3d/pure3dpr/effect] # .a
+      - [0x3945F8, rodata, libs/pure3d/pure3dpr/opticloader] # .a
+      - [0x394770, rodata, libs/pure3d/pure3dpr/particleloader] # .a
+      - [0x3949C0, rodata, libs/pure3d/pure3dpr/particlesystem] # .a
+      - [0x394BF0, rodata, libs/pure3d/pure3dpr/nodeanimation] # .a
+      - [0x394D00, rodata, libs/pure3d/pure3dpr/scenegraph] # .a
+      - [0x395720, rodata, libs/pure3d/pure3dpr/plat_filemap] # .a
+      - [0x3957F8, rodata, libs/pure3d/pure3dpr/ambientlight] # .a
+      - [0x395860, rodata, libs/pure3d/pure3dpr/directionallight] # .a
+      - [0x3958D0, rodata, libs/pure3d/pure3dpr/displaylist] # .a
+      - [0x395918, rodata, libs/pure3d/pure3dpr/fileftt] # .a
+      - [0x395AA8, rodata, libs/pure3d/pure3dpr/imageconverter] # .a
+      - [0x395C48, rodata, libs/pure3d/pure3dpr/eventanimation] # .a
+      - [0x3961F0, rodata, libs/pure3d/pure3dpr/expressionoffsets] # .a
+      - [0x396270, rodata, libs/pure3d/pure3dpr/opticlensflare] # .a
+      - [0x396398, rodata, libs/pure3d/pure3dpr/particlepool] # .a
+      - [0x396490, rodata, libs/pure3d/pure3dpr/particlearray] # .a
+      - [0x396518, rodata, libs/pure3d/pure3dpr/particleemitter] # .a
+      - [0x396798, rodata, libs/pure3d/pure3dpr/particlegenerator] # .a
+      - [0x396A68, rodata, libs/pure3d/pure3dpr/optic] # .a
+      - [0x396AD0, rodata, libs/pure3d/pddipr/ps2device] # .a
+      - [0x396BC0, rodata, libs/pure3d/pddipr/ps2display] # .a
+      - [0x396DF0, rodata, libs/pure3d/pddipr/ps2prim] # .a
+      - [0x397228, rodata, libs/pure3d/pddipr/ps2errorshader] # .a
+      - [0x397438, rodata, libs/pure3d/pddipr/ps2layeredshader] # .a
+      - [0x397520, rodata, libs/pure3d/pddipr/ps2lightmapshader] # .a
+      - [0x397740, rodata, libs/pure3d/pddipr/ps2lightweightshader] # .a
+      - [0x397958, rodata, libs/pure3d/pddipr/ps2toonshader] # .a
+      - [0x397A40, rodata, libs/pure3d/pddipr/ps2simpleshader] # .a
+      - [0x397C50, rodata, libs/pure3d/pddipr/ps2refractionshader] # .a
+      - [0x397D28, rodata, libs/pure3d/pddipr/ps2reflectionshader] # .a
+      - [0x397F50, rodata, libs/pure3d/pddipr/ps2shadowshader] # .a
+      - [0x398160, rodata, libs/pure3d/pddipr/ps2streamprim] # .a
+      - [0x398208, rodata, libs/pure3d/pddipr/ps2texture] # .a
+      - [0x3986D0, rodata, libs/pure3d/pddipr/ps2texcache] # .a
+      - [0x3986F8, rodata, libs/pure3d/pddipr/ps2vram] # .a
+      - [0x398700, rodata, libs/pure3d/pddipr/basecontext] # .a
+      - [0x3991F8, rodata, libs/pure3d/pddipr/baseshader] # .a
+      - [0x399330, rodata, libs/pure3d/pddipr/pddiobj] # .a
+      - [0x399370, rodata, libs/pure3d/pddipr/packet] # .a
+      - [0x3993E0, rodata, libs/pure3d/pddipr/ps2context] # .a
+      - [0x399A80, rodata, libs/pure3d/pddipr/ps2shader] # .a
+      - [0x399BF8, rodata, libs/pure3d/pddipr/ps2skin] # .a
+      - [0x399CF0, rodata, libs/pure3d/pngpr/png] # .a
+      - [0x399E68, rodata, libs/pure3d/pngpr/pngerror] # .a
+      - [0x399EA8, rodata, libs/pure3d/pngpr/pngget] # .a
+      - [0x399EE0, rodata, libs/pure3d/pngpr/pngmem] # .a
+      - [0x399F30, rodata, libs/pure3d/pngpr/pngread] # .a
+      - [0x39A0F8, rodata, libs/pure3d/pngpr/pngrio] # .a
+      - [0x39A1B0, rodata, libs/pure3d/pngpr/pngrtran] # .a
+      - [0x39A410, rodata, libs/pure3d/pngpr/pngrutil] # .a
+      - [0x39AF20, rodata, libs/pure3d/pngpr/pngset] # .a
+      - [0x39AF68, rodata, libs/pure3d/zlibpr/crc32] # .a
+      - [0x39B770, rodata, libs/pure3d/zlibpr/inflate] # .a
+      - [0x39B830, rodata, libs/pure3d/zlibpr/zutil] # .a
+      - [0x39B8D0, rodata, libs/pure3d/zlibpr/infblock] # .a
+      - [0x39B9D0, rodata, libs/pure3d/zlibpr/infcodes] # .a
+      - [0x39BA38, rodata, libs/pure3d/zlibpr/inffast] # .a
+      - [0x39BA70, rodata, libs/pure3d/zlibpr/inftrees] # .a
+      - [0x39BD90, rodata, libs/radmath/radmathpr/quaternion] # .a
+      - [0x39BDA0, rodata, libs/radmath/radmathpr/spline] # .a
+      - [0x39BE28, rodata, libs/radmath/radmathpr/numerical] # .a
+      - [0x39BE58, rodata, libs/radmusic/radmusicpr/framework] # .a
+      - [0x39C170, rodata, libs/radmusic/radmusicpr/music_composition] # .a
+      - [0x39C6D0, rodata, libs/radmusic/radmusicpr/music_performance] # .a
+      - [0x39CA30, rodata, libs/radmusic/radmusicpr/schema_util] # .a
+      - [0x39CF00, rodata, libs/radmusic/radmusicpr/resource_manager] # .a
+      - [0x39D2F8, rodata, libs/radmusic/radmusicpr/memory] # .a
+      - [0x39D320, rodata, libs/radmusic/radmusicpr/ods] # .a
+      - [0x39D4A8, rodata, libs/radmusic/radmusicpr/ods_memory] # .a
+      - [0x39D510, rodata, libs/radmusic/radmusicpr/music_engine] # .a
+      - [0x39D888, rodata, libs/radmusic/radmusicpr/music_engine_state_fade] # .a
+      - [0x39DBB8, rodata, libs/radmusic/radmusicpr/music_engine_state_steady] # .a
+      - [0x39DEE8, rodata, libs/radmusic/radmusicpr/music_engine_state_stitch] # .a
+      - [0x39E220, rodata, libs/radmusic/radmusicpr/music_engine_state_stopped] # .a
+      - [0x39E550, rodata, libs/radmusic/radmusicpr/sequence_player] # .a
+      - [0x39E8A0, rodata, libs/radmusic/radmusicpr/sequence_region] # .a
+      - [0x39EC30, rodata, libs/radmusic/radmusicpr/sequence_stream_graph] # .a
+      - [0x39F010, rodata, libs/radsound/radsoundpr/audioformat] # .a
+      - [0x39F338, rodata, libs/radsound/radsoundpr/softwarelistener] # .a
+      - [0x39F5F8, rodata, libs/radsound/radsoundpr/softwarepositionalgroup] # .a
+      - [0x39F910, rodata, libs/radsound/radsoundpr/memoryregion] # .a
+      - [0x39FB50, rodata, libs/radsound/radsoundpr/system] # .a
+      - [0x39FDF8, rodata, libs/radsound/radsoundpr/effect] # .a
+      - [0x3A00D0, rodata, libs/radsound/radsoundpr/iopclient] # .a
+      - [0x3A01C0, rodata, libs/radsound/radsoundpr/adpcmasyncrequest] # .a
+      - [0x3A0260, rodata, libs/radsound/radsoundpr/adpcmbuffer] # .a
+      - [0x3A0510, rodata, libs/radsound/radsoundpr/adpcmbufferclearer] # .a
+      - [0x3A0680, rodata, libs/radsound/radsoundpr/adpcmbufferloader] # .a
+      - [0x3A08D8, rodata, libs/radsound/radsoundpr/adpcmvoice] # .a
+      - [0x3A1238, rodata, libs/radsound/radsoundpr/buffereddatasource] # .a
+      - [0x3A1618, rodata, libs/radsound/radsoundpr/clip] # .a
+      - [0x3A1A20, rodata, libs/radsound/radsoundpr/clipplayer] # .a
+      - [0x3A1EB0, rodata, libs/radsound/radsoundpr/datacache] # .a
+      - [0x3A2280, rodata, libs/radsound/radsoundpr/rsdfiledatasource] # .a
+      - [0x3A2610, rodata, libs/radsound/radsoundpr/memorydatasource] # .a
+      - [0x3A28F0, rodata, libs/radsound/radsoundpr/memoryspaceobject] # .a
+      - [0x3A2AF0, rodata, libs/radsound/radsoundpr/stitcheddatasource] # .a
+      - [0x3A2E90, rodata, libs/radsound/radsoundpr/streamplayer] # .a
+      - [0x3A3450, rodata, libs/radsound/radsoundpr/radsoundobject] # .a
+      - [0x3A3458, rodata, libs/radsound/radsoundpr/banner] # .a
+      - [0x3A3468, rodata, libs/radsound/radsoundpr/radsoundfile] # .a
+      - [0x3A3498, rodata, libs/radscript/radscriptpr/script] # .a
+      - [0x3A36D0, rodata, libs/radscript/radscriptpr/namespace] # .a
+      - [0x3A37F0, rodata, libs/radscript/radscriptpr/radfactory] # .a
+      - [0x3A3870, rodata, libs/radscript/radscriptpr/TypeInfoLoader] # .a
+      - [0x3A3C98, rodata, libs/radscript/radscriptpr/TypeInfoMethod] # .a
+      - [0x3A3CD0, rodata, libs/radscript/radscriptpr/TypeInfoSystem] # .a
+      - [0x3A3F78, rodata, libs/radmovie/radmoviepr/movieplayer] # .a
+      - [0x3A42D0, rodata, libs/radmovie/radmoviepr/ipups2] # .a
+      - [0x3A4370, rodata, libs/radmovie/radmoviepr/videodecoderps2] # .a
+      - [0x3A45C0, rodata, libs/radmovie/radmoviepr/renderstrategyps2] # .a
+      - [0x3A4740, rodata, libs/radmovie/radmoviepr/audiodatasource] # .a
+      - [0x3A49F8, rodata, libs/radcore/radcorepr/debug] # .a
+      - [0x3A4C10, rodata, libs/radcore/radcorepr/object] # .a
+      - [0x3A4C20, rodata, libs/radcore/radcorepr/time] # .a
+      - [0x3A4E70, rodata, libs/radcore/radcorepr/stopwatch] # .a
+      - [0x3A50D0, rodata, libs/radcore/radcorepr/dlheap] # .a
+      - [0x3A5390, rodata, libs/radcore/radcorepr/externalmemoryheap] # .a
+      - [0x3A5608, rodata, libs/radcore/radcorepr/externalmemoryobject] # .a
+      - [0x3A5748, rodata, libs/radcore/radcorepr/memorymanager] # .a
+      - [0x3A5920, rodata, libs/radcore/radcorepr/memoryspaceps2] # .a
+      - [0x3A5DD8, rodata, libs/radcore/radcorepr/memorypool] # .a
+      - [0x3A5F58, rodata, libs/radcore/radcorepr/staticheap] # .a
+      - [0x3A61C0, rodata, libs/radcore/radcorepr/trackingheap] # .a
+      - [0x3A63D8, rodata, libs/radcore/radcorepr/string] # .a
+      - [0x3A6698, rodata, libs/radcore/radcorepr/objectbtree] # .a
+      - [0x3A67A0, rodata, libs/radcore/radcorepr/consoleclient] # .a
+      - [0x3A6B20, rodata, libs/radcore/radcorepr/ps2controller] # .a
+      - [0x3A7FF8, rodata, libs/radcore/radcorepr/radfile] # .a
+      - [0x3A80A0, rodata, libs/radcore/radcorepr/platform] # .a
+      - [0x3A82D0, rodata, libs/radcore/radcorepr/mutex] # .a
+      - [0x3A8418, rodata, libs/radcore/radcorepr/semaphore] # .a
+      - [0x3A8568, rodata, libs/radcore/radcorepr/thread] # .a
+      - [0x3A8890, rodata, libs/radcore/radcorepr/textdisplay] # .a
+      - [0x3A89D0, rodata, libs/radcore/radcorepr/weakcallbackwrapper] # .a
+      - [0x3A8BD0, rodata, libs/radcore/radcorepr/controllerbuffer] # .a
+      - [0x3A8D60, rodata, libs/radcore/radcorepr/filesystem] # .a
+      - [0x3A8E08, rodata, libs/radcore/radcorepr/platformdrives] # .a
+      - [0x3A8E40, rodata, libs/radcore/radcorepr/remotedrive] # .a
+      - [0x3A90E8, rodata, libs/radcore/radcorepr/cementer] # .a
+      - [0x3A9370, rodata, libs/radcore/radcorepr/ps2cddrive] # .a
+      - [0x3A9608, rodata, libs/radcore/radcorepr/ps2hostdrive] # .a
+      - [0x3A97A0, rodata, libs/radcore/radcorepr/ps2memcarddrive] # .a
+      - [0x3A9A38, rodata, libs/radcore/radcorepr/requests] # .a
+      - [0x3AA360, rodata, libs/radcore/radcorepr/file] # .a
+      - [0x3AA628, rodata, libs/radcore/radcorepr/instancedrive] # .a
+      - [0x3AA9B8, rodata, libs/radcore/radcorepr/drive] # .a
+      - [0x3AABC0, rodata, libs/radcore/radcorepr/drivethread] # .a
+      - [0x3AAD40, rodata, sce_libs/lib/liblgdev/liblgdev] # .a
+      - [0x3AB948, rodata, libs/radcontent/radcontentpr/hashtable] # .a
+      - [0x3AB990, rodata, libs/radcontent/radcontentpr/inventory] # .a
+      - [0x3ABB90, rodata, libs/radcontent/radcontentpr/manager] # .a
+      - [0x3ABF80, rodata, libs/radcontent/radcontentpr/object] # .a
+      - [0x3ABFE8, rodata, libs/radcontent/radcontentpr/queue] # .a
+      - [0x3AC030, rodata, libs/radcontent/radcontentpr/request] # .a
+      - [0x3AC0C8, rodata, libs/radcontent/radcontentpr/stream] # .a
+      - [0x3AC370, rodata, sce_libs/gcc/ee/libg/assert] # .a
+      - [0x3AC3A0, rodata, sce_libs/gcc/ee/libg/ctype_] # .a
+      - [0x3AC4A8, rodata, sce_libs/gcc/ee/libg/impure] # .a
+      - [0x3AC4B0, rodata, sce_libs/gcc/ee/libg/mstats] # .a
+      - [0x3AC4E0, rodata, sce_libs/gcc/ee/libg/strtod] # .a
+      - [0x3AC5B0, rodata, sce_libs/gcc/ee/libg/vfiprintf] # .a
+      - [0x3AC7A0, rodata, sce_libs/gcc/ee/libg/vfprintf] # .a
+      - [0x3AC9B0, rodata, sce_libs/gcc/ee/libg/dtoa] # .a
+      - [0x3ACA08, rodata, sce_libs/gcc/ee/libg/locale] # .a
+      - [0x3ACA50, rodata, sce_libs/gcc/ee/libg/mallstatsr] # .a
+      - [0x3ACAB0, rodata, sce_libs/gcc/ee/libg/mprec] # .a
+      - [0x3ACBD8, rodata, sce_libs/gcc/ee/libg/s_infconst] # .a
+      - [0x3ACBE0, rodata, sce_libs/gcc/ee/libstdc++/iostream] # .a
+      - [0x3ACD18, rodata, sce_libs/gcc/ee/libstdc++/streambuf] # .a
+      - [0x3ACE90, rodata, sce_libs/gcc/ee/libstdc++/iovfscanf] # .a
+      - [0x3AD2D0, rodata, sce_libs/gcc/ee/libstdc++/iopadn] # .a
+      - [0x3AD2F0, rodata, sce_libs/gcc/ee/libstdc++/outfloat] # .a
+      - [0x3AD37C, rodata, sce_libs/gcc/ee/libstdc++/filebuf] # .a
+      - [0x3AD380, rodata, sce_libs/gcc/ee/libstdc++/floatconv] # .a
+      - [0x3AD5B8, rodata, sce_libs/gcc/ee/libstdc++/stdiostream] # .a
+      - [0x3AD6A8, rodata, sce_libs/lib/libgraph/graph012] # .a
+      - [0x3AD838, rodata, sce_libs/lib/libgraph/graph003] # .a
+      - [0x3AD880, rodata, sce_libs/lib/libgraph/graph008] # .a
+      - [0x3AD8B0, rodata, sce_libs/lib/libdma/libdma] # .a
+      - [0x3AD920, rodata, sce_libs/lib/libdev/devvu0] # .a
+      - [0x3AD938, rodata, sce_libs/lib/libdev/devfont] # .a
+      - [0x3AE948, rodata, sce_libs/lib/libpad/libpad] # .a
+      - [0x3AEAA0, rodata, sce_libs/lib/libsdr/sdr_main] # .a
+      - [0x3AEAC8, rodata, sce_libs/lib/libsdr/sdr_cb] # .a
+      - [0x3AEAF0, rodata, sce_libs/lib/libcdvd/cdvd000] # .a
+      - [0x3AECA0, rodata, sce_libs/lib/libcdvd/cdvd005] # .a
+      - [0x3AECC8, rodata, sce_libs/lib/libcdvd/cdvd006] # .a
+      - [0x3AECD8, rodata, sce_libs/lib/libcdvd/cdvd017] # .a
+      - [0x3AECE8, rodata, sce_libs/lib/libcdvd/cdvd039] # .a
+      - [0x3AED28, rodata, sce_libs/lib/libmtap/libmtap] # .a
+      - [0x3AEE50, rodata, sce_libs/lib/libscf/libscf] # .a
+      - [0x3AEEA0, rodata, sce_libs/lib/libmc/libmc] # .a
+      - [0x3AEF28, rodata, sce_libs/lib/libkernl/thread] # .a
+      - [0x3AEF50, rodata, sce_libs/lib/libkernl/tty] # .a
+      - [0x3AEFC0, rodata, sce_libs/lib/libkernl/kprintf] # .a
+      - [0x3AF120, rodata, sce_libs/lib/libkernl/filestub] # .a
+      - [0x3AF190, rodata, sce_libs/lib/libkernl/eeloadfile] # .a
+      - [0x3AF1A0, rodata, sce_libs/lib/libkernl/iopreset] # .a
+      - [0x3AF1D0, rodata, sce_libs/lib/libkernl/exit] # .a
+      - [0x3AF1D8, rodata, sce_libs/lib/libkernl/tlbfunc] # .a
+      - [0x3AF258, rodata, sce_libs/gcc/ee/libm/sf_atan] # .a
+      - [0x3AF2AC, rodata, sce_libs/gcc/ee/libm/sf_ceil] # .a
+      - [0x3AF2B0, rodata, sce_libs/gcc/ee/libm/sf_cos] # .a
+      - [0x3AF2B4, rodata, sce_libs/gcc/ee/libm/sf_floor] # .a
+      - [0x3AF2B8, rodata, sce_libs/gcc/ee/libm/w_pow] # .a
+      - [0x3AF2D8, rodata, sce_libs/gcc/ee/libm/wf_acos] # .a
+      - [0x3AF2E0, rodata, sce_libs/gcc/ee/libm/wf_asin] # .a
+      - [0x3AF2E8, rodata, sce_libs/gcc/ee/libm/wf_atan2] # .a
+      - [0x3AF2F0, rodata, sce_libs/gcc/ee/libm/wf_exp] # .a
+      - [0x3AF308, rodata, sce_libs/gcc/ee/libm/wf_fmod] # .a
+      - [0x3AF318, rodata, sce_libs/gcc/ee/libm/wf_log] # .a
+      - [0x3AF328, rodata, sce_libs/gcc/ee/libm/wf_pow] # .a
+      - [0x3AF348, rodata, sce_libs/gcc/ee/libm/e_pow] # .a
+      - [0x3AF518, rodata, sce_libs/gcc/ee/libm/e_rem_pio2] # .a
+      - [0x3AF768, rodata, sce_libs/gcc/ee/libm/e_sqrt] # .a
+      - [0x3AF778, rodata, sce_libs/gcc/ee/libm/ef_acos] # .a
+      - [0x3AF7B0, rodata, sce_libs/gcc/ee/libm/ef_asin] # .a
+      - [0x3AF7EC, rodata, sce_libs/gcc/ee/libm/ef_atan2] # .a
+      - [0x3AF808, rodata, sce_libs/gcc/ee/libm/ef_exp] # .a
+      - [0x3AF858, rodata, sce_libs/gcc/ee/libm/ef_fmod] # .a
+      - [0x3AF868, rodata, sce_libs/gcc/ee/libm/ef_log] # .a
+      - [0x3AF898, rodata, sce_libs/gcc/ee/libm/ef_pow] # .a
+      - [0x3AF920, rodata, sce_libs/gcc/ee/libm/ef_rem_pio2] # .a
+      - [0x3AFCE0, rodata, sce_libs/gcc/ee/libm/ef_sqrt] # .a
+      - [0x3AFCE8, rodata, sce_libs/gcc/ee/libm/k_cos] # .a
+      - [0x3AFD50, rodata, sce_libs/gcc/ee/libm/k_rem_pio2] # .a
+      - [0x3AFDC0, rodata, sce_libs/gcc/ee/libm/k_sin] # .a
+      - [0x3AFE30, rodata, sce_libs/gcc/ee/libm/kf_cos] # .a
+      - [0x3AFE50, rodata, sce_libs/gcc/ee/libm/kf_rem_pio2] # .a
+      - [0x3AFE9C, rodata, sce_libs/gcc/ee/libm/kf_sin] # .a
+      - [0x3AFEB8, rodata, sce_libs/gcc/ee/libm/kf_tan] # .a
+      - [0x3AFF00, rodata, sce_libs/gcc/ee/libm/s_floor] # .a
+      - [0x3AFF10, rodata, sce_libs/gcc/ee/libm/s_lib_ver] # .a
+      - [0x3AFF18, rodata, sce_libs/gcc/ee/libm/s_rint] # .a
+      - [0x3AFF28, rodata, sce_libs/gcc/ee/libm/s_scalbn] # .a
+      - [0x3AFF58, rodata, sce_libs/gcc/ee/libm/sf_scalbn] # .a
+      - [0x3AFF68, rodata, sce_libs/gcc_lib/ee/libgcc/_divdi3] # .a # 2.95.3
+      - [0x3B0068, rodata, sce_libs/gcc_lib/ee/libgcc/_moddi3] # .a # 2.95.3
+      - [0x3B0168, rodata, sce_libs/gcc_lib/ee/libgcc/_udivdi3] # .a # 2.95.3
+      - [0x3B0268, rodata, sce_libs/gcc_lib/ee/libgcc/_umoddi3] # .a # 2.95.3
+      - [0x3B0368, rodata, sce_libs/gcc_lib/ee/libgcc/exception] # .a # 2.95.3
+      - [0x3B03C0, rodata, sce_libs/gcc_lib/ee/libgcc/frame] # .a # 2.95.3
+      - [0x3B0490, rodata, sce_libs/gcc_lib/ee/libgcc/tinfo] # .a # 2.95.3
+      - [0x3B05A0, rodata, sce_libs/gcc_lib/ee/libgcc/tinfo2] # .a # 2.95.3
+      - [0x3B0780, gcc_except_table, sce_libs/gcc/ee/libstdc++/filebuf] # .a
+      - [0x3B07D0, gcc_except_table, sce_libs/gcc/ee/libstdc++/stdiostream] # .a
+      - [0x3B0808, gcc_except_table, sce_libs/gcc_lib/ee/libgcc/exception] # .a # 2.95.3
       - { type: scommon, vram: 0x004B0880, name: unk/004B0880 } # COMMON
       - { type: scommon, vram: 0x004B0888, name: unk/004B0888 } # COMMON
       - { type: scommon, vram: 0x004B0890, name: unk/004B0890 } # COMMON
@@ -3145,35 +3143,4 @@ segments:
       - { type: bss, vram: 0x005198E0, name: unk/005198E0 } # COMMON
       - { type: bss, vram: 0x005198F0, name: unk/005198F0 } # COMMON
 
-  - [0x3B1880, databin]
-
-  - [0x3B54F8, databin, elf_stuff_2]
-
-  - [0x3B5C0C]
-
-# Section Headers:
-#   [Nr] Name                                   Type             Addr     Off    Size   ES Flg Lk Inf Al
-#   [ 0]                                        NULL             00000000 000000 000000 00      0   0  0
-#   [ 1] .text                                  PROGBITS         00100000 001000 3209c0 00  AX  0   0 64
-#   [ 2] .vutext                                PROGBITS         004209c0 3219c0 003cc0 00  AX  0   0 16
-#   [ 3] .reginfo                               MIPS_REGINFO     00000000 3b1880 000018 01      0   0  4
-#   [ 4] .DVP.overlay..0x0.660332563.43.0       LOPROC+0xffff421 00000000 3b1898 000800 00  WX  0   0  1
-#   [ 5] .DVP.overlay..unknvma.2641340539.363.1 LOPROC+0xffff421 00000000 3b2098 000800 00  WX  0   0  1
-#   [ 6] .DVP.overlay..unknvma.987715611.9.2    LOPROC+0xffff421 00000000 3b2898 000800 00  WX  0   0  1
-#   [ 7] .DVP.overlay..unknvma.3950859627.26.3  LOPROC+0xffff421 00000000 3b3098 000800 00  WX  0   0  1
-#   [ 8] .DVP.overlay..unknvma.3606741339.159.4 LOPROC+0xffff421 00000000 3b3898 000800 00  WX  0   0  1
-#   [ 9] .DVP.overlay..unknvma.3606741339.588.5 LOPROC+0xffff421 00000000 3b4098 000800 00  WX  0   0  1
-#   [10] .DVP.overlay..unknvma.2641339531.88.6  LOPROC+0xffff421 00000000 3b4898 000750 00  WX  0   0  1
-#   [11] .DVP.overlay..0x0.2094701411.45.0      LOPROC+0xffff421 00000000 3b4fe8 000500 00  WX  0   0  1
-#   [12] .mdebug.eabi64                         PROGBITS         00424680 3b54e8 000000 00      0   0  1
-#   [13] .data                                  PROGBITS         00424680 325680 02b9f8 00  WA  0   0 64
-#   [14] .vudata                                PROGBITS         00450078 351078 000000 00  WA  0   0  1
-#   [15] .dmacache                              PROGBITS         00450080 3b54e8 000010 00      0   0  1
-#   [16] .rodata                                PROGBITS         00450100 351100 06064e 00   A  0   0 16
-#   [17] .gcc_except_table                      PROGBITS         004b0780 3b1780 0000e4 00  WA  0   0  4
-#   [18] .sbss                                  NOBITS           004b0880 3b1880 000700 00 WAp  0   0  8
-#   [19] .bss                                   NOBITS           004b0f80 3b1880 06897c 00  WA  0   0 64
-#   [20] .vubss                                 NOBITS           005198fc 3b1880 000000 00  WA  0   0  1
-#   [21] .DVP.ovlytab                           LOPROC+0xffff420 00000000 3b54f8 000060 0c   W 22   0  4
-#   [22] .DVP.ovlystrtab                        STRTAB           00000000 3b5558 000129 00   W  0   0  1
-#   [23] .shstrtab                              STRTAB           00000000 3b5681 0001ca 00      0   0  1
+  - [0x3B0880]
