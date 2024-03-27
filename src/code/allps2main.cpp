@@ -403,7 +403,6 @@ void func_00163468(int argc, char *argv[]) {
 void func_001634B8(void) {
 }
 
-__asm__(".section .rodata; .align 3");
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D380);
 
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", STR_0045D388);
