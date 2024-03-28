@@ -994,41 +994,29 @@ void PS2Platform::OnControllerError(const char *arg1) {
     int temp_v0_2;
     int var_v1;
     unsigned char temp_s2;
-    void **temp_v1;
-    void *temp_v0_3;
 
     temp_s2 = p3d::context->unk_FC;
     if (temp_s2 != 0) {
         p3d::context->EndFrame(true);
     }
 
-    #if 0
-    temp_v0 = this->unk_0;
-    temp_v0->unk_34(0x3F333333, 0, this + temp_v0->unk_30, 1, arg1, 0xFFFFFFFF);
-    #else
     this->virtual_34(1, arg1, 0.7f, 0.0f, 0.0f, 0xFFFFFFFF, 0);
-    #endif
 
     if (temp_s2 != 0) {
         p3d::context->BeginFrame();
     }
 
-    this->unk_08 = 1;
     this->unk_04 = 2;
+    this->unk_08 = 1;
 
-    #if 0
-    temp_v0_2 = PresentationManager::GetInstance()->unk_54->unk_4;
-    var_v1 = 0;
-    if (temp_v0_2 != 0) {
-        var_v1 = temp_v0_2 != 4;
-    }
+    temp_v0_2 = PresentationManager::GetInstance()->unk_54->unk_04;
+    var_v1 = (temp_v0_2 != 0) && (temp_v0_2 != 4);
+
     if (var_v1 & 0xFF) {
-        temp_v1 = PresentationManager::GetInstance()->unk_54;
-        temp_v0_3 = *temp_v1;
-        temp_v0_3->unk_64(temp_v1 + temp_v0_3->unk_60);
+        PresentationManager::GetInstance()->unk_54->virtual_64();
         return;
     }
-    #endif
+
     SoundManager::GetInstance()->StopForMovie();
 
 }
@@ -1180,7 +1168,8 @@ PS2Platform::PS2Platform() {
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", _$_11PS2Platform);
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", EnableSnProfiler__11PS2Platform);
+void PS2Platform::EnableSnProfiler(void) {
+}
 
 void CreateSingletons(void) {
     GameDataManager::CreateInstance();
@@ -1257,13 +1246,25 @@ void DestroySingletons(void) {
     EventManager::DestroyInstance();
 }
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", __13tUidUnaligned);
+tUidUnaligned::tUidUnaligned(void) {
+    this->unk_00 = 0;
+    this->unk_04 = 1;
+}
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", __13tUidUnalignedRC13tUidUnaligned);
+tUidUnaligned::tUidUnaligned(tUidUnaligned const &arg1) {
+    this->unk_00 = arg1.unk_00;
+    this->unk_04 = arg1.unk_04;
+}
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", __ne__C13tUidUnalignedG13tUidUnaligned);
+unsigned char tUidUnaligned::operator!=(tUidUnaligned arg1) const {
+    int temp = !(*this == arg1);
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", __eq__C13tUidUnalignedG13tUidUnaligned);
+    return temp;
+}
+
+bool tUidUnaligned::operator==(tUidUnaligned arg1) const {
+    return (this->unk_00 == arg1.unk_00) && (this->unk_04 == arg1.unk_04);
+}
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", __lt__C13tUidUnalignedG13tUidUnaligned);
 

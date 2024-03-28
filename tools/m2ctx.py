@@ -17,6 +17,10 @@ CPP_FLAGS = [
     "-ffreestanding",
     "-DM2CTX",
 
+    "-m32",
+    "-D_LANGUAGE_C",
+    "-D__SIZE_TYPE__=unsigned",
+    "-D__PTRDIFF_TYPE__=int",
     # TODO: flags per C or C++
     "-std=gnu++98",
 ]
@@ -91,6 +95,7 @@ def main():
     suffix = ctx_suffixes.get(in_file.suffix, ".c")
     ctx_path = root_dir / f"ctx{suffix}"
 
+    print(f"Writing {ctx_path}")
     with ctx_path.open("w", encoding="UTF-8") as f:
         f.write(output)
 

@@ -10,11 +10,7 @@
     #ifdef __SIZE_TYPE__
         typedef __SIZE_TYPE__ size_t;
     #else
-        #if (_MIPS_SZLONG == 32)
-            typedef unsigned int size_t;
-        #else
-            typedef unsigned long size_t;
-        #endif
+        typedef unsigned int size_t;
     #endif
 #endif
 
@@ -23,11 +19,7 @@
     #ifdef __PTRDIFF_TYPE__
         typedef __PTRDIFF_TYPE__ ptrdiff_t;
     #else
-        #if (_MIPS_SZLONG == 32)
-            typedef int ptrdiff_t;
-        #else
-            typedef long ptrdiff_t;
-        #endif
+        typedef int ptrdiff_t;
     #endif
 #endif
 

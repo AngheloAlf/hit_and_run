@@ -209,15 +209,25 @@ private:
 void CreateSingletons(void);
 void DestroySingletons(void);
 
-// void __13tUidUnaligned();
-// void __13tUidUnalignedRC13tUidUnaligned();
-// void __ne__C13tUidUnalignedG13tUidUnaligned();
-// void __eq__C13tUidUnalignedG13tUidUnaligned();
-// void __lt__C13tUidUnalignedG13tUidUnaligned();
-// void __er__C13tUidUnalignedG13tUidUnaligned();
-// void __aml__13tUidUnalignedUl();
-// void __ad__C13tUidUnalignedG13tUidUnaligned();
-// void __rs__C13tUidUnalignedi();
+class tUidUnaligned {
+private:
+    /* 0x00 */ int unk_00;
+    /* 0x04 */ int unk_04;
+    /* size >= 0x08 */
+
+private:
+    tUidUnaligned(void);
+    tUidUnaligned(tUidUnaligned const &);
+
+    unsigned char operator!=(tUidUnaligned) const;
+    bool operator==(tUidUnaligned) const;
+    // void __lt__C13tUidUnalignedG13tUidUnaligned();
+    // void __er__C13tUidUnalignedG13tUidUnaligned();
+    // void __aml__13tUidUnalignedUl();
+    // void __ad__C13tUidUnalignedG13tUidUnaligned();
+    // void __rs__C13tUidUnalignedi();
+};
+
 // void func_00165BC8();
 // void __tf4Game();
 // void __tf11PS2Platform();
