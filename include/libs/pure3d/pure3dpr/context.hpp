@@ -21,15 +21,21 @@ public:
     /* 0xEC */ pddiRenderContext *unk_EC;
     /* 0xF0 */ pddiDisplay *unk_F0;
 private:
-    /* 0xF4 */ char unk_F4[0xC];
+    /* 0xF4 */ char unk_F4[0x8];
+public:
+    /* 0xFC */ unsigned char unk_FC;
+private:
+    /* 0xFD */ char unk_FD[0x3];
+    /* 0x100 size */
 
 public:
     tContext(pddiDevice *, pddiDisplay *, pddiRenderContext *);
     void Setup(void);
 
+public:
+    void BeginFrame(void);
+    void EndFrame(bool);
 private:
-    // void BeginFrame__8tContext();
-    // void EndFrame__8tContextb();
     // void SetView__8tContextP5tView();
     // void GetView__8tContext();
 

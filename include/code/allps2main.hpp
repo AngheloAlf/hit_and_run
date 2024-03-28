@@ -7,6 +7,7 @@
 #include "libs/radcore/radcorepr/platform.hpp"
 #include "libs/radcore/radcorepr/instancedrive.hpp"
 #include "libs/radcore/radcorepr/cementer.hpp"
+#include "libs/radcore/radcorepr/radfile.hpp"
 
 #include "code/allgameflow.hpp"
 #include "code/allrenderflow.hpp"
@@ -135,6 +136,20 @@ struct pddiColour {
     /* 0x0 */ unsigned char unk_0;
 };
 
+class PS2Platform_OnDriveError_arg3 {
+    /* 0x0 */ char unk_0[0x4];
+    /* 0x4 */ /* vt */
+    /* size = 0x8 */
+
+    /* vt 0x0C */ virtual void virtual_0C(void); // placeholder
+    /* vt 0x14 */ virtual void virtual_14(void); // placeholder
+    /* vt 0x1C */ virtual void virtual_1C(void); // placeholder
+    /* vt 0x24 */ virtual void virtual_24(void); // placeholder
+    /* vt 0x2C */ virtual void virtual_2C(void); // placeholder
+public:
+    /* vt 0x34 */ virtual char *virtual_34(void);
+};
+
 class PS2Platform : public Platform {
 public:
     /* 0x00 */ /* vtable */
@@ -167,8 +182,8 @@ private:
     void ShutdownPure3D(void);
     void SetProgressiveMode(bool);
     bool CheckForStartupButtons(void);
-// void OnControllerError__11PS2PlatformPCc();
-// void OnDriveError__11PS2Platform12radFileErrorPCcPv();
+    void OnControllerError(char const *);
+    bool OnDriveError(radFileError, char const *, void *);
 
     PS2Platform();
 // void _$_11PS2Platform();
@@ -181,7 +196,7 @@ private:
     /* vt 0x1C */ virtual void virtual_1C(void); // placeholder
     /* vt 0x24 */ virtual void virtual_24(void); // placeholder
     /* vt 0x2C */ virtual void virtual_2C(void); // placeholder
-    /* vt 0x34 */ virtual void virtual_34(int, int, float, float, float, unsigned int, int);
+    /* vt 0x34 */ virtual void virtual_34(int, char const *, float, float, float, unsigned int, int);
     /* vt 0x3C */ virtual void virtual_3C(char const *, char const *, float, float, float, pddiColour, int);
     /* vt 0x44 */ virtual void virtual_44(void); // placeholder
     /* vt 0x4C */ virtual void virtual_4C(void);

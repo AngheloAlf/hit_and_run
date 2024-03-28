@@ -1,6 +1,36 @@
 #ifndef ALLPRESENTATION_HPP
 #define ALLPRESENTATION_HPP
 
+class PresentationManager_unk_54_parent {
+private:
+    /* 0x00 */ /* vt */
+    /* size = 0x04 */
+
+private:
+    /* vt 0x0C */ virtual void virtual_0C(void);
+    /* vt 0x14 */ virtual void virtual_14(void);
+    /* vt 0x1C */ virtual void virtual_1C(void);
+    /* vt 0x24 */ virtual void virtual_24(void);
+    /* vt 0x2C */ virtual void virtual_2C(void);
+    /* vt 0x34 */ virtual void virtual_34(void);
+    /* vt 0x3C */ virtual void virtual_3C(void);
+    /* vt 0x44 */ virtual void virtual_44(void);
+    /* vt 0x4C */ virtual void virtual_4C(void);
+    /* vt 0x54 */ virtual void virtual_54(void);
+    /* vt 0x6C */ virtual void virtual_5C(void);
+public:
+    /* vt 0x64 */ virtual void virtual_64(void);
+    /* vt 0x6C */ virtual void virtual_6C(void);
+};
+
+class PresentationManager_unk_54 : public PresentationManager_unk_54_parent {
+public:
+    /* 0x00 */ /* vt */
+    /* 0x04 */ int unk_04;
+private:
+    /* size >= 0x08 */
+};
+
 // text
 
 // void __15AnimationPlayer();
@@ -50,6 +80,11 @@
 // void Display__14PlayerDrawable();
 
 class PresentationManager {
+public:
+    /* 0x00 */ char unk_00[0x54];
+    /* 0x54 */ PresentationManager_unk_54 *unk_54;
+    /* >= 0x58 size */
+
 public:
     static void CreateInstance();
     static PresentationManager *GetInstance();

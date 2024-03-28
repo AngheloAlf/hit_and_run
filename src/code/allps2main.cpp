@@ -14,6 +14,7 @@
 #include "sce_libs/lib/libkernl/exit.hpp"
 #include "sce_libs/lib/libkernl/sifcmd.hpp"
 #include "sce_libs/lib/libpad/libpad.hpp"
+#include "sce_libs/gcc/ee/libg/strncpy.h"
 
 #include "libs/pure3d/pure3dpr/utility.hpp"
 #include "libs/radcore/radcorepr/targetx.hpp"
@@ -560,7 +561,7 @@ void PS2Platform::InitializePlatform() {
     }
 
     this->virtual_5C();
-    this->virtual_34(1, 0, 1.0f, 0.0f, 0.0f, 0xFFFFFFFF, 3);
+    this->virtual_34(1, NULL, 1.0f, 0.0f, 0.0f, 0xFFFFFFFF, 3);
     this->virtual_4C();
 
     InputManager::GetInstance()->Init();
@@ -610,7 +611,7 @@ void PS2Platform::LaunchDashboard() {
     LoadingManager::GetInstance()->CancelPendingRequests();
     SoundManager::GetInstance()->SetMasterVolume(0.0f);
 
-    this->virtual_34(2, 0, 1.0f, 0.0f, 0.0f, 0xFFFFFFFF, 3);
+    this->virtual_34(2, NULL, 1.0f, 0.0f, 0.0f, 0xFFFFFFFF, 3);
 
     PresentationManager::GetInstance()->StopAll();
     GameDataManager::DestroyInstance();
@@ -959,22 +960,23 @@ bool PS2Platform::CheckForStartupButtons(void) {
         for (var_s0 = 0; var_s0 < 4; var_s0++) {
             scePadGetState_ret temp = scePadGetState(var_s1, var_s0);
 
-            switch (temp) {
-                case 0x0:
-                case 0x6:
-                case 0x7:
-                    if ((temp == 2) || (temp == 6)) {
-                case 0x2:
-                        if ((scePadRead(var_s1, var_s0, &sp0) != 0) && (sp0.unk_00 == 0) && !(sp0.unk_03 & 0x50)) {
-                            var_s2 = 1;
-                            goto loop_2_end;
-                        }
+            if (temp == 0 || temp == 2 || temp == 6 || temp == 0) {
+                if (temp == 2) {
+                    if ((scePadRead(var_s1, var_s0, &sp0) != 0) && (sp0.unk_00 == 0) && !(sp0.unk_03 & 0x50)) {
+                        var_s2 = 1;
+                        goto loop_2_end;
                     }
-                    break;
-
-                default:
-                    continue;
-                    break;
+                } else if (temp == 6) {
+                    if ((scePadRead(var_s1, var_s0, &sp0) != 0) && (sp0.unk_00 == 0) && !(sp0.unk_03 & 0x50)) {
+                        var_s2 = 1;
+                        goto loop_2_end;
+                    }
+                }
+            } else if (temp == 7) {
+                if ((scePadRead(var_s1, var_s0, &sp0) != 0) && (sp0.unk_00 == 0) && !(sp0.unk_03 & 0x50)) {
+                    var_s2 = 1;
+                    goto loop_2_end;
+                }
             }
         }
 
@@ -987,7 +989,52 @@ loop_2_end:;
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", CheckForStartupButtons__11PS2Platform);
 #endif
 
+#if 0
+void PS2Platform::OnControllerError(const char *arg1) {
+    int temp_v0_2;
+    int var_v1;
+    unsigned char temp_s2;
+    void **temp_v1;
+    void *temp_v0_3;
+
+    temp_s2 = p3d::context->unk_FC;
+    if (temp_s2 != 0) {
+        p3d::context->EndFrame(true);
+    }
+
+    #if 0
+    temp_v0 = this->unk_0;
+    temp_v0->unk_34(0x3F333333, 0, this + temp_v0->unk_30, 1, arg1, 0xFFFFFFFF);
+    #else
+    this->virtual_34(1, arg1, 0.7f, 0.0f, 0.0f, 0xFFFFFFFF, 0);
+    #endif
+
+    if (temp_s2 != 0) {
+        p3d::context->BeginFrame();
+    }
+
+    this->unk_08 = 1;
+    this->unk_04 = 2;
+
+    #if 0
+    temp_v0_2 = PresentationManager::GetInstance()->unk_54->unk_4;
+    var_v1 = 0;
+    if (temp_v0_2 != 0) {
+        var_v1 = temp_v0_2 != 4;
+    }
+    if (var_v1 & 0xFF) {
+        temp_v1 = PresentationManager::GetInstance()->unk_54;
+        temp_v0_3 = *temp_v1;
+        temp_v0_3->unk_64(temp_v1 + temp_v0_3->unk_60);
+        return;
+    }
+    #endif
+    SoundManager::GetInstance()->StopForMovie();
+
+}
+#else
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", OnControllerError__11PS2PlatformPCc);
+#endif
 
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", D_0045D6D0);
 
@@ -999,7 +1046,130 @@ INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", D_0045D6F8);
 
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", D_0045D700);
 
+extern const char D_0045D700[];
+extern const char *ERROR_STRINGS[];
+
+#ifdef NON_MATCHING
+bool PS2Platform::OnDriveError(radFileError arg1, UNUSED char const *arg2, void *arg3) {
+    char sp0[0x20];
+    char sp20[0x100];
+    char *temp_s1;
+    unsigned int temp_v0_2;
+    unsigned int var_v1;
+    unsigned int var_s0_2;
+    unsigned int var_s3;
+    unsigned char temp_s4;
+
+    temp_s4 = p3d::context->unk_FC;
+
+    switch (arg1) {
+        case 0x0:
+            if (this->unk_04 != 0) {
+                if (temp_s4 != 0) {
+                    p3d::context->EndFrame(true);
+                }
+
+                this->virtual_34(2, NULL, 1.0f, 0.0f, 0.0f, 0xFFFFFFFF, 3);
+
+                if (temp_s4 != 0) {
+                    p3d::context->BeginFrame();
+                }
+                this->unk_04 = 0;
+                this->unk_08 = 0;
+            }
+
+            temp_v0_2 = PresentationManager::GetInstance()->unk_54->unk_04;
+            var_v1 = (temp_v0_2 != 0) && (temp_v0_2 != 4);
+
+            if (var_v1 & 0xFF) {
+                PresentationManager::GetInstance()->unk_54->virtual_6C();
+                return 1;
+            }
+            SoundManager::GetInstance()->ResumeAfterMovie();
+            return 1;
+
+        case 0x1:
+
+            if (CommandLineOptions::Get(CMDLINEOPTIONENUM_FILENOTFOUND)) {
+                size_t temp;
+
+                temp_s1 = static_cast<PS2Platform_OnDriveError_arg3 *>(arg3)->virtual_34();
+
+                // Find index of last '\\'
+                var_s3 = 0;
+                for (var_s0_2 = 0; var_s0_2 < strlen(temp_s1); var_s0_2++) {
+                    var_s3 = (temp_s1[var_s0_2] == '\\') ? var_s0_2 : var_s3;
+                }
+
+                temp = var_s3;
+                temp += (var_s3 > 0);
+                strncpy(sp0, &temp_s1[temp], strlen(temp_s1) - var_s3);
+
+                sp0[strlen(temp_s1) - var_s3] = '\0';
+                sprintf(sp20, D_0045D700, ERROR_STRINGS[arg1], sp0);
+
+                if (temp_s4 != 0) {
+                    p3d::context->EndFrame(true);
+                }
+
+                this->virtual_34(1, sp20, 1.0f, 0.0f, 0.0f, 0xFFFFFFFF, 0);
+
+                if (temp_s4 != 0) {
+                    p3d::context->BeginFrame();
+                }
+
+                this->unk_04 = 1;
+                this->unk_08 = 1;
+
+                temp_v0_2 = PresentationManager::GetInstance()->unk_54->unk_04;
+                var_v1 = (temp_v0_2 != 0) && (temp_v0_2 != 4);
+
+                if ((var_v1 & 0xFF)) {
+                    PresentationManager::GetInstance()->unk_54->virtual_64();
+                    return 1;
+                }
+
+                SoundManager::GetInstance()->StopForMovie();
+                return 1;
+            }
+
+            arg1 = RADFILEERROR_3;
+
+            FALLTHROUGH;
+        case 0x2:
+        case 0x3:
+        case 0x4:
+        case 0x8:
+            if (temp_s4 != 0) {
+                p3d::context->EndFrame(true);
+            }
+
+            this->virtual_34(1, ERROR_STRINGS[arg1], 1.0f, 0.0f, 0.0f, 0xFFFFFFFF, 0);
+
+            if (temp_s4 != 0) {
+                p3d::context->BeginFrame();
+            }
+            this->unk_04 = 1;
+            this->unk_08 = 1;
+
+            temp_v0_2 = PresentationManager::GetInstance()->unk_54->unk_04;
+            var_v1 = (temp_v0_2 != 0) && (temp_v0_2 != 4);
+
+            if ((var_v1 & 0xFF) != 0) {
+                PresentationManager::GetInstance()->unk_54->virtual_64();
+                return 1;
+            }
+
+            SoundManager::GetInstance()->StopForMovie();
+            return 1;
+
+        default:
+            return 0;
+    }
+}
+#else
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", OnDriveError__11PS2Platform12radFileErrorPCcPv);
+#endif
 
 PS2Platform::PS2Platform() {
     this->unk_08 = 0;
