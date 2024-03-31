@@ -1,6 +1,8 @@
 #ifndef ALLINPUT_HPP
 #define ALLINPUT_HPP
 
+#include "types.h"
+
 // text
 
 // void __6Button();
@@ -12,7 +14,7 @@ public:
     static InputManager *GetInstance(void);
     static void DestroyInstance(void);
     void Init(void);
-    void Update(unsigned int);
+    void Update(u32);
 
 private:
 // void OnControllerConnectionStatusChange__12InputManagerP14IRadController();

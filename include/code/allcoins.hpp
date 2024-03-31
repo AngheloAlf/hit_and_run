@@ -1,6 +1,8 @@
 #ifndef ALLCOINS_HPP
 #define ALLCOINS_HPP
 
+#include "types.h"
+
 // text
 
 class CoinManager {
@@ -48,7 +50,7 @@ private:
 
 class Sparkle {
 public:
-    static void CreateInstance(unsigned char, unsigned short);
+    static void CreateInstance(u8, u16);
 
 private:
 // void GetInstance__7Sparkle();

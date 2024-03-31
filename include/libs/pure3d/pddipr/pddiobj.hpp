@@ -1,11 +1,14 @@
 #ifndef PDDIOBJ_HPP
 #define PDDIOBJ_HPP
 
+#include "types.h"
+#include "unk.h"
+
 // text
 
 class pddiObject {
 private:
-    /* 0x0 */ char unk_0[0x8];
+    /* 0x0 */ UNK_PAD unk_0[0x8];
 
 protected:
     pddiObject(void);

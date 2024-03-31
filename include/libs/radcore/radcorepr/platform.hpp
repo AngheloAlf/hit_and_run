@@ -13,7 +13,7 @@ enum radPlatformGameMediaType {
     /* 0x1 */ radPlatformGameMediaType_1 = 1,
 };
 
-void radPlatformInitialize(char const *, radPlatformIOPMedia, radPlatformGameMediaType, char const *, int);
+void radPlatformInitialize(char const *, radPlatformIOPMedia, radPlatformGameMediaType, char const *, s32);
 void radPlatformTerminate(void);
 // void radPlatformGet__Fv();
 // void func_003D7968();

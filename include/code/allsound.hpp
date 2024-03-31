@@ -51,7 +51,7 @@ public:
     static void DestroyInstance(void);
 
     void Update(void);
-    void UpdateOncePerFrame(unsigned int, ContextEnum, bool);
+    void UpdateOncePerFrame(u32, ContextEnum, bool);
 
 private:
     // void HandleEvent__12SoundManager9EventEnumPv();

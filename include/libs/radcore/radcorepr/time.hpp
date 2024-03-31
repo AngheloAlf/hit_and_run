@@ -1,25 +1,29 @@
 #ifndef TIME_HPP
 #define TIME_HPP
 
+#include "types.h"
+
 class radDate {
 public:
-    unsigned short unk_0;
-    unsigned char unk_2;
-    unsigned char unk_3;
-    unsigned char unk_4;
-    unsigned char unk_5;
-    unsigned char unk_6;
+    /* 0x0 */ u16 unk_0;
+    /* 0x2 */ u8 unk_2;
+    /* 0x3 */ u8 unk_3;
+    /* 0x4 */ u8 unk_4;
+    /* 0x5 */ u8 unk_5;
+    /* 0x6 */ u8 unk_6;
 };
 
 class IRadTimerList {
 private:
-    virtual void virtual_0C(void);
+    /* vt 0x0C */ virtual void virtual_0C(void); /* placeholder */
+
 public:
-    virtual void virtual_14(void);
+    /* vt 0x14 */ virtual void virtual_14(void);
 private:
-    virtual void virtual_1C(void);
+    /* vt 0x1C */ virtual void virtual_1C(void); /* placeholder */
+
 public:
-    virtual void virtual_24(void);
+    /* vt 0x24 */ virtual void virtual_24(void);
 };
 
 // text
@@ -28,11 +32,11 @@ void radTimeInitialize(void);
 void radTimeTerminate();
 // void radTimeGetMicroseconds__Fv();
 // void radTimeGetMicroseconds64__Fv();
-int radTimeGetMilliseconds(void);
+s32 radTimeGetMilliseconds(void);
 // void radTimeGetSeconds__Fv();
 void radTimeGetDate(radDate *);
 // void radTimeGetWeekday__FUsUcUc();
-void radTimeCreateList(IRadTimerList **, unsigned int, int);
+void radTimeCreateList(IRadTimerList **, u32, s32);
 // void func_003C42B0();
 // void func_003C4310();
 // void func_003C43C0();

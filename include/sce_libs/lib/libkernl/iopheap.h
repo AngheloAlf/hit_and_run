@@ -1,6 +1,9 @@
 #ifndef IOPHEAP_HPP
 #define IOPHEAP_HPP
 
+#include "types.h"
+#include "libc/stddef.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -8,10 +11,10 @@ extern "C" {
 // text
 
 // void sceSifInitIopHeap();
-int sceSifAllocIopHeap(int);
+s32 sceSifAllocIopHeap(s32);
 // void sceSifFreeSysMemory();
 // void sceSifFreeIopHeap();
-unsigned int sceSifQueryMaxFreeMemSize();
+size_t sceSifQueryMaxFreeMemSize();
 // void func_00411990();
 
 // data

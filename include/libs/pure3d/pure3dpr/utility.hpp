@@ -1,6 +1,7 @@
 #ifndef UTILITY_HPP
 #define UTILITY_HPP
 
+#include "types.h"
 #include "libc/stddef.h"
 
 #include "loadmanager.hpp"
@@ -18,7 +19,7 @@
 
 // data
 
-extern char gFruitless;
+extern s8 gFruitless;
 // extern UNK_TYPE D_004365F1;
 
 namespace p3d {

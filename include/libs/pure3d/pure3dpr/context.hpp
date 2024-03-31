@@ -1,6 +1,9 @@
 #ifndef CONTEXT_HPP
 #define CONTEXT_HPP
 
+#include "types.h"
+#include "unk.h"
+
 #include "libs/pure3d/pddipr/basecontext.hpp"
 #include "libs/pure3d/pddipr/ps2device.hpp"
 #include "libs/pure3d/pddipr/ps2display.hpp"
@@ -15,17 +18,17 @@ public:
     /* 0x00 */ tInventory *unk_00;
     /* 0x04 */ tLoadManager *unk_04;
 private:
-    /* 0x08 */ char unk_08[0xE0];
+    /* 0x08 */ UNK_PAD unk_08[0xE0];
 public:
     /* 0xE8 */ pddiDevice *unk_E8;
     /* 0xEC */ pddiRenderContext *unk_EC;
     /* 0xF0 */ pddiDisplay *unk_F0;
 private:
-    /* 0xF4 */ char unk_F4[0x8];
+    /* 0xF4 */ UNK_PAD unk_F4[0x8];
 public:
-    /* 0xFC */ unsigned char unk_FC;
+    /* 0xFC */ u8 unk_FC;
 private:
-    /* 0xFD */ char unk_FD[0x3];
+    /* 0xFD */ UNK_PAD unk_FD[0x3];
     /* 0x100 size */
 
 public:

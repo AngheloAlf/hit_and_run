@@ -1,6 +1,8 @@
 #ifndef ALLPRESENTATION_HPP
 #define ALLPRESENTATION_HPP
 
+#include "types.h"
+
 class PresentationManager_unk_54_parent {
 private:
     /* 0x00 */ /* vt */
@@ -26,7 +28,7 @@ public:
 class PresentationManager_unk_54 : public PresentationManager_unk_54_parent {
 public:
     /* 0x00 */ /* vt */
-    /* 0x04 */ int unk_04;
+    /* 0x04 */ s32 unk_04;
 private:
     /* size >= 0x08 */
 };
@@ -81,7 +83,7 @@ private:
 
 class PresentationManager {
 public:
-    /* 0x00 */ char unk_00[0x54];
+    /* 0x00 */ UNK_PAD unk_00[0x54];
     /* 0x54 */ PresentationManager_unk_54 *unk_54;
     /* >= 0x58 size */
 

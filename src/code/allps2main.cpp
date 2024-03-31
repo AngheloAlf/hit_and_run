@@ -69,7 +69,7 @@ extern const char STR_0045D020[] = "*** WARNING: Too many commandline options!";
 extern const char STR_0045D050[] = "../../code/main/commandlineoptions.cpp";
 
 void CommandLineOptions::InitDefaults(void) {
-    unsigned long long tmp;
+    u64 tmp;
 
     tmp = 1ULL << CMDLINEOPTIONENUM_CDFILES;
     sOptions |= tmp;
@@ -80,8 +80,8 @@ void CommandLineOptions::InitDefaults(void) {
 
 void CommandLineOptions::HandleOption(const char *opt) {
     char sp[0x100];
-    int var_s2;
-    unsigned long long var_s0;
+    s32 var_s2;
+    u64 var_s0;
     char *temp_v0;
     char temp_s1;
 
@@ -278,9 +278,9 @@ void Game::Terminate() {
 }
 
 void Game::Run() {
-    unsigned int temp_s1;
-    int temp_v0;
-    int var_s2;
+    u32 temp_s1;
+    s32 temp_v0;
+    s32 var_s2;
     PS2Platform *platform;
 
     var_s2 = radTimeGetMilliseconds();
@@ -327,7 +327,7 @@ void Game::Stop(void) {
     this->unk_14 = 1;
 }
 
-int Game::GetRandomSeed(void) {
+s32 Game::GetRandomSeed(void) {
     radDate sp0;
 
     radTimeGetDate(&sp0);
@@ -440,7 +440,7 @@ INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", D_0045D548);
 
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", D_0045D570);
 
-void LoadMemP3DFile(unsigned char *, unsigned int, tEntityStore *);
+void LoadMemP3DFile(u8 *, u32, tEntityStore *);
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", LoadMemP3DFile__FPUcUiP12tEntityStore);
 
 PS2Platform *PS2Platform::CreateInstance(void) {
@@ -482,7 +482,7 @@ extern const char STR_0045D670[];
 void PS2Platform::InitializeFoundation(void) {
     char sp00[] = "IRX\\";
     char sp10[] = "IOPRP254.IMG";
-    unsigned int temp_v0_2;
+    size_t temp_v0_2;
 
     InitializeMemory();
 
@@ -623,7 +623,7 @@ void PS2Platform::LaunchDashboard() {
     this->virtual_2C();
 }
 
-void PS2Platform::DisplaySplashScreen(UNUSED Platform::SplashScreen arg1, char const * arg2, float arg3, float arg4, float arg5, pddiColour arg6, int arg7) {
+void PS2Platform::DisplaySplashScreen(UNUSED Platform::SplashScreen arg1, char const * arg2, float arg3, float arg4, float arg5, pddiColour arg6, s32 arg7) {
     this->virtual_3C(NULL, arg2, arg3, arg4, arg5, arg6, arg7);
 }
 
@@ -664,13 +664,13 @@ extern void *_3p3d$pddi;
 extern void **_3p3d$stack;
 #endif
 
-extern unsigned char gFont[];
+extern u8 gFont[];
 
 extern const char STR_0045D6B8[];
 
 #if 0
-void PS2Platform::DisplaySplashScreen(char const *arg1, char const *arg2, float arg3, float arg4, float arg5, pddiColour arg6, int arg7) {
-    unsigned short sp10[0x100];
+void PS2Platform::DisplaySplashScreen(char const *arg1, char const *arg2, float arg3, float arg4, float arg5, pddiColour arg6, s32 arg7) {
+    char16_t sp10[0x100];
 #if 0
     ? sp210;
     ? sp220;
@@ -685,10 +685,10 @@ void PS2Platform::DisplaySplashScreen(char const *arg1, char const *arg2, float 
     s32 temp_s0;
     s32 temp_s0_2;
 #endif
-    int temp_s4;
-    int var_s6;
-    int var_s3;
-    int var_a0;
+    s32 temp_s4;
+    s32 var_s6;
+    s32 var_s3;
+    s32 var_a0;
 #if 0
     s32 var_v0;
     void **temp_s1;
@@ -939,20 +939,20 @@ enum scePadGetState_ret {
 };
 
 struct scePadRead_arg2 {
-    /* 0x0 */ unsigned char unk_00;
-    /* 0x1 */ char unk_01[2];
-    /* 0x3 */ unsigned char unk_03;
+    /* 0x0 */ u8 unk_00;
+    /* 0x1 */ UNK_PAD unk_01[2];
+    /* 0x3 */ u8 unk_03;
 }; // size = ?
 
-extern "C" scePadGetState_ret scePadGetState(int, int);
-extern "C" bool scePadRead(int, int, scePadRead_arg2 *);
+extern "C" scePadGetState_ret scePadGetState(s32, s32);
+extern "C" bool scePadRead(s32, s32, scePadRead_arg2 *);
 
 #if 0
 bool PS2Platform::CheckForStartupButtons(void) {
     scePadRead_arg2 sp0;
     bool var_s2;
-    int var_s0;
-    int var_s1;
+    s32 var_s0;
+    s32 var_s1;
 
     var_s2 = false;
 
@@ -991,9 +991,9 @@ INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", CheckForStartupBut
 
 #if 0
 void PS2Platform::OnControllerError(const char *arg1) {
-    int temp_v0_2;
-    int var_v1;
-    unsigned char temp_s2;
+    s32 temp_v0_2;
+    s32 var_v1;
+    u8 temp_s2;
 
     temp_s2 = p3d::context->unk_FC;
     if (temp_s2 != 0) {
@@ -1042,11 +1042,11 @@ bool PS2Platform::OnDriveError(radFileError arg1, UNUSED char const *arg2, void 
     char sp0[0x20];
     char sp20[0x100];
     char *temp_s1;
-    unsigned int temp_v0_2;
-    unsigned int var_v1;
-    unsigned int var_s0_2;
-    unsigned int var_s3;
-    unsigned char temp_s4;
+    u32 temp_v0_2;
+    u32 var_v1;
+    u32 var_s0_2;
+    u32 var_s3;
+    u8 temp_s4;
 
     temp_s4 = p3d::context->unk_FC;
 
@@ -1256,8 +1256,8 @@ tUidUnaligned::tUidUnaligned(tUidUnaligned const &arg1) {
     this->unk_04 = arg1.unk_04;
 }
 
-unsigned char tUidUnaligned::operator!=(tUidUnaligned arg1) const {
-    int temp = !(*this == arg1);
+u8 tUidUnaligned::operator!=(tUidUnaligned arg1) const {
+    s32 temp = !(*this == arg1);
 
     return temp;
 }

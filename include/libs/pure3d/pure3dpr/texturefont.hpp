@@ -15,7 +15,7 @@ private:
     // void SetShader__12tTextureFontP7tShader();
 
 public:
-    void SetMissingLetter(unsigned short);
+    void SetMissingLetter(u16);
 
 private:
     // void GetLineWidth__C12tTextureFontPCUs();

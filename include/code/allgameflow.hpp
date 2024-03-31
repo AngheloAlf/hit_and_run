@@ -1,6 +1,8 @@
 #ifndef ALLGAMEFLOW_HPP
 #define ALLGAMEFLOW_HPP
 
+#include "types.h"
+
 #include "code/ContextEnum.hpp"
 
 // text
@@ -29,7 +31,7 @@ private:
 // void _$_8GameFlow();
 
 public:
-    virtual void virtual_0C(unsigned int, int);
+    virtual void virtual_0C(u32, s32);
 };
 
 // void __uninitialized_copy_aux__H2ZP11ContextEnumZP11ContextEnum_X01X01X11G12__false_type_X11();

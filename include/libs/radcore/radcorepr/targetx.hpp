@@ -8,7 +8,7 @@ enum radDbgComType {
 
 // text
 
-void radDbgComTargetInitialize(radDbgComType, unsigned short, void *, int);
+void radDbgComTargetInitialize(radDbgComType, u16, void *, s32);
 void radDbgComTargetTerminate(void);
 void radDbgComService(void);
 // void radDbgComTargetCreateChannel__FUsPP17IRadDbgComChanneli();

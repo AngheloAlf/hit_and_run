@@ -17,7 +17,7 @@ private:
 // void __tf10RenderFlow();
 
 public:
-    virtual void virtual_0C(unsigned int, int);
+    virtual void virtual_0C(u32, s32);
 };
 
 // void func_00216210();

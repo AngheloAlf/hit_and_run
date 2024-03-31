@@ -8,7 +8,7 @@
 // text
 
 
-extern "C" void pddiCreate(int, int, void *);
+extern "C" void pddiCreate(s32, s32, void *);
 // void __9ps2Device();
 // void _$_9ps2Device();
 // void GetLibraryInfo__9ps2DeviceP11pddiLibInfo();
@@ -34,7 +34,7 @@ private:
     /* vt 0x34 */virtual pddiDisplay *virtual_34(void); // placeholder
     /* vt 0x3C */virtual pddiDisplay *virtual_3C(void); // placeholder
 public:
-    /* vt 0x44 */virtual pddiDisplay *virtual_44(int);
+    /* vt 0x44 */virtual pddiDisplay *virtual_44(s32);
     /* vt 0x4C */virtual pddiRenderContext *virtual_4C(pddiObject *);
 };
 

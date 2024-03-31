@@ -1,6 +1,8 @@
 #ifndef RADFILE_HPP
 #define RADFILE_HPP
 
+#include "types.h"
+
 #include "cementer.hpp"
 #include "memoryspaceps2.hpp"
 #include "instancedrive.hpp"
@@ -44,20 +46,20 @@ enum radFileError {
 
 // void radMakeIconSys__FP13radPs2IconSysP11radSJISCharUs();
 // void radSetIconSysTitle__FP13radPs2IconSysP11radSJISCharUs();
-void radFileInitialize(unsigned int, unsigned int, int);
+void radFileInitialize(u32, u32, s32);
 void radFileTerminate(void);
 void radFileService(void);
 // void func_003D7498();
 // void radFileOpenAsync__FPP8IRadFilePCcb16radFileOpenFlags15radFilePriorityUii14radMemorySpace();
 // void func_003D74C8();
-void radDriveOpenAsync(IRadDrive **, char const *, radFilePriority, int);
+void radDriveOpenAsync(IRadDrive **, char const *, radFilePriority, s32);
 // void func_003D7500();
 void radSetDefaultDrive(char const *);
 // void func_003D7528();
 // void radFileRegisterCementLibraryAsync__FPP17IRadCementLibraryPCc24radCementLibraryPriorityUii14radMemorySpace();
-void radFileRegisterCementLibrarySync(IRadCementLibrary **, char const *, radCementLibraryPriority, unsigned int, int, radMemorySpace);
+void radFileRegisterCementLibrarySync(IRadCementLibrary **, char const *, radCementLibraryPriority, u32, s32, radMemorySpace);
 // void func_003D7578();
-void radDriveMount(char const *, int);
+void radDriveMount(char const *, s32);
 void radDriveUnmount(char const *);
 // void func_003D75C0();
 

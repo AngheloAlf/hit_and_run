@@ -1,6 +1,7 @@
 #ifndef ALLPS2MAIN_HPP
 #define ALLPS2MAIN_HPP
 
+#include "types.h"
 #include "unk.h"
 
 #include "libs/radcore/radcorepr/time.hpp"
@@ -71,9 +72,9 @@ enum CmdLineOptionEnum {
 };
 
 class CommandLineOptions {
-    static unsigned long sOptions;
-    static short s_defaultLevel;
-    static short s_defaultMission;
+    static u64 sOptions;
+    static s16 s_defaultLevel;
+    static s16 s_defaultMission;
 
 public:
     static void InitDefaults(void);
@@ -85,7 +86,7 @@ class Platform: public IRadDriveErrorCallback  {
 private:
 
 public:
-    int unk_04;
+    s32 unk_04;
 
     Platform() {}
 
@@ -100,10 +101,10 @@ private:
     /* 0x04 */ IRadTimerList *unk_04;
     /* 0x08 */ GameFlow *unk_08;
     /* 0x0C */ RenderFlow *unk_0C;
-    /* 0x10 */ int unk_10;
-    /* 0x14 */ unsigned char unk_14;
-    /* 0x18 */ int unk_18;
-    /* 0x1C */ int unk_1C;
+    /* 0x10 */ s32 unk_10;
+    /* 0x14 */ u8 unk_14;
+    /* 0x18 */ s32 unk_18;
+    /* 0x1C */ s32 unk_1C;
 
     static Game *spInstance;
 
@@ -119,7 +120,7 @@ public:
     void Run(void);
     void Stop(void);
 
-    static int GetRandomSeed(void);
+    static s32 GetRandomSeed(void);
 
 private:
     Game(Platform *);
@@ -133,11 +134,11 @@ int main(int argc, char *argv[]);
 // void LoadMemP3DFile__FPUcUiP12tEntityStore();
 
 struct pddiColour {
-    /* 0x0 */ unsigned char unk_0;
+    /* 0x0 */ u8 unk_0;
 };
 
 class PS2Platform_OnDriveError_arg3 {
-    /* 0x0 */ char unk_0[0x4];
+    /* 0x0 */ UNK_PAD unk_0[0x4];
     /* 0x4 */ /* vt */
     /* size = 0x8 */
 
@@ -153,14 +154,14 @@ public:
 class PS2Platform : public Platform {
 public:
     /* 0x00 */ /* vtable */
-    ///* 0x04 */ unsigned int unk_04;
-    /* 0x08 */ unsigned char unk_08;
+    ///* 0x04 */ u32 unk_04;
+    /* 0x08 */ u8 unk_08;
 private:
     /* 0x0C */ IRadDrive *unk_0C;
-    /* 0x10 */ int unk_10;
-    /* 0x14 */ int unk_14;
-    /* 0x18 */ char unk_18;
-    /* 0x19 */ char unk_19[0x3];
+    /* 0x10 */ s32 unk_10;
+    /* 0x14 */ s32 unk_14;
+    /* 0x18 */ s8 unk_18;
+    /* 0x19 */ UNK_PAD unk_19[0x3];
 
 public:
     static PS2Platform *CreateInstance(void);
@@ -174,8 +175,8 @@ private:
     void ShutdownPlatform(void);
     void ResetMachine(void);
     void LaunchDashboard(void);
-    void DisplaySplashScreen(Platform::SplashScreen, char const *, float, float, float, pddiColour, int);
-    void DisplaySplashScreen(char const *, char const *, float, float, float, pddiColour, int);
+    void DisplaySplashScreen(Platform::SplashScreen, char const *, float, float, float, pddiColour, s32);
+    void DisplaySplashScreen(char const *, char const *, float, float, float, pddiColour, s32);
     void InitializeFoundationDrive(void);
     void ShutdownFoundation(void);
 // void InitializePure3D__11PS2Platform();
@@ -196,8 +197,8 @@ private:
     /* vt 0x1C */ virtual void virtual_1C(void); // placeholder
     /* vt 0x24 */ virtual void virtual_24(void); // placeholder
     /* vt 0x2C */ virtual void virtual_2C(void); // placeholder
-    /* vt 0x34 */ virtual void virtual_34(int, char const *, float, float, float, unsigned int, int);
-    /* vt 0x3C */ virtual void virtual_3C(char const *, char const *, float, float, float, pddiColour, int);
+    /* vt 0x34 */ virtual void virtual_34(s32, char const *, float, float, float, u32, s32);
+    /* vt 0x3C */ virtual void virtual_3C(char const *, char const *, float, float, float, pddiColour, s32);
     /* vt 0x44 */ virtual void virtual_44(void); // placeholder
     /* vt 0x4C */ virtual void virtual_4C(void);
     /* vt 0x54 */ virtual void virtual_54(void);
@@ -211,15 +212,15 @@ void DestroySingletons(void);
 
 class tUidUnaligned {
 private:
-    /* 0x00 */ int unk_00;
-    /* 0x04 */ int unk_04;
+    /* 0x00 */ s32 unk_00;
+    /* 0x04 */ s32 unk_04;
     /* size >= 0x08 */
 
 private:
     tUidUnaligned(void);
     tUidUnaligned(tUidUnaligned const &);
 
-    unsigned char operator!=(tUidUnaligned) const;
+    u8 operator!=(tUidUnaligned) const;
     bool operator==(tUidUnaligned) const;
     // void __lt__C13tUidUnalignedG13tUidUnaligned();
     // void __er__C13tUidUnalignedG13tUidUnaligned();

@@ -1,18 +1,34 @@
 #ifndef TYPES_H
 #define TYPES_H
 
-typedef signed   char   int8_t;
-typedef signed   short  int16_t;
-typedef signed   int    int32_t;
-typedef signed   long   int64_t;
-typedef unsigned char  uint8_t;
-typedef unsigned short uint16_t;
-typedef unsigned int   uint32_t;
-typedef unsigned long  uint64_t;
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-typedef float  f32;
-typedef double f64;
+typedef signed   char       s8;
+typedef unsigned char       u8;
+typedef signed   short      s16;
+typedef unsigned short      u16;
+typedef signed   int        s32;
+typedef unsigned int        u32;
 
+#if CC_CHECK
+typedef signed   long long  s64;
+typedef unsigned long long  u64;
+#else
+typedef signed   long       s64;
+typedef unsigned long       u64;
+#endif
+
+typedef float           f32;
+typedef double          f64;
+
+#ifndef NULL
 #define NULL (0)
+#endif
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

@@ -1,6 +1,9 @@
 #ifndef ALLMEMORY_HPP
 #define ALLMEMORY_HPP
 
+#include "types.h"
+#include "libc/stddef.h"
+
 enum GameMemoryAllocator {
     /* 0x1 */ GameMemoryAllocator_1 = 1,
     /* 0x3 */ GameMemoryAllocator_3 = 3,
@@ -37,13 +40,13 @@ enum GameMemoryAllocator {
 // void __builtin_delete();
 // void __builtin_vec_new();
 // void __builtin_vec_delete();
-void* operator new(unsigned int, GameMemoryAllocator);
+void* operator new(size_t, GameMemoryAllocator);
 // void __dl__FPv19GameMemoryAllocator(); // operator delete(void *, GameMemoryAllocator)
 // void __vn__FUi19GameMemoryAllocator();
 // void func_00166D48();
 // void FindFreeMemory__F19GameMemoryAllocatorUi();
 // void SetupAllocatorSearch__F19GameMemoryAllocator();
-void PrintOutOfMemoryMessage(void *, int, unsigned int);
+void PrintOutOfMemoryMessage(void *, s32, u32);
 // void __9HeapStack19GameMemoryAllocator();
 // void _$_9HeapStack();
 // void Push__9HeapStack19GameMemoryAllocator();
@@ -120,7 +123,7 @@ HeapManager *HeapMgr(void);
 // extern UNK_TYPE D_0042C2BC;
 // extern UNK_TYPE g_LockedPersistentHeap;
 // extern UNK_TYPE g_HeapManagerCreated;
-extern unsigned char gMemorySystemInitialized;
+extern u8 gMemorySystemInitialized;
 // extern UNK_TYPE g_NoHeapRoute;
 // extern UNK_TYPE HeapNames;
 // extern UNK_TYPE D_0042C31C;
