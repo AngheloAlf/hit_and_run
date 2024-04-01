@@ -101,8 +101,8 @@ STRIP           := $(CROSS)strip
 
 ## SN tools
 
-SNDIR           := tools/eegcc_sn/2.73a
-SNCC            := $(WIBO) $(SNDIR)/bin/ee-gcc295.exe
+SNDIR           := tools/eegcc_sn/2.95.3_sn_v1.14
+SNCC            := $(WIBO) $(SNDIR)/ee/gcc/bin/ee-gcc2953.exe
 
 ## Tools
 
@@ -151,8 +151,8 @@ endif
 
 ## Compiler options ##
 
-CFLAGS          += -G0
-CXXFLAGS        += -G0
+CFLAGS          += -G0 -fbyte-bool
+CXXFLAGS        += -G0 -fbyte-bool -fno-exceptions
 
 WARNINGS        := 
 ASFLAGS         := -march=r5900 -mabi=eabi -G8 -no-pad-sections

@@ -220,7 +220,7 @@ private:
     tUidUnaligned(void);
     tUidUnaligned(tUidUnaligned const &);
 
-    u8 operator!=(tUidUnaligned) const;
+    bool operator!=(tUidUnaligned) const;
     bool operator==(tUidUnaligned) const;
     // void __lt__C13tUidUnalignedG13tUidUnaligned();
     // void __er__C13tUidUnalignedG13tUidUnaligned();

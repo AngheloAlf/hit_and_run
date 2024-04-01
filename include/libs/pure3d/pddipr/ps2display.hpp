@@ -10,8 +10,8 @@ class pddiDisplayInit {
 protected:
     /* 0x00 */ s32 unk_00;
     /* 0x04 */ s32 unk_04;
-    /* 0x08 */ bool unk_08;
-    /* 0x0C */ bool unk_0C;
+    /* 0x08 */ s32 unk_08;
+    /* 0x0C */ s32 unk_0C;
     /* 0x10 */ UNK_PAD unk_10[0x4];
     /* 0x14 size */
 
@@ -19,7 +19,7 @@ protected:
     pddiDisplayInit() {}
 
 public:
-    pddiDisplayInit(bool arg1, bool arg2) {
+    pddiDisplayInit(s32 arg1, s32 arg2) {
         this->unk_00 = 0x280;
         this->unk_04 = 0;this->unk_08 = arg1;
         this->unk_0C = arg2;

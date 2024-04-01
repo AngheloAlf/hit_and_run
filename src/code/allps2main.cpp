@@ -220,7 +220,7 @@ void CommandLineOptions::HandleOption(const char *opt) {
 }
 
 bool CommandLineOptions::Get(CmdLineOptionEnum option) {
-    return sOptions & (1ULL << option);
+    return sOptions & (1L << option);
 }
 
 Game *Game::CreateInstance(Platform *platform) {
@@ -924,7 +924,7 @@ void PS2Platform::ShutdownPure3D(void) {
 }
 
 void PS2Platform::SetProgressiveMode(bool arg1) {
-    pddiDisplayInit sp0(arg1, false);
+    pddiDisplayInit sp0(arg1, 0);
 
     p3d::display->virtual_34(&sp0);
 
@@ -1256,14 +1256,16 @@ tUidUnaligned::tUidUnaligned(tUidUnaligned const &arg1) {
     this->unk_04 = arg1.unk_04;
 }
 
-u8 tUidUnaligned::operator!=(tUidUnaligned arg1) const {
-    s32 temp = !(*this == arg1);
+bool tUidUnaligned::operator!=(tUidUnaligned arg1) const {
+    bool ret = !(*this == arg1);
 
-    return temp;
+    return ret;
 }
 
 bool tUidUnaligned::operator==(tUidUnaligned arg1) const {
-    return (this->unk_00 == arg1.unk_00) && (this->unk_04 == arg1.unk_04);
+    bool ret = (this->unk_00 == arg1.unk_00) && (this->unk_04 == arg1.unk_04);
+
+    return ret;
 }
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", __lt__C13tUidUnalignedG13tUidUnaligned);

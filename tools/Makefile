@@ -4,8 +4,8 @@ VERSION ?= us_2003_07_10
 WIBO_DIR     := wibo
 WIBO_BIN     := $(WIBO_DIR)/wibo
 
-EEGCC_SN_DIR := eegcc_sn/2.73a
-EEGCC_SN_BIN := $(EEGCC_SN_DIR)/bin/ee-gcc295.exe
+EEGCC_SN_DIR := eegcc_sn/2.95.3_sn_v1.14
+EEGCC_SN_BIN := $(EEGCC_SN_DIR)/ee/gcc/bin/ee-gcc2953.exe
 
 
 all: $(WIBO_BIN) $(EEGCC_SN_BIN)
@@ -27,9 +27,9 @@ $(WIBO_DIR):
 
 
 $(EEGCC_SN_BIN): | $(EEGCC_SN_DIR)
-	wget https://github.com/AngheloAlf/SN-Systems-ProDG_for_PS2_2.0/releases/latest/download/eegcc_sn_v2.73a.tar.gz
-	tar xf eegcc_sn_v2.73a.tar.gz -C $(EEGCC_SN_DIR)
-	$(RM) eegcc_sn_v2.73a.tar.gz
+	wget https://github.com/AngheloAlf/sce_ps2_sdk_24/releases/latest/download/sce_ps2_sdk_24.tar.gz
+	tar xf sce_ps2_sdk_24.tar.gz -C $(EEGCC_SN_DIR)
+	$(RM) sce_ps2_sdk_24.tar.gz
 
 $(EEGCC_SN_DIR):
 	mkdir -p $@
