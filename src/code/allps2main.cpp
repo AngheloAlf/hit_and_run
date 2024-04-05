@@ -231,20 +231,12 @@ Game *Game::CreateInstance(Platform *platform) {
     return spInstance;
 }
 
-#if 0
 void Game::DestroyInstance(void) {
-    void *temp_v0;
-
     if (spInstance != NULL) {
-        //temp_v0 = spInstance->unk_20;
-        //temp_v0->unk_C(spInstance + temp_v0->unk_8, 3);
-        delete (GameMemoryAllocator_3) spInstance;
+        delete spInstance;
     }
     spInstance = NULL;
 }
-#else
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", DestroyInstance__4Game);
-#endif
 
 Game *Game::GetInstance(void) {
     return spInstance;
@@ -989,10 +981,7 @@ loop_2_end:;
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", CheckForStartupButtons__11PS2Platform);
 #endif
 
-#if 0
 void PS2Platform::OnControllerError(const char *arg1) {
-    s32 temp_v0_2;
-    s32 var_v1;
     u8 temp_s2;
 
     temp_s2 = p3d::context->unk_FC;
@@ -1009,20 +998,13 @@ void PS2Platform::OnControllerError(const char *arg1) {
     this->unk_04 = 2;
     this->unk_08 = 1;
 
-    temp_v0_2 = PresentationManager::GetInstance()->unk_54->unk_04;
-    var_v1 = (temp_v0_2 != 0) && (temp_v0_2 != 4);
-
-    if (var_v1 & 0xFF) {
+    if (PresentationManager::GetInstance()->unk_54->unk_inline_func()) {
         PresentationManager::GetInstance()->unk_54->virtual_64();
         return;
     }
 
     SoundManager::GetInstance()->StopForMovie();
-
 }
-#else
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", OnControllerError__11PS2PlatformPCc);
-#endif
 
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", D_0045D6D0);
 
@@ -1037,21 +1019,18 @@ INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", D_0045D700);
 extern const char D_0045D700[];
 extern const char *ERROR_STRINGS[];
 
-#ifdef NON_MATCHING
 bool PS2Platform::OnDriveError(radFileError arg1, UNUSED char const *arg2, void *arg3) {
     char sp0[0x20];
     char sp20[0x100];
     char *temp_s1;
-    u32 temp_v0_2;
-    u32 var_v1;
-    u32 var_s0_2;
-    u32 var_s3;
+    size_t var_s0_2;
+    size_t var_s3;
     u8 temp_s4;
 
     temp_s4 = p3d::context->unk_FC;
 
     switch (arg1) {
-        case 0x0:
+        case RADFILEERROR_0:
             if (this->unk_04 != 0) {
                 if (temp_s4 != 0) {
                     p3d::context->EndFrame(true);
@@ -1066,18 +1045,14 @@ bool PS2Platform::OnDriveError(radFileError arg1, UNUSED char const *arg2, void 
                 this->unk_08 = 0;
             }
 
-            temp_v0_2 = PresentationManager::GetInstance()->unk_54->unk_04;
-            var_v1 = (temp_v0_2 != 0) && (temp_v0_2 != 4);
-
-            if (var_v1 & 0xFF) {
+            if (PresentationManager::GetInstance()->unk_54->unk_inline_func()) {
                 PresentationManager::GetInstance()->unk_54->virtual_6C();
                 return 1;
             }
             SoundManager::GetInstance()->ResumeAfterMovie();
             return 1;
 
-        case 0x1:
-
+        case RADFILEERROR_1:
             if (CommandLineOptions::Get(CMDLINEOPTIONENUM_FILENOTFOUND)) {
                 size_t temp;
 
@@ -1109,10 +1084,7 @@ bool PS2Platform::OnDriveError(radFileError arg1, UNUSED char const *arg2, void 
                 this->unk_04 = 1;
                 this->unk_08 = 1;
 
-                temp_v0_2 = PresentationManager::GetInstance()->unk_54->unk_04;
-                var_v1 = (temp_v0_2 != 0) && (temp_v0_2 != 4);
-
-                if ((var_v1 & 0xFF)) {
+                if (PresentationManager::GetInstance()->unk_54->unk_inline_func()) {
                     PresentationManager::GetInstance()->unk_54->virtual_64();
                     return 1;
                 }
@@ -1124,10 +1096,10 @@ bool PS2Platform::OnDriveError(radFileError arg1, UNUSED char const *arg2, void 
             arg1 = RADFILEERROR_3;
 
             FALLTHROUGH;
-        case 0x2:
-        case 0x3:
-        case 0x4:
-        case 0x8:
+        case RADFILEERROR_2:
+        case RADFILEERROR_3:
+        case RADFILEERROR_4:
+        case RADFILEERROR_8:
             if (temp_s4 != 0) {
                 p3d::context->EndFrame(true);
             }
@@ -1140,10 +1112,7 @@ bool PS2Platform::OnDriveError(radFileError arg1, UNUSED char const *arg2, void 
             this->unk_04 = 1;
             this->unk_08 = 1;
 
-            temp_v0_2 = PresentationManager::GetInstance()->unk_54->unk_04;
-            var_v1 = (temp_v0_2 != 0) && (temp_v0_2 != 4);
-
-            if ((var_v1 & 0xFF) != 0) {
+            if (PresentationManager::GetInstance()->unk_54->unk_inline_func()) {
                 PresentationManager::GetInstance()->unk_54->virtual_64();
                 return 1;
             }
@@ -1152,12 +1121,11 @@ bool PS2Platform::OnDriveError(radFileError arg1, UNUSED char const *arg2, void 
             return 1;
 
         default:
-            return 0;
+            break;
     }
+
+    return 0;
 }
-#else
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", OnDriveError__11PS2Platform12radFileErrorPCcPv);
-#endif
 
 PS2Platform::PS2Platform() {
     this->unk_08 = 0;
@@ -1246,6 +1214,47 @@ void DestroySingletons(void) {
     EventManager::DestroyInstance();
 }
 
+// Private?
+// Completely made up
+class tUidUnaligned_aux {
+    union {
+        s32 si[2];
+        u64 ul;
+    } u;
+
+public:
+    tUidUnaligned_aux(s32 a1, s32 a2) {
+        this->u.si[0] = a1;
+        this->u.si[1] = a2;
+    }
+
+    tUidUnaligned_aux(u64 a1) {
+        this->u.ul = a1;
+    }
+
+    s32 get_word0(void) const {
+        return this->u.si[0];
+    }
+
+    s32 get_word1(void) const {
+        return this->u.si[1];
+    }
+
+    bool operator<(tUidUnaligned_aux &other) const {
+        return this->u.ul < other.u.ul;
+    }
+
+    tUidUnaligned_aux operator^(tUidUnaligned_aux &other) const {
+        return tUidUnaligned_aux(this->u.ul ^ other.u.ul);
+    }
+
+    // wrong?
+    tUidUnaligned_aux operator*(u64 other) {
+        return tUidUnaligned_aux(this->u.ul * other);
+    }
+};
+
+
 tUidUnaligned::tUidUnaligned(void) {
     this->unk_00 = 0;
     this->unk_04 = 1;
@@ -1268,11 +1277,52 @@ bool tUidUnaligned::operator==(tUidUnaligned arg1) const {
     return ret;
 }
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", __lt__C13tUidUnalignedG13tUidUnaligned);
+bool tUidUnaligned::operator<(tUidUnaligned arg1) const {
+    tUidUnaligned_aux a(this->unk_00, this->unk_04);
+    tUidUnaligned_aux b(arg1.unk_00, arg1.unk_04);
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", __er__C13tUidUnalignedG13tUidUnaligned);
+    return a < b;
+}
 
+tUidUnaligned tUidUnaligned::operator^(tUidUnaligned arg1) const {
+    tUidUnaligned_aux a(this->unk_00, this->unk_04);
+    tUidUnaligned_aux b(arg1.unk_00, arg1.unk_04);
+    tUidUnaligned_aux temp = a ^ b;
+
+    return tUidUnaligned(temp.get_word0(), temp.get_word1());
+}
+
+# if 0
+tUidUnaligned tUidUnaligned::operator*=(u64 arg2) {
+    tUidUnaligned_aux sp10(this->unk_00, this->unk_04);
+    tUidUnaligned_aux sp18 = sp10 * arg2;
+    tUidUnaligned ret(sp18.get_word0(), sp18.get_word1());
+
+/*
+    s32 sp0;
+    s32 sp4;
+    s32 sp10;
+    s32 sp14;
+    s64 sp18;
+    s64 temp_2;
+
+    sp10 = arg1->unk_0;
+    sp14 = arg1->unk_4;
+    temp_2 = __muldi3((s64) sp10, arg2);
+    sp18 = temp_2;
+    sp10 = temp_2;
+    arg1->unk_0 = (s32) sp18;
+    arg1->unk_4 = unksp1C;
+    sp0 = (s32) sp18;
+    sp4 = unksp1C;
+    __13tUidUnalignedRC13tUidUnaligned(arg0, arg1);
+    return arg0;
+*/
+    return ret;
+}
+#else
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", __aml__13tUidUnalignedUl);
+#endif
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", __ad__C13tUidUnalignedG13tUidUnaligned);
 

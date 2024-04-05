@@ -220,11 +220,16 @@ private:
     tUidUnaligned(void);
     tUidUnaligned(tUidUnaligned const &);
 
+    tUidUnaligned(s32 a1, s32 a2) {
+        this->unk_00 = a1;
+        this->unk_04 = a2;
+    }
+
     bool operator!=(tUidUnaligned) const;
     bool operator==(tUidUnaligned) const;
-    // void __lt__C13tUidUnalignedG13tUidUnaligned();
-    // void __er__C13tUidUnalignedG13tUidUnaligned();
-    // void __aml__13tUidUnalignedUl();
+    bool operator<(tUidUnaligned) const;
+    tUidUnaligned operator^(tUidUnaligned arg1) const;
+    tUidUnaligned operator*=(u64);
     // void __ad__C13tUidUnalignedG13tUidUnaligned();
     // void __rs__C13tUidUnalignedi();
 };

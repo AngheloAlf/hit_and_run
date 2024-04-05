@@ -31,6 +31,11 @@ public:
     /* 0x04 */ s32 unk_04;
 private:
     /* size >= 0x08 */
+
+public:
+    bool unk_inline_func(void) {
+        return (this->unk_04 != 0) && (this->unk_04 != 4);
+    };
 };
 
 // text

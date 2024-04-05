@@ -26,7 +26,7 @@ public:
 private:
     /* 0xF4 */ UNK_PAD unk_F4[0x8];
 public:
-    /* 0xFC */ u8 unk_FC;
+    /* 0xFC */ u8 unk_FC; // bool?
 private:
     /* 0xFD */ UNK_PAD unk_FD[0x3];
     /* 0x100 size */
