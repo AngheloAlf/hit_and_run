@@ -30,6 +30,7 @@
 #include "libs/sim/simpr/simenvironment.hpp"
 #include "libs/pure3d/pure3dpr/unicode.hpp"
 #include "libs/pure3d/pure3dpr/texturefont.hpp"
+#include "libs/pure3d/pure3dpr/file.hpp"
 
 #include "code/allingame.hpp"
 #include "code/allinput.hpp"
@@ -432,8 +433,18 @@ INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", D_0045D548);
 
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allps2main", D_0045D570);
 
-void LoadMemP3DFile(u8 *, u32, tEntityStore *);
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", LoadMemP3DFile__FPUcUiP12tEntityStore);
+void LoadMemP3DFile(u8 *arg0, u32 arg1, UNUSED tEntityStore *arg2) {
+    tFileMem *temp_2 = new tFileMem(arg0, arg1, false);
+    tP3DFileHandler *temp_2_3;
+
+    temp_2->virtual_0C();
+    temp_2->SetFilename("memfile.p3d");
+
+    temp_2_3 = p3d::loadManager->GetP3DHandler();
+    temp_2_3->virtual_2C(temp_2, p3d::inventory);
+
+    temp_2->virtual_14();
+}
 
 PS2Platform *PS2Platform::CreateInstance(void) {
     spInstance = new (GameMemoryAllocator_3) PS2Platform();
@@ -901,7 +912,407 @@ void PS2Platform::ShutdownFoundation(void) {
     radMovieTerminate2();
 }
 
+#if 0
+? AddHandler__12tLoadManagerP12tFileHandlerPc(s32, s32, ? *); // extern
+? AddHandler__15tP3DFileHandlerP13tChunkHandlerUi(s32, s32, ?); // extern
+s32 __10tSetLoader(s32);                            // extern
+s32 __11tBMPHandler(s32);                           // extern
+s32 __11tPNGHandler(s32);                           // extern
+s32 __12tImageLoader(s32);                          // extern
+s32 __12tLightLoader(s32);                          // extern
+s32 __13tCameraLoader(s32);                         // extern
+s32 __13tShaderLoader(s32);                         // extern
+s32 __13tSpriteLoader(s32);                         // extern
+s32 __13tTargaHandler(s32);                         // extern
+s32 __14tLocatorLoader(s32);                        // extern
+s32 __14tTextureLoader(s32);                        // extern
+s32 __15tGameAttrLoader(s32);                       // extern
+s32 __15tP3DFileHandleri(s32, ?);                   // extern
+s32 __15tPolySkinLoader(s32);                       // extern
+s32 __15tSEQFileHandler(s32);                       // extern
+s32 __15tSkeletonLoader(s32);                       // extern
+s32 __16CameraDataLoader(s32);                      // extern
+s32 __16tAnimationLoader(s32);                      // extern
+? __16tContextInitData(void *);                     // extern
+s32 __16tImageFontLoader(s32);                      // extern
+s32 __17tExpressionLoader(s32);                     // extern
+s32 __17tLightGroupLoader(s32);                     // extern
+s32 __18IntersectionLoader(s32);                    // extern
+s32 __18tTextureFontLoader(s32);                    // extern
+s32 __20CStatePropDataLoader(s32);                  // extern
+s32 __20tVertexAnimKeyLoader(s32);                  // extern
+s32 __21RoadDataSegmentLoader(s32);                 // extern
+s32 __21tAnimatedObjectLoader(s32);                 // extern
+s32 __21tLensFlareGroupLoader(s32);                 // extern
+s32 __21tParticleSystemLoader(s32);                 // extern
+s32 __22tExpressionGroupLoader(s32);                // extern
+s32 __22tExpressionMixerLoader(s32);                // extern
+s32 __22tFrameControllerLoader(s32);                // extern
+s32 __22tMultiControllerLoader(s32);                // extern
+s32 __24tCompositeDrawableLoader(s32);              // extern
+s32 __28tAnimatedObjectFactoryLoader(s32);          // extern
+s32 __28tParticleSystemFactoryLoader(s32);          // extern
+s32 __9ATCLoader(s32);                              // extern
+s32 __Q210Scenegraph6Loader(s32);                   // extern
+s32 __nw__13radLoadObjectUii(?, ?);                 // extern
+extern tChunkHandler *AddHandler__15tP3DFileHandlerP13tChunkHandler;
+extern tContextInitData *CreateContext__9tPlatformP16tContextInitData;
+extern tPlatform Create__9tPlatform;
+extern ? D_0045D6F0;
+extern ? D_0045D6F8;
+extern AllWrappers GetInstance__11AllWrappers;
+extern RenderManager GetInstance__13RenderManager;
+extern CmdLineOptionEnum Get__18CommandLineOptions17CmdLineOptionEnum;
+extern void InstallSimLoaders__3simv;
+extern ? STR_0045D448;
+extern ? STR_0045D450;
+extern ? STR_0045D458;
+extern void *_3p3d$context;
+extern s32 _3p3d$loadManager;
+extern void *_3p3d$pddi;
+extern s32 mpLoader__11AllWrappersi;
+#endif
+
+#if 0
+void PS2Platform::InitializePure3D(void) {
+#if 0
+    s32 sp0;
+    s32 sp4;
+    s32 sp8;
+    s32 spC;
+    s32 temp_16;
+    s32 temp_16_2;
+    s32 temp_16_3;
+    s32 temp_16_4;
+    s32 temp_16_5;
+    s32 temp_16_6;
+    s32 temp_2;
+    s32 temp_2_10;
+    s32 temp_2_11;
+    s32 temp_2_12;
+    s32 temp_2_13;
+    s32 temp_2_14;
+    s32 temp_2_15;
+    s32 temp_2_16;
+    s32 temp_2_17;
+    s32 temp_2_18;
+    s32 temp_2_19;
+    s32 temp_2_20;
+    s32 temp_2_21;
+    s32 temp_2_22;
+    s32 temp_2_23;
+    s32 temp_2_24;
+    s32 temp_2_3;
+    s32 temp_2_4;
+    s32 temp_2_5;
+    s32 temp_2_6;
+    s32 temp_2_7;
+    s32 temp_2_8;
+    s32 temp_2_9;
+    void *temp_16_10;
+    void *temp_16_11;
+    void *temp_16_12;
+    void *temp_16_13;
+    void *temp_16_14;
+    void *temp_16_15;
+    void *temp_16_16;
+    void *temp_16_17;
+    void *temp_16_18;
+    void *temp_16_19;
+    void *temp_16_20;
+    void *temp_16_21;
+    void *temp_16_22;
+    void *temp_16_23;
+    void *temp_16_24;
+    void *temp_16_25;
+    void *temp_16_26;
+    void *temp_16_27;
+    void *temp_16_28;
+    void *temp_16_29;
+    void *temp_16_30;
+    void *temp_16_31;
+    void *temp_16_32;
+    void *temp_16_33;
+    void *temp_16_34;
+    void *temp_16_35;
+    void *temp_16_36;
+    void *temp_16_37;
+    void *temp_16_38;
+    void *temp_16_39;
+    void *temp_16_40;
+    void *temp_16_41;
+    void *temp_16_42;
+    void *temp_16_43;
+    void *temp_16_44;
+    void *temp_16_45;
+    void *temp_16_46;
+    void *temp_16_47;
+    void *temp_16_48;
+    void *temp_16_7;
+    void *temp_16_8;
+    void *temp_16_9;
+    void *temp_17;
+    void *temp_17_10;
+    void *temp_17_11;
+    void *temp_17_12;
+    void *temp_17_13;
+    void *temp_17_14;
+    void *temp_17_15;
+    void *temp_17_16;
+    void *temp_17_17;
+    void *temp_17_18;
+    void *temp_17_19;
+    void *temp_17_20;
+    void *temp_17_21;
+    void *temp_17_2;
+    void *temp_17_3;
+    void *temp_17_4;
+    void *temp_17_5;
+    void *temp_17_6;
+    void *temp_17_7;
+    void *temp_17_8;
+    void *temp_17_9;
+    void *temp_18;
+    void *temp_18_10;
+    void *temp_18_11;
+    void *temp_18_12;
+    void *temp_18_13;
+    void *temp_18_14;
+    void *temp_18_15;
+    void *temp_18_16;
+    void *temp_18_17;
+    void *temp_18_18;
+    void *temp_18_19;
+    void *temp_18_20;
+    void *temp_18_21;
+    void *temp_18_2;
+    void *temp_18_3;
+    void *temp_18_4;
+    void *temp_18_5;
+    void *temp_18_6;
+    void *temp_18_7;
+    void *temp_18_8;
+    void *temp_18_9;
+    void *temp_2_2;
+
+    arg0->unk_10 = ((s32 *(*)()) &Create__9tPlatform)();
+    __16tContextInitData(sp);
+    sp4 = 0;
+    sp0 = 0x280;
+    if (((s32 (*)(?)) &Get__18CommandLineOptions17CmdLineOptionEnum)(0x2B) != 0) {
+        sp8 = 1;
+    }
+    spC = 0;
+    temp_2 = ((s32 (*)(s32 *, void *)) &CreateContext__9tPlatformP16tContextInitData)(arg0->unk_10, sp);
+    arg0->unk_14 = temp_2;
+    *arg0->unk_10 = temp_2;
+    temp_2_2 = _3p3d$pddi->unk_8;
+    temp_2_2->unk_1DC(_3p3d$pddi + temp_2_2->unk_1D8, 1);
+    temp_2_3 = __15tP3DFileHandleri(__nw__13radLoadObjectUii(0x4C, 3), 0x40);
+    AddHandler__12tLoadManagerP12tFileHandlerPc(_3p3d$context->unk_4, temp_2_3, &D_0045D6F0);
+    temp_16 = _3p3d$context->unk_4;
+    AddHandler__12tLoadManagerP12tFileHandlerPc(temp_16, __11tPNGHandler(__nw__13radLoadObjectUii(0x18, 3)), &STR_0045D450);
+    if (((s32 (*)(?)) &Get__18CommandLineOptions17CmdLineOptionEnum)(0x10) != 0) {
+        temp_16_2 = _3p3d$context->unk_4;
+        AddHandler__12tLoadManagerP12tFileHandlerPc(temp_16_2, __11tBMPHandler(__nw__13radLoadObjectUii(0x18, 3)), &STR_0045D448);
+        temp_16_3 = _3p3d$context->unk_4;
+        AddHandler__12tLoadManagerP12tFileHandlerPc(temp_16_3, __13tTargaHandler(__nw__13radLoadObjectUii(0x18, 3)), &STR_0045D458);
+    } else {
+        temp_16_4 = _3p3d$context->unk_4;
+        AddHandler__12tLoadManagerP12tFileHandlerPc(temp_16_4, __11tBMPHandler(__nw__13radLoadObjectUii(0x18, 3)), &D_0045D6F0);
+        temp_16_5 = _3p3d$context->unk_4;
+        AddHandler__12tLoadManagerP12tFileHandlerPc(temp_16_5, __11tPNGHandler(__nw__13radLoadObjectUii(0x18, 3)), &D_0045D6F0);
+        temp_16_6 = _3p3d$context->unk_4;
+        AddHandler__12tLoadManagerP12tFileHandlerPc(temp_16_6, __13tTargaHandler(__nw__13radLoadObjectUii(0x18, 3)), &D_0045D6F0);
+    }
+    temp_2_4 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 0);
+    temp_18 = (temp_2_4 == 0) ? NULL : (temp_2_4 - 0x1C);
+    temp_16_7 = temp_18->unk_24;
+    temp_16_8 = temp_16_7 + 0x10;
+    temp_17 = temp_18 + 0x1C + temp_16_7->unk_10;
+    temp_16_8->unk_4(temp_17, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
+    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18);
+    temp_2_5 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 1);
+    temp_18_2 = (temp_2_5 == 0) ? NULL : (temp_2_5 - 0x14);
+    temp_16_9 = temp_18_2->unk_1C;
+    temp_16_10 = temp_16_9 + 0x10;
+    temp_17_2 = temp_18_2 + 0x14 + temp_16_9->unk_10;
+    temp_16_10->unk_4(temp_17_2, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
+    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_2);
+    temp_2_6 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 2);
+    temp_18_3 = (temp_2_6 == 0) ? NULL : (temp_2_6 - 0x14);
+    temp_16_11 = temp_18_3->unk_1C;
+    temp_16_12 = temp_16_11 + 0x10;
+    temp_17_3 = temp_18_3 + 0x14 + temp_16_11->unk_10;
+    temp_16_12->unk_4(temp_17_3, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
+    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_3);
+    temp_2_7 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 3);
+    temp_18_4 = (temp_2_7 == 0) ? NULL : (temp_2_7 - 0x14);
+    temp_16_13 = temp_18_4->unk_1C;
+    temp_16_14 = temp_16_13 + 0x10;
+    temp_17_4 = temp_18_4 + 0x14 + temp_16_13->unk_10;
+    temp_16_14->unk_4(temp_17_4, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
+    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_4);
+    temp_2_8 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 4);
+    temp_18_5 = (temp_2_8 == 0) ? NULL : (temp_2_8 - 0x14);
+    temp_16_15 = temp_18_5->unk_1C;
+    temp_16_16 = temp_16_15 + 0x10;
+    temp_17_5 = temp_18_5 + 0x14 + temp_16_15->unk_10;
+    temp_16_16->unk_4(temp_17_5, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
+    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_5);
+    temp_2_9 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 5);
+    temp_18_6 = (temp_2_9 == 0) ? NULL : (temp_2_9 - 0x14);
+    temp_16_17 = temp_18_6->unk_1C;
+    temp_16_18 = temp_16_17 + 0x10;
+    temp_17_6 = temp_18_6 + 0x14 + temp_16_17->unk_10;
+    temp_16_18->unk_4(temp_17_6, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
+    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_6);
+    temp_2_10 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 6);
+    temp_18_7 = (temp_2_10 == 0) ? NULL : (temp_2_10 - 0x14);
+    temp_16_19 = temp_18_7->unk_1C;
+    temp_16_20 = temp_16_19 + 0x10;
+    temp_17_7 = temp_18_7 + 0x14 + temp_16_19->unk_10;
+    temp_16_20->unk_4(temp_17_7, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
+    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_7);
+    temp_2_11 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 7);
+    temp_18_8 = (temp_2_11 == 0) ? NULL : (temp_2_11 - 0x14);
+    temp_16_21 = temp_18_8->unk_1C;
+    temp_16_22 = temp_16_21 + 0x10;
+    temp_17_8 = temp_18_8 + 0x14 + temp_16_21->unk_10;
+    temp_16_22->unk_4(temp_17_8, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
+    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_8);
+    temp_2_12 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 8);
+    temp_18_9 = (temp_2_12 == 0) ? NULL : (temp_2_12 - 0x14);
+    temp_16_23 = temp_18_9->unk_1C;
+    temp_16_24 = temp_16_23 + 0x10;
+    temp_17_9 = temp_18_9 + 0x14 + temp_16_23->unk_10;
+    temp_16_24->unk_4(temp_17_9, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
+    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_9);
+    temp_2_13 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 0xA);
+    temp_18_10 = (temp_2_13 == 0) ? NULL : (temp_2_13 - 0x14);
+    temp_16_25 = temp_18_10->unk_1C;
+    temp_16_26 = temp_16_25 + 0x10;
+    temp_17_10 = temp_18_10 + 0x14 + temp_16_25->unk_10;
+    temp_16_26->unk_4(temp_17_10, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
+    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_10);
+    temp_2_14 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 9);
+    temp_18_11 = (temp_2_14 == 0) ? NULL : (temp_2_14 - 0x14);
+    temp_16_27 = temp_18_11->unk_1C;
+    temp_16_28 = temp_16_27 + 0x10;
+    temp_17_11 = temp_18_11 + 0x14 + temp_16_27->unk_10;
+    temp_16_28->unk_4(temp_17_11, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
+    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_11);
+    temp_2_15 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 0xB);
+    temp_18_12 = (temp_2_15 == 0) ? NULL : (temp_2_15 - 0x14);
+    temp_16_29 = temp_18_12->unk_1C;
+    temp_16_30 = temp_16_29 + 0x10;
+    temp_17_12 = temp_18_12 + 0x14 + temp_16_29->unk_10;
+    temp_16_30->unk_4(temp_17_12, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
+    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_12);
+    temp_2_16 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 0xD);
+    temp_18_13 = (temp_2_16 == 0) ? NULL : (temp_2_16 - 0x14);
+    temp_16_31 = temp_18_13->unk_1C;
+    temp_16_32 = temp_16_31 + 0x10;
+    temp_17_13 = temp_18_13 + 0x14 + temp_16_31->unk_10;
+    temp_16_32->unk_4(temp_17_13, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
+    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_13);
+    temp_2_17 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 0xE);
+    temp_18_14 = (temp_2_17 == 0) ? NULL : (temp_2_17 - 0x14);
+    temp_16_33 = temp_18_14->unk_1C;
+    temp_16_34 = temp_16_33 + 0x10;
+    temp_17_14 = temp_18_14 + 0x14 + temp_16_33->unk_10;
+    temp_16_34->unk_4(temp_17_14, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
+    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_14);
+    temp_2_18 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 0xC);
+    temp_18_15 = (temp_2_18 == 0) ? NULL : (temp_2_18 - 0x14);
+    temp_16_35 = temp_18_15->unk_1C;
+    temp_16_36 = temp_16_35 + 0x10;
+    temp_17_15 = temp_18_15 + 0x14 + temp_16_35->unk_10;
+    temp_16_36->unk_4(temp_17_15, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
+    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_15);
+    temp_2_19 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 0x12);
+    temp_18_16 = (temp_2_19 == 0) ? NULL : (temp_2_19 - 0x14);
+    temp_16_37 = temp_18_16->unk_1C;
+    temp_16_38 = temp_16_37 + 0x10;
+    temp_17_16 = temp_18_16 + 0x14 + temp_16_37->unk_10;
+    temp_16_38->unk_4(temp_17_16, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
+    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_16);
+    temp_2_20 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 0xF);
+    temp_18_17 = (temp_2_20 == 0) ? NULL : (temp_2_20 - 0x14);
+    temp_16_39 = temp_18_17->unk_1C;
+    temp_16_40 = temp_16_39 + 0x10;
+    temp_17_17 = temp_18_17 + 0x14 + temp_16_39->unk_10;
+    temp_16_40->unk_4(temp_17_17, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
+    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_17);
+    temp_2_21 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 0x10);
+    temp_18_18 = (temp_2_21 == 0) ? NULL : (temp_2_21 - 0x14);
+    temp_16_41 = temp_18_18->unk_1C;
+    temp_16_42 = temp_16_41 + 0x10;
+    temp_17_18 = temp_18_18 + 0x14 + temp_16_41->unk_10;
+    temp_16_42->unk_4(temp_17_18, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
+    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_18);
+    temp_2_22 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 0x11);
+    temp_18_19 = (temp_2_22 == 0) ? NULL : (temp_2_22 - 0x14);
+    temp_16_43 = temp_18_19->unk_1C;
+    temp_16_44 = temp_16_43 + 0x10;
+    temp_17_19 = temp_18_19 + 0x14 + temp_16_43->unk_10;
+    temp_16_44->unk_4(temp_17_19, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
+    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_19);
+    temp_2_23 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 0x13);
+    temp_18_20 = (temp_2_23 == 0) ? NULL : (temp_2_23 - 0x14);
+    temp_16_45 = temp_18_20->unk_1C;
+    temp_16_46 = temp_16_45 + 0x10;
+    temp_17_20 = temp_18_20 + 0x14 + temp_16_45->unk_10;
+    temp_16_46->unk_4(temp_17_20, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
+    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_20);
+    temp_2_24 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 0x14);
+    temp_18_21 = (temp_2_24 == 0) ? NULL : (temp_2_24 - 0x14);
+    temp_16_47 = temp_18_21->unk_1C;
+    temp_16_48 = temp_16_47 + 0x10;
+    temp_17_21 = temp_18_21 + 0x14 + temp_16_47->unk_10;
+    temp_16_48->unk_4(temp_17_21, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
+    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_21);
+    ((? (*)(s32, s32)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, __14tTextureLoader(__nw__13radLoadObjectUii(0x1C, 3)));
+    ((? (*)(s32, s32)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, __10tSetLoader(__nw__13radLoadObjectUii(8, 3)));
+    ((? (*)(s32, s32)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, __13tShaderLoader(__nw__13radLoadObjectUii(0x14, 3)));
+    ((? (*)(s32, s32)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, __13tCameraLoader(__nw__13radLoadObjectUii(0x14, 3)));
+    ((? (*)(s32, s32)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, __15tGameAttrLoader(__nw__13radLoadObjectUii(0x14, 3)));
+    ((? (*)(s32, s32)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, __12tLightLoader(__nw__13radLoadObjectUii(0x14, 3)));
+    ((? (*)(s32, s32)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, __14tLocatorLoader(__nw__13radLoadObjectUii(0x14, 3)));
+    ((? (*)(s32, s32)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, __17tLightGroupLoader(__nw__13radLoadObjectUii(0x14, 3)));
+    ((? (*)(s32, s32)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, __12tImageLoader(__nw__13radLoadObjectUii(0x1C, 3)));
+    ((? (*)(s32, s32)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, __18tTextureFontLoader(__nw__13radLoadObjectUii(0x14, 3)));
+    ((? (*)(s32, s32)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, __16tImageFontLoader(__nw__13radLoadObjectUii(0x14, 3)));
+    ((? (*)(s32, s32)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, __13tSpriteLoader(__nw__13radLoadObjectUii(0x24, 3)));
+    ((? (*)(s32, s32)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, __15tSkeletonLoader(__nw__13radLoadObjectUii(0x14, 3)));
+    ((? (*)(s32, s32)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, __15tPolySkinLoader(__nw__13radLoadObjectUii(0x18, 3)));
+    ((? (*)(s32, s32)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, __24tCompositeDrawableLoader(__nw__13radLoadObjectUii(0x14, 3)));
+    ((? (*)(s32, s32)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, __16tAnimationLoader(__nw__13radLoadObjectUii(0x18, 3)));
+    ((? (*)(s32, s32)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, __22tFrameControllerLoader(__nw__13radLoadObjectUii(0x1C, 3)));
+    ((? (*)(s32, s32)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, __22tMultiControllerLoader(__nw__13radLoadObjectUii(0x14, 3)));
+    ((? (*)(s32, s32)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, __28tAnimatedObjectFactoryLoader(__nw__13radLoadObjectUii(0x14, 3)));
+    ((? (*)(s32, s32)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, __21tAnimatedObjectLoader(__nw__13radLoadObjectUii(0x14, 3)));
+    ((? (*)(s32, s32)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, __28tParticleSystemFactoryLoader(__nw__13radLoadObjectUii(0x14, 3)));
+    ((? (*)(s32, s32)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, __21tParticleSystemLoader(__nw__13radLoadObjectUii(0x14, 3)));
+    ((? (*)(s32, s32)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, __21tLensFlareGroupLoader(__nw__13radLoadObjectUii(0x14, 3)));
+    ((? (*)(s32, s32)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, __Q210Scenegraph6Loader(__nw__13radLoadObjectUii(0x2C, 3)));
+    ((? (*)(s32, s32)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, __22tExpressionGroupLoader(__nw__13radLoadObjectUii(0x14, 3)));
+    ((? (*)(s32, s32)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, __22tExpressionMixerLoader(__nw__13radLoadObjectUii(0x14, 3)));
+    ((? (*)(s32, s32)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, __17tExpressionLoader(__nw__13radLoadObjectUii(0x14, 3)));
+    ((? (*)(s32, s32)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, __20tVertexAnimKeyLoader(__nw__13radLoadObjectUii(0x14, 3)));
+    ((? (*)(s32, s32)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, __9ATCLoader(__nw__13radLoadObjectUii(0x14, 3)));
+    AddHandler__12tLoadManagerP12tFileHandlerPc(_3p3d$loadManager, __15tSEQFileHandler(__nw__13radLoadObjectUii(0x10, 3)), &D_0045D6F8);
+    ((? (*)()) &InstallSimLoaders__3simv)();
+    AddHandler__15tP3DFileHandlerP13tChunkHandlerUi(temp_2_3, __16CameraDataLoader(__nw__13radLoadObjectUii(8, 3)), 0x03000101);
+    AddHandler__15tP3DFileHandlerP13tChunkHandlerUi(temp_2_3, __16CameraDataLoader(__nw__13radLoadObjectUii(8, 3)), 0x03000100);
+    ((? (*)(s32, s32)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, __18IntersectionLoader(__nw__13radLoadObjectUii(8, 3)));
+    ((? (*)(s32, s32)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, __21RoadDataSegmentLoader(__nw__13radLoadObjectUii(8, 3)));
+    ((? (*)(s32, s32)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, __20CStatePropDataLoader(__nw__13radLoadObjectUii(0x14, 3)));
+#endif
+}
+#else
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", InitializePure3D__11PS2Platform);
+#endif
 
 void PS2Platform::ShutdownPure3D(void) {
     p3d::inventory->RemoveAllElements();
@@ -1249,8 +1660,12 @@ public:
     }
 
     // wrong?
-    tUidUnaligned_aux operator*(u64 other) {
+    tUidUnaligned_aux operator*(u64 other) const {
         return tUidUnaligned_aux(this->u.ul * other);
+    }
+
+    tUidUnaligned_aux operator>>(s32 other) const {
+        return tUidUnaligned_aux(this->u.ul >> other);
     }
 };
 
@@ -1293,40 +1708,43 @@ tUidUnaligned tUidUnaligned::operator^(tUidUnaligned arg1) const {
 }
 
 # if 0
+// wibo emits wrong codegen
+// it also doesn' match 😅
+
 tUidUnaligned tUidUnaligned::operator*=(u64 arg2) {
     tUidUnaligned_aux sp10(this->unk_00, this->unk_04);
     tUidUnaligned_aux sp18 = sp10 * arg2;
-    tUidUnaligned ret(sp18.get_word0(), sp18.get_word1());
 
-/*
-    s32 sp0;
-    s32 sp4;
-    s32 sp10;
-    s32 sp14;
-    s64 sp18;
-    s64 temp_2;
+    *this = tUidUnaligned(sp18.get_word0(), sp18.get_word1());
 
-    sp10 = arg1->unk_0;
-    sp14 = arg1->unk_4;
-    temp_2 = __muldi3((s64) sp10, arg2);
-    sp18 = temp_2;
-    sp10 = temp_2;
-    arg1->unk_0 = (s32) sp18;
-    arg1->unk_4 = unksp1C;
-    sp0 = (s32) sp18;
-    sp4 = unksp1C;
-    __13tUidUnalignedRC13tUidUnaligned(arg0, arg1);
-    return arg0;
-*/
-    return ret;
+    return *this;
 }
 #else
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", __aml__13tUidUnalignedUl);
 #endif
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", __ad__C13tUidUnalignedG13tUidUnaligned);
+tUidUnaligned tUidUnaligned::operator&(tUidUnaligned arg2) const {
+    s32 temp_16 = this->unk_00 & arg2.unk_00;
+    s32 temp_17 = this->unk_04 & arg2.unk_04;
+    tUidUnaligned ret;
 
+    ret.unk_00 = temp_16;
+    ret.unk_04 = temp_17;
+
+    return ret;
+}
+
+#if 0
+tUidUnaligned tUidUnaligned::operator>>(s32 arg2) const {
+    u64 temp;
+    tUidUnaligned_aux sp0(this->unk_00, this->unk_04);
+    tUidUnaligned_aux sp8 = sp0 >> arg2;
+
+    return tUidUnaligned(sp8.get_word0(), sp8.get_word1());
+}
+#else
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", __rs__C13tUidUnalignedi);
+#endif
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", func_00165BC8);
 

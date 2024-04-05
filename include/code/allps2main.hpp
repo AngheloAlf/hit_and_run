@@ -179,7 +179,7 @@ private:
     void DisplaySplashScreen(char const *, char const *, float, float, float, pddiColour, s32);
     void InitializeFoundationDrive(void);
     void ShutdownFoundation(void);
-// void InitializePure3D__11PS2Platform();
+    void InitializePure3D(void);
     void ShutdownPure3D(void);
     void SetProgressiveMode(bool);
     bool CheckForStartupButtons(void);
@@ -225,13 +225,19 @@ private:
         this->unk_04 = a2;
     }
 
+    tUidUnaligned &operator=(const tUidUnaligned &other) {
+        this->unk_00 = other.unk_00;
+        this->unk_04 = other.unk_04;
+        return *this;
+    }
+
     bool operator!=(tUidUnaligned) const;
     bool operator==(tUidUnaligned) const;
     bool operator<(tUidUnaligned) const;
     tUidUnaligned operator^(tUidUnaligned arg1) const;
     tUidUnaligned operator*=(u64);
-    // void __ad__C13tUidUnalignedG13tUidUnaligned();
-    // void __rs__C13tUidUnalignedi();
+    tUidUnaligned operator&(tUidUnaligned) const;
+    tUidUnaligned operator>>(s32) const;
 };
 
 // void func_00165BC8();

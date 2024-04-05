@@ -1,22 +1,40 @@
 #ifndef FILE_HPP
 #define FILE_HPP
 
+#include "types.h"
+#include "unk.h"
+
+#include "libs/radcontent/radcontentpr/object.hpp"
+
 // text
 
-// void __5tFile();
-// void _$_5tFile();
-// void SetFilename__5tFilePCc();
-// void UncompressBlock__5tFilePUcUiT1Ui();
-// void __8tFileMemPUcUib();
-// void _$_8tFileMem();
-// void GetData__8tFileMemPvUiQ25tFile8DataType();
-// void EndOfFile__8tFileMem();
-// void GetSize__8tFileMem();
-// void Advance__8tFileMemUi();
-// void GetPosition__8tFileMem();
-// void GetMemory__8tFileMem();
-// void SetCompressed__8tFileMemb();
-// void SetUncompressedSize__8tFileMemi();
+class tFile : public radLoadObject {
+    // void __5tFile();
+    // void _$_5tFile();
+public:
+    void SetFilename(char const *);
+private:
+    // void UncompressBlock__5tFilePUcUiT1Ui();
+};
+
+class tFileMem : public tFile {
+public:
+    tFileMem(u8 *, u32, bool);
+private:
+    // void _$_8tFileMem();
+    // void GetData__8tFileMemPvUiQ25tFile8DataType();
+    // void EndOfFile__8tFileMem();
+    // void GetSize__8tFileMem();
+    // void Advance__8tFileMemUi();
+    // void GetPosition__8tFileMem();
+    // void GetMemory__8tFileMem();
+    // void SetCompressed__8tFileMemb();
+    // void SetUncompressedSize__8tFileMemi();
+
+private:
+    /* 0x08 */ UNK_PAD unk_04[0x24];
+}; // size = 0x28
+
 // void __tf5tFile();
 // void __tf8tFileMem();
 // void func_0031E9E8();

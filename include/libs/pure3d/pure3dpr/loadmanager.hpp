@@ -1,18 +1,41 @@
 #ifndef LOADMANAGER_HPP
 #define LOADMANAGER_HPP
 
+#include "types.h"
+#include "unk.h"
+
+#include "file.hpp"
+#include "inventory.hpp"
+
 // text
 
-// void LoadFile__12tFileHandlerP14radLoadOptionsP23radLoadUpdatableRequest();
+class tFileHandler {
+private:
+    // void LoadFile__12tFileHandlerP14radLoadOptionsP23radLoadUpdatableRequest();
+private:
+    /* vt 0x0C */ virtual void virtual_0C(); /* placeholder */
+};
+
 // void LoadData__13tChunkHandlerP13radLoadStreamiP16radLoadInventoryP9IRefCount();
-// void __15tP3DFileHandleri();
-// void _$_15tP3DFileHandler();
-// void CheckExtension__15tP3DFileHandlerPc();
-// void Load__15tP3DFileHandlerP5tFileP12tEntityStore();
-// void AddHandler__15tP3DFileHandlerP13tChunkHandler();
-// void AddHandler__15tP3DFileHandlerP13tChunkHandlerUi();
-// void GetHandler__15tP3DFileHandlerUi();
-// void RemoveAllHandlers__15tP3DFileHandler();
+
+class tP3DFileHandler : tFileHandler {
+    // void __15tP3DFileHandleri();
+    // void _$_15tP3DFileHandler();
+    // void CheckExtension__15tP3DFileHandlerPc();
+    // void Load__15tP3DFileHandlerP5tFileP12tEntityStore();
+    // void AddHandler__15tP3DFileHandlerP13tChunkHandler();
+    // void AddHandler__15tP3DFileHandlerP13tChunkHandlerUi();
+    // void GetHandler__15tP3DFileHandlerUi();
+    // void RemoveAllHandlers__15tP3DFileHandler();
+
+private:
+    /* vt 0x14 */ virtual void virtual_14(); /* placeholder */
+    /* vt 0x1C */ virtual void virtual_1C(); /* placeholder */
+    /* vt 0x24 */ virtual void virtual_24(); /* placeholder */
+public:
+    /* vt 0x2C */ virtual void virtual_2C(tFileMem *, tInventory *);
+};
+
 // void func_00327198();
 // void Load__19tSimpleChunkHandlerP10tChunkFileP12tEntityStore();
 // void HandleCollision__19tSimpleChunkHandlerP7tEntity();
@@ -48,7 +71,9 @@ private:
 // void AddHandler__12tLoadManagerP12tFileHandlerPc();
 // void GetHandler__12tLoadManagerPc();
 // void RemoveAllHandlers__12tLoadManager();
-// void GetP3DHandler__12tLoadManager();
+
+public:
+    tP3DFileHandler *GetP3DHandler(void);
 };
 
 // void func_00327BD8();
