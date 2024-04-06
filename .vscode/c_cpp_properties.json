@@ -6,7 +6,8 @@
                 "${workspaceFolder}/**",
                 "include"
             ],
-            "defines": [],
+            "defines": [
+            ],
             "browse": {
                 "limitSymbolsToIncludedHeaders": true
             },

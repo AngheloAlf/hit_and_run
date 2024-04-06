@@ -143,7 +143,7 @@ MIPS_BUILTIN_DEFS :=
 ifneq ($(RUN_CC_CHECK),0)
 #   The -MMD flags additionaly creates a .d file with the same name as the .o file.
     CC_CHECK          := $(CC_CHECK_COMP)
-    CC_CHECK_FLAGS    := -MMD -MP -std=c++98 -fno-builtin -fsyntax-only -fdiagnostics-color -m32 -DNON_MATCHING -DPRESERVE_UB -DCC_CHECK=1
+    CC_CHECK_FLAGS    := -MMD -MP -std=c++98 -fno-builtin -fsyntax-only -fdiagnostics-color -DNON_MATCHING -DPRESERVE_UB -DCC_CHECK=1
 else
     CC_CHECK          := @:
 endif
@@ -198,7 +198,6 @@ endif
 
 SRC_DIRS      := $(shell find src -type d)
 ASM_DIRS      := $(shell find asm/$(VERSION) -type d -not -path "asm/$(VERSION)/nonmatchings/*")
-BIN_DIRS      := $(shell find bin/$(VERSION) -type d)
 
 C_FILES       := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
 CPP_FILES     := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.cpp))
@@ -238,7 +237,7 @@ $(BUILD_DIR)/asm/us_2003_07_10/unk/321994.o:                    ELF_PATCHER_FLAG
 ## Create build directories
 
 $(shell mkdir -p $(BUILD_DIR)/linker_scripts/$(VERSION))
-$(shell mkdir -p $(foreach dir,$(SRC_DIRS) $(ASM_DIRS) $(BIN_DIRS),$(BUILD_DIR)/$(dir)))
+$(shell mkdir -p $(foreach dir,$(SRC_DIRS) $(ASM_DIRS),$(BUILD_DIR)/$(dir)))
 
 
 #### Main Targets ###
@@ -252,13 +251,13 @@ ifneq ($(COMPARE),0)
 endif
 
 clean:
-	$(RM) -r $(BUILD_DIR)/asm $(BUILD_DIR)/bin $(BUILD_DIR)/src $(ROM) $(ROMC) $(ELF)
+	$(RM) -r $(BUILD_DIR)/asm $(BUILD_DIR)/src $(ROM) $(ROMC) $(ELF)
 
 libclean:
 	$(RM) -r $(BUILD_DIR)/lib
 
 distclean: clean
-	$(RM) -r $(BUILD_DIR) asm/ bin/ .splat/
+	$(RM) -r $(BUILD_DIR) asm/ .splat/
 #	$(RM) -r linker_scripts/$(VERSION)/auto $(LD_SCRIPT)
 	$(MAKE) -C tools distclean
 
@@ -268,7 +267,7 @@ setup:
 	$(OBJCOPY) -I binary -O binary --pad-to=0x3B0880 --gap-fill=0x00 $(BASEROM)
 
 extract:
-	$(RM) -r asm/$(VERSION) bin/$(VERSION) $(LD_SCRIPT) $(LD_SCRIPT:.ld=.d)
+	$(RM) -r asm/$(VERSION) $(LD_SCRIPT) $(LD_SCRIPT:.ld=.d)
 	$(SPLAT) $(SPLAT_YAML) $(SPLAT_FLAGS)
 
 diff-init: all

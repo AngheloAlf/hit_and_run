@@ -4,16 +4,20 @@
 #include "types.h"
 #include "attributes.h"
 
+#include "sce_libs/eetypes.h"
+
 #include "sce_libs/gcc/ee/libg/rand.h"
-#include "sce_libs/lib/libkernl/iopheap.h"
 #include "sce_libs/gcc/ee/libg/strcmp.h"
 #include "sce_libs/gcc/ee/libg/strcpy.h"
 #include "sce_libs/gcc/ee/libg/strlen.h"
 #include "sce_libs/gcc/ee/libg/strupr.h"
 #include "sce_libs/gcc/ee/libg/sprintf.h"
+
+#include "sce_libs/lib/libkernl/iopheap.h"
 #include "sce_libs/lib/libkernl/exit.hpp"
 #include "sce_libs/lib/libkernl/sifcmd.hpp"
-#include "sce_libs/lib/libpad/libpad.hpp"
+#include "sce_libs/lib/libpad/libpad.h"
+
 #include "sce_libs/gcc/ee/libg/strncpy.h"
 
 #include "libs/radcore/radcorepr/targetx.hpp"
@@ -1149,63 +1153,37 @@ void PS2Platform::SetProgressiveMode(bool arg1) {
     this->unk_18 = arg1;
 }
 
-enum scePadGetState_ret {
-    /* 0x0 */ scePadGetState_ret_0,
-    /* 0x2 */ scePadGetState_ret_2 = 0x2,
-    /* 0x6 */ scePadGetState_ret_6 = 0x6,
-    /* 0x7 */ scePadGetState_ret_7,
-};
-
-struct scePadRead_arg2 {
-    /* 0x0 */ u8 unk_00;
-    /* 0x1 */ UNK_PAD unk_01[2];
-    /* 0x3 */ u8 unk_03;
-}; // size = ?
-
-extern "C" scePadGetState_ret scePadGetState(s32, s32);
-extern "C" bool scePadRead(s32, s32, scePadRead_arg2 *);
-
-#if 0
 bool PS2Platform::CheckForStartupButtons(void) {
-    scePadRead_arg2 sp0;
-    bool var_s2;
-    s32 var_s0;
-    s32 var_s1;
+    //! TODO: maybe larger? this is the min size that matches,
+    //! can grow up to 0x20 and still match
+    unsigned char sp0[0x14];
+    bool var_s2 = false;
+    s32 port;
+    s32 slot;
 
-    var_s2 = false;
+    for (port = 0; port < 2; port++) {
+        for (slot = 0; slot < 4; slot++) {
+            int temp;
 
-    for (var_s1 = 0; (!var_s2) && (var_s1 < 2); var_s1++) {
-        for (var_s0 = 0; var_s0 < 4; var_s0++) {
-            scePadGetState_ret temp = scePadGetState(var_s1, var_s0);
+            do {
+                temp = scePadGetState(port, slot);
+            } while ((temp != scePadStateDiscon) && (temp != scePadStateFindCTP1) && (temp != scePadStateStable) && (temp != scePadStateError));
 
-            if (temp == 0 || temp == 2 || temp == 6 || temp == 0) {
-                if (temp == 2) {
-                    if ((scePadRead(var_s1, var_s0, &sp0) != 0) && (sp0.unk_00 == 0) && !(sp0.unk_03 & 0x50)) {
-                        var_s2 = 1;
-                        goto loop_2_end;
-                    }
-                } else if (temp == 6) {
-                    if ((scePadRead(var_s1, var_s0, &sp0) != 0) && (sp0.unk_00 == 0) && !(sp0.unk_03 & 0x50)) {
-                        var_s2 = 1;
-                        goto loop_2_end;
-                    }
-                }
-            } else if (temp == 7) {
-                if ((scePadRead(var_s1, var_s0, &sp0) != 0) && (sp0.unk_00 == 0) && !(sp0.unk_03 & 0x50)) {
-                    var_s2 = 1;
-                    goto loop_2_end;
+            if ((temp == scePadStateFindCTP1) || (temp == scePadStateStable)) {
+                if ((scePadRead(port, slot, sp0) != 0) && (sp0[0] == 0) && !(sp0[3] & 0x50)) {
+                    var_s2 = true;
+                    break;
                 }
             }
         }
 
-loop_2_end:;
+        if (var_s2) {
+            break;
+        }
     }
 
     return var_s2;
 }
-#else
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allps2main", CheckForStartupButtons__11PS2Platform);
-#endif
 
 void PS2Platform::OnControllerError(const char *arg1) {
     u8 temp_s2;
