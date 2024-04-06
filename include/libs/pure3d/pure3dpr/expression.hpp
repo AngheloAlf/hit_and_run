@@ -14,7 +14,10 @@ public:
     tExpressionLoader(void);
 private:
     // void LoadObject__17tExpressionLoaderP10tChunkFileP12tEntityStore();
-};
+
+private:
+    /* 0x04 */ UNK_PAD unk_04[0x10];
+}; // size = 0x14
 
 // void __16tExpressionGroupi();
 // void _$_16tExpressionGroup();
@@ -30,7 +33,10 @@ private:
     // void LoadObject__22tExpressionGroupLoaderP10tChunkFileP12tEntityStore();
 public:
     tExpressionGroupLoader(void);
-};
+
+private:
+    /* 0x04 */ UNK_PAD unk_04[0x10];
+}; // size = 0x14
 
 // void __Q222tExpressionGroupLoader16tExpressionStore();
 // void _$_Q222tExpressionGroupLoader16tExpressionStore();
@@ -43,7 +49,10 @@ public:
     tExpressionMixerLoader(void);
 private:
     // void LoadObject__22tExpressionMixerLoaderP10tChunkFileP12tEntityStore();
-};
+
+private:
+    /* 0x04 */ UNK_PAD unk_04[0x10];
+}; // size = 0x14
 
 // void __tf11tExpression();
 // void __tft6tArray1ZP11tExpression();

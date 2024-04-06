@@ -35,14 +35,20 @@ public:
     tAnimatedObjectFactoryLoader(void);
 private:
     // void LoadObject__28tAnimatedObjectFactoryLoaderP10tChunkFileP12tEntityStore();
-};
+
+private:
+    /* 0x04 */ UNK_PAD unk_04[0x10];
+}; // size = 0x14
 
 class tAnimatedObjectLoader : public tChunkHandler {
 public:
     tAnimatedObjectLoader(void);
 private:
     // void LoadObject__21tAnimatedObjectLoaderP10tChunkFileP12tEntityStore();
-};
+
+private:
+    /* 0x04 */ UNK_PAD unk_04[0x10];
+}; // size = 0x14
 
 // void func_0033D408();
 // void LoadObject__30tAnimatedObjectAnimationLoaderP10tChunkFileP12tEntityStore();

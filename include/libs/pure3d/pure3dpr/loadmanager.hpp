@@ -44,7 +44,10 @@ private:
     /* vt 0x24 */ virtual void virtual_24(); /* placeholder */
 public:
     /* vt 0x2C */ virtual void virtual_2C(tFileMem *, tInventory *);
-};
+
+private:
+    /* 0x04 */ UNK_PAD unk_04[0x48];
+}; // size = 0x4C
 
 // void func_00327198();
 // void Load__19tSimpleChunkHandlerP10tChunkFileP12tEntityStore();

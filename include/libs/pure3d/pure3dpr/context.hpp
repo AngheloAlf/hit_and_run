@@ -15,23 +15,6 @@
 
 class tContext {
 public:
-    /* 0x00 */ tInventory *unk_00;
-    /* 0x04 */ tLoadManager *unk_04;
-private:
-    /* 0x08 */ UNK_PAD unk_08[0xE0];
-public:
-    /* 0xE8 */ pddiDevice *unk_E8;
-    /* 0xEC */ pddiRenderContext *unk_EC;
-    /* 0xF0 */ pddiDisplay *unk_F0;
-private:
-    /* 0xF4 */ UNK_PAD unk_F4[0x8];
-public:
-    /* 0xFC */ u8 unk_FC; // bool?
-private:
-    /* 0xFD */ UNK_PAD unk_FD[0x3];
-    /* 0x100 size */
-
-public:
     tContext(pddiDevice *, pddiDisplay *, pddiRenderContext *);
     void Setup(void);
 
@@ -53,7 +36,28 @@ private:
     // void WorldToView__8tContextRCQ218RadicalMathLibrary6VectorPQ218RadicalMathLibrary6Vector();
     // void func_0031D508();
     // void GetHardwareSkinning__8tContext();
-};
+
+public:
+    tLoadManager *get_unk_04(void) const {
+        return this->unk_04;
+    }
+
+public:
+    /* 0x00 */ tInventory *unk_00;
+private:
+    /* 0x04 */ tLoadManager *unk_04;
+    /* 0x08 */ UNK_PAD unk_08[0xE0];
+public:
+    /* 0xE8 */ pddiDevice *unk_E8;
+    /* 0xEC */ pddiRenderContext *unk_EC;
+    /* 0xF0 */ pddiDisplay *unk_F0;
+private:
+    /* 0xF4 */ UNK_PAD unk_F4[0x8];
+public:
+    /* 0xFC */ u8 unk_FC; // bool?
+private:
+    /* 0xFD */ UNK_PAD unk_FD[0x3];
+}; // size = 0x100
 
 // void __Q222pddiExtMemRegistration8CallBack();
 // void __15RadcoreMemAdapt();

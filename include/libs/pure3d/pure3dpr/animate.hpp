@@ -55,7 +55,10 @@ private:
     // void LoadObject__22tFrameControllerLoaderP10tChunkFileP12tEntityStore();
     // void CheckFC__22tFrameControllerLoaderUi();
     // void LoadFC__22tFrameControllerLoaderPcUiP10tChunkFileP12tEntityStore();
-};
+
+private:
+    /* 0x04 */ UNK_PAD unk_04[0x18];
+}; // size = 0x1C
 
 // void __21tAnimationMemoryBlockUi();
 // void _$_21tAnimationMemoryBlock();
@@ -91,7 +94,10 @@ public:
 private:
     // void LoadObject__16tAnimationLoaderP10tChunkFileP12tEntityStore();
     // void LoadAnimationGroup__16tAnimationLoaderP10tChunkFileP12tEntityStoreP21tAnimationMemoryBlock();
-};
+
+private:
+    /* 0x04 */ UNK_PAD unk_04[0x14];
+}; // size = 0x14
 
 // void __tf16tFrameController();
 // void __tf25tAnimationFrameController();

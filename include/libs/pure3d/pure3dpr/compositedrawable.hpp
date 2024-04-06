@@ -30,7 +30,10 @@ public:
     tCompositeDrawableLoader(void);
 private:
     // void LoadObject__24tCompositeDrawableLoaderP10tChunkFileP12tEntityStore();
-};
+
+private:
+    /* 0x04 */ UNK_PAD unk_04[0x10];
+}; // size = 0x14
 
 // void func_00346158();
 // void __tfQ218tCompositeDrawable19DrawablePropElement();

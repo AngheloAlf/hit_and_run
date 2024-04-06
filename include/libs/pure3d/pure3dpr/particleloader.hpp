@@ -17,14 +17,20 @@ public:
     tParticleSystemFactoryLoader(void);
 private:
     // void LoadObject__28tParticleSystemFactoryLoaderP10tChunkFileP12tEntityStore();
-};
+
+private:
+    /* 0x04 */ UNK_PAD unk_04[0x10];
+}; // size = 0x14
 
 class tParticleSystemLoader : public tChunkHandler {
 public:
     tParticleSystemLoader(void);
 private:
     // void LoadObject__21tParticleSystemLoaderP10tChunkFileP12tEntityStore();
-};
+
+private:
+    /* 0x04 */ UNK_PAD unk_04[0x10];
+}; // size = 0x14
 
 // void func_00359138();
 // void __tf28tParticleSystemFactoryLoader();

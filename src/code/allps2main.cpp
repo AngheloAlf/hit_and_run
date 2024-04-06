@@ -963,74 +963,17 @@ void PS2Platform::ShutdownFoundation(void) {
     radMovieTerminate2();
 }
 
-#if 0
-? AddHandler__12tLoadManagerP12tFileHandlerPc(s32, s32, ? *); // extern
-? AddHandler__15tP3DFileHandlerP13tChunkHandlerUi(s32, s32, ?); // extern
-s32 __10tSetLoader(s32);                            // extern
-s32 __11tBMPHandler(s32);                           // extern
-s32 __11tPNGHandler(s32);                           // extern
-s32 __12tImageLoader(s32);                          // extern
-s32 __12tLightLoader(s32);                          // extern
-s32 __13tCameraLoader(s32);                         // extern
-s32 __13tShaderLoader(s32);                         // extern
-s32 __13tSpriteLoader(s32);                         // extern
-s32 __13tTargaHandler(s32);                         // extern
-s32 __14tLocatorLoader(s32);                        // extern
-s32 __14tTextureLoader(s32);                        // extern
-s32 __15tGameAttrLoader(s32);                       // extern
-s32 __15tP3DFileHandleri(s32, ?);                   // extern
-s32 __15tPolySkinLoader(s32);                       // extern
-s32 __15tSEQFileHandler(s32);                       // extern
-s32 __15tSkeletonLoader(s32);                       // extern
-s32 __16CameraDataLoader(s32);                      // extern
-s32 __16tAnimationLoader(s32);                      // extern
-? __16tContextInitData(void *);                     // extern
-s32 __16tImageFontLoader(s32);                      // extern
-s32 __17tExpressionLoader(s32);                     // extern
-s32 __17tLightGroupLoader(s32);                     // extern
-s32 __18IntersectionLoader(s32);                    // extern
-s32 __18tTextureFontLoader(s32);                    // extern
-s32 __20CStatePropDataLoader(s32);                  // extern
-s32 __20tVertexAnimKeyLoader(s32);                  // extern
-s32 __21RoadDataSegmentLoader(s32);                 // extern
-s32 __21tAnimatedObjectLoader(s32);                 // extern
-s32 __21tLensFlareGroupLoader(s32);                 // extern
-s32 __21tParticleSystemLoader(s32);                 // extern
-s32 __22tExpressionGroupLoader(s32);                // extern
-s32 __22tExpressionMixerLoader(s32);                // extern
-s32 __22tFrameControllerLoader(s32);                // extern
-s32 __22tMultiControllerLoader(s32);                // extern
-s32 __24tCompositeDrawableLoader(s32);              // extern
-s32 __28tAnimatedObjectFactoryLoader(s32);          // extern
-s32 __28tParticleSystemFactoryLoader(s32);          // extern
-s32 __9ATCLoader(s32);                              // extern
-s32 __Q210Scenegraph6Loader(s32);                   // extern
-s32 __nw__13radLoadObjectUii(?, ?);                 // extern
-extern tChunkHandler *AddHandler__15tP3DFileHandlerP13tChunkHandler;
-extern tContextInitData *CreateContext__9tPlatformP16tContextInitData;
-extern tPlatform Create__9tPlatform;
-extern ? D_0045D6F0;
-extern ? D_0045D6F8;
-extern AllWrappers GetInstance__11AllWrappers;
-extern RenderManager GetInstance__13RenderManager;
-extern CmdLineOptionEnum Get__18CommandLineOptions17CmdLineOptionEnum;
-extern void InstallSimLoaders__3simv;
-extern ? STR_0045D448;
-extern ? STR_0045D450;
-extern ? STR_0045D458;
-extern void *_3p3d$context;
-extern s32 _3p3d$loadManager;
-extern void *_3p3d$pddi;
-extern s32 mpLoader__11AllWrappersi;
-#endif
+extern char D_0045D6F0[];
+extern char STR_0045D450[];
+extern char STR_0045D448[];
+extern char STR_0045D458[];
+extern char D_0045D6F8[];
 
-#if 0
+#ifdef NON_MATCHING
 void PS2Platform::InitializePure3D(void) {
-    tP3DFileHandler *temp_2_3;
-
     this->unk_10 = tPlatform::Create();
-    tContextInitData sp0;
 
+    tContextInitData sp0;
     sp0.unk_04 = 0;
     sp0.unk_00 = 0x280;
 
@@ -1043,291 +986,101 @@ void PS2Platform::InitializePure3D(void) {
 
     p3d::pddi->virtual_1DC(1);
 
-    temp_2_3 = new (3) tP3DFileHandler(0x40);
-    p3d::context->unk_04->AddHandler(temp_2_3, "p3d");
-    p3d::context->unk_04->AddHandler(new (3) tPNGHandler(), "png");
+    tP3DFileHandler *temp_2_3 = new (3) tP3DFileHandler(0x40);
+    p3d::context->get_unk_04()->AddHandler(temp_2_3, D_0045D6F0);
+    p3d::context->get_unk_04()->AddHandler(new (3) tPNGHandler(), STR_0045D450);
     if (CommandLineOptions::Get(CMDLINEOPTIONENUM_FEUNJOINED)) {
-        p3d::context->unk_04->AddHandler(new (3) tBMPHandler(), "bmp");
-        p3d::context->unk_04->AddHandler(new (3) tTargaHandler(), "tga");
+        p3d::context->get_unk_04()->AddHandler(new (3) tBMPHandler(), STR_0045D448);
+        p3d::context->get_unk_04()->AddHandler(new (3) tTargaHandler(), STR_0045D458);
     } else {
-        p3d::context->unk_04->AddHandler(new (3) tBMPHandler(), "p3d");
-        p3d::context->unk_04->AddHandler(new (3) tPNGHandler(), "p3d");
-        p3d::context->unk_04->AddHandler(new (3) tTargaHandler(), "p3d");
+        p3d::context->get_unk_04()->AddHandler(new (3) tBMPHandler(), D_0045D6F0);
+        p3d::context->get_unk_04()->AddHandler(new (3) tPNGHandler(), D_0045D6F0);
+        p3d::context->get_unk_04()->AddHandler(new (3) tTargaHandler(), D_0045D6F0);
     }
 
     AllWrappers_mpLoader_ret_0 *temp_2_4 = (AllWrappers_mpLoader_ret_0*)AllWrappers::GetInstance()->mpLoader(0);
-    temp_2_4->virtual_14(RenderManager::GetInstance(), 0);
+    temp_2_4->virtual_14_(RenderManager::GetInstance(), 0);
     temp_2_3->AddHandler(temp_2_4);
-#if 0
-    temp_2_4 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 0);
-    temp_18 = (temp_2_4 == 0) ? NULL : (temp_2_4 - 0x1C);
-    temp_16_7 = temp_18->unk_24;
-    temp_16_8 = temp_16_7 + 0x10;
-    temp_17 = temp_18 + 0x1C + temp_16_7->unk_10;
-    temp_16_8->unk_4(temp_17, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
-    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18);
-#endif
 
     AllWrappers_mpLoader_ret_1 *temp_2_5 = (AllWrappers_mpLoader_ret_1*)AllWrappers::GetInstance()->mpLoader(1);
-    temp_2_5->virtual_14(RenderManager::GetInstance(), 0);
+    temp_2_5->virtual_14_(RenderManager::GetInstance(), 0);
     temp_2_3->AddHandler(temp_2_5);
-#if 0
-    temp_2_5 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 1);
-    temp_18_2 = (temp_2_5 == 0) ? NULL : (temp_2_5 - 0x14);
-    temp_16_9 = temp_18_2->unk_1C;
-    temp_16_10 = temp_16_9 + 0x10;
-    temp_17_2 = temp_18_2 + 0x14 + temp_16_9->unk_10;
-    temp_16_10->unk_4(temp_17_2, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
-    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_2);
-#endif
 
     AllWrappers_mpLoader_ret_2 *temp_2_6 = (AllWrappers_mpLoader_ret_2*)AllWrappers::GetInstance()->mpLoader(2);
-    temp_2_6->virtual_14(RenderManager::GetInstance(), 0);
+    temp_2_6->virtual_14_(RenderManager::GetInstance(), 0);
     temp_2_3->AddHandler(temp_2_6);
-#if 0
-    temp_2_6 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 2);
-    temp_18_3 = (temp_2_6 == 0) ? NULL : (temp_2_6 - 0x14);
-    temp_16_11 = temp_18_3->unk_1C;
-    temp_16_12 = temp_16_11 + 0x10;
-    temp_17_3 = temp_18_3 + 0x14 + temp_16_11->unk_10;
-    temp_16_12->unk_4(temp_17_3, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
-    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_3);
-#endif
 
     AllWrappers_mpLoader_ret_3 *temp_2_7 = (AllWrappers_mpLoader_ret_3*)AllWrappers::GetInstance()->mpLoader(3);
-    temp_2_7->virtual_14(RenderManager::GetInstance(), 0);
+    temp_2_7->virtual_14_(RenderManager::GetInstance(), 0);
     temp_2_3->AddHandler(temp_2_7);
-#if 0
-    temp_2_7 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 3);
-    temp_18_4 = (temp_2_7 == 0) ? NULL : (temp_2_7 - 0x14);
-    temp_16_13 = temp_18_4->unk_1C;
-    temp_16_14 = temp_16_13 + 0x10;
-    temp_17_4 = temp_18_4 + 0x14 + temp_16_13->unk_10;
-    temp_16_14->unk_4(temp_17_4, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
-    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_4);
-#endif
 
     AllWrappers_mpLoader_ret_4 *temp_2_8 = (AllWrappers_mpLoader_ret_4*)AllWrappers::GetInstance()->mpLoader(4);
-    temp_2_8->virtual_14(RenderManager::GetInstance(), 0);
+    temp_2_8->virtual_14_(RenderManager::GetInstance(), 0);
     temp_2_3->AddHandler(temp_2_8);
-#if 0
-    temp_2_8 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 4);
-    temp_18_5 = (temp_2_8 == 0) ? NULL : (temp_2_8 - 0x14);
-    temp_16_15 = temp_18_5->unk_1C;
-    temp_16_16 = temp_16_15 + 0x10;
-    temp_17_5 = temp_18_5 + 0x14 + temp_16_15->unk_10;
-    temp_16_16->unk_4(temp_17_5, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
-    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_5);
-#endif
 
     AllWrappers_mpLoader_ret_5 *temp_2_9 = (AllWrappers_mpLoader_ret_5*)AllWrappers::GetInstance()->mpLoader(5);
-    temp_2_9->virtual_14(RenderManager::GetInstance(), 0);
+    temp_2_9->virtual_14_(RenderManager::GetInstance(), 0);
     temp_2_3->AddHandler(temp_2_9);
-#if 0
-    temp_2_9 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 5);
-    temp_18_6 = (temp_2_9 == 0) ? NULL : (temp_2_9 - 0x14);
-    temp_16_17 = temp_18_6->unk_1C;
-    temp_16_18 = temp_16_17 + 0x10;
-    temp_17_6 = temp_18_6 + 0x14 + temp_16_17->unk_10;
-    temp_16_18->unk_4(temp_17_6, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
-    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_6);
-#endif
 
     AllWrappers_mpLoader_ret_6 *temp_2_10 = (AllWrappers_mpLoader_ret_6*)AllWrappers::GetInstance()->mpLoader(6);
-    temp_2_10->virtual_14(RenderManager::GetInstance(), 0);
+    temp_2_10->virtual_14_(RenderManager::GetInstance(), 0);
     temp_2_3->AddHandler(temp_2_10);
-#if 0
-    temp_2_10 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 6);
-    temp_18_7 = (temp_2_10 == 0) ? NULL : (temp_2_10 - 0x14);
-    temp_16_19 = temp_18_7->unk_1C;
-    temp_16_20 = temp_16_19 + 0x10;
-    temp_17_7 = temp_18_7 + 0x14 + temp_16_19->unk_10;
-    temp_16_20->unk_4(temp_17_7, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
-    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_7);
-#endif
 
     AllWrappers_mpLoader_ret_7 *temp_2_11 = (AllWrappers_mpLoader_ret_7*)AllWrappers::GetInstance()->mpLoader(7);
-    temp_2_11->virtual_14(RenderManager::GetInstance(), 0);
+    temp_2_11->virtual_14_(RenderManager::GetInstance(), 0);
     temp_2_3->AddHandler(temp_2_11);
-#if 0
-    temp_2_11 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 7);
-    temp_18_8 = (temp_2_11 == 0) ? NULL : (temp_2_11 - 0x14);
-    temp_16_21 = temp_18_8->unk_1C;
-    temp_16_22 = temp_16_21 + 0x10;
-    temp_17_8 = temp_18_8 + 0x14 + temp_16_21->unk_10;
-    temp_16_22->unk_4(temp_17_8, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
-    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_8);
-#endif
 
     AllWrappers_mpLoader_ret_8 *temp_2_12 = (AllWrappers_mpLoader_ret_8*)AllWrappers::GetInstance()->mpLoader(8);
-    temp_2_12->virtual_14(RenderManager::GetInstance(), 0);
+    temp_2_12->virtual_14_(RenderManager::GetInstance(), 0);
     temp_2_3->AddHandler(temp_2_12);
-#if 0
-    temp_2_12 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 8);
-    temp_18_9 = (temp_2_12 == 0) ? NULL : (temp_2_12 - 0x14);
-    temp_16_23 = temp_18_9->unk_1C;
-    temp_16_24 = temp_16_23 + 0x10;
-    temp_17_9 = temp_18_9 + 0x14 + temp_16_23->unk_10;
-    temp_16_24->unk_4(temp_17_9, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
-    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_9);
-#endif
 
     AllWrappers_mpLoader_ret_A *temp_2_13 = (AllWrappers_mpLoader_ret_A*)AllWrappers::GetInstance()->mpLoader(0xA);
-    temp_2_13->virtual_14(RenderManager::GetInstance(), 0);
+    temp_2_13->virtual_14_(RenderManager::GetInstance(), 0);
     temp_2_3->AddHandler(temp_2_13);
-#if 0
-    temp_2_13 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 0xA);
-    temp_18_10 = (temp_2_13 == 0) ? NULL : (temp_2_13 - 0x14);
-    temp_16_25 = temp_18_10->unk_1C;
-    temp_16_26 = temp_16_25 + 0x10;
-    temp_17_10 = temp_18_10 + 0x14 + temp_16_25->unk_10;
-    temp_16_26->unk_4(temp_17_10, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
-    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_10);
-#endif
 
     AllWrappers_mpLoader_ret_9 *temp_2_14 = (AllWrappers_mpLoader_ret_9*)AllWrappers::GetInstance()->mpLoader(9);
-    temp_2_14->virtual_14(RenderManager::GetInstance(), 0);
+    temp_2_14->virtual_14_(RenderManager::GetInstance(), 0);
     temp_2_3->AddHandler(temp_2_14);
-#if 0
-    temp_2_14 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 9);
-    temp_18_11 = (temp_2_14 == 0) ? NULL : (temp_2_14 - 0x14);
-    temp_16_27 = temp_18_11->unk_1C;
-    temp_16_28 = temp_16_27 + 0x10;
-    temp_17_11 = temp_18_11 + 0x14 + temp_16_27->unk_10;
-    temp_16_28->unk_4(temp_17_11, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
-    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_11);
-#endif
 
     AllWrappers_mpLoader_ret_B *temp_2_15 = (AllWrappers_mpLoader_ret_B*)AllWrappers::GetInstance()->mpLoader(0xB);
-    temp_2_15->virtual_14(RenderManager::GetInstance(), 0);
+    temp_2_15->virtual_14_(RenderManager::GetInstance(), 0);
     temp_2_3->AddHandler(temp_2_15);
-#if 0
-    temp_2_15 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 0xB);
-    temp_18_12 = (temp_2_15 == 0) ? NULL : (temp_2_15 - 0x14);
-    temp_16_29 = temp_18_12->unk_1C;
-    temp_16_30 = temp_16_29 + 0x10;
-    temp_17_12 = temp_18_12 + 0x14 + temp_16_29->unk_10;
-    temp_16_30->unk_4(temp_17_12, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
-    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_12);
-#endif
 
     AllWrappers_mpLoader_ret_D *temp_2_16 = (AllWrappers_mpLoader_ret_D*)AllWrappers::GetInstance()->mpLoader(0xD);
-    temp_2_16->virtual_14(RenderManager::GetInstance(), 0);
+    temp_2_16->virtual_14_(RenderManager::GetInstance(), 0);
     temp_2_3->AddHandler(temp_2_16);
-#if 0
-    temp_2_16 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 0xD);
-    temp_18_13 = (temp_2_16 == 0) ? NULL : (temp_2_16 - 0x14);
-    temp_16_31 = temp_18_13->unk_1C;
-    temp_16_32 = temp_16_31 + 0x10;
-    temp_17_13 = temp_18_13 + 0x14 + temp_16_31->unk_10;
-    temp_16_32->unk_4(temp_17_13, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
-    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_13);
-#endif
 
     AllWrappers_mpLoader_ret_E *temp_2_17 = (AllWrappers_mpLoader_ret_E*)AllWrappers::GetInstance()->mpLoader(0xE);
-    temp_2_17->virtual_14(RenderManager::GetInstance(), 0);
+    temp_2_17->virtual_14_(RenderManager::GetInstance(), 0);
     temp_2_3->AddHandler(temp_2_17);
-#if 0
-    temp_2_17 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 0xE);
-    temp_18_14 = (temp_2_17 == 0) ? NULL : (temp_2_17 - 0x14);
-    temp_16_33 = temp_18_14->unk_1C;
-    temp_16_34 = temp_16_33 + 0x10;
-    temp_17_14 = temp_18_14 + 0x14 + temp_16_33->unk_10;
-    temp_16_34->unk_4(temp_17_14, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
-    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_14);
-#endif
 
     AllWrappers_mpLoader_ret_C *temp_2_18 = (AllWrappers_mpLoader_ret_C*)AllWrappers::GetInstance()->mpLoader(0xC);
-    temp_2_18->virtual_14(RenderManager::GetInstance(), 0);
+    temp_2_18->virtual_14_(RenderManager::GetInstance(), 0);
     temp_2_3->AddHandler(temp_2_18);
-#if 0
-    temp_2_18 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 0xC);
-    temp_18_15 = (temp_2_18 == 0) ? NULL : (temp_2_18 - 0x14);
-    temp_16_35 = temp_18_15->unk_1C;
-    temp_16_36 = temp_16_35 + 0x10;
-    temp_17_15 = temp_18_15 + 0x14 + temp_16_35->unk_10;
-    temp_16_36->unk_4(temp_17_15, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
-    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_15);
-#endif
 
     AllWrappers_mpLoader_ret_12 *temp_2_19 = (AllWrappers_mpLoader_ret_12*)AllWrappers::GetInstance()->mpLoader(0x12);
-    temp_2_19->virtual_14(RenderManager::GetInstance(), 0);
+    temp_2_19->virtual_14_(RenderManager::GetInstance(), 0);
     temp_2_3->AddHandler(temp_2_19);
-#if 0
-    temp_2_19 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 0x12);
-    temp_18_16 = (temp_2_19 == 0) ? NULL : (temp_2_19 - 0x14);
-    temp_16_37 = temp_18_16->unk_1C;
-    temp_16_38 = temp_16_37 + 0x10;
-    temp_17_16 = temp_18_16 + 0x14 + temp_16_37->unk_10;
-    temp_16_38->unk_4(temp_17_16, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
-    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_16);
-#endif
 
     AllWrappers_mpLoader_ret_F *temp_2_20 = (AllWrappers_mpLoader_ret_F*)AllWrappers::GetInstance()->mpLoader(0xF);
-    temp_2_20->virtual_14(RenderManager::GetInstance(), 0);
+    temp_2_20->virtual_14_(RenderManager::GetInstance(), 0);
     temp_2_3->AddHandler(temp_2_20);
-#if 0
-    temp_2_20 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 0xF);
-    temp_18_17 = (temp_2_20 == 0) ? NULL : (temp_2_20 - 0x14);
-    temp_16_39 = temp_18_17->unk_1C;
-    temp_16_40 = temp_16_39 + 0x10;
-    temp_17_17 = temp_18_17 + 0x14 + temp_16_39->unk_10;
-    temp_16_40->unk_4(temp_17_17, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
-    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_17);
-#endif
 
     AllWrappers_mpLoader_ret_10 *temp_2_21 = (AllWrappers_mpLoader_ret_10*)AllWrappers::GetInstance()->mpLoader(0x10);
-    temp_2_21->virtual_14(RenderManager::GetInstance(), 0);
+    temp_2_21->virtual_14_(RenderManager::GetInstance(), 0);
     temp_2_3->AddHandler(temp_2_21);
-#if 0
-    temp_2_21 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 0x10);
-    temp_18_18 = (temp_2_21 == 0) ? NULL : (temp_2_21 - 0x14);
-    temp_16_41 = temp_18_18->unk_1C;
-    temp_16_42 = temp_16_41 + 0x10;
-    temp_17_18 = temp_18_18 + 0x14 + temp_16_41->unk_10;
-    temp_16_42->unk_4(temp_17_18, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
-    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_18);
-#endif
-
 
     AllWrappers_mpLoader_ret_11 *temp_2_22 = (AllWrappers_mpLoader_ret_11*)AllWrappers::GetInstance()->mpLoader(0x11);
-    temp_2_22->virtual_14(RenderManager::GetInstance(), 0);
+    temp_2_22->virtual_14_(RenderManager::GetInstance(), 0);
     temp_2_3->AddHandler(temp_2_22);
-#if 0
-    temp_2_22 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 0x11);
-    temp_18_19 = (temp_2_22 == 0) ? NULL : (temp_2_22 - 0x14);
-    temp_16_43 = temp_18_19->unk_1C;
-    temp_16_44 = temp_16_43 + 0x10;
-    temp_17_19 = temp_18_19 + 0x14 + temp_16_43->unk_10;
-    temp_16_44->unk_4(temp_17_19, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
-    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_19);
-#endif
 
     AllWrappers_mpLoader_ret_13 *temp_2_23 = (AllWrappers_mpLoader_ret_13*)AllWrappers::GetInstance()->mpLoader(0x13);
-    temp_2_23->virtual_14(RenderManager::GetInstance(), 0);
+    temp_2_23->virtual_14_(RenderManager::GetInstance(), 0);
     temp_2_3->AddHandler(temp_2_23);
-#if 0
-    temp_2_23 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 0x13);
-    temp_18_20 = (temp_2_23 == 0) ? NULL : (temp_2_23 - 0x14);
-    temp_16_45 = temp_18_20->unk_1C;
-    temp_16_46 = temp_16_45 + 0x10;
-    temp_17_20 = temp_18_20 + 0x14 + temp_16_45->unk_10;
-    temp_16_46->unk_4(temp_17_20, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
-    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_20);
-#endif
 
     AllWrappers_mpLoader_ret_14 *temp_2_24 = (AllWrappers_mpLoader_ret_14*)AllWrappers::GetInstance()->mpLoader(0x14);
-    temp_2_24->virtual_14(RenderManager::GetInstance(), 0);
+    temp_2_24->virtual_14_(RenderManager::GetInstance(), 0);
     temp_2_3->AddHandler(temp_2_24);
-#if 0
-    temp_2_24 = ((s32 (*)(s32, ?)) &mpLoader__11AllWrappersi)(((s32 (*)()) &GetInstance__11AllWrappers)(), 0x14);
-    temp_18_21 = (temp_2_24 == 0) ? NULL : (temp_2_24 - 0x14);
-    temp_16_47 = temp_18_21->unk_1C;
-    temp_16_48 = temp_16_47 + 0x10;
-    temp_17_21 = temp_18_21 + 0x14 + temp_16_47->unk_10;
-    temp_16_48->unk_4(temp_17_21, ((s32 (*)()) &GetInstance__13RenderManager)(), 0);
-    ((? (*)(s32, void *)) &AddHandler__15tP3DFileHandlerP13tChunkHandler)(temp_2_3, temp_18_21);
-#endif
 
     temp_2_3->AddHandler(new (3) tTextureLoader());
     temp_2_3->AddHandler(new (3) tSetLoader());
@@ -1345,7 +1098,6 @@ void PS2Platform::InitializePure3D(void) {
     temp_2_3->AddHandler(new (3) tPolySkinLoader());
     temp_2_3->AddHandler(new (3) tCompositeDrawableLoader());
     temp_2_3->AddHandler(new (3) tAnimationLoader());
-
     temp_2_3->AddHandler(new (3) tFrameControllerLoader());
     temp_2_3->AddHandler(new (3) tMultiControllerLoader());
     temp_2_3->AddHandler(new (3) tAnimatedObjectFactoryLoader());
@@ -1362,7 +1114,7 @@ void PS2Platform::InitializePure3D(void) {
 
     temp_2_3->AddHandler(new (3) ATCLoader());
 
-    p3d::loadManager->AddHandler(new (3) tSEQFileHandler(), "seq");
+    p3d::loadManager->AddHandler(new (3) tSEQFileHandler(), D_0045D6F8);
 
     sim::InstallSimLoaders();
 

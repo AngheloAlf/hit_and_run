@@ -50,7 +50,10 @@ private:
     // void _$_15tSEQFileHandler();
     // void CheckExtension__15tSEQFileHandlerPc();
     // void Load__15tSEQFileHandlerP5tFileP12tEntityStore();
-};
+
+private:
+    /* 0x04 */ UNK_PAD unk_04[0x0C];
+}; // size = 0x10
 
 // void __tf22tStateSequencerCommand();
 // void __tf16tStateTransition();

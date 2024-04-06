@@ -26,7 +26,10 @@ public:
     tVertexAnimKeyLoader(void);
 private:
     // void LoadObject__20tVertexAnimKeyLoaderP10tChunkFileP12tEntityStore();
-};
+
+private:
+    /* 0x04 */ UNK_PAD unk_04[0x10];
+}; // size = 0x14
 
 // void LoadObject__17tOffsetListLoaderP10tChunkFileP12tEntityStoreUiRi();
 // void LoadVectorOffsetList__17tOffsetListLoaderP10tChunkFileP12tEntityStoreRi();

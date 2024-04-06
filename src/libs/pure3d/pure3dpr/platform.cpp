@@ -63,7 +63,7 @@ tContext *tPlatform::CreateContext(tContextInitData *arg1) {
     p3d::inventory = this->unk_0->unk_00;
 
     p3d::stack = this->unk_0->GetMatrixStack(P3DMATRIXTYPE_0);
-    p3d::loadManager = this->unk_0->unk_04;
+    p3d::loadManager = this->unk_0->get_unk_04();
     p3d::pddi = this->unk_0->unk_EC;
     p3d::device = this->unk_0->unk_E8;
     p3d::display = this->unk_0->unk_F0;

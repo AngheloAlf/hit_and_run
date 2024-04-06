@@ -27,7 +27,10 @@ private:
     // void LoadObject__13tSpriteLoaderP10tChunkFileP12tEntityStore();
     // void LoadImage__13tSpriteLoaderP10tChunkFilei();
     // void LoadTexture__13tSpriteLoaderP10tChunkFilei();
-};
+
+private:
+    /* 0x04 */ UNK_PAD unk_04[0x20];
+}; // size = 0x24
 
 // void __tf7tSprite();
 // void __tf13tSpriteLoader();

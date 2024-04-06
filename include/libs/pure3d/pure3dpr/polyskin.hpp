@@ -15,9 +15,11 @@ class tPolySkinLoader : public tChunkHandler {
 public:
     tPolySkinLoader(void);
 private:
-// void __15tPolySkinLoader();
-// void LoadObject__15tPolySkinLoaderP10tChunkFileP12tEntityStore();
-};
+    // void LoadObject__15tPolySkinLoaderP10tChunkFileP12tEntityStore();
+
+private:
+    /* 0x04 */ UNK_PAD unk_04[0x14];
+}; // size = 0x18
 
 // void func_0034C098();
 // void func_0034C0E0();

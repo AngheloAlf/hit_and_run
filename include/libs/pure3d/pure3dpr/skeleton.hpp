@@ -17,7 +17,10 @@ public:
     tSkeletonLoader(void);
 private:
     // void LoadObject__15tSkeletonLoaderP10tChunkFileP12tEntityStore();
-};
+
+private:
+    /* 0x04 */ UNK_PAD unk_04[0x10];
+}; // size = 0x14
 
 // void __tft6tArray1ZQ29tSkeleton5Joint();
 // void __tf9tSkeleton();

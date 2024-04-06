@@ -22,7 +22,10 @@ public:
     tImageFontLoader(void);
 private:
     // void LoadObject__16tImageFontLoaderP10tChunkFileP12tEntityStore();
-};
+
+private:
+    /* 0x04 */ UNK_PAD unk_04[0x10];
+}; // size = 0x14
 
 // void __tf10tImageFont();
 // void __tf16tImageFontLoader();

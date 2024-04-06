@@ -20,7 +20,10 @@ public:
     tGameAttrLoader(void);
 private:
     // void LoadObject__15tGameAttrLoaderP10tChunkFileP12tEntityStore();
-};
+
+private:
+    /* 0x04 */ UNK_PAD unk_04[0x10];
+}; // size = 0x14
 
 // void _$_Q29tGameAttr7BaseMap();
 // void SetName__Q29tGameAttr7BaseMapPc();

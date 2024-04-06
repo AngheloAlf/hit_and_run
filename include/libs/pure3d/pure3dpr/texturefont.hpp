@@ -32,7 +32,10 @@ public:
     tTextureFontLoader(void);
 private:
     // void LoadObject__18tTextureFontLoaderP10tChunkFileP12tEntityStore();
-};
+
+private:
+    /* 0x04 */ UNK_PAD unk_04[0x10];
+}; // size = 0x14
 
 // void __tf12tTextureFont();
 // void __tf18tTextureFontLoader();

@@ -37,7 +37,10 @@ private:
     // void _$_12tImageLoader();
     // void LoadObject__12tImageLoaderP10tChunkFileP12tEntityStore();
     // void LoadImage__12tImageLoaderP10tChunkFilei();
-};
+
+private:
+    /* 0x04 */ UNK_PAD unk_04[0x18];
+}; // size = 0x1C
 
 // void __tf6tImage();
 // void __tf7tImage8();

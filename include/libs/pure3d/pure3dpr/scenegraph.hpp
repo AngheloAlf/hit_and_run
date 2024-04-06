@@ -87,7 +87,10 @@ namespace Scenegraph {
         Loader(void);
     private:
         // void LoadObject__Q210Scenegraph6LoaderP10tChunkFileP12tEntityStore();
-    };
+
+    private:
+        /* 0x04 */ UNK_PAD unk_04[0x28];
+    }; // size = 0x2C
 };
 
 // void LoadObject__Q210Scenegraph23SceneGraphGenericLoaderP10tChunkFileP12tEntityStore();

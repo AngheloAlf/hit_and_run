@@ -11,7 +11,10 @@ public:
 private:
     // void _$_16CameraDataLoader();
     // void Load__16CameraDataLoaderP10tChunkFileP12tEntityStore();
-};
+
+private:
+    /* 0x04 */ UNK_PAD unk_04[0x4];
+}; // size = 0x8
 
 // void __17CementFileHandlerPQ214LoadingManager19CementLibraryStruct();
 // void _$_17CementFileHandler();
@@ -44,7 +47,10 @@ private:
     // void Load__18IntersectionLoaderP10tChunkFileP12tEntityStore();
     // void CheckChunkID__18IntersectionLoaderUi();
     // void GetChunkID__18IntersectionLoader();
-};
+
+private:
+    /* 0x04 */ UNK_PAD unk_04[0x4];
+}; // size = 0x8
 
 class LoadingManager {
 public:
@@ -88,7 +94,10 @@ private:
     // void Load__21RoadDataSegmentLoaderP10tChunkFileP12tEntityStore();
     // void CheckChunkID__21RoadDataSegmentLoaderUi();
     // void GetChunkID__21RoadDataSegmentLoader();
-};
+
+private:
+    /* 0x04 */ UNK_PAD unk_04[0x4];
+}; // size = 0x8
 
 // void __10RoadLoader();
 // void _$_10RoadLoader();

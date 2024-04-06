@@ -251,17 +251,26 @@ private:
 class tBMPHandler : public tFileHandler {
 public:
     tBMPHandler(void);
-};
+
+private:
+    /* 0x04 */ UNK_PAD unk_04[0x14];
+}; // size = 0x18
 
 class tPNGHandler : public tFileHandler {
 public:
     tPNGHandler(void);
-};
+
+private:
+    /* 0x04 */ UNK_PAD unk_04[0x14];
+}; // size = 0x18
 
 class tTargaHandler : public tFileHandler {
 public:
     tTargaHandler(void);
-};
+
+private:
+    /* 0x04 */ UNK_PAD unk_04[0x14];
+}; // size = 0x18
 
 // void __Q216radLoadInventoryt8SafeCast1Z12tTextureFont();
 // void func_00165DA0();

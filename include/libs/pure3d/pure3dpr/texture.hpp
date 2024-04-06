@@ -19,7 +19,10 @@ private:
     // void Load__10tSetLoaderP10tChunkFileP12tEntityStore();
     // void CheckChunkID__10tSetLoaderUi();
     // void GetChunkID__10tSetLoader();
-};
+
+private:
+    /* 0x04 */ UNK_PAD unk_04[0x4];
+}; // size = 0x8
 
 class tTextureLoader : public tChunkHandler {
 public:
@@ -30,7 +33,10 @@ private:
     // void LoadTexture__14tTextureLoaderP10tChunkFile();
     // void LoadImage__14tTextureLoaderP10tChunkFileP13tImageFactoryP8tTexturei();
     // void LoadVolumeImage__14tTextureLoaderP10tChunkFileP13tImageFactoryP8tTextureii();
-};
+
+private:
+    /* 0x04 */ UNK_PAD unk_04[0x18];
+}; // size = 0x1C
 
 // void func_003332B0();
 // void __tf8tTexture();

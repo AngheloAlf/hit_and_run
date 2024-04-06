@@ -15,7 +15,10 @@ public:
 private:
     // void func_0032DA78();
     // void LoadObject__13tShaderLoaderP10tChunkFileP12tEntityStore();
-};
+
+private:
+    /* 0x04 */ UNK_PAD unk_04[0x10];
+}; // size = 0x14
 
 // void CheckChunkID__23tShaderDefinitionLoaderUi();
 // void Load__23tShaderDefinitionLoaderP10tChunkFileP12tEntityStore();

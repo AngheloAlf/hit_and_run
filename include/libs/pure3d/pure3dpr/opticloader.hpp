@@ -11,7 +11,10 @@ public:
 private:
     // void LoadObject__21tLensFlareGroupLoaderP10tChunkFileP12tEntityStore();
     // void LoadLensFlare__21tLensFlareGroupLoaderP10tChunkFileP12tEntityStore();
-};
+
+private:
+    /* 0x04 */ UNK_PAD unk_04[0x10];
+}; // size = 0x14
 
 // void __tf21tLensFlareGroupLoader();
 // void func_003579F8();

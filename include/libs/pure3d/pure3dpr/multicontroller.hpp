@@ -23,7 +23,10 @@ public:
     tMultiControllerLoader(void);
 private:
     // void LoadObject__22tMultiControllerLoaderP10tChunkFileP12tEntityStore();
-};
+
+private:
+    /* 0x04 */ UNK_PAD unk_04[0x10];
+}; // size = 0x14
 
 // void __tf16tMultiController();
 // void __tf22tMultiControllerLoader();
