@@ -1,6 +1,8 @@
 #ifndef TEXTUREFONT_HPP
 #define TEXTUREFONT_HPP
 
+#include "loadmanager.hpp"
+
 // text
 
 // void __13tTextureGlyph();
@@ -23,22 +25,28 @@ private:
     // void FindGlyph__C12tTextureFontUs();
     // void DrawGlyph__C12tTextureFontP13ps2PrimStreamUif();
     // void DrawBlank__C12tTextureFontP13ps2PrimStreamff();
-    // void __18tTextureFontLoader();
-    // void LoadObject__18tTextureFontLoaderP10tChunkFileP12tEntityStore();
-    // void __tf12tTextureFont();
-    // void __tf18tTextureFontLoader();
-    // void func_00335440();
-    // void __5tFont();
-    // void GetFontSize__C12tTextureFont();
-    // void GetFontWidth__C12tTextureFont();
-    // void GetFontHeight__C12tTextureFont();
-    // void GetFontBaseLine__C12tTextureFont();
-    // void GetLineSpacing__C12tTextureFont();
-    // void SetLineSpacing__12tTextureFontf();
-    // void GetColour__C12tTextureFont();
-    // void SetColour__12tTextureFontG10pddiColour();
-    // void GetShader__C12tTextureFont();
 };
+
+class tTextureFontLoader : public tChunkHandler {
+public:
+    tTextureFontLoader(void);
+private:
+    // void LoadObject__18tTextureFontLoaderP10tChunkFileP12tEntityStore();
+};
+
+// void __tf12tTextureFont();
+// void __tf18tTextureFontLoader();
+// void func_00335440();
+// void __5tFont();
+// void GetFontSize__C12tTextureFont();
+// void GetFontWidth__C12tTextureFont();
+// void GetFontHeight__C12tTextureFont();
+// void GetFontBaseLine__C12tTextureFont();
+// void GetLineSpacing__C12tTextureFont();
+// void SetLineSpacing__12tTextureFontf();
+// void GetColour__C12tTextureFont();
+// void SetColour__12tTextureFontG10pddiColour();
+// void GetShader__C12tTextureFont();
 
 // void func_003354D0();
 // void _$_18tTextureFontLoader();

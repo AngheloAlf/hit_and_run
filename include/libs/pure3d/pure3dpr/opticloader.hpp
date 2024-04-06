@@ -1,11 +1,18 @@
 #ifndef OPTICLOADER_HPP
 #define OPTICLOADER_HPP
 
+#include "loadmanager.hpp"
+
 // text
 
-// void __21tLensFlareGroupLoader();
-// void LoadObject__21tLensFlareGroupLoaderP10tChunkFileP12tEntityStore();
-// void LoadLensFlare__21tLensFlareGroupLoaderP10tChunkFileP12tEntityStore();
+class tLensFlareGroupLoader : public tChunkHandler {
+public:
+    tLensFlareGroupLoader(void);
+private:
+    // void LoadObject__21tLensFlareGroupLoaderP10tChunkFileP12tEntityStore();
+    // void LoadLensFlare__21tLensFlareGroupLoaderP10tChunkFileP12tEntityStore();
+};
+
 // void __tf21tLensFlareGroupLoader();
 // void func_003579F8();
 // void _$_21tLensFlareGroupLoader();

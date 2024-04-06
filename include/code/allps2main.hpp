@@ -10,6 +10,9 @@
 #include "libs/radcore/radcorepr/cementer.hpp"
 #include "libs/radcore/radcorepr/radfile.hpp"
 
+#include "libs/pure3d/pure3dpr/platform.hpp"
+#include "libs/pure3d/pure3dpr/loadmanager.hpp"
+
 #include "code/allgameflow.hpp"
 #include "code/allrenderflow.hpp"
 
@@ -158,8 +161,8 @@ public:
     /* 0x08 */ u8 unk_08;
 private:
     /* 0x0C */ IRadDrive *unk_0C;
-    /* 0x10 */ s32 unk_10;
-    /* 0x14 */ s32 unk_14;
+    /* 0x10 */ tPlatform *unk_10;
+    /* 0x14 */ tContext *unk_14;
     /* 0x18 */ s8 unk_18;
     /* 0x19 */ UNK_PAD unk_19[0x3];
 
@@ -244,9 +247,22 @@ private:
 // void __tf4Game();
 // void __tf11PS2Platform();
 // void func_00165CB8();
-// void __11tBMPHandler();
-// void __11tPNGHandler();
-// void __13tTargaHandler();
+
+class tBMPHandler : public tFileHandler {
+public:
+    tBMPHandler(void);
+};
+
+class tPNGHandler : public tFileHandler {
+public:
+    tPNGHandler(void);
+};
+
+class tTargaHandler : public tFileHandler {
+public:
+    tTargaHandler(void);
+};
+
 // void __Q216radLoadInventoryt8SafeCast1Z12tTextureFont();
 // void func_00165DA0();
 // void __tf8Platform();

@@ -1,6 +1,8 @@
 #ifndef IMAGEFONT_HPP
 #define IMAGEFONT_HPP
 
+#include "loadmanager.hpp"
+
 // text
 
 // void __11tImageGlyph();
@@ -14,8 +16,14 @@
 // void GetLineWidth__C10tImageFontPCUs();
 // void DisplayLine__C10tImageFontP6tImageiiPCUsi();
 // void FindGlyph__C10tImageFontUs();
-// void __16tImageFontLoader();
-// void LoadObject__16tImageFontLoaderP10tChunkFileP12tEntityStore();
+
+class tImageFontLoader : public tChunkHandler {
+public:
+    tImageFontLoader(void);
+private:
+    // void LoadObject__16tImageFontLoaderP10tChunkFileP12tEntityStore();
+};
+
 // void __tf10tImageFont();
 // void __tf16tImageFontLoader();
 // void func_00323B90();

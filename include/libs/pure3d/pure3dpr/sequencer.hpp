@@ -1,6 +1,8 @@
 #ifndef SEQUENCER_HPP
 #define SEQUENCER_HPP
 
+#include "loadmanager.hpp"
+
 // text
 
 // void __22tStateSequencerCommand();
@@ -39,10 +41,17 @@
 // void FixupTransitions__16tSequencerLoaderP10tSequencer();
 // void BuildSubParts__16tSequencerLoaderP10tSequencer();
 // void FindState__16tSequencerLoaderP10tSequencerPc();
-// void __15tSEQFileHandler();
-// void _$_15tSEQFileHandler();
-// void CheckExtension__15tSEQFileHandlerPc();
-// void Load__15tSEQFileHandlerP5tFileP12tEntityStore();
+
+
+class tSEQFileHandler : public tFileHandler {
+public:
+    tSEQFileHandler(void);
+private:
+    // void _$_15tSEQFileHandler();
+    // void CheckExtension__15tSEQFileHandlerPc();
+    // void Load__15tSEQFileHandlerP5tFileP12tEntityStore();
+};
+
 // void __tf22tStateSequencerCommand();
 // void __tf16tStateTransition();
 // void __tf15tSequencerState();

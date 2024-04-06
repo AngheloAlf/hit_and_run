@@ -20,16 +20,16 @@ public:
 };
 
 class tPlatform {
-private:
+public:
     /* 0x0 */ tContext *unk_0;
 
-public:
     tPlatform(void);
     ~tPlatform(void);
 
-private:
-    static void Create(void);
+    static tPlatform *Create(void);
     tContext *CreateContext(tContextInitData *);
+
+private:
     tPlatform *GetPlatform(void);
 };
 

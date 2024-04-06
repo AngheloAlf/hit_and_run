@@ -1,6 +1,8 @@
 #ifndef ANIMATEDOBJECT_HPP
 #define ANIMATEDOBJECT_HPP
 
+#include "loadmanager.hpp"
+
 // text
 
 // void __22tAnimatedObjectFactory();
@@ -27,10 +29,21 @@
 // void Reset__30tAnimatedObjectFrameController();
 // void Clone__30tAnimatedObjectFrameController();
 // void Update__30tAnimatedObjectFrameController();
-// void __28tAnimatedObjectFactoryLoader();
-// void LoadObject__28tAnimatedObjectFactoryLoaderP10tChunkFileP12tEntityStore();
-// void __21tAnimatedObjectLoader();
-// void LoadObject__21tAnimatedObjectLoaderP10tChunkFileP12tEntityStore();
+
+class tAnimatedObjectFactoryLoader : public tChunkHandler {
+public:
+    tAnimatedObjectFactoryLoader(void);
+private:
+    // void LoadObject__28tAnimatedObjectFactoryLoaderP10tChunkFileP12tEntityStore();
+};
+
+class tAnimatedObjectLoader : public tChunkHandler {
+public:
+    tAnimatedObjectLoader(void);
+private:
+    // void LoadObject__21tAnimatedObjectLoaderP10tChunkFileP12tEntityStore();
+};
+
 // void func_0033D408();
 // void LoadObject__30tAnimatedObjectAnimationLoaderP10tChunkFileP12tEntityStore();
 // void func_0033D778();

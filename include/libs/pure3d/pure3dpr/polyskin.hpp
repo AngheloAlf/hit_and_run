@@ -1,6 +1,8 @@
 #ifndef POLYSKIN_HPP
 #define POLYSKIN_HPP
 
+#include "loadmanager.hpp"
+
 // text
 
 // void __9tPolySkini();
@@ -8,8 +10,15 @@
 // void Display__9tPolySkinP5tPose();
 // void DisplayInstanced__9tPolySkinP5tPoseUi();
 // void ProcessShaders__9tPolySkinRQ29tDrawable14ShaderCallback();
+
+class tPolySkinLoader : public tChunkHandler {
+public:
+    tPolySkinLoader(void);
+private:
 // void __15tPolySkinLoader();
 // void LoadObject__15tPolySkinLoaderP10tChunkFileP12tEntityStore();
+};
+
 // void func_0034C098();
 // void func_0034C0E0();
 // void __tf9tPolySkin();

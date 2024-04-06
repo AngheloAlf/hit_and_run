@@ -3,24 +3,26 @@
 
 // text
 
-// void InstallSimLoaders__3simv();
-// void InitializeSimulation__3simQ23sim17GeometryUnitsEnum();
-// void ResetSimulation__3simv();
-// void SetupLineDrawing__3simv();
-// void CleanupLineDrawing__3simv();
-// void __Q23sim17tExportInfoLoader();
-// void LoadObject__Q23sim17tExportInfoLoaderP10tChunkFileP12tEntityStore();
-// void func_002D8080();
-// void __tfQ23sim11tExportInfo();
-// void _$_Q23sim17tExportInfoLoader();
-// void __tfQ23sim17tExportInfoLoader();
-// void func_002D8190();
-// void _$_Q23sim11tExportInfo();
-// void _$_Q23sim15SimUnitsManager();
-// void __Q23sim15SimUnitsManager();
-// void func_002D8248();
-// void __tfQ23sim15SimUnitsManager();
-// void UpdateUnits__Q23sim15SimUnitsManager();
+namespace sim {
+    void InstallSimLoaders(void);
+    // void InitializeSimulation__3simQ23sim17GeometryUnitsEnum();
+    // void ResetSimulation__3simv();
+    // void SetupLineDrawing__3simv();
+    // void CleanupLineDrawing__3simv();
+    // void __Q23sim17tExportInfoLoader();
+    // void LoadObject__Q23sim17tExportInfoLoaderP10tChunkFileP12tEntityStore();
+    // void func_002D8080();
+    // void __tfQ23sim11tExportInfo();
+    // void _$_Q23sim17tExportInfoLoader();
+    // void __tfQ23sim17tExportInfoLoader();
+    // void func_002D8190();
+    // void _$_Q23sim11tExportInfo();
+    // void _$_Q23sim15SimUnitsManager();
+    // void __Q23sim15SimUnitsManager();
+    // void func_002D8248();
+    // void __tfQ23sim15SimUnitsManager();
+    // void UpdateUnits__Q23sim15SimUnitsManager();
+};
 
 // rodata
 

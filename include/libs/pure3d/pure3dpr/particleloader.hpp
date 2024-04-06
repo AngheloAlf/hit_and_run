@@ -1,6 +1,8 @@
 #ifndef PARTICLELOADER_HPP
 #define PARTICLELOADER_HPP
 
+#include "loadmanager.hpp"
+
 // text
 
 // void LoadGeneratorFactory__23tGeneratorFactoryLoaderUiP10tChunkFileP12tEntityStore();
@@ -9,10 +11,21 @@
 // void LoadSpriteEmitterFactoryData__21tEmitterFactoryLoaderP10tChunkFileP12tEntityStoreP21tSpriteEmitterFactory();
 // void LoadBaseParticleData__21tEmitterFactoryLoaderP10tAnimationP19tBaseEmitterFactory();
 // void LoadSpriteParticleData__21tEmitterFactoryLoaderP10tAnimationP21tSpriteEmitterFactory();
-// void __28tParticleSystemFactoryLoader();
-// void LoadObject__28tParticleSystemFactoryLoaderP10tChunkFileP12tEntityStore();
-// void __21tParticleSystemLoader();
-// void LoadObject__21tParticleSystemLoaderP10tChunkFileP12tEntityStore();
+
+class tParticleSystemFactoryLoader : public tChunkHandler {
+public:
+    tParticleSystemFactoryLoader(void);
+private:
+    // void LoadObject__28tParticleSystemFactoryLoaderP10tChunkFileP12tEntityStore();
+};
+
+class tParticleSystemLoader : public tChunkHandler {
+public:
+    tParticleSystemLoader(void);
+private:
+    // void LoadObject__21tParticleSystemLoaderP10tChunkFileP12tEntityStore();
+};
+
 // void func_00359138();
 // void __tf28tParticleSystemFactoryLoader();
 // void __tf21tParticleSystemLoader();

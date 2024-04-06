@@ -27,6 +27,7 @@ $(WIBO_DIR):
 
 
 $(EEGCC_SN_BIN): | $(EEGCC_SN_DIR)
+	$(RM) sce_ps2_sdk_24.tar.gz
 	wget https://github.com/AngheloAlf/sce_ps2_sdk_24/releases/latest/download/sce_ps2_sdk_24.tar.gz
 	tar xf sce_ps2_sdk_24.tar.gz -C $(EEGCC_SN_DIR)
 	$(RM) sce_ps2_sdk_24.tar.gz

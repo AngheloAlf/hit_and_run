@@ -1,13 +1,21 @@
 #ifndef EXPRESSION_HPP
 #define EXPRESSION_HPP
 
+#include "loadmanager.hpp"
+
 // text
 
 // void __11tExpression();
 // void _$_11tExpression();
 // void func_003472C0();
-// void __17tExpressionLoader();
-// void LoadObject__17tExpressionLoaderP10tChunkFileP12tEntityStore();
+
+class tExpressionLoader : public tChunkHandler {
+public:
+    tExpressionLoader(void);
+private:
+    // void LoadObject__17tExpressionLoaderP10tChunkFileP12tEntityStore();
+};
+
 // void __16tExpressionGroupi();
 // void _$_16tExpressionGroup();
 // void FindExpression__C16tExpressionGroupRC5tNamePi();
@@ -16,15 +24,27 @@
 // void SetExpressionGroup__16tExpressionMixerP16tExpressionGroup();
 // void SetExpressionState__16tExpressionMixerRC5tNamef();
 // void ResetToNeutral__16tExpressionMixer();
-// void LoadObject__22tExpressionGroupLoaderP10tChunkFileP12tEntityStore();
-// void __22tExpressionGroupLoader();
+
+class tExpressionGroupLoader : public tChunkHandler {
+private:
+    // void LoadObject__22tExpressionGroupLoaderP10tChunkFileP12tEntityStore();
+public:
+    tExpressionGroupLoader(void);
+};
+
 // void __Q222tExpressionGroupLoader16tExpressionStore();
 // void _$_Q222tExpressionGroupLoader16tExpressionStore();
 // void Find__Q222tExpressionGroupLoader16tExpressionStoreRQ216radLoadInventory12SafeCastBaseG13tUidUnaligned();
 // void Store__Q222tExpressionGroupLoader16tExpressionStoreP7tEntity();
 // void StoreHandlingCollisions__Q222tExpressionGroupLoader16tExpressionStoreP7tEntity();
-// void __22tExpressionMixerLoader();
-// void LoadObject__22tExpressionMixerLoaderP10tChunkFileP12tEntityStore();
+
+class tExpressionMixerLoader : public tChunkHandler {
+public:
+    tExpressionMixerLoader(void);
+private:
+    // void LoadObject__22tExpressionMixerLoaderP10tChunkFileP12tEntityStore();
+};
+
 // void __tf11tExpression();
 // void __tft6tArray1ZP11tExpression();
 // void __tft9tPtrArray1ZP11tExpression();

@@ -1,14 +1,22 @@
 #ifndef SHADER_HPP
 #define SHADER_HPP
 
+#include "loadmanager.hpp"
+
 // text
 
 // void __7tShader();
 // void __7tShaderPcT1();
 // void _$_7tShader();
-// void __13tShaderLoader();
-// void func_0032DA78();
-// void LoadObject__13tShaderLoaderP10tChunkFileP12tEntityStore();
+
+class tShaderLoader : public tChunkHandler {
+public:
+    tShaderLoader(void);
+private:
+    // void func_0032DA78();
+    // void LoadObject__13tShaderLoaderP10tChunkFileP12tEntityStore();
+};
+
 // void CheckChunkID__23tShaderDefinitionLoaderUi();
 // void Load__23tShaderDefinitionLoaderP10tChunkFileP12tEntityStore();
 // void func_0032E5D8();

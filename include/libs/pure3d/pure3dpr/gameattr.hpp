@@ -1,6 +1,8 @@
 #ifndef GAMEATTR_HPP
 #define GAMEATTR_HPP
 
+#include "loadmanager.hpp"
+
 // text
 
 // void __9tGameAttrPCcUi();
@@ -12,8 +14,14 @@
 // void SetColour__9tGameAttrPcG10pddiColour();
 // void SetMatrix__9tGameAttrPcRCQ218RadicalMathLibrary6Matrix();
 // void SetVector__9tGameAttrPcRCQ218RadicalMathLibrary6Vector();
-// void __15tGameAttrLoader();
-// void LoadObject__15tGameAttrLoaderP10tChunkFileP12tEntityStore();
+
+class tGameAttrLoader : public tChunkHandler {
+public:
+    tGameAttrLoader(void);
+private:
+    // void LoadObject__15tGameAttrLoaderP10tChunkFileP12tEntityStore();
+};
+
 // void _$_Q29tGameAttr7BaseMap();
 // void SetName__Q29tGameAttr7BaseMapPc();
 // void SetParam__Q29tGameAttr7BaseMapPvi();

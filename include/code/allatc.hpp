@@ -1,6 +1,8 @@
 #ifndef ALLATC_HPP
 #define ALLATC_HPP
 
+#include "libs/pure3d/pure3dpr/loadmanager.hpp"
+
 // text
 
 class ATCManager {
@@ -21,9 +23,14 @@ private:
 // void _$_10ATCManager();
 };
 
-// void __9ATCLoader();
-// void _$_9ATCLoader();
-// void LoadObject__9ATCLoaderP10tChunkFileP12tEntityStore();
+class ATCLoader : public tChunkHandler {
+public:
+    ATCLoader(void);
+private:
+    // void _$_9ATCLoader();
+    // void LoadObject__9ATCLoaderP10tChunkFileP12tEntityStore();
+};
+
 // void __tf9ATCLoader();
 // void _$_17radLoadDataLoader();
 // void __17radLoadDataLoader();

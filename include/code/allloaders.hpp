@@ -1,19 +1,30 @@
 #ifndef ALLLOADERS_HPP
 #define ALLLOADERS_HPP
 
+#include "types.h"
+
+#include "AllWrappers_mpLoader_ret.hpp"
+
 // text
 
-// void CreateInstance__11AllWrappers();
-// void GetInstance__11AllWrappers();
-// void DestroyInstance__11AllWrappers();
-// void mLoader__11AllWrappersi();
-// void mpLoader__11AllWrappersi();
-// void CoupleAllLoaders__11AllWrappers();
-// void AddGlobalEntity__11AllWrappersP9tDrawable();
-// void GetGlobalEntity__C11AllWrappersG13tUidUnaligned();
-// void ClearGlobalEntities__11AllWrappers();
-// void __11AllWrappers();
-// void _$_11AllWrappers();
+class AllWrappers {
+    // void CreateInstance__11AllWrappers();
+public:
+    static AllWrappers *GetInstance(void);
+private:
+    // void DestroyInstance__11AllWrappers();
+    // void mLoader__11AllWrappersi();
+public:
+    AllWrappers_mpLoader_ret *mpLoader(int);
+private:
+    // void CoupleAllLoaders__11AllWrappers();
+    // void AddGlobalEntity__11AllWrappersP9tDrawable();
+    // void GetGlobalEntity__C11AllWrappersG13tUidUnaligned();
+    // void ClearGlobalEntities__11AllWrappers();
+    // void __11AllWrappers();
+    // void _$_11AllWrappers();
+};
+
 // void __14AnimCollLoader();
 // void _$_14AnimCollLoader();
 // void LoadObject__14AnimCollLoaderP10tChunkFileP12tEntityStore();

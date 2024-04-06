@@ -1,6 +1,8 @@
 #ifndef ALLSTATEPROP_HPP
 #define ALLSTATEPROP_HPP
 
+#include "libs/pure3d/pure3dpr/loadmanager.hpp"
+
 // text
 
 // void CreateStateProp__10CStatePropP14CStatePropDataUiP5tPose();
@@ -29,8 +31,14 @@
 // void GetEventData__14CStatePropDataii();
 // void GetNumberOfCallbacks__14CStatePropDatai();
 // void GetCallbackData__14CStatePropDataii();
-// void __20CStatePropDataLoader();
-// void LoadObject__20CStatePropDataLoaderP10tChunkFileP12tEntityStore();
+
+class CStatePropDataLoader : public tChunkHandler {
+public:
+    CStatePropDataLoader(void);
+private:
+    // void LoadObject__20CStatePropDataLoaderP10tChunkFileP12tEntityStore();
+};
+
 // void __tf10CStateProp();
 // void __tf14CStatePropData();
 // void __tf20CStatePropDataLoader();

@@ -1,6 +1,10 @@
 #ifndef SCENEGRAPH_HPP
 #define SCENEGRAPH_HPP
 
+#include "loadmanager.hpp"
+
+#include "loadmanager.hpp"
+
 // text
 
 // void __Q210Scenegraph10Scenegraph();
@@ -76,8 +80,16 @@
 // void __Q210Scenegraph10LightGroupP11tLightGroup();
 // void _$_Q210Scenegraph10LightGroup();
 // void GetLights__Q210Scenegraph10LightGroup();
-// void __Q210Scenegraph6Loader();
-// void LoadObject__Q210Scenegraph6LoaderP10tChunkFileP12tEntityStore();
+
+namespace Scenegraph {
+    class Loader : public tChunkHandler {
+    public:
+        Loader(void);
+    private:
+        // void LoadObject__Q210Scenegraph6LoaderP10tChunkFileP12tEntityStore();
+    };
+};
+
 // void LoadObject__Q210Scenegraph23SceneGraphGenericLoaderP10tChunkFileP12tEntityStore();
 // void LoadNode__Q210Scenegraph23SceneGraphGenericLoaderP10tChunkFileP12tEntityStorePQ218RadicalMathLibrary6Matrix();
 // void func_0035E620();

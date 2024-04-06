@@ -1,6 +1,8 @@
 #ifndef COMPOSITEDRAWABLE_HPP
 #define COMPOSITEDRAWABLE_HPP
 
+#include "loadmanager.hpp"
+
 // text
 
 // void __18tCompositeDrawablei();
@@ -22,8 +24,14 @@
 // void Draw__Q218tCompositeDrawable19DrawablePoseElementP5tPose();
 // void SetDrawable__Q218tCompositeDrawable21DrawableEffectElementP9tDrawable();
 // void Draw__Q218tCompositeDrawable21DrawableEffectElementP5tPose();
-// void __24tCompositeDrawableLoader();
-// void LoadObject__24tCompositeDrawableLoaderP10tChunkFileP12tEntityStore();
+
+class tCompositeDrawableLoader : public tChunkHandler {
+public:
+    tCompositeDrawableLoader(void);
+private:
+    // void LoadObject__24tCompositeDrawableLoaderP10tChunkFileP12tEntityStore();
+};
+
 // void func_00346158();
 // void __tfQ218tCompositeDrawable19DrawablePropElement();
 // void __tfQ218tCompositeDrawable19DrawablePoseElement();

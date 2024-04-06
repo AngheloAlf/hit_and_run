@@ -1,6 +1,8 @@
 #ifndef SPRITE_HPP
 #define SPRITE_HPP
 
+#include "loadmanager.hpp"
+
 // text
 
 // void __7tSpriteP6tImageP7tShaderiiiP15tImageConverter();
@@ -16,11 +18,17 @@
 // void BuildPoly__7tSpriteiR5tRectii();
 // void SetColour__7tSpriteG10pddiColour();
 // void Display__7tSprite();
-// void __13tSpriteLoader();
-// void _$_13tSpriteLoader();
-// void LoadObject__13tSpriteLoaderP10tChunkFileP12tEntityStore();
-// void LoadImage__13tSpriteLoaderP10tChunkFilei();
-// void LoadTexture__13tSpriteLoaderP10tChunkFilei();
+
+class tSpriteLoader : public tChunkHandler {
+public:
+    tSpriteLoader(void);
+private:
+    // void _$_13tSpriteLoader();
+    // void LoadObject__13tSpriteLoaderP10tChunkFileP12tEntityStore();
+    // void LoadImage__13tSpriteLoaderP10tChunkFilei();
+    // void LoadTexture__13tSpriteLoaderP10tChunkFilei();
+};
+
 // void __tf7tSprite();
 // void __tf13tSpriteLoader();
 // void func_00331330();

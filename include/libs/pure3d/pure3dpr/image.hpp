@@ -1,6 +1,8 @@
 #ifndef IMAGE_HPP
 #define IMAGE_HPP
 
+#include "loadmanager.hpp"
+
 // text
 
 // void __6tImage();
@@ -27,10 +29,16 @@
 // void func_00320C40();
 // void func_00320D30();
 // void func_00320E30();
-// void __12tImageLoader();
-// void _$_12tImageLoader();
-// void LoadObject__12tImageLoaderP10tChunkFileP12tEntityStore();
-// void LoadImage__12tImageLoaderP10tChunkFilei();
+
+class tImageLoader : public tChunkHandler {
+public:
+    tImageLoader(void);
+private:
+    // void _$_12tImageLoader();
+    // void LoadObject__12tImageLoaderP10tChunkFileP12tEntityStore();
+    // void LoadImage__12tImageLoaderP10tChunkFilei();
+};
+
 // void __tf6tImage();
 // void __tf7tImage8();
 // void __tf12tImageLoader();

@@ -1,6 +1,8 @@
 #ifndef ANIMATE_HPP
 #define ANIMATE_HPP
 
+#include "loadmanager.hpp"
+
 // text
 
 // void AnimationGroupCompareByGroupID__FPCvT0();
@@ -44,11 +46,17 @@
 // void NullAnimation__Q221tBlendFrameController8PlayInfo();
 // void Reset__21tBlendFrameController();
 // void LastFrameReached__21tBlendFrameController();
-// void __22tFrameControllerLoader();
-// void _$_22tFrameControllerLoader();
-// void LoadObject__22tFrameControllerLoaderP10tChunkFileP12tEntityStore();
-// void CheckFC__22tFrameControllerLoaderUi();
-// void LoadFC__22tFrameControllerLoaderPcUiP10tChunkFileP12tEntityStore();
+
+class tFrameControllerLoader : public tChunkHandler {
+public:
+    tFrameControllerLoader(void);
+private:
+    // void _$_22tFrameControllerLoader();
+    // void LoadObject__22tFrameControllerLoaderP10tChunkFileP12tEntityStore();
+    // void CheckFC__22tFrameControllerLoaderUi();
+    // void LoadFC__22tFrameControllerLoaderPcUiP10tChunkFileP12tEntityStore();
+};
+
 // void __21tAnimationMemoryBlockUi();
 // void _$_21tAnimationMemoryBlock();
 // void Allocate__21tAnimationMemoryBlockUii();
@@ -76,9 +84,15 @@
 // void func_0033A958();
 // void MakeValidFrame__C10tAnimationfff12p3dCycleMode();
 // void SortAnimationGroups__10tAnimation();
-// void __16tAnimationLoader();
-// void LoadObject__16tAnimationLoaderP10tChunkFileP12tEntityStore();
-// void LoadAnimationGroup__16tAnimationLoaderP10tChunkFileP12tEntityStoreP21tAnimationMemoryBlock();
+
+class tAnimationLoader : public tChunkHandler {
+public:
+    tAnimationLoader(void);
+private:
+    // void LoadObject__16tAnimationLoaderP10tChunkFileP12tEntityStore();
+    // void LoadAnimationGroup__16tAnimationLoaderP10tChunkFileP12tEntityStoreP21tAnimationMemoryBlock();
+};
+
 // void __tf16tFrameController();
 // void __tf25tAnimationFrameController();
 // void __tf22tSimpleFrameController();

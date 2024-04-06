@@ -1,11 +1,18 @@
 #ifndef ALLLOADMANAGER_HPP
 #define ALLLOADMANAGER_HPP
 
+#include "libs/pure3d/pure3dpr/loadmanager.hpp"
+
 // text
 
-// void __16CameraDataLoader();
-// void _$_16CameraDataLoader();
-// void Load__16CameraDataLoaderP10tChunkFileP12tEntityStore();
+class CameraDataLoader : public tChunkHandler {
+public:
+    CameraDataLoader(void);
+private:
+    // void _$_16CameraDataLoader();
+    // void Load__16CameraDataLoaderP10tChunkFileP12tEntityStore();
+};
+
 // void __17CementFileHandlerPQ214LoadingManager19CementLibraryStruct();
 // void _$_17CementFileHandler();
 // void LoadFile__17CementFileHandlerPCcPQ211FileHandler16LoadFileCallbackPv19GameMemoryAllocator();
@@ -28,11 +35,16 @@
 // void LoadFile__15IconFileHandlerPCcPQ211FileHandler16LoadFileCallbackPv19GameMemoryAllocator();
 // void OnFileOperationsComplete__15IconFileHandlerPv();
 // void LoadFileSync__15IconFileHandlerPCc();
-// void __18IntersectionLoader();
-// void _$_18IntersectionLoader();
-// void Load__18IntersectionLoaderP10tChunkFileP12tEntityStore();
-// void CheckChunkID__18IntersectionLoaderUi();
-// void GetChunkID__18IntersectionLoader();
+
+class IntersectionLoader : public tChunkHandler {
+public:
+    IntersectionLoader(void);
+private:
+    // void _$_18IntersectionLoader();
+    // void Load__18IntersectionLoaderP10tChunkFileP12tEntityStore();
+    // void CheckChunkID__18IntersectionLoaderUi();
+    // void GetChunkID__18IntersectionLoader();
+};
 
 class LoadingManager {
 public:
@@ -67,11 +79,17 @@ private:
 // void Done__14P3DFileHandler11tLoadStatusP12tLoadRequest();
 // void LoadFileSync__14P3DFileHandlerPCc();
 // void SetSectionName__14P3DFileHandlerPCc();
-// void __21RoadDataSegmentLoader();
-// void _$_21RoadDataSegmentLoader();
-// void Load__21RoadDataSegmentLoaderP10tChunkFileP12tEntityStore();
-// void CheckChunkID__21RoadDataSegmentLoaderUi();
-// void GetChunkID__21RoadDataSegmentLoader();
+
+class RoadDataSegmentLoader : public tChunkHandler {
+public:
+    RoadDataSegmentLoader(void);
+private:
+    // void _$_21RoadDataSegmentLoader();
+    // void Load__21RoadDataSegmentLoaderP10tChunkFileP12tEntityStore();
+    // void CheckChunkID__21RoadDataSegmentLoaderUi();
+    // void GetChunkID__21RoadDataSegmentLoader();
+};
+
 // void __10RoadLoader();
 // void _$_10RoadLoader();
 // void Load__10RoadLoaderP10tChunkFileP12tEntityStore();

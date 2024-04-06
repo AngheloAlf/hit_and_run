@@ -1,10 +1,17 @@
 #ifndef CAMERALOADER_HPP
 #define CAMERALOADER_HPP
 
+#include "loadmanager.hpp"
+
 // text
 
-// void __13tCameraLoader();
-// void LoadObject__13tCameraLoaderP10tChunkFileP12tEntityStore();
+class tCameraLoader : public tChunkHandler {
+public:
+    tCameraLoader(void);
+private:
+    // void LoadObject__13tCameraLoaderP10tChunkFileP12tEntityStore();
+};
+
 // void __tf13tCameraLoader();
 // void func_0031C5E8();
 // void _$_13tCameraLoader();

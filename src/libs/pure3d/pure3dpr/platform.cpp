@@ -32,8 +32,10 @@ tPlatform::tPlatform(void) {
 tPlatform::~tPlatform(void) {
 }
 
-void tPlatform::Create(void) {
+tPlatform *tPlatform::Create(void) {
     p3d::platform = &D_004B2DE8;
+
+    return p3d::platform;
 }
 
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/libs/pure3d/pure3dpr/platform", D_0048C9B8);

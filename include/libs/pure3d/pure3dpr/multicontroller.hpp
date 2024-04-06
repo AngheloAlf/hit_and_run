@@ -1,6 +1,8 @@
 #ifndef MULTICONTROLLER_HPP
 #define MULTICONTROLLER_HPP
 
+#include "loadmanager.hpp"
+
 // text
 
 // void __16tMultiControllerif();
@@ -15,8 +17,14 @@
 // void SetTrack__16tMultiControllerUiP16tFrameController();
 // void func_0034A648();
 // void Update__16tMultiController();
-// void __22tMultiControllerLoader();
-// void LoadObject__22tMultiControllerLoaderP10tChunkFileP12tEntityStore();
+
+class tMultiControllerLoader : public tChunkHandler {
+public:
+    tMultiControllerLoader(void);
+private:
+    // void LoadObject__22tMultiControllerLoaderP10tChunkFileP12tEntityStore();
+};
+
 // void __tf16tMultiController();
 // void __tf22tMultiControllerLoader();
 // void func_0034B2C8();

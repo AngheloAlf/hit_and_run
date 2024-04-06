@@ -1,6 +1,8 @@
 #ifndef SKELETON_HPP
 #define SKELETON_HPP
 
+#include "loadmanager.hpp"
+
 // text
 
 // void __9tSkeletoni();
@@ -9,8 +11,14 @@
 // void FindJointIndex__C9tSkeletonG13tUidUnaligned();
 // void NewPose__9tSkeleton();
 // void Rebuild__9tSkeleton();
-// void __15tSkeletonLoader();
-// void LoadObject__15tSkeletonLoaderP10tChunkFileP12tEntityStore();
+
+class tSkeletonLoader : public tChunkHandler {
+public:
+    tSkeletonLoader(void);
+private:
+    // void LoadObject__15tSkeletonLoaderP10tChunkFileP12tEntityStore();
+};
+
 // void __tft6tArray1ZQ29tSkeleton5Joint();
 // void __tf9tSkeleton();
 // void __tf15tSkeletonLoader();

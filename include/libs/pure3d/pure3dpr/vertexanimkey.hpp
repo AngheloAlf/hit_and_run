@@ -1,6 +1,8 @@
 #ifndef VERTEXANIMKEY_HPP
 #define VERTEXANIMKEY_HPP
 
+#include "loadmanager.hpp"
+
 // text
 
 // void __16tOffsetIndexList();
@@ -18,8 +20,14 @@
 // void func_00354888();
 // void __14tVertexAnimKey();
 // void _$_14tVertexAnimKey();
-// void __20tVertexAnimKeyLoader();
-// void LoadObject__20tVertexAnimKeyLoaderP10tChunkFileP12tEntityStore();
+
+class tVertexAnimKeyLoader : public tChunkHandler {
+public:
+    tVertexAnimKeyLoader(void);
+private:
+    // void LoadObject__20tVertexAnimKeyLoaderP10tChunkFileP12tEntityStore();
+};
+
 // void LoadObject__17tOffsetListLoaderP10tChunkFileP12tEntityStoreUiRi();
 // void LoadVectorOffsetList__17tOffsetListLoaderP10tChunkFileP12tEntityStoreRi();
 // void LoadVector2OffsetList__17tOffsetListLoaderP10tChunkFileP12tEntityStoreRi();

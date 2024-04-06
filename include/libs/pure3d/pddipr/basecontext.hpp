@@ -135,6 +135,69 @@
 
 class pddiRenderContext {
     // void __17pddiRenderContext();
+
+    /* 0x00 */ UNK_PAD unk_00[0x8];
+
+    /* vt 0x00C */ virtual void virtual_00C(void); /* placeholder */
+    /* vt 0x014 */ virtual void virtual_014(void); /* placeholder */
+    /* vt 0x01C */ virtual void virtual_01C(void); /* placeholder */
+    /* vt 0x024 */ virtual void virtual_024(void); /* placeholder */
+    /* vt 0x02C */ virtual void virtual_02C(void); /* placeholder */
+    /* vt 0x034 */ virtual void virtual_034(void); /* placeholder */
+    /* vt 0x03C */ virtual void virtual_03C(void); /* placeholder */
+    /* vt 0x044 */ virtual void virtual_044(void); /* placeholder */
+    /* vt 0x04C */ virtual void virtual_04C(void); /* placeholder */
+    /* vt 0x054 */ virtual void virtual_054(void); /* placeholder */
+    /* vt 0x05C */ virtual void virtual_05C(void); /* placeholder */
+    /* vt 0x064 */ virtual void virtual_064(void); /* placeholder */
+    /* vt 0x06C */ virtual void virtual_06C(void); /* placeholder */
+    /* vt 0x074 */ virtual void virtual_074(void); /* placeholder */
+    /* vt 0x07C */ virtual void virtual_07C(void); /* placeholder */
+    /* vt 0x084 */ virtual void virtual_084(void); /* placeholder */
+    /* vt 0x08C */ virtual void virtual_08C(void); /* placeholder */
+    /* vt 0x094 */ virtual void virtual_094(void); /* placeholder */
+    /* vt 0x09C */ virtual void virtual_09C(void); /* placeholder */
+    /* vt 0x0A4 */ virtual void virtual_0A4(void); /* placeholder */
+    /* vt 0x0AC */ virtual void virtual_0AC(void); /* placeholder */
+    /* vt 0x0B4 */ virtual void virtual_0B4(void); /* placeholder */
+    /* vt 0x0BC */ virtual void virtual_0BC(void); /* placeholder */
+    /* vt 0x0C4 */ virtual void virtual_0C4(void); /* placeholder */
+    /* vt 0x0CC */ virtual void virtual_0CC(void); /* placeholder */
+    /* vt 0x0D4 */ virtual void virtual_0D4(void); /* placeholder */
+    /* vt 0x0DC */ virtual void virtual_0DC(void); /* placeholder */
+    /* vt 0x0E4 */ virtual void virtual_0E4(void); /* placeholder */
+    /* vt 0x0EC */ virtual void virtual_0EC(void); /* placeholder */
+    /* vt 0x0F4 */ virtual void virtual_0F4(void); /* placeholder */
+    /* vt 0x0FC */ virtual void virtual_0FC(void); /* placeholder */
+    /* vt 0x104 */ virtual void virtual_104(void); /* placeholder */
+    /* vt 0x10C */ virtual void virtual_10C(void); /* placeholder */
+    /* vt 0x114 */ virtual void virtual_114(void); /* placeholder */
+    /* vt 0x11C */ virtual void virtual_11C(void); /* placeholder */
+    /* vt 0x124 */ virtual void virtual_124(void); /* placeholder */
+    /* vt 0x12C */ virtual void virtual_12C(void); /* placeholder */
+    /* vt 0x134 */ virtual void virtual_134(void); /* placeholder */
+    /* vt 0x13C */ virtual void virtual_13C(void); /* placeholder */
+    /* vt 0x144 */ virtual void virtual_144(void); /* placeholder */
+    /* vt 0x14C */ virtual void virtual_14C(void); /* placeholder */
+    /* vt 0x154 */ virtual void virtual_154(void); /* placeholder */
+    /* vt 0x15C */ virtual void virtual_15C(void); /* placeholder */
+    /* vt 0x164 */ virtual void virtual_164(void); /* placeholder */
+    /* vt 0x16C */ virtual void virtual_16C(void); /* placeholder */
+    /* vt 0x174 */ virtual void virtual_174(void); /* placeholder */
+    /* vt 0x17C */ virtual void virtual_17C(void); /* placeholder */
+    /* vt 0x184 */ virtual void virtual_184(void); /* placeholder */
+    /* vt 0x18C */ virtual void virtual_18C(void); /* placeholder */
+    /* vt 0x194 */ virtual void virtual_194(void); /* placeholder */
+    /* vt 0x19C */ virtual void virtual_19C(void); /* placeholder */
+    /* vt 0x1A4 */ virtual void virtual_1A4(void); /* placeholder */
+    /* vt 0x1AC */ virtual void virtual_1AC(void); /* placeholder */
+    /* vt 0x1B4 */ virtual void virtual_1B4(void); /* placeholder */
+    /* vt 0x1BC */ virtual void virtual_1BC(void); /* placeholder */
+    /* vt 0x1C4 */ virtual void virtual_1C4(void); /* placeholder */
+    /* vt 0x1CC */ virtual void virtual_1CC(void); /* placeholder */
+    /* vt 0x1D4 */ virtual void virtual_1D4(void); /* placeholder */
+public:
+    /* vt 0x1DC */ virtual void virtual_1DC(s32);
 };
 
 // void _$_17pddiRenderContext();

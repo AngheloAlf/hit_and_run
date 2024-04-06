@@ -7,11 +7,12 @@
 #include "pddiobj.hpp"
 
 class pddiDisplayInit {
-protected:
+public:
     /* 0x00 */ s32 unk_00;
     /* 0x04 */ s32 unk_04;
     /* 0x08 */ s32 unk_08;
     /* 0x0C */ s32 unk_0C;
+private:
     /* 0x10 */ UNK_PAD unk_10[0x4];
     /* 0x14 size */
 

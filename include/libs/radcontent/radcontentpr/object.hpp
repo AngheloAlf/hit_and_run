@@ -17,8 +17,8 @@ private:
     // void ReleaseVerified__13radLoadObject();
 public:
     void *operator new(size_t);
+    void *operator new(size_t, int);
 private:
-    // void __nw__13radLoadObjectUii();
     // void func_003ED588();
     // void __dl__13radLoadObjectPv();
     // void func_003ED5B8();

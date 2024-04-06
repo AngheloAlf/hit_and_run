@@ -1,12 +1,24 @@
 #ifndef LIGHTLOADER_HPP
 #define LIGHTLOADER_HPP
 
+#include "loadmanager.hpp"
+
 // text
 
-// void __12tLightLoader();
-// void LoadObject__12tLightLoaderP10tChunkFileP12tEntityStore();
-// void __17tLightGroupLoader();
-// void LoadObject__17tLightGroupLoaderP10tChunkFileP12tEntityStore();
+class tLightLoader : public tChunkHandler {
+public:
+    tLightLoader(void);
+private:
+    // void LoadObject__12tLightLoaderP10tChunkFileP12tEntityStore();
+};
+
+class tLightGroupLoader : public tChunkHandler {
+public:
+    tLightGroupLoader(void);
+private:
+    // void LoadObject__17tLightGroupLoaderP10tChunkFileP12tEntityStore();
+};
+
 // void __tf12tLightLoader();
 // void __tf17tLightGroupLoader();
 // void func_00326640();

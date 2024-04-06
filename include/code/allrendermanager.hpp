@@ -62,37 +62,45 @@
 // void IsGutsSetup__11RenderLayer();
 // void IsViewCamSetup__11RenderLayerUi();
 // void OnRenderLayerInit__11RenderLayer();
-// void DumpAllLoadedData__13RenderManager();
-// void SetLoadData__13RenderManagerQ211RenderEnums9LayerEnumQ211RenderEnums9LevelEnumQ211RenderEnums11MissionEnum();
-// void RedirectChunks__13RenderManageri();
-// void FlushDelList__13RenderManager();
-// void MunchDelList__13RenderManageri();
-// void LoadAllNeededData__13RenderManager();
-// void ContextUpdate__13RenderManagerUi();
-// void CreateInstance__13RenderManager();
-// void GetInstance__13RenderManager();
-// void DestroyInstance__13RenderManager();
-// void pWorldScene__13RenderManager();
-// void pWorldRenderLayer__13RenderManager();
-// void OnChunkLoaded__13RenderManagerP7tEntityiUi();
-// void OnProcessRequestsComplete__13RenderManagerPv();
-// void DoPostLevelLoad__13RenderManager();
-// void mpLayer__13RenderManagerQ211RenderEnums9LayerEnum();
-// void FreezeForPresentation__13RenderManager();
-// void ThawFromPresentation__13RenderManager();
-// void HandleEvent__13RenderManager9EventEnumPv();
-// void InitLayers__13RenderManager();
-// void SetLevelLayerLights__13RenderManagerP11tLightGroup();
-// void ClearLevelLayerLights__13RenderManager();
-// void __13RenderManager();
-// void _$_13RenderManager();
-// void __Q213RenderManager12MoodLighting();
-// void _$_Q213RenderManager12MoodLighting();
-// void CalculateModulus__Q213RenderManager12MoodLighting();
-// void SetLightMod__13RenderManagerRC10pddiColour();
-// void TransitionMoodLighting__13RenderManagerUi();
-// void ResetMoodLighting__13RenderManagerb();
-// void ApplyPS2Blur__13RenderManager();
+
+class RenderManager {
+private:
+    // void DumpAllLoadedData__13RenderManager();
+    // void SetLoadData__13RenderManagerQ211RenderEnums9LayerEnumQ211RenderEnums9LevelEnumQ211RenderEnums11MissionEnum();
+    // void RedirectChunks__13RenderManageri();
+    // void FlushDelList__13RenderManager();
+    // void MunchDelList__13RenderManageri();
+    // void LoadAllNeededData__13RenderManager();
+    // void ContextUpdate__13RenderManagerUi();
+    // void CreateInstance__13RenderManager();
+public:
+    static RenderManager *GetInstance(void);
+private:
+    // void DestroyInstance__13RenderManager();
+    // void pWorldScene__13RenderManager();
+    // void pWorldRenderLayer__13RenderManager();
+    // void OnChunkLoaded__13RenderManagerP7tEntityiUi();
+    // void OnProcessRequestsComplete__13RenderManagerPv();
+    // void DoPostLevelLoad__13RenderManager();
+    // void mpLayer__13RenderManagerQ211RenderEnums9LayerEnum();
+    // void FreezeForPresentation__13RenderManager();
+    // void ThawFromPresentation__13RenderManager();
+    // void HandleEvent__13RenderManager9EventEnumPv();
+    // void InitLayers__13RenderManager();
+    // void SetLevelLayerLights__13RenderManagerP11tLightGroup();
+    // void ClearLevelLayerLights__13RenderManager();
+private:
+    RenderManager(void);
+    // void _$_13RenderManager();
+    // void __Q213RenderManager12MoodLighting();
+    // void _$_Q213RenderManager12MoodLighting();
+    // void CalculateModulus__Q213RenderManager12MoodLighting();
+    // void SetLightMod__13RenderManagerRC10pddiColour();
+    // void TransitionMoodLighting__13RenderManagerUi();
+    // void ResetMoodLighting__13RenderManagerb();
+    // void ApplyPS2Blur__13RenderManager();
+};
+
 // void func_00219C30();
 // void __16WorldRenderLayer();
 // void Render__16WorldRenderLayer();

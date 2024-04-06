@@ -4,12 +4,18 @@
 #include "types.h"
 #include "unk.h"
 
+#include "libs/radcontent/radcontentpr/object.hpp"
+
 #include "file.hpp"
 #include "inventory.hpp"
 
 // text
 
-class tFileHandler {
+class tChunkHandler : public radLoadObject {
+
+};
+
+class tFileHandler : public radLoadObject {
 private:
     // void LoadFile__12tFileHandlerP14radLoadOptionsP23radLoadUpdatableRequest();
 private:
@@ -18,13 +24,17 @@ private:
 
 // void LoadData__13tChunkHandlerP13radLoadStreamiP16radLoadInventoryP9IRefCount();
 
-class tP3DFileHandler : tFileHandler {
-    // void __15tP3DFileHandleri();
+class tP3DFileHandler : public tFileHandler {
+public:
+    tP3DFileHandler(s32);
+private:
     // void _$_15tP3DFileHandler();
     // void CheckExtension__15tP3DFileHandlerPc();
     // void Load__15tP3DFileHandlerP5tFileP12tEntityStore();
-    // void AddHandler__15tP3DFileHandlerP13tChunkHandler();
-    // void AddHandler__15tP3DFileHandlerP13tChunkHandlerUi();
+public:
+    void AddHandler(tChunkHandler *);
+    void AddHandler(tChunkHandler *, u32);
+private:
     // void GetHandler__15tP3DFileHandlerUi();
     // void RemoveAllHandlers__15tP3DFileHandler();
 
@@ -68,7 +78,9 @@ public:
 private:
 // void Load__12tLoadManagerP12tLoadRequest();
 // void TriggerCallbacks__12tLoadManager();
-// void AddHandler__12tLoadManagerP12tFileHandlerPc();
+public:
+    void AddHandler(tFileHandler *, char *);
+private:
 // void GetHandler__12tLoadManagerPc();
 // void RemoveAllHandlers__12tLoadManager();
 
