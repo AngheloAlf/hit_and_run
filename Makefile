@@ -232,7 +232,8 @@ $(BUILD_DIR)/asm/$(VERSION)/data/sce_libs/gcc/ee/%.rodata.o:    ELF_PATCHER_FLAG
 ##### Per-file flags #####
 
 $(BUILD_DIR)/asm/us_2003_07_10/unk/321994.o:                    ELF_PATCHER_FLAGS += --section-align .text:0x4
-
+$(BUILD_DIR)/asm/$(VERSION)/data/sce_libs/gcc_lib/ee/libgcc/tinfo2.data.o: 		ELF_PATCHER_FLAGS += --section-align .text:0x4
+$(BUILD_DIR)/asm/$(VERSION)/data/sce_libs/gcc_lib/ee/libgcc/tinfo2.rodata.o: 	ELF_PATCHER_FLAGS += --section-align .text:0x4
 
 ## Create build directories
 
