@@ -2,7 +2,7 @@ settings:
   base_path: build/{version}
   linker_symbols_style: splat
   target_path: build/{version}/hit_and_run.{version}.elf
-  d_path: linker_scripts/{version}/hit_and_run.{version}.d
+  d_path: build/{version}/hit_and_run.{version}.d
   discard_wildcard_section: True
   single_segment_mode: True
   alloc_sections:
