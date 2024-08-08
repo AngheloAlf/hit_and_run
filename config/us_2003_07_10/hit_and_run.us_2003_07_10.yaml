@@ -26,7 +26,7 @@ options:
   asset_path: bin/us_2003_07_10
   extensions_path: tools/splat_ext
   # mips_abi_float_regs: o32
-  o_as_suffix: True
+  o_as_suffix: False
   mnemonic_ljust: 12
   rom_address_padding: True
   dump_symbols: True

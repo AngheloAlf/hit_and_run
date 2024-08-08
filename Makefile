@@ -227,13 +227,13 @@ endif
 
 $(BUILD_DIR)/asm/$(VERSION)/sce_libs/gcc/ee/%.o:                ELF_PATCHER_FLAGS += --section-align .text:0x4
 $(BUILD_DIR)/asm/$(VERSION)/sce_libs/gcc_lib/ee/%.o:            ELF_PATCHER_FLAGS += --section-align .text:0x4
-$(BUILD_DIR)/asm/$(VERSION)/data/sce_libs/gcc/ee/%.rodata.o:    ELF_PATCHER_FLAGS += --section-align .rodata:0x4
+$(BUILD_DIR)/asm/$(VERSION)/data/sce_libs/gcc/ee/%.rodata.s.o:    ELF_PATCHER_FLAGS += --section-align .rodata:0x4
 
 ##### Per-file flags #####
 
-$(BUILD_DIR)/asm/us_2003_07_10/unk/321994.o:                    ELF_PATCHER_FLAGS += --section-align .text:0x4
-$(BUILD_DIR)/asm/$(VERSION)/data/sce_libs/gcc_lib/ee/libgcc/tinfo2.data.o: 		ELF_PATCHER_FLAGS += --section-align .text:0x4
-$(BUILD_DIR)/asm/$(VERSION)/data/sce_libs/gcc_lib/ee/libgcc/tinfo2.rodata.o: 	ELF_PATCHER_FLAGS += --section-align .text:0x4
+$(BUILD_DIR)/asm/us_2003_07_10/unk/321994.s.o:                    ELF_PATCHER_FLAGS += --section-align .text:0x4
+$(BUILD_DIR)/asm/$(VERSION)/data/sce_libs/gcc_lib/ee/libgcc/tinfo2.data.s.o: 		ELF_PATCHER_FLAGS += --section-align .text:0x4
+$(BUILD_DIR)/asm/$(VERSION)/data/sce_libs/gcc_lib/ee/libgcc/tinfo2.rodata.s.o: 	ELF_PATCHER_FLAGS += --section-align .text:0x4
 
 ## Create build directories
 
@@ -317,12 +317,12 @@ o_files: $(O_FILES)
 $(BUILD_DIR)/%.ld: %.ld
 	$(CPP) $(CPPFLAGS) $(BUILD_DEFINES) $(IINC) $(COMP_VERBOSE_FLAG) $< > $@
 
-$(BUILD_DIR)/%.o: %.s
+$(BUILD_DIR)/%.s.o: %.s
 	$(CPP) $(CPPFLAGS) $(BUILD_DEFINES) $(IINC) -I $(dir $*) -I $(BUILD_DIR)/$(dir $*) $(COMMON_DEFINES) $(AS_DEFINES) $(COMP_VERBOSE_FLAG) $< | $(AS) $(ASFLAGS) $(ENDIAN) $(IINC) -I $(dir $*) -I $(BUILD_DIR)/$(dir $*) $(COMP_VERBOSE_FLAG) -o $@
 	$(ELF_PATCHER) $@ gas $(ELF_PATCHER_FLAGS)
 	$(OBJDUMP_CMD)
 
-$(BUILD_DIR)/%.o: %.c
+$(BUILD_DIR)/%.c.o: %.c
 	$(CC_CHECK) $(CC_CHECK_FLAGS) $(IINC) $(CHECK_WARNINGS) -std=gnu99 -o $@ $<
 ifeq ($(MULTISTEP_BUILD), 0)
 	$(CC) $(C_COMPILER_FLAGS) $(COMP_VERBOSE_FLAG) -c -o $@ $<
@@ -335,7 +335,7 @@ endif
 #	$(ELF_PATCHER) $@ mwcc $(ELF_PATCHER_FLAGS)
 	$(OBJDUMP_CMD)
 
-$(BUILD_DIR)/%.o: %.cpp
+$(BUILD_DIR)/%.cpp.o: %.cpp
 	$(CC_CHECK) $(CC_CHECK_FLAGS) $(IINC) $(CHECK_WARNINGS) -std=gnu++98 -o $@ $<
 ifeq ($(MULTISTEP_BUILD), 0)
 	$(CC) $(CXX_COMPILER_FLAGS) $(COMP_VERBOSE_FLAG) -c -o $@ $<
