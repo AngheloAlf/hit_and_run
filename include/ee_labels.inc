@@ -25,3 +25,8 @@
     .global \label
     \label:
 .endm
+
+.macro ehlabel label, visibility=global
+    .\visibility \label
+    \label:
+.endm
