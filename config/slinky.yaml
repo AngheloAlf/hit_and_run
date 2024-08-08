@@ -18,15 +18,10 @@ settings:
     - .sbss
     - .bss
     - .vubss
-  subalign: 0x10
-  wildcard_sections: False
-  segment_start_align: null
 
 segments:
   - name: sections
     fixed_vram: 0x00100000
-    subalign: null
-    section_end_align: 0x4
     files:
       # crt0
       - kind: group
