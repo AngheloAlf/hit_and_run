@@ -11,13 +11,19 @@ settings:
     - .data
     - .vudata
     - .rodata
+    - .rdata
     - .gcc_except_table
+    - .lit8
+    - .lit4
     - .sdata
   noload_sections:
     - .scommon
     - .sbss
     - .bss
     - .vubss
+    - .spad
+
+  sections_start_alignment: { .text: 0x80, .data: 0x80, .rodata: 0x100, .gcc_except_table: 0x80, .scommon: 0x80, .bss: 0x80 }
 
 segments:
   - name: sections

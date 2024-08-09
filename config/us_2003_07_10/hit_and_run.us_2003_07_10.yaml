@@ -1028,6 +1028,7 @@ segments:
       - [0x34F608, data, sce_libs/gcc_lib/ee/libgcc/tinfo] # .a # 2.95.3
       - [0x34F990, data, sce_libs/gcc_lib/ee/libgcc/tinfo2] # .a # 2.95.3
       - [0x34FE90, data, unk/350E90] # Collect2
+      - [0x350078]
       - [0x350100, rodata, code/allai]
       - [0x353868, rodata, code/allactor]
       - [0x354A68, rodata, code/allsequencer]
@@ -1494,9 +1495,11 @@ segments:
       - [0x3B03C0, rodata, sce_libs/gcc_lib/ee/libgcc/frame] # .a # 2.95.3
       - [0x3B0490, rodata, sce_libs/gcc_lib/ee/libgcc/tinfo] # .a # 2.95.3
       - [0x3B05A0, rodata, sce_libs/gcc_lib/ee/libgcc/tinfo2] # .a # 2.95.3
+      - [0x3B0750]
       - [0x3B0780, gcc_except_table, sce_libs/gcc/ee/libstdc++/filebuf] # .a
       - [0x3B07D0, gcc_except_table, sce_libs/gcc/ee/libstdc++/stdiostream] # .a
       - [0x3B0808, gcc_except_table, sce_libs/gcc_lib/ee/libgcc/exception] # .a # 2.95.3
+      - [0x3B0864]
       - { type: scommon, vram: 0x004B0880, name: unk/004B0880 } # COMMON
       - { type: scommon, vram: 0x004B0888, name: unk/004B0888 } # COMMON
       - { type: scommon, vram: 0x004B0890, name: unk/004B0890 } # COMMON

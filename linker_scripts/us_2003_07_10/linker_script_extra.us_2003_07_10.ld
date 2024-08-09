@@ -9,7 +9,7 @@ _heap_size = 0xFFFFFFFF;
 
 _codestart = sections_alloc_VRAM;
 
-_fbss = sections_noload_VRAM;
+_fbss = sections_SCOMMON_START;
 
 end = sections_noload_VRAM_END;
 _end = end;
