@@ -47,7 +47,6 @@ options:
   asm_end_label: endlabel
   asm_jtbl_label_macro: jlabel
   asm_data_macro: dlabel
-  include_macro_inc: False
 
   auto_decompile_empty_functions: False
 
@@ -76,7 +75,7 @@ options:
     - .bss
     - .vubss
 
-  auto_all_sections:
+  auto_link_sections:
     - .data
     # - .vudata
     - .rodata
