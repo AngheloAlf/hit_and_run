@@ -7,11 +7,11 @@ _stack = 0x01FF0000;
 _stack_size = 0x00010000;
 _heap_size = 0xFFFFFFFF;
 
-_codestart = sections_TEXT_START;
+_codestart = sections_alloc_VRAM;
 
-_fbss = sections_bss_VRAM;
+_fbss = sections_SCOMMON_START;
 
-end = sections_VRAM_END;
+end = sections_noload_VRAM_END;
 _end = end;
 
 

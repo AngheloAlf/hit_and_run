@@ -47,7 +47,8 @@ BUILD_DIR := build/$(VERSION)
 ROM       := $(BUILD_DIR)/$(TARGET).$(VERSION).rom
 ELF       := $(BUILD_DIR)/$(TARGET).$(VERSION).elf
 LD_MAP    := $(BUILD_DIR)/$(TARGET).$(VERSION).map
-LD_SCRIPT := linker_scripts/$(VERSION)/$(TARGET).$(VERSION).ld
+LD_SCRIPT := $(BUILD_DIR)/$(TARGET).$(VERSION).ld
+D_FILE    := $(BUILD_DIR)/$(TARGET).$(VERSION).d
 
 
 #### Setup ####
@@ -118,6 +119,11 @@ SPLAT_FLAGS     ?=
 ifneq ($(FULL_DISASM),0)
     SPLAT_FLAGS       += --disassemble-all
 endif
+
+SLINKY            ?= tools/slinky/slinky-cli
+SLINKY_YAML       ?= config/slinky.yaml
+
+SLINKY_FLAGS      ?=
 
 ELF_PATCHER_FLAGS ?=
 
@@ -212,7 +218,7 @@ O_FILES       := $(foreach f,$(C_FILES:.c=.o),$(BUILD_DIR)/$f) \
 LINKER_SCRIPTS   := $(LD_SCRIPT) $(BUILD_DIR)/linker_scripts/$(VERSION)/linker_script_extra.$(VERSION).ld
 
 ### Automatic dependency files ###
-DEP_FILES := $(LD_SCRIPT:.ld=.d)
+DEP_FILES := $(D_FILE)
 
 ifneq ($(DEP_ASM), 0)
     DEP_FILES += $(O_FILES:.o=.asmproc.d)
@@ -259,16 +265,17 @@ libclean:
 
 distclean: clean
 	$(RM) -r $(BUILD_DIR) asm/ .splat/
-#	$(RM) -r linker_scripts/$(VERSION)/auto $(LD_SCRIPT)
+#	$(RM) -r linker_scripts/$(VERSION)/auto
 	$(MAKE) -C tools distclean
 
 setup:
 	$(MAKE) -C tools
 	$(OBJCOPY) -O binary --pad-to=0x3B0880 --gap-fill=0x00 $(BASEELF) $(BASEROM)
 	$(OBJCOPY) -I binary -O binary --pad-to=0x3B0880 --gap-fill=0x00 $(BASEROM)
+	$(MAKE) $(LD_SCRIPT)
 
 extract:
-	$(RM) -r asm/$(VERSION) $(LD_SCRIPT) $(LD_SCRIPT:.ld=.d)
+	$(RM) -r asm/$(VERSION)
 	$(SPLAT) $(SPLAT_YAML) $(SPLAT_FLAGS)
 
 diff-init: all
@@ -302,8 +309,8 @@ $(ROM): $(ELF)
 	$(OBJCOPY) -O binary $< $@
 
 $(ELF): $(LINKER_SCRIPTS)
-	$(file >build/$(VERSION)/o_files, $(filter %.o, $^))
-	$(LD) $(ENDIAN) $(LDFLAGS) -G8 -Map $(LD_MAP) $(foreach ld, $(LINKER_SCRIPTS), -T $(ld)) -o $@ @build/$(VERSION)/o_files
+	$(file >$(@:.elf=.o_files.txt), $(filter %.o, $^))
+	$(LD) $(ENDIAN) $(LDFLAGS) -G8 -Map $(LD_MAP) $(foreach ld, $(LINKER_SCRIPTS), -T $(ld)) -o $@ @$(@:.elf=.o_files.txt)
 
 ## Order-only prerequisites
 # These ensure e.g. the PNG_INC_FILES are built before the O_FILES.
@@ -313,6 +320,14 @@ o_files: $(O_FILES)
 
 .PHONY: o_files
 
+
+# The main .d file is a subproduct of generating the main linker script.
+# We have list both the .ld and the .d files in this rule so Make can
+# automatically regenerate the dependencies file if we have touched the slinky
+# yaml (via the `-include` statement), so we always only build the .c/.s files
+# listed on the yaml.
+$(LD_SCRIPT) $(D_FILE): $(SLINKY_YAML) $(SLINKY)
+	$(SLINKY) --custom-options version=$(VERSION) $(SLINKY_FLAGS) -o $(LD_SCRIPT) $(SLINKY_YAML)
 
 $(BUILD_DIR)/%.ld: %.ld
 	$(CPP) $(CPPFLAGS) $(BUILD_DEFINES) $(IINC) $(COMP_VERBOSE_FLAG) $< > $@
