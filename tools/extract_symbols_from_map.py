@@ -42,6 +42,60 @@ IGNORE_SECTIONS = [
     "<default>",
 ]
 
+SYM_NAMES_COMMENT_OUT = {
+    "_stack_size",
+    "_codestart",
+    "_gp",
+    "_stack",
+    "_heap_size",
+}
+
+SYM_NAMES_FORCE_DEFINED = {
+    "VU_BASE",
+    "vu0_SphereVSphere",
+    "vu0_begin",
+    "_VU_DMA_OFFSET_size",
+    "vu0_SphereVAABox",
+    "VU_LOAD_CONTEXT",
+    "vu0_SphereVTBox",
+    "VU_CHECKSKINNING_LOADPRIMGROUP",
+    "VU_LOADPRIMGROUP",
+    "VU_XGKICK",
+    "vu0_sincos",
+    "VU_UNLIT_PROGRAM",
+    "vu0_unitmatrix",
+    "vu0_mulmatrix",
+    "vu0_rotateX",
+    "vu0_translate",
+    "vclUnlit_CodeEnd",
+    "vu0_transform",
+    "VU_UNLIT_TRI",
+    "vu0_quaternionmatrix",
+    "vu0_quaternionmultiply",
+    "vu0_end",
+    "VU_UNLITFOG_TRI",
+    "vclLit_CodeStart",
+    "VU_LIT_PROGRAM",
+    "vclLit_CodeEnd",
+    "VU_LIT_TRI",
+    "VU_LITFOG_TRI",
+    "VU_LITSPEC_TRI",
+    "VU_LITSPECFOG_TRI",
+    "VU_UNLIT_TRI_MT",
+    "VU_REFRACT",
+    "VU_TOON",
+    "VU_REFLECT",
+    "VU_LINE",
+    "VU_DONOTHING",
+    "VU_SHADOW_VOL",
+    "VU_SNOW",
+    "VU_SKINBLEND_NT",
+    "VU_SKINBLEND1B_NT",
+    "VU_SKINBLEND_CT",
+    "VU_SKINBLEND1B_CT",
+    "VU_END",
+}
+
 def emit_yaml_entry(filepath: str, section: str, addr: int, size: int, autogen: bool):
     if size == 0 and not autogen:
         return
@@ -155,11 +209,22 @@ for name, section, addr, size in syms:
     known_sym_names.add(name)
     known_sym_addrs.add(addr)
 
+# print()
+# for duped_addr in duped_sym_addrs:
+#     for name, section, addr, size in syms:
+#         if addr == duped_addr:
+#             print(name, section, f"{addr:08X}", size)
+# print()
+# for duped_name in duped_sym_names:
+#     for name, section, addr, size in syms:
+#         if name == duped_name:
+#             print(name, section, addr, size)
+
 # TODO: check valid names (length and chars)
 with Path("config/us_2003_07_10/elf_symbol_addrs.txt").open("w") as f:
     for name, section, addr, size in syms:
         comment_out = ""
-        if name in duped_sym_names or addr in duped_sym_addrs:
+        if name in SYM_NAMES_COMMENT_OUT or addr in duped_sym_addrs:
             comment_out = "// "
 
         size_str = ""
@@ -176,4 +241,12 @@ with Path("config/us_2003_07_10/elf_symbol_addrs.txt").open("w") as f:
         if len(name) > 253 or any(c in ILLEGAL_FILENAME_CHARS for c in name):
             filename_str = f" filename:{prefix}{addr:08X}"
 
-        f.write(f"{comment_out}{name} = 0x{addr:08X}; //{size_str}{type_str}{filename_str}\n")
+        defined = ""
+        if name in SYM_NAMES_FORCE_DEFINED:
+            defined = " defined:True"
+
+        visibility = ""
+        if name in duped_sym_names:
+            visibility = " visibility:local"
+
+        f.write(f"{comment_out}{name} = 0x{addr:08X}; //{size_str}{type_str}{filename_str}{defined}{visibility}\n")
