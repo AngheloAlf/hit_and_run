@@ -1,5 +1,5 @@
-#ifndef ASSERT_HPP
-#define ASSERT_HPP
+#ifndef ASSERT_H
+#define ASSERT_H
 
 #include "attributes.h"
 

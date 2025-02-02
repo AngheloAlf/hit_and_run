@@ -520,7 +520,7 @@ segments:
       - [0x2ED628, asm, libs/radcontent/radcontentpr/queue] # .a
       - [0x2ED838, asm, libs/radcontent/radcontentpr/request] # .a
       - [0x2EDD20, asm, libs/radcontent/radcontentpr/stream] # .a
-      - [0x2EE6E0, asm, sce_libs/gcc/ee/libg/assert] # .a
+      - [0x2EE6E0, c, sce_libs/gcc/ee/libg/assert] # .a
       - [0x2EE718, asm, sce_libs/gcc/ee/libg/atexit] # .a
       - [0x2EE7B0, asm, sce_libs/gcc/ee/libg/atof] # .a
       - [0x2EE7D0, asm, sce_libs/gcc/ee/libg/atoi] # .a
@@ -1404,7 +1404,7 @@ segments:
       - [0x3ABFE8, rodata, libs/radcontent/radcontentpr/queue] # .a
       - [0x3AC030, rodata, libs/radcontent/radcontentpr/request] # .a
       - [0x3AC0C8, rodata, libs/radcontent/radcontentpr/stream] # .a
-      - [0x3AC370, rodata, sce_libs/gcc/ee/libg/assert] # .a
+      - [0x3AC370, .rodata, sce_libs/gcc/ee/libg/assert] # .a
       - [0x3AC3A0, rodata, sce_libs/gcc/ee/libg/ctype_] # .a
       - [0x3AC4A8, rodata, sce_libs/gcc/ee/libg/impure] # .a
       - [0x3AC4B0, rodata, sce_libs/gcc/ee/libg/mstats] # .a
