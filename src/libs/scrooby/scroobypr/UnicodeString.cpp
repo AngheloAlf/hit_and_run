@@ -7,10 +7,9 @@
 #include "sce_libs/gcc/ee/libg/memcpy.h"
 #include "sce_libs/gcc/ee/libg/strlen.h"
 
-// probably inline static
-extern bool D_0043653C;
-
 void test(void) {
+    static bool D_0043653C = false;
+
     if (!D_0043653C) {
         D_0043653C = true;
 
@@ -28,35 +27,35 @@ UnicodeString::UnicodeString(void) {
     test();
 }
 
-UnicodeString::UnicodeString(UnicodeString const &arg1) {
+UnicodeString::UnicodeString(UnicodeString const &other) {
     this->buffer = NULL;
-    if (this != &arg1) {
+    if (this != &other) {
         this->Clear();
-        *this = arg1;
+        *this = other;
     }
 }
 
-UnicodeString::UnicodeString(char const *arg1) {
+UnicodeString::UnicodeString(char const *ascii_str) {
     this->buffer = NULL;
-    this->ReadAscii(arg1, strlen(arg1));
+    this->ReadAscii(ascii_str, strlen(ascii_str));
 }
 
 UnicodeString::~UnicodeString(void) {
     this->Clear();
 }
 
-UnicodeString &UnicodeString::operator=(UnicodeString const &arg1) {
-    if (&arg1 == this) {
+UnicodeString &UnicodeString::operator=(UnicodeString const &other) {
+    if (&other == this) {
         return *this;
     }
 
-    if (this->unk_4 < arg1.unk_4) {
+    if (this->capacity < other.capacity) {
         this->Clear();
-        this->Resize(arg1.unk_4);
+        this->Resize(other.capacity);
     }
-    if (this->unk_4 > 0) {
-        if (arg1.buffer != NULL) {
-            memcpy(this->buffer, arg1.buffer, (arg1.unk_4 + 1) * 2);
+    if (this->capacity > 0) {
+        if (other.buffer != NULL) {
+            memcpy(this->buffer, other.buffer, (other.capacity + 1) * sizeof(UnicodeChar));
         } else {
             this->buffer[0] = 0;
         }
@@ -66,60 +65,61 @@ UnicodeString &UnicodeString::operator=(UnicodeString const &arg1) {
 
 GARBAGE_INSTR("nop");
 
-void UnicodeString::operator+=(UnicodeString const &arg1) {
-    s32 temp_s1 = this->Length();
-    s32 temp_v0 = arg1.Length();
-    s32 temp_s2 = temp_s1 + temp_v0;
+void UnicodeString::operator+=(UnicodeString const &other) {
+    int length = this->Length();
+    int other_length = other.Length();
+    int new_capacity = length + other_length;
 
-    if (temp_s2 > 0) {
-        u16* temp_v0_2 = new u16[temp_s2 + 1];
-        memcpy(temp_v0_2, this->buffer, temp_s1 * 2);
-        memcpy(&temp_v0_2[temp_s1], arg1.buffer, temp_v0 * 2);
-        temp_v0_2[temp_s2] = 0;
+    if (new_capacity > 0) {
+        UnicodeChar* new_buff = new UnicodeChar[new_capacity + 1];
+
+        memcpy(new_buff, this->buffer, length * sizeof(UnicodeChar));
+        memcpy(&new_buff[length], other.buffer, other_length * sizeof(UnicodeChar));
+        new_buff[new_capacity] = 0;
+
         this->Clear();
-        this->buffer = temp_v0_2;
-        this->unk_4 = temp_s2;
+        this->buffer = new_buff;
+        this->capacity = new_capacity;
     }
 }
 
-void UnicodeString::operator+=(unsigned short const &arg1) {
+void UnicodeString::operator+=(UnicodeChar const &w) {
     UnicodeString sp00;
 
     sp00.Resize(1);
-    sp00[0] = arg1;
+    sp00[0] = w;
     *this += sp00;
 }
 
 GARBAGE_INSTR("addiu       $29, $29, 0x60");
 
-const u16 &UnicodeString::operator[](int arg1) const {
-    if (arg1 >= (this->Length() + 1)) {
-        __assert("../../src/strings/UnicodeString.cpp", 0x11E, "index < Length() + 1");
-    }
-    return this->buffer[arg1];
+const u16 &UnicodeString::operator[](int index) const {
+    ASSERT(index < Length() + 1, "../../src/strings/UnicodeString.cpp", 286);
+
+    return this->buffer[index];
 }
 
-u16 &UnicodeString::operator[](int arg1) {
-    if (arg1 >= (this->Length() + 1)) {
-        __assert("../../src/strings/UnicodeString.cpp", 0x130, "index < Length() + 1");
-    }
-    return this->buffer[arg1];
+u16 &UnicodeString::operator[](int index) {
+    ASSERT(index < Length() + 1, "../../src/strings/UnicodeString.cpp", 304);
+
+    return this->buffer[index];
 }
 
-void UnicodeString::Append(unsigned short const &arg1) {
-    s32 temp_v0 = this->Length();
-    s32 temp_a0 = temp_v0 + 2;
+void UnicodeString::Append(UnicodeChar const &w) {
+    int length = this->Length();
 
-    if (this->unk_4 < temp_a0) {
-        u16* temp_v0_2 = new u16[temp_a0];
+    if (this->capacity < length + 2) {
+        UnicodeChar* new_buff = new UnicodeChar[length + 2];
 
-        memcpy(temp_v0_2, this->buffer, temp_v0 * 2);
+        memcpy(new_buff, this->buffer, length * sizeof(UnicodeChar));
+
         this->Clear();
-        this->buffer = temp_v0_2;
-        this->unk_4 = (s32) (temp_v0 + 1);
+        this->buffer = new_buff;
+        this->capacity = length + 1;
     }
-    this->buffer[temp_v0] = arg1;
-    this->buffer[temp_v0+1] = 0;
+
+    this->buffer[length] = w;
+    this->buffer[length + 1] = 0;
 }
 
 void UnicodeString::Clear(void) {
@@ -127,61 +127,57 @@ void UnicodeString::Clear(void) {
         delete[] this->buffer;
         this->buffer = NULL;
     }
-    this->unk_4 = 0;
+    this->capacity = 0;
 }
 
-int UnicodeString::FindFirstSubstring(UnicodeString const &arg1) const {
-    s32 temp_s4 = arg1.Length();
-    s32 temp_s3 = this->Length() - temp_s4 + 1;
+int UnicodeString::FindFirstSubstring(UnicodeString const &sub) const {
+    int sub_length = sub.Length();
+    int end = this->Length() - sub_length + 1;
 
-    for (int var_s1 = 0; var_s1 < temp_s3; var_s1++) {
-        bool var_s7 = true;
+    for (int index = 0; index < end; index++) {
+        bool found = true;
 
-        for (s32 var_s2 = 0; var_s2 < temp_s4; var_s2++) {
-            if ((*this)[var_s1 + var_s2] != arg1[var_s2]) {
-                var_s7 = false;
+        for (int j = 0; j < sub_length; j++) {
+            if ((*this)[index + j] != sub[j]) {
+                found = false;
                 break;
             }
         }
 
-        if (var_s7) {
-            return var_s1;
+        if (found) {
+            return index;
         }
     }
 
     return -1;
 }
 
-const u16 *UnicodeString::GetBuffer(void) {
+const UnicodeChar *UnicodeString::GetBuffer(void) {
     return this->buffer;
 }
 
 int UnicodeString::Length(void) const {
-    int var_v1;
-
     if (this->buffer == NULL) {
         return 0;
     }
 
-    for (var_v1 = 0; this->buffer[var_v1] != 0; var_v1++) {
+    int i;
+    for (i = 0; this->buffer[i] != 0; i++) {
         ;
     }
-    return var_v1;
+    return i;
 }
 
-void UnicodeString::MakeAscii(char *arg1, int arg2) const {
-    s32 i;
+void UnicodeString::MakeAscii(char *dst, int size) const {
+    int length = this->Length();
+    ASSERT(size >= length + 1, "../../src/strings/UnicodeString.cpp", 437);
 
-    if (arg2 < (this->Length() + 1)) {
-        __assert("../../src/strings/UnicodeString.cpp", 0x1B5, "size >= length + 1");
-    }
-
+    int i;
     for (i = 0; i < this->Length(); i++) {
-        // Around here:
-        u16 w = this->buffer[i];
-        arg1[i] = (w  != (u8)this->buffer[i]) ? '?' : w;
+        UnicodeChar w = this->buffer[i];
+        dst[i] = (w != (u8)this->buffer[i]) ? '?' : w;
     }
-    arg1[i] = 0;
+    dst[i] = 0;
 }
 
 GARBAGE_INSTR("addiu       $29, $29, 0x40");
@@ -190,74 +186,70 @@ GARBAGE_INSTR("addiu       $29, $29, 0x40");
 extern const char D_0048A3E0[] = "size >= Length() + 1";
 extern const char D_0048A3F8[] = "lengthInBytes % sizeof(UnicodeChar) == 0";
 
-void UnicodeString::ReadAscii(char const *arg1, int arg2) {
-    s32 var_a1;
-
+void UnicodeString::ReadAscii(char const *src, int size) {
     this->Clear();
-    if (arg2 == -1) {
-        arg2 = strlen(arg1);
+    if (size == -1) {
+        size = strlen(src);
     }
-    this->Resize(arg2);
-    var_a1 = 0;
-    while (var_a1 < arg2) {
-        this->buffer[var_a1] = arg1[var_a1];
-        var_a1 += 1;
+    this->Resize(size);
+
+    for (int index = 0; index < size; index++) {
+        this->buffer[index] = src[index];
     }
-    this->buffer[arg2] = 0;
+    this->buffer[size] = 0;
 }
 
-void UnicodeString::ReadUnicode(unsigned short const *arg1, int arg2) {
+void UnicodeString::ReadUnicode(UnicodeChar const *src, int size) {
     this->Clear();
-    this->unk_4 = arg2;
-    if (arg2 < 0) {
-        this->unk_4 = 0;
-        while (arg1[this->unk_4] != 0) {
-            this->unk_4 = this->unk_4 + 1;
+    this->capacity = size;
+
+    if (size < 0) {
+        this->capacity = 0;
+        while (src[this->capacity] != 0) {
+            this->capacity++;
         }
     }
-    this->Resize(this->unk_4);
-    memcpy(this->buffer, arg1, (this->unk_4 + 1) * 2);
-    this->buffer[this->unk_4] = 0;
+
+    this->Resize(this->capacity);
+    memcpy(this->buffer, src, (this->capacity + 1) * sizeof(UnicodeChar));
+    this->buffer[this->capacity] = 0;
 }
 
 GARBAGE_INSTR("addiu       $29, $29, 0x40");
 
-void UnicodeString::Replace(UnicodeString const &arg1, UnicodeString const &arg2) {
-    s32 temp_s0;
-    s32 temp_s2;
-    int temp_v0;
+void UnicodeString::Replace(UnicodeString const &old_sub, UnicodeString const &new_sub) {
+    int old_sub_index = this->FindFirstSubstring(old_sub);
 
-    temp_v0 = this->FindFirstSubstring(arg1);
-    if (temp_v0 != -1) {
-        temp_s0 = this->Length();
-        temp_s2 = arg1.Length();
+    if (old_sub_index != -1) {
+        int length = this->Length();
+        int old_length = old_sub.Length();
 
-        UnicodeString sp00 = this->Substring(0, temp_v0);
-        UnicodeString sp10 = this->Substring(temp_v0 + temp_s2, (temp_s0 - temp_v0) - temp_s2);
-        UnicodeString sp20(sp00);
+        UnicodeString left = this->Substring(0, old_sub_index);
+        UnicodeString right = this->Substring(old_sub_index + old_length, length - old_sub_index - old_length);
+        UnicodeString ret(left);
 
-        sp20 += arg2;
-        sp20 += sp10;
-        *this = sp20;
+        ret += new_sub;
+        ret += right;
+        *this = ret;
     }
 }
 
-void UnicodeString::Resize(unsigned int arg1) {
+void UnicodeString::Resize(size_t new_capacity) {
     this->Clear();
-    this->unk_4 = arg1;
-    this->buffer = new u16[arg1 + 1];
+    this->capacity = new_capacity;
+    this->buffer = new UnicodeChar[new_capacity + 1];
 
-    s32 end = this->unk_4 + 1;
-    for (s32 var_a0 = 0; var_a0 < end; var_a0++) {
-        this->buffer[var_a0] = 0;
+    int end = this->capacity + 1;
+    for (int index = 0; index < end; index++) {
+        this->buffer[index] = 0;
     }
 }
 
-UnicodeString UnicodeString::Substring(unsigned int arg2, unsigned int arg3) const {
-    UnicodeString sp00;
+UnicodeString UnicodeString::Substring(size_t start, size_t end) const {
+    UnicodeString ret;
 
-    for (u32 var_s0 = arg2; var_s0 < arg2 + arg3; var_s0++) {
-        sp00 += (*this)[var_s0];
+    for (size_t index = start; index < start + end; index++) {
+        ret += (*this)[index];
     }
-    return sp00;
+    return ret;
 }

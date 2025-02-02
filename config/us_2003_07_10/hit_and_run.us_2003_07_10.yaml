@@ -877,7 +877,7 @@ segments:
       - [0x336528, data, libs/scrooby/scroobypr/FeResourceManager] # .a
       - [0x336534, data, libs/scrooby/scroobypr/App] # .a
       - [0x336538, data, libs/scrooby/scroobypr/pcstring] # .a
-      - [0x33653C, data, libs/scrooby/scroobypr/UnicodeString] # .a
+      - [0x33653C, .data, libs/scrooby/scroobypr/UnicodeString] # .a
       - [0x336540, data, libs/scrooby/scroobypr/FeApp] # .a
       - [0x336544, data, libs/scrooby/scroobypr/FeBoundedDrawable] # .a
       - [0x33655C, data, libs/pure3d/pure3dpr/billboardobject] # .a

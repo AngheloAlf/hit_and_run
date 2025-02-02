@@ -7,7 +7,7 @@
 extern "C" {
 #endif
 
-void memcpy(void *dest, const void *src, size_t count);
+void *memcpy(void *dest, const void *src, size_t count);
 
 #ifdef __cplusplus
 }
