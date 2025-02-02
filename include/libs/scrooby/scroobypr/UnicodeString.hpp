@@ -1,32 +1,46 @@
 #ifndef UNICODESTRING_HPP
 #define UNICODESTRING_HPP
 
+#include "types.h"
+
 // text
 
-// void test__Fv();
-// void __13UnicodeString();
-// void __13UnicodeStringRC13UnicodeString();
-// void __13UnicodeStringPCc();
-// void _$_13UnicodeString();
-// void __as__13UnicodeStringRC13UnicodeString();
-// void __apl__13UnicodeStringRC13UnicodeString();
-// void __apl__13UnicodeStringRCUs();
-// void func_003063A0();
-// void __vc__C13UnicodeStringi();
-// void __vc__13UnicodeStringi();
-// void Append__13UnicodeStringRCUs();
-// void Clear__13UnicodeString();
-// void FindFirstSubstring__C13UnicodeStringRC13UnicodeString();
-// void GetBuffer__13UnicodeString();
-// void Length__C13UnicodeString();
-// void MakeAscii__C13UnicodeStringPci();
-// void func_00306748();
-// void ReadAscii__13UnicodeStringPCci();
-// void ReadUnicode__13UnicodeStringPCUsi();
-// void func_003068A8();
-// void Replace__13UnicodeStringRC13UnicodeStringT1();
-// void Resize__13UnicodeStringUi();
-// void Substring__C13UnicodeStringUiUi();
+// TODO
+// typedef u16 UnicodeChar;
+
+class UnicodeString {
+private:
+    u16 *buffer;
+    int unk_4;
+
+public:
+    UnicodeString(void);
+    UnicodeString(UnicodeString const &);
+    UnicodeString(char const *);
+    ~UnicodeString(void);
+private:
+    UnicodeString &operator=(UnicodeString const &);
+    void operator+=(UnicodeString const &);
+    void operator+=(unsigned short const &);
+    // func_003063A0
+    const u16 &operator[](int) const;
+    u16 &operator[](int);
+    void Append(unsigned short const &);
+    void Clear(void);
+    int FindFirstSubstring(UnicodeString const &) const;
+    const u16 *GetBuffer(void);
+    int Length(void) const;
+    void MakeAscii(char *, int) const;
+    // func_00306748
+    void ReadAscii(char const *, int);
+    void ReadUnicode(unsigned short const *, int);
+    // func_003068A8;
+public:
+    void Replace(UnicodeString const &, UnicodeString const &);
+private:
+    void Resize(unsigned int);
+    UnicodeString Substring(unsigned int, unsigned int) const;
+};
 
 // rodata
 

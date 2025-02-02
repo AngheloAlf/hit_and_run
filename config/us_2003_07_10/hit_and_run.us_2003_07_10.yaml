@@ -254,7 +254,7 @@ segments:
       - [0x202120, asm, libs/scrooby/scroobypr/FeResourceManager] # .a
       - [0x2050C0, asm, libs/scrooby/scroobypr/App] # .a
       - [0x205218, asm, libs/scrooby/scroobypr/pcstring] # .a
-      - [0x206010, asm, libs/scrooby/scroobypr/UnicodeString] # .a
+      - [0x206010, cpp, libs/scrooby/scroobypr/UnicodeString] # .a
       - [0x206AE0, asm, libs/scrooby/scroobypr/stricmp] # .a
       - [0x206BB8, asm, libs/scrooby/scroobypr/EnumConversion] # .a
       - [0x206C80, asm, libs/scrooby/scroobypr/XMLTree] # .a
@@ -1169,7 +1169,7 @@ segments:
       - [0x389BC8, rodata, libs/scrooby/scroobypr/FeResourceManager] # .a
       - [0x38A230, rodata, libs/scrooby/scroobypr/App] # .a
       - [0x38A310, rodata, libs/scrooby/scroobypr/pcstring] # .a
-      - [0x38A370, rodata, libs/scrooby/scroobypr/UnicodeString] # .a
+      - [0x38A370, .rodata, libs/scrooby/scroobypr/UnicodeString] # .a
       - [0x38A428, rodata, libs/scrooby/scroobypr/EnumConversion] # .a
       - [0x38A480, rodata, libs/scrooby/scroobypr/XMLTree] # .a
       - [0x38A500, rodata, libs/scrooby/scroobypr/FeApp] # .a
