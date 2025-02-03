@@ -8,7 +8,7 @@
 #include "sce_libs/gcc/ee/libg/strlen.h"
 
 void test(void) {
-    static bool D_0043653C = false;
+    static int D_0043653C = false;
 
     if (!D_0043653C) {
         D_0043653C = true;

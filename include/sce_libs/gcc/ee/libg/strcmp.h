@@ -5,7 +5,7 @@
 extern "C" {
 #endif
 
-int strcmp(const char *, const char *);
+int strcmp(const char *lhs, const char *rhs);
 
 #ifdef __cplusplus
 }

@@ -12,9 +12,10 @@ private:
     UnicodeChar *buffer;
     int capacity;
 
-public:
+private:
     UnicodeString(void);
     UnicodeString(UnicodeString const &);
+public:
     UnicodeString(char const *);
     ~UnicodeString(void);
 private:

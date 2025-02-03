@@ -151,8 +151,8 @@ endif
 
 ## Compiler options ##
 
-CFLAGS          += -G0
-CXXFLAGS        += -G0 -fno-exceptions
+CFLAGS          += -G0 -fbyte-bool
+CXXFLAGS        += -G0 -fbyte-bool -fno-exceptions
 
 WARNINGS        := 
 ASFLAGS         := -march=r5900 -mabi=eabi -G8 -no-pad-sections
@@ -228,9 +228,6 @@ endif
 $(BUILD_DIR)/asm/$(VERSION)/sce_libs/gcc/ee/%.o:                ELF_PATCHER_FLAGS += --section-align .text:0x4
 $(BUILD_DIR)/asm/$(VERSION)/sce_libs/gcc_lib/ee/%.o:            ELF_PATCHER_FLAGS += --section-align .text:0x4
 $(BUILD_DIR)/asm/$(VERSION)/data/sce_libs/gcc/ee/%.rodata.o:    ELF_PATCHER_FLAGS += --section-align .rodata:0x4
-
-$(BUILD_DIR)/src/code/%.o:                                      CFLAGS            += -fbyte-bool
-$(BUILD_DIR)/src/code/%.o:                                      CXXFLAGS          += -fbyte-bool
 
 ##### Per-file flags #####
 

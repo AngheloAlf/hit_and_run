@@ -253,11 +253,11 @@ segments:
       - [0x201458, asm, libs/scrooby/scroobypr/tLinearTable] # .a
       - [0x202120, asm, libs/scrooby/scroobypr/FeResourceManager] # .a
       - [0x2050C0, asm, libs/scrooby/scroobypr/App] # .a
-      - [0x205218, asm, libs/scrooby/scroobypr/pcstring] # .a
+      - [0x205218, cpp, libs/scrooby/scroobypr/pcstring] # .a
       - [0x206010, cpp, libs/scrooby/scroobypr/UnicodeString] # .a
       - [0x206AE0, asm, libs/scrooby/scroobypr/stricmp] # .a
       - [0x206BB8, asm, libs/scrooby/scroobypr/EnumConversion] # .a
-      - [0x206C80, asm, libs/scrooby/scroobypr/XMLTree] # .a
+      - [0x206C80, cpp, libs/scrooby/scroobypr/XMLTree] # .a
       - [0x2075D0, asm, libs/scrooby/scroobypr/FeApp] # .a
       - [0x208790, asm, libs/scrooby/scroobypr/FeBoundedDrawable] # .a
       - [0x209A50, asm, libs/scrooby/scroobypr/FeChunkHandler] # .a
@@ -268,7 +268,7 @@ segments:
       - [0x20F168, asm, libs/scrooby/scroobypr/FeLayer] # .a
       - [0x20FB70, asm, libs/scrooby/scroobypr/FeMovie] # .a
       - [0x210398, asm, libs/scrooby/scroobypr/FeOwner] # .a
-      - [0x211100, asm, libs/scrooby/scroobypr/XMLParser] # .a
+      - [0x211100, cpp, libs/scrooby/scroobypr/XMLParser] # .a
       - [0x2120D8, asm, libs/scrooby/scroobypr/BufferReader] # .a
       - [0x2120E8, cpp, libs/pure3d/pure3dpr/platform] # .a
       - [0x212368, asm, libs/pure3d/pure3dpr/billboardobject] # .a
@@ -876,7 +876,7 @@ segments:
       - [0x336524, data, libs/scrooby/scroobypr/FeTextBible] # .a
       - [0x336528, data, libs/scrooby/scroobypr/FeResourceManager] # .a
       - [0x336534, data, libs/scrooby/scroobypr/App] # .a
-      - [0x336538, data, libs/scrooby/scroobypr/pcstring] # .a
+      - [0x336538, .data, libs/scrooby/scroobypr/pcstring] # .a
       - [0x33653C, .data, libs/scrooby/scroobypr/UnicodeString] # .a
       - [0x336540, data, libs/scrooby/scroobypr/FeApp] # .a
       - [0x336544, data, libs/scrooby/scroobypr/FeBoundedDrawable] # .a
@@ -1168,10 +1168,10 @@ segments:
       - [0x389B10, rodata, libs/scrooby/scroobypr/tLinearTable] # .a
       - [0x389BC8, rodata, libs/scrooby/scroobypr/FeResourceManager] # .a
       - [0x38A230, rodata, libs/scrooby/scroobypr/App] # .a
-      - [0x38A310, rodata, libs/scrooby/scroobypr/pcstring] # .a
+      - [0x38A310, .rodata, libs/scrooby/scroobypr/pcstring] # .a
       - [0x38A370, .rodata, libs/scrooby/scroobypr/UnicodeString] # .a
       - [0x38A428, rodata, libs/scrooby/scroobypr/EnumConversion] # .a
-      - [0x38A480, rodata, libs/scrooby/scroobypr/XMLTree] # .a
+      - [0x38A480, .rodata, libs/scrooby/scroobypr/XMLTree] # .a
       - [0x38A500, rodata, libs/scrooby/scroobypr/FeApp] # .a
       - [0x38A6B8, rodata, libs/scrooby/scroobypr/FeBoundedDrawable] # .a
       - [0x38AD00, rodata, libs/scrooby/scroobypr/FeChunkHandler] # .a
@@ -1182,7 +1182,7 @@ segments:
       - [0x38B7F8, rodata, libs/scrooby/scroobypr/FeLayer] # .a
       - [0x38BCD8, rodata, libs/scrooby/scroobypr/FeMovie] # .a
       - [0x38C560, rodata, libs/scrooby/scroobypr/FeOwner] # .a
-      - [0x38C8E0, rodata, libs/scrooby/scroobypr/XMLParser] # .a
+      - [0x38C8E0, .rodata, libs/scrooby/scroobypr/XMLParser] # .a
       - [0x38C9B8, .rodata, libs/pure3d/pure3dpr/platform] # .a
       - [0x38C9F8, rodata, libs/pure3d/pure3dpr/billboardobject] # .a
       - [0x38CD88, rodata, libs/pure3d/pure3dpr/bmp] # .a
