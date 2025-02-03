@@ -24,7 +24,7 @@ jobs:
       run: |
         sudo dpkg --add-architecture i386
         sudo apt-get update
-        sudo apt-get install -y wine
+        sudo apt-get install -y wine wine32
 
     - name: Install Python dependencies
       run: python3 -m pip install -r requirements.txt
