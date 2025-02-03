@@ -19,8 +19,10 @@ private:
     PascalCString(char const *);
     PascalCString(char);
     PascalCString(PascalCString const &); // void __13PascalCStringRC13PascalCString();
+public:
     PascalCString &operator=(PascalCString const &); // void __as__13PascalCStringRC13PascalCString();
     PascalCString &operator=(char const *); // void __as__13PascalCStringPCc();
+private:
     // void func_00305580();
     void Grow(unsigned int); // void Grow__13PascalCStringUi();
     PascalCString &operator+=(PascalCString const &); // void __apl__13PascalCStringRC13PascalCString();
@@ -31,18 +33,26 @@ private:
     // void func_003057C8();
     bool operator!=(char const *) const; // void __ne__C13PascalCStringPCc();
     // void func_003057F8();
+public:
     int Length() const; // void Length__C13PascalCString(); // TODO: maybe return size_t
+private:
     void Reserve(int); // void Reserve__13PascalCStringi();
+public:
     operator char *(void); // void __opPc__13PascalCString();
+private:
     void AdjustMaxArraySize(unsigned int);// void AdjustMaxArraySize__13PascalCStringUi();
     // void func_00305898();
     PascalCString SubString(int, int); // void SubString__13PascalCStringii();
     // void func_003059B0();
     PascalCString StreamFirstWord(char arg2); // void StreamFirstWord__13PascalCStringc();
     bool Find(char);// void Find__13PascalCStringc();
+public:
     bool EqualsInsensitive(char const *arg1);// void EqualsInsensitive__13PascalCStringPCc();
+private:
     void Replace(PascalCString const &, PascalCString const &); // void Replace__13PascalCStringRC13PascalCStringT1();
+public:
     void ToUpper(void); // void ToUpper__13PascalCString();
+private:
     // void func_00305CE0();
     PascalCString FullFilename(void); // void FullFilename__13PascalCString();
     PascalCString JustFilename(void); // void JustFilename__13PascalCString();

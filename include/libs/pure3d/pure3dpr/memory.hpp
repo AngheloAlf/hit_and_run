@@ -4,10 +4,14 @@
 // text
 
 namespace p3d {
+    enum AllocType {
+        /* 2 */ ENUM_P3D_ALLOCTYPE_2 = 2,
+    };
+
     // void MemSetup__3p3dv();
     // void func_003285C0();
-    // void GetCurrentAlloc__3p3dv();
-    // void SetCurrentAlloc__3p3dQ23p3d9AllocType();
+    AllocType GetCurrentAlloc(void); // void GetCurrentAlloc__3p3dv();
+    void SetCurrentAlloc(AllocType); // void SetCurrentAlloc__3p3dQ23p3d9AllocType();
     // void func_00328668();
     // void MallocTemp__3p3dUi();
     // void FreeTemp__3p3dPv();

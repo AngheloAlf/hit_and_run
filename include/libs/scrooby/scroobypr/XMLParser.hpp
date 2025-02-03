@@ -1,30 +1,65 @@
 #ifndef XMLPARSER_HPP
 #define XMLPARSER_HPP
 
-// text
+#include "libs/scrooby/scroobypr/pcstring.hpp"
 
-// void GetName__12XMLAttribute();
-// void GetValue__12XMLAttribute();
-// void GetLength__16XMLAttributeList();
-// void AddItem__16XMLAttributeListP12XMLAttribute();
-// void GetItem__16XMLAttributeListi();
-// void GetLength__11XMLNodeList();
-// void AddItem__11XMLNodeListP7XMLNode();
-// void GetItem__11XMLNodeListi();
-// void __7XMLNode();
-// void _$_7XMLNode();
-// void GetName__7XMLNode();
-// void GetAttributes__7XMLNode();
-// void GetChildNodes__7XMLNode();
-// void __9XMLParser();
-// void _$_9XMLParser();
-// void func_00311748();
-// void ParseFromBuffer__9XMLParserPcUi();
-// void func_00311838();
-// void Parse__9XMLParserRPc();
-// void ReadNextTag__9XMLParserRPc();
-// void func_00311A38();
-// void DecodeTag__9XMLParserR13PascalCString();
+class XMLNode;
+
+class XMLAttribute {
+public:
+    PascalCString GetName(); // void GetName__12XMLAttribute();
+    PascalCString GetValue(); // void GetValue__12XMLAttribute();
+};
+
+class XMLAttributeList {
+public:
+    int GetLength();// void GetLength__16XMLAttributeList();
+private:
+    // void AddItem__16XMLAttributeListP12XMLAttribute();
+public:
+    XMLAttribute *GetItem(int);// void GetItem__16XMLAttributeListi();
+};
+
+class XMLNodeList {
+public:
+    int GetLength(void);// void GetLength__11XMLNodeList();
+private:
+    // void AddItem__11XMLNodeListP7XMLNode();
+public:
+    XMLNode *GetItem(int);// void GetItem__11XMLNodeListi();
+};
+
+class XMLNode {
+private:
+    UNK_PAD unk_00[0x68];
+
+    // void __7XMLNode();
+public:
+    virtual ~XMLNode(void);
+
+    PascalCString GetName(); // void GetName__7XMLNode();
+    XMLAttributeList *GetAttributes(); // void GetAttributes__7XMLNode();
+    XMLNodeList *GetChildNodes(); // void GetChildNodes__7XMLNode();
+};
+
+class XMLParser {
+private:
+    UNK_PAD unk_00[0x90]; // TODO: Maybe larger/smaller?
+public:
+    XMLParser(); // void __9XMLParser();
+    ~XMLParser(); // void _$_9XMLParser();
+
+    // Returned pointer must be deleted by caller.
+    // TODO: corroborate that claim
+    XMLNode *ParseFromBuffer(char *, unsigned int); // void ParseFromBuffer__9XMLParserPcUi();
+private:
+    // void func_00311838();
+    // void Parse__9XMLParserRPc();
+    // void ReadNextTag__9XMLParserRPc();
+    // void func_00311A38();
+    // void DecodeTag__9XMLParserR13PascalCString();
+};
+
 // void __tf7XMLNode();
 // void __tf9XMLParser();
 // void _$_12XMLAttribute();
