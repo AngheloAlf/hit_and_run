@@ -4,11 +4,13 @@
 #include "types.h"
 #include "unk.h"
 
+#include "libc/stddef.h"
+
 class PascalCString {
 private:
-    /* 0x0 */ char *unk_0;
-    /* 0x4 */ UNK_TYPE unk_4; // length
-    /* 0x8 */ UNK_TYPE unk_8; // TODO: maybe size_t
+    /* 0x0 */ char *buffer;
+    /* 0x4 */ int m_ichMac; // length
+    /* 0x8 */ size_t capacity; // TODO: maybe size_t
     /* 0xC */ UNK_TYPE unk_C;
 
 public:
@@ -24,7 +26,7 @@ public:
     PascalCString &operator=(char const *); // void __as__13PascalCStringPCc();
 private:
     // void func_00305580();
-    void Grow(unsigned int); // void Grow__13PascalCStringUi();
+    void Grow(size_t); // void Grow__13PascalCStringUi();
     PascalCString &operator+=(PascalCString const &); // void __apl__13PascalCStringRC13PascalCString();
     PascalCString &operator+=(char const *); // void __apl__13PascalCStringPCc();
     PascalCString &operator+=(char); // void __apl__13PascalCStringc();
@@ -34,13 +36,13 @@ private:
     bool operator!=(char const *) const; // void __ne__C13PascalCStringPCc();
     // void func_003057F8();
 public:
-    int Length() const; // void Length__C13PascalCString(); // TODO: maybe return size_t
+    int Length() const; // void Length__C13PascalCString();
 private:
     void Reserve(int); // void Reserve__13PascalCStringi();
 public:
     operator char *(void); // void __opPc__13PascalCString();
 private:
-    void AdjustMaxArraySize(unsigned int);// void AdjustMaxArraySize__13PascalCStringUi();
+    void AdjustMaxArraySize(size_t);// void AdjustMaxArraySize__13PascalCStringUi();
     // void func_00305898();
     PascalCString SubString(int, int); // void SubString__13PascalCStringii();
     // void func_003059B0();

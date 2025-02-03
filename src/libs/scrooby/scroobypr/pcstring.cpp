@@ -16,26 +16,20 @@
 
 #include "libs/scrooby/scroobypr/stricmp.hpp"
 
-UNK_TYPE g_ScroobyMemoryCount = 0;
-
-// TODO: inlining those strings produces a silly reorder
-const char D_0048A310[] = "../../src/strings/pcstring.cpp";
-const char D_0048A330[] = "szString";
-const char D_0048A340[1] = {0};
-const char D_0048A348[] = "iStart + iChars <= int( m_ichMac + 1 )";
+size_t g_ScroobyMemoryCount = 0;
 
 PascalCString::PascalCString() {
     this->unk_C = 0x10;
-    this->unk_4 = 0;
-    this->unk_8 = 0;
-    g_ScroobyMemoryCount += this->unk_8;
-    this->unk_0 = NULL;
+    this->m_ichMac = 0;
+    this->capacity = 0;
+    g_ScroobyMemoryCount += this->capacity;
+    this->buffer = NULL;
 }
 
 PascalCString::~PascalCString() {
-    g_ScroobyMemoryCount -= this->unk_8;
-    if (this->unk_0 != NULL) {
-        delete [] this->unk_0;
+    g_ScroobyMemoryCount -= this->capacity;
+    if (this->buffer != NULL) {
+        delete [] this->buffer;
     }
 }
 
@@ -43,65 +37,65 @@ GARBAGE_INSTR("addiu       $29, $29, 0x30");
 
 PascalCString::PascalCString(char const *arg1) {
     this->unk_C = 0x10;
-    this->unk_8 = 0;
+    this->capacity = 0;
     if (arg1 != NULL) {
-        this->unk_4 = strlen(arg1);
-        this->AdjustMaxArraySize(this->unk_4 + 1);
+        this->m_ichMac = strlen(arg1);
+        this->AdjustMaxArraySize(this->m_ichMac + 1);
 
-        g_ScroobyMemoryCount += this->unk_8;
+        g_ScroobyMemoryCount += this->capacity;
 
-        this->unk_0 = new char[this->unk_8];
-        strcpy(this->unk_0, arg1);
+        this->buffer = new char[this->capacity];
+        strcpy(this->buffer, arg1);
     } else {
-        this->unk_0[0] = 0;
-        this->unk_4 = 0;
+        this->buffer[0] = 0;
+        this->m_ichMac = 0;
     }
 }
 
 PascalCString::PascalCString(char arg1) {
-    this->unk_8 = 0;
+    this->capacity = 0;
     this->unk_C = 0x10;
-    this->unk_4 = 1;
+    this->m_ichMac = 1;
 
     this->AdjustMaxArraySize(2);
 
-    g_ScroobyMemoryCount += this->unk_8;
+    g_ScroobyMemoryCount += this->capacity;
 
-    this->unk_0 = new char[this->unk_8];
-    this->unk_0[0] = arg1;
-    this->unk_0[1] = 0;
+    this->buffer = new char[this->capacity];
+    this->buffer[0] = arg1;
+    this->buffer[1] = 0;
 }
 
 PascalCString::PascalCString(PascalCString const &arg1) {
-    this->unk_8 = 0;
+    this->capacity = 0;
     this->unk_C = arg1.unk_C;
-    this->unk_4 = arg1.unk_4;
-    this->AdjustMaxArraySize(arg1.unk_8);
+    this->m_ichMac = arg1.m_ichMac;
+    this->AdjustMaxArraySize(arg1.capacity);
 
-    g_ScroobyMemoryCount += this->unk_8;
+    g_ScroobyMemoryCount += this->capacity;
 
-    this->unk_0 = new char[this->unk_8];
-    strcpy(this->unk_0, arg1.unk_0);
+    this->buffer = new char[this->capacity];
+    strcpy(this->buffer, arg1.buffer);
 }
 
 PascalCString &PascalCString::operator=(PascalCString const &arg1) {
     if (this != &arg1) {
-        g_ScroobyMemoryCount -= this->unk_8;
+        g_ScroobyMemoryCount -= this->capacity;
 
-        if ((u32) this->unk_8 < (u32) (arg1.Length() + 1)) {
-            this->AdjustMaxArraySize(arg1.unk_8);
+        if (this->capacity < arg1.Length() + 1) {
+            this->AdjustMaxArraySize(arg1.capacity);
 
-            if (this->unk_0 != NULL) {
-                delete [] this->unk_0;
+            if (this->buffer != NULL) {
+                delete [] this->buffer;
             }
-            this->unk_0 = new char[this->unk_8];
+            this->buffer = new char[this->capacity];
         }
 
         this->unk_C = arg1.unk_C;
-        this->unk_4 = arg1.unk_4;
-        g_ScroobyMemoryCount += this->unk_8;
+        this->m_ichMac = arg1.m_ichMac;
+        g_ScroobyMemoryCount += this->capacity;
 
-        strcpy(this->unk_0, arg1.unk_0);
+        strcpy(this->buffer, arg1.buffer);
     }
 
     return *this;
@@ -109,13 +103,13 @@ PascalCString &PascalCString::operator=(PascalCString const &arg1) {
 
 PascalCString &PascalCString::operator=(char const *arg1) {
     if (arg1 != NULL) {
-        this->unk_4 = strlen(arg1);
-        this->Grow(this->unk_4);
-        strcpy(this->unk_0, arg1);
+        this->m_ichMac = strlen(arg1);
+        this->Grow(this->m_ichMac);
+        strcpy(this->buffer, arg1);
     } else {
-        this->unk_4 = 0;
-        this->Grow(this->unk_4);
-        this->unk_0[0] = 0;
+        this->m_ichMac = 0;
+        this->Grow(this->m_ichMac);
+        this->buffer[0] = 0;
     }
 
     return *this;
@@ -123,59 +117,57 @@ PascalCString &PascalCString::operator=(char const *arg1) {
 
 GARBAGE_INSTR("addiu       $29, $29, 0x30");
 
-void PascalCString::Grow(unsigned int arg1) {
-    if (arg1 < this->unk_8) {
+void PascalCString::Grow(size_t arg1) {
+    if (arg1 < this->capacity) {
         return;
     }
 
-    if (this->unk_0 != NULL) {
-        g_ScroobyMemoryCount -= this->unk_8;
+    if (this->buffer != NULL) {
+        g_ScroobyMemoryCount -= this->capacity;
     }
 
     this->AdjustMaxArraySize(arg1 + 1);
-    g_ScroobyMemoryCount += this->unk_8;
+    g_ScroobyMemoryCount += this->capacity;
 
     int temp_s0 = radMemorySetCurrentAllocator(1);
-    char* temp_s2 = new char[this->unk_8];
+    char* szString = new char[this->capacity]();
     radMemorySetCurrentAllocator(temp_s0);
 
-    if (temp_s2 == NULL) {
-        __assert(D_0048A310, 319, D_0048A330);
-    }
+    ASSERT(szString, "../../src/strings/pcstring.cpp", 319);
 
-    if (this->unk_0 != NULL) {
-        strcpy(temp_s2, this->unk_0);
-        if (this->unk_0 != NULL) {
-            delete [] this->unk_0;
+    if (this->buffer != NULL) {
+        strcpy(szString, this->buffer);
+        if (this->buffer != NULL) {
+            delete [] this->buffer;
         }
-        this->unk_0 = NULL;
+        this->buffer = NULL;
     }
-    this->unk_0 = temp_s2;
+    this->buffer = szString;
 }
 
 PascalCString &PascalCString::operator+=(PascalCString const &arg1) {
-    this->unk_4 += arg1.unk_4;
-    this->Grow(this->unk_4);
-    strcat(this->unk_0, arg1.unk_0);
+    this->m_ichMac += arg1.m_ichMac;
+    this->Grow(this->m_ichMac);
+    strcat(this->buffer, arg1.buffer);
 
     return *this;
 }
 
 PascalCString &PascalCString::operator+=(char const * arg1) {
     if (arg1 != NULL) {
-        this->unk_4 += strlen(arg1);
-        this->Grow(this->unk_4);
-        strcat(this->unk_0, arg1);
+        this->m_ichMac += strlen(arg1);
+        this->Grow(this->m_ichMac);
+        strcat(this->buffer, arg1);
     }
 
     return *this;
 }
 
 PascalCString &PascalCString::operator+=(char arg1) {
-    this->unk_4 += 1;
-    this->Grow(this->unk_4);
-    this->unk_0[this->unk_4 - 1] = arg1;
-    this->unk_0[this->unk_4] = 0;
+    this->m_ichMac += 1;
+    this->Grow(this->m_ichMac);
+    this->buffer[this->m_ichMac - 1] = arg1;
+    this->buffer[this->m_ichMac] = 0;
 
     return *this;
 }
@@ -184,7 +176,7 @@ GARBAGE_INSTR("addiu       $29, $29, 0x10");
 
 bool PascalCString::operator==(char const *arg1) const {
     if (arg1 != NULL) {
-        return strcmp(this->unk_0, arg1) == 0;
+        return strcmp(this->buffer, arg1) == 0;
     }
     return false;
 }
@@ -206,7 +198,7 @@ GARBAGE_INSTR("addiu       $29, $29, 0x10");
 GARBAGE_INSTR("addu        $2, $2, $5");
 
 int PascalCString::Length() const {
-    return this->unk_4;
+    return this->m_ichMac;
 }
 
 void PascalCString::Reserve(int arg1) {
@@ -214,42 +206,42 @@ void PascalCString::Reserve(int arg1) {
 }
 
 PascalCString::operator char *(void) {
-    return this->unk_0;
+    return this->buffer;
 }
 
-void PascalCString::AdjustMaxArraySize(unsigned int arg1) {
-    if (this->unk_8 < arg1) {
-        this->unk_8 = arg1 + this->unk_C;
+void PascalCString::AdjustMaxArraySize(size_t arg1) {
+    if (0) {
+        // Optimized out usage of an empty string.
+        // It probably doesn't belong in this function, but it must be placed anywhere between the
+        // last string from `PascalCString::Grow` and before the first string from PascalCString::SubString.
+        // There's no evidence that this usage may have been an strcmp.
+        strcmp("", "");
+    }
+
+    if (this->capacity < arg1) {
+        this->capacity = arg1 + this->unk_C;
     }
 }
 
 GARBAGE_INSTR("addiu       $29, $29, 0x30");
 GARBAGE_INSTR("addiu       $29, $29, 0x50");
 
-// extern const char D_0048A340[] = "";
+PascalCString PascalCString::SubString(int iStart, int iChars) {
+    ASSERT(iStart + iChars <= int( m_ichMac + 1 ), "../../src/strings/pcstring.cpp", 950);
 
-PascalCString PascalCString::SubString(int arg2, int arg3) {
-    s32 temp_s0;
-    char* temp_s1;
+    int allocator = radMemorySetCurrentAllocator(1);
+    char* new_buff = new char[iChars + 1];
+    radMemorySetCurrentAllocator(allocator);
 
-    if ((this->unk_4 + 1) < (arg2 + arg3)) {
-        __assert(D_0048A310, 950, D_0048A348);
-    }
+    strncpy(new_buff, &this->buffer[iStart], iChars);
+    new_buff[iChars] = '\0';
 
-    temp_s0 = radMemorySetCurrentAllocator(1);
-    temp_s1 = new char[arg3 + 1];
-    radMemorySetCurrentAllocator(temp_s0);
+    allocator = radMemorySetCurrentAllocator(1);
+    PascalCString sp00(new_buff);
+    radMemorySetCurrentAllocator(allocator);
 
-    strncpy(temp_s1, this->unk_0 + arg2, arg3);
-
-    temp_s1[arg3] = 0;
-
-    temp_s0 = radMemorySetCurrentAllocator(1);
-    PascalCString sp00(temp_s1);
-    radMemorySetCurrentAllocator(temp_s0);
-
-    if (temp_s1 != NULL) {
-        delete [] temp_s1;
+    if (new_buff != NULL) {
+        delete [] new_buff;
     }
 
     return sp00;
@@ -260,27 +252,27 @@ GARBAGE_INSTR("addiu       $29, $29, 0x30");
 PascalCString PascalCString::StreamFirstWord(char arg2) {
     u32 var_s1;
 
-    for (var_s1 = 0; var_s1 < this->unk_4; var_s1++) {
-        if (this->unk_0[var_s1] == arg2) {
+    for (var_s1 = 0; var_s1 < this->m_ichMac; var_s1++) {
+        if (this->buffer[var_s1] == arg2) {
             break;
         }
     }
 
     PascalCString sp00 = this->SubString(0, var_s1);
 
-    s32 temp_a3 = this->unk_4 - (var_s1 + 1);
+    s32 temp_a3 = this->m_ichMac - (var_s1 + 1);
     if (temp_a3 > 0) {
         *this = this->SubString(var_s1 + 1, temp_a3);
     } else {
-        *this = D_0048A340;
+        *this = "";
     }
 
     return sp00;
 }
 
 bool PascalCString::Find(char arg1) {
-    for (int var_v1 = 0; var_v1 < this->unk_4; var_v1++) {
-        if (this->unk_0[var_v1] == arg1) {
+    for (int var_v1 = 0; var_v1 < this->m_ichMac; var_v1++) {
+        if (this->buffer[var_v1] == arg1) {
             return true;
         }
     }
@@ -288,8 +280,8 @@ bool PascalCString::Find(char arg1) {
 }
 
 bool PascalCString::EqualsInsensitive(char const *arg1) {
-    if (this->unk_4 == strlen(arg1)) {
-        return rstricmp(this->unk_0, arg1) == 0;
+    if (this->m_ichMac == strlen(arg1)) {
+        return rstricmp(this->buffer, arg1) == 0;
     }
     return false;
 }
@@ -299,19 +291,19 @@ void PascalCString::Replace(PascalCString const &arg1, PascalCString const &arg2
         return;
     }
 
-    char* var_s1 = this->unk_0;
-    char* var_s0 = strstr(var_s1, arg1.unk_0);
+    char* var_s1 = this->buffer;
+    char* var_s0 = strstr(var_s1, arg1.buffer);
 
     if (var_s0 != NULL) {
         int temp_s4 = radMemorySetCurrentAllocator(1);
-        PascalCString sp00(D_0048A340);
+        PascalCString sp00("");
 
         while (var_s0 != NULL) {
             *var_s0 = 0;
             sp00 += var_s1;
             sp00 += arg2;
             var_s1 = &var_s0[arg1.Length()];
-            var_s0 = strstr(var_s1, arg1.unk_0);
+            var_s0 = strstr(var_s1, arg1.buffer);
         }
 
         sp00 += var_s1;
@@ -322,7 +314,7 @@ void PascalCString::Replace(PascalCString const &arg1, PascalCString const &arg2
 
 void PascalCString::ToUpper(void) {
     for (int var_s0 = 0; var_s0 < this->Length(); var_s0++) {
-        this->unk_0[var_s0] = toupper(this->unk_0[var_s0]);
+        this->buffer[var_s0] = toupper(this->buffer[var_s0]);
     }
 }
 
@@ -332,16 +324,16 @@ PascalCString PascalCString::FullFilename(void) {
     int var_s1;
 
     for (var_s1 = this->Length(); var_s1 >= 0; var_s1--) {
-        if (this->unk_0[var_s1] == '/') {
+        if (this->buffer[var_s1] == '/') {
             break;
         }
-        if (this->unk_0[var_s1] == '\\') {
+        if (this->buffer[var_s1] == '\\') {
             break;
         }
     }
 
     int temp_s0 = radMemorySetCurrentAllocator(1);
-    PascalCString sp00(&this->unk_0[var_s1] + 1);
+    PascalCString sp00(&this->buffer[var_s1] + 1);
     radMemorySetCurrentAllocator(temp_s0);
 
     return sp00;
@@ -353,15 +345,15 @@ PascalCString PascalCString::JustFilename(void) {
     int var_s0;
 
     for (var_s0 = this->Length(); var_s0 >= 0; var_s0--) {
-        if (this->unk_0[var_s0] == '/') {
+        if (this->buffer[var_s0] == '/') {
             break;
         }
-        if (this->unk_0[var_s0] == '\\') {
+        if (this->buffer[var_s0] == '\\') {
             break;
         }
     }
 
-    strcpy(sp, &this->unk_0[var_s0] + 1);
+    strcpy(sp, &this->buffer[var_s0] + 1);
 
     for (var_s0 = 0; var_s0 < (s32)strlen(sp); var_s0++) {
         if (sp[var_s0] == '.') {
@@ -379,7 +371,7 @@ PascalCString PascalCString::JustExtension(void) {
     int var_s0;
 
     for (var_s0 = this->Length(); var_s0 > 0; var_s0--) {
-        if (this->unk_0[var_s0] == '.') {
+        if (this->buffer[var_s0] == '.') {
             var_s2 = true;
             break;
         }
@@ -388,9 +380,9 @@ PascalCString PascalCString::JustExtension(void) {
     int temp_s3 = radMemorySetCurrentAllocator(1);
     PascalCString sp;
     if (var_s2) {
-        sp = &this->unk_0[var_s0] + 1;
+        sp = &this->buffer[var_s0] + 1;
     } else {
-        sp = D_0048A340;
+        sp = "";
     }
     radMemorySetCurrentAllocator(temp_s3);
 
@@ -401,10 +393,10 @@ PascalCString PascalCString::JustPath(void) {
     int var_a3;
 
     for (var_a3 = this->Length(); var_a3 > 0; var_a3--) {
-        if (this->unk_0[var_a3] == '/') {
+        if (this->buffer[var_a3] == '/') {
             break;
         }
-        if (this->unk_0[var_a3] == '\\') {
+        if (this->buffer[var_a3] == '\\') {
             break;
         }
     }

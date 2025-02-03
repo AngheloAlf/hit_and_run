@@ -13,20 +13,20 @@
 
 GARBAGE_INSTR("addiu       $sp, $sp, 0x10");
 
-XMLTree::XMLTree() : unk_C() {
+XMLTree::XMLTree() : filename() {
     this->unk_0 = NULL;
     this->unk_4 = NULL;
     this->unk_8 = NULL;
 }
 
-XMLTree::XMLTree(XMLNode * arg1) : unk_C() {
+XMLTree::XMLTree(XMLNode * arg1) : filename() {
     this->unk_4 = arg1;
     this->unk_8 = arg1;
     this->unk_0 = NULL;
 }
 
 XMLTree::~XMLTree(void) {
-    p3d::AllocType temp_s1 = p3d::GetCurrentAlloc();
+    p3d::AllocType alloc_type = p3d::GetCurrentAlloc();
 
     p3d::SetCurrentAlloc(p3d::ENUM_P3D_ALLOCTYPE_2);
 
@@ -38,7 +38,7 @@ XMLTree::~XMLTree(void) {
     }
     this->unk_0 = NULL;
 
-    p3d::SetCurrentAlloc(temp_s1);
+    p3d::SetCurrentAlloc(alloc_type);
 }
 
 UNK_RET XMLTree::LoadTreeFromBuffer(char *arg1, unsigned int arg2, char const *arg3) {
@@ -53,7 +53,7 @@ UNK_RET XMLTree::LoadTreeFromBuffer(char *arg1, unsigned int arg2, char const *a
     XMLParser sp;
     this->unk_0 = sp.ParseFromBuffer(arg1, arg2);
 
-    this->unk_C = "";
+    this->filename = "";
     p3d::SetCurrentAlloc(temp_s3);
 
     return this->LoadTreeWorker(arg3);
@@ -79,7 +79,7 @@ UNK_RET XMLTree::LoadTreeWorker(char const *arg1) {
 
 UNK_RET XMLTree::SetCurrentElementByName(char const *arg1) {
     if (this->unk_4 == NULL) {
-        this->unk_8 = 0;
+        this->unk_8 = NULL;
         return 0;
     }
 
@@ -92,7 +92,7 @@ UNK_RET XMLTree::SetCurrentElementByName(char const *arg1) {
         }
     }
 
-    this->unk_8 = 0;
+    this->unk_8 = NULL;
     return 0;
 }
 
@@ -112,13 +112,13 @@ UNK_RET XMLTree::SetCurrentElementByIndex(int arg1) {
     return 0;
 }
 
-UNK_RET XMLTree::GetFilename(PascalCString & arg1) {
-    arg1 = this->unk_C;
+UNK_RET XMLTree::GetFilename(PascalCString &out) {
+    out = this->filename;
     return 1;
 }
 
-void XMLTree::SetFilename(char const *arg1) {
-    this->unk_C = arg1;
+void XMLTree::SetFilename(char const *in) {
+    this->filename = in;
 }
 
 int XMLTree::GetName(PascalCString &arg1) {
@@ -190,7 +190,7 @@ extern const char D_0048A4B0[] = "  ";
 extern const char D_0048A4B8[] = "(/";
 extern const char D_0048A4C0[] = "====================";
 
-UNK_PTR XMLTree::GetSubTreeByName(char const *arg1) {
+XMLTree *XMLTree::GetSubTreeByName(char const *arg1) {
     if (this->unk_4 == NULL) {
         return NULL;
     }
