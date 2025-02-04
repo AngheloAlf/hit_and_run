@@ -1,5 +1,6 @@
 #include "libs/scrooby/scroobypr/XMLParser.hpp"
 
+#include "attributes.h"
 #include "garbage_helper.h"
 #include "include_asm.h"
 
@@ -14,36 +15,24 @@ PascalCString XMLAttribute::GetValue() {
 }
 
 int XMLAttributeList::GetLength(void) {
-    return this->unk_08;
+    return this->vec.GetLength();
 }
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/scrooby/scroobypr/XMLParser", AddItem__16XMLAttributeListP12XMLAttribute);
 
-#ifdef NON_MATCHING
 XMLAttribute *XMLAttributeList::GetItem(int index) {
-    s64 i = index;
-
-    return this->unk_00[i];
+    return this->vec.GetItem(index);
 }
-#else
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/scrooby/scroobypr/XMLParser", GetItem__16XMLAttributeListi);
-#endif
 
 int XMLNodeList::GetLength(void) {
-    return this->unk_08;
+    return this->vec.GetLength();
 }
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/scrooby/scroobypr/XMLParser", AddItem__11XMLNodeListP7XMLNode);
 
-#ifdef NON_MATCHING
 XMLNode *XMLNodeList::GetItem(int index) {
-    s64 i = index;
-
-    return this->unk_00[i];
+    return this->vec.GetItem(index);
 }
-#else
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/scrooby/scroobypr/XMLParser", GetItem__11XMLNodeListi);
-#endif
 
 extern const char D_0048C8E0[];
 
@@ -76,21 +65,69 @@ XMLNode::~XMLNode(void) {
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/scrooby/scroobypr/XMLParser", _$_7XMLNode);
 #endif
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/scrooby/scroobypr/XMLParser", GetName__7XMLNode);
+PascalCString XMLNode::GetName(void) {
+    return this->unk_04;
+}
+XMLAttributeList *XMLNode::GetAttributes(void) {
+    return &this->unk_18;
+}
+XMLNodeList *XMLNode::GetChildNodes(void) {
+    return &this->unk_40;
+}
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/scrooby/scroobypr/XMLParser", GetAttributes__7XMLNode);
+XMLParser::XMLParser(void) : unk_00(), unk_10() {
+}
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/scrooby/scroobypr/XMLParser", GetChildNodes__7XMLNode);
-
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/scrooby/scroobypr/XMLParser", __9XMLParser);
-
+#if 0
+// vtable
+XMLParser::~XMLParser() {
+}
+#else
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/scrooby/scroobypr/XMLParser", _$_9XMLParser);
+#endif
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/scrooby/scroobypr/XMLParser", func_00311748);
 
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/libs/scrooby/scroobypr/XMLParser", D_0048C8E0);
 
+#ifdef NON_MATCHING
+extern const char D_0048C8E8[] = "Root";
+extern const char D_0048C8F0[] = " ";
+extern const char D_0048C8F8[] = "/";
+
+XMLNode *XMLParser::ParseFromBuffer(char *arg1, UNUSED unsigned int arg2) {
+    p3d::AllocType temp_s2;
+    XMLNode* temp_v0;
+
+    temp_s2 = p3d::GetCurrentAlloc();
+    p3d::SetCurrentAlloc(p3d::ENUM_P3D_ALLOCTYPE_2);
+
+    this->unk_00 = D_0048C8E0;
+
+    temp_v0 = new XMLNode();
+
+    temp_v0->unk_04 = D_0048C8E8;
+    temp_v0->unk_00 = 0;
+
+    for (XMLNode* temp_v0_2 = this->Parse(arg1); temp_v0_2 != NULL; temp_v0_2 = this->Parse(arg1)) {
+        switch (temp_v0_2->unk_00) {
+            case 0:
+            case 2:
+                temp_v0->unk_40.AddItem(temp_v0_2);
+                break;
+            default:
+                delete temp_v0_2;
+                break;
+        }
+    }
+
+    p3d::SetCurrentAlloc(temp_s2);
+
+    return temp_v0;
+}
+#else
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/scrooby/scroobypr/XMLParser", ParseFromBuffer__9XMLParserPcUi);
+#endif
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/scrooby/scroobypr/XMLParser", func_00311838);
 
@@ -118,19 +155,14 @@ XMLAttribute::XMLAttribute(void): name(), value() {
 #if 0
 // vt and such
 XMLAttributeList::~XMLAttributeList() {
-    if (this->unk_00 != NULL) {
-        delete [] this->unk_00;
-        this->unk_00 = NULL;
-    }
-    this->unk_08 = 0;
-    this->unk_10 = 0;
+
 }
 #else
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/scrooby/scroobypr/XMLParser", _$_16XMLAttributeList);
 #endif
 
 #if 0
-XMLAttributeList::XMLAttributeList(): unk_00(NULL), unk_08(0), unk_10(0), unk_18(10), unk_20(0) {
+XMLAttributeList::XMLAttributeList(): vec() {
 }
 #else
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/scrooby/scroobypr/XMLParser", __16XMLAttributeList);
