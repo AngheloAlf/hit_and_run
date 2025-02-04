@@ -29,17 +29,14 @@ private:
     void Grow(size_t); // void Grow__13PascalCStringUi();
     PascalCString &operator+=(PascalCString const &); // void __apl__13PascalCStringRC13PascalCString();
     PascalCString &operator+=(char const *); // void __apl__13PascalCStringPCc();
+public:
     PascalCString &operator+=(char); // void __apl__13PascalCStringc();
-    // void func_00305790();
+private:
     bool operator==(char const *) const; // void __eq__C13PascalCStringPCc();
-    // void func_003057C8();
     bool operator!=(char const *) const; // void __ne__C13PascalCStringPCc();
-    // void func_003057F8();
 public:
     int Length() const; // void Length__C13PascalCString();
-private:
     void Reserve(int); // void Reserve__13PascalCStringi();
-public:
     operator char *(void); // void __opPc__13PascalCString();
 private:
     void AdjustMaxArraySize(size_t);// void AdjustMaxArraySize__13PascalCStringUi();

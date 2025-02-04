@@ -37,7 +37,7 @@ XMLNode *XMLNodeList::GetItem(int index) {
 extern const char D_0048C8E0[];
 
 XMLNode::XMLNode() : unk_04(), unk_18(), unk_40() {
-    this->unk_00 = 0;
+    this->unk_00 = XMLNode::NODE_KIND_0;
     this->unk_04 = D_0048C8E0;
 }
 
@@ -107,12 +107,12 @@ XMLNode *XMLParser::ParseFromBuffer(char *arg1, UNUSED unsigned int arg2) {
     temp_v0 = new XMLNode();
 
     temp_v0->unk_04 = D_0048C8E8;
-    temp_v0->unk_00 = 0;
+    temp_v0->unk_00 = XMLNode::NODE_KIND_0;
 
     for (XMLNode* temp_v0_2 = this->Parse(arg1); temp_v0_2 != NULL; temp_v0_2 = this->Parse(arg1)) {
         switch (temp_v0_2->unk_00) {
-            case 0:
-            case 2:
+            case NODE_KIND_0:
+            case NODE_KIND_2:
                 temp_v0->unk_40.AddItem(temp_v0_2);
                 break;
             default:
@@ -131,9 +131,59 @@ INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/scrooby/scroobypr/XMLParser", P
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/scrooby/scroobypr/XMLParser", func_00311838);
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/scrooby/scroobypr/XMLParser", Parse__9XMLParserRPc);
+XMLNode *XMLParser::Parse(char *&arg1) {
+    PascalCString sp = this->ReadNextTag(arg1);
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/scrooby/scroobypr/XMLParser", ReadNextTag__9XMLParserRPc);
+    if (sp.Length() > 0) {
+        XMLNode *temp_v0 = this->DecodeTag(sp);
+
+        if (temp_v0 != NULL) {
+            if (temp_v0->unk_00 == XMLNode::NODE_KIND_0) {
+                for (XMLNode* temp_v0_2 = this->Parse(arg1); temp_v0_2 != NULL; temp_v0_2 = this->Parse(arg1)) {
+                    if (temp_v0_2->unk_00 == XMLNode::NODE_KIND_0 || temp_v0_2->unk_00 == XMLNode::NODE_KIND_2) {
+                        temp_v0->unk_40.AddItem(temp_v0_2);
+                    } else {
+                        delete temp_v0_2;
+                    }
+                }
+
+                return temp_v0;
+            }
+            if (temp_v0->unk_00 == XMLNode::NODE_KIND_2) {
+                return temp_v0;
+            }
+            if (temp_v0->unk_00 == XMLNode::NODE_KIND_1) {
+                return temp_v0;
+            }
+            if (temp_v0->unk_00 == XMLNode::NODE_KIND_3) {
+                return temp_v0;
+            }
+        }
+    }
+
+    return NULL;
+}
+
+PascalCString XMLParser::ReadNextTag(char *&arg2) {
+    char c;
+    PascalCString ret;
+
+    ret.Reserve(0x80);
+
+    c = *arg2;
+    while ((c != '<') && (c != '\0')) {
+        c = *++arg2;
+    }
+
+    c = *++arg2;
+
+    while ((c != '>') && (c != '\0')) {
+        ret += c;
+        c = *++arg2;
+    }
+
+    return ret;
+}
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/scrooby/scroobypr/XMLParser", func_00311A38);
 

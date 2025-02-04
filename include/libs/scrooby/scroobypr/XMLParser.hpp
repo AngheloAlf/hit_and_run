@@ -82,8 +82,15 @@ public:
 };
 
 class XMLNode {
+public:
+    enum Kind {
+        /* 0 */ NODE_KIND_0,
+        /* 1 */ NODE_KIND_1,
+        /* 2 */ NODE_KIND_2,
+        /* 3 */ NODE_KIND_3,
+    };
 private:
-    /* 0x00 */ UNK_TYPE unk_00; // type? consider making an enum for this
+    /* 0x00 */ Kind unk_00; // kind
     /* 0x04 */ PascalCString unk_04; // name
     /* 0x14 */ UNK_PAD unk_14[0x4]; // alignment padding?
     /* 0x18 */ XMLAttributeList unk_18;
@@ -112,15 +119,13 @@ public:
     XMLParser(); // void __9XMLParser();
     virtual ~XMLParser(); // void _$_9XMLParser();
 
-    // Returned pointer must be deleted by caller.
-    // TODO: corroborate that claim
     XMLNode *ParseFromBuffer(char *, unsigned int); // void ParseFromBuffer__9XMLParserPcUi();
 private:
     // void func_00311838();
     XMLNode *Parse(char *&); // void Parse__9XMLParserRPc();
-    // void ReadNextTag__9XMLParserRPc();
+    PascalCString ReadNextTag(char *&); // void ReadNextTag__9XMLParserRPc();
     // void func_00311A38();
-    // void DecodeTag__9XMLParserR13PascalCString();
+    XMLNode *DecodeTag(PascalCString &); // void DecodeTag__9XMLParserR13PascalCString();
 };
 
 // void __tf7XMLNode();
