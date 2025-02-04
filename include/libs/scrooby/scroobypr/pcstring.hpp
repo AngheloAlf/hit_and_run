@@ -20,8 +20,8 @@ private:
     // void func_003052A8();
     PascalCString(char const *);
     PascalCString(char);
-    PascalCString(PascalCString const &); // void __13PascalCStringRC13PascalCString();
 public:
+    PascalCString(PascalCString const &); // void __13PascalCStringRC13PascalCString();
     PascalCString &operator=(PascalCString const &); // void __as__13PascalCStringRC13PascalCString();
     PascalCString &operator=(char const *); // void __as__13PascalCStringPCc();
 private:
