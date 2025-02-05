@@ -12,11 +12,10 @@ template <class T>
 class rVector {
 public:
     /* 0x00 */ T *unk_00; // buffer?
-    /* 0x04 */ UNK_PAD unk_04[0x4]; // probably just alignment padding
     /* 0x08 */ UNK_TYPE8 unk_08; // length
-    /* 0x10 */ UNK_TYPE8 unk_10;
+    /* 0x10 */ UNK_TYPE8 unk_10; // capacity
     /* 0x18 */ UNK_TYPE8 unk_18;
-    /* 0x20 */ UNK_TYPE4 unk_20;
+    /* 0x20 */ int unk_20;
 
     rVector() : unk_00(NULL), unk_08(0), unk_10(0), unk_18(10), unk_20(0) {}
     virtual ~rVector() {
@@ -32,9 +31,8 @@ public:
         return this->unk_08;
     }
     // void AddItem(T item);
-    T GetItem(UNK_TYPE8 index) {
-        T *temp = &this->unk_00[index];
-        return *temp;
+    T &GetItem(UNK_TYPE8 index) {
+        return this->unk_00[index];
     }
 };
 
@@ -43,6 +41,8 @@ class XMLAttribute {
 private:
     /* 0x00 */ PascalCString name;
     /* 0x10 */ PascalCString value;
+
+    friend class XMLParser;
 
 public:
     PascalCString GetName(void); // void GetName__12XMLAttribute();
@@ -54,6 +54,8 @@ public:
 
 class XMLAttributeList {
     /* 0x00 */ rVector<XMLAttribute *> vec;
+
+    friend class XMLParser;
 
 public:
     int GetLength(void); // void GetLength__16XMLAttributeList();
@@ -70,6 +72,7 @@ class XMLNodeList {
     /* 0x00 */ rVector<XMLNode *> vec;
 
     friend class XMLParser;
+
 public:
     int GetLength(void);// void GetLength__11XMLNodeList();
 private:
@@ -99,13 +102,14 @@ private:
     /*      */ // size = 0x70
 
     friend class XMLParser;
+
     XMLNode(void);
 public:
     virtual ~XMLNode();
 
     PascalCString GetName(void); // void GetName__7XMLNode();
     XMLAttributeList *GetAttributes(void); // void GetAttributes__7XMLNode();
-    XMLNodeList *GetChildNodes(void); // void GetChildNodes__7XMLNode();
+    XMLNodeList &GetChildNodes(void); // void GetChildNodes__7XMLNode();
 };
 
 class XMLParser {

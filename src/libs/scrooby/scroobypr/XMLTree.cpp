@@ -63,11 +63,11 @@ UNK_RET XMLTree::LoadTreeWorker(char const *arg1) {
     this->unk_4 = NULL;
 
     if (this->unk_0 != NULL) {
-        XMLNodeList *temp_v0 = this->unk_0->GetChildNodes();
-        int temp_v0_2 = temp_v0->GetLength();
+        XMLNodeList &temp_v0 = this->unk_0->GetChildNodes();
+        int temp_v0_2 = temp_v0.GetLength();
         for (int var_s1 = 0; var_s1 < temp_v0_2; var_s1++) {
-            if (temp_v0->GetItem(var_s1)->GetName().EqualsInsensitive(arg1)) {
-                this->unk_8 = this->unk_4 = temp_v0->GetItem(var_s1);
+            if (temp_v0.GetItem(var_s1)->GetName().EqualsInsensitive(arg1)) {
+                this->unk_8 = this->unk_4 = temp_v0.GetItem(var_s1);
                 return 1;
             }
         }
@@ -83,11 +83,11 @@ UNK_RET XMLTree::SetCurrentElementByName(char const *arg1) {
         return 0;
     }
 
-    XMLNodeList *temp_v0 = this->unk_4->GetChildNodes();
-    int temp_v0_2 = temp_v0->GetLength();
+    XMLNodeList &temp_v0 = this->unk_4->GetChildNodes();
+    int temp_v0_2 = temp_v0.GetLength();
     for (int var_s1 = 0; var_s1 < temp_v0_2; var_s1++) {
-        if (temp_v0->GetItem(var_s1)->GetName().EqualsInsensitive(arg1)) {
-            this->unk_8 = temp_v0->GetItem(var_s1);
+        if (temp_v0.GetItem(var_s1)->GetName().EqualsInsensitive(arg1)) {
+            this->unk_8 = temp_v0.GetItem(var_s1);
             return 1;
         }
     }
@@ -102,9 +102,9 @@ UNK_RET XMLTree::SetCurrentElementByIndex(int arg1) {
         return 0;
     }
 
-    XMLNodeList *temp_v0 = this->unk_4->GetChildNodes();
-    if ((arg1 < temp_v0->GetLength())) {
-        this->unk_8 = temp_v0->GetItem(arg1);
+    XMLNodeList &temp_v0 = this->unk_4->GetChildNodes();
+    if ((arg1 < temp_v0.GetLength())) {
+        this->unk_8 = temp_v0.GetItem(arg1);
         return 1;
     }
 
@@ -195,15 +195,15 @@ XMLTree *XMLTree::GetSubTreeByName(char const *arg1) {
         return NULL;
     }
 
-    XMLNodeList *temp_v0 = this->unk_4->GetChildNodes();
-    s32 temp_v0_2 = temp_v0->GetLength();
+    XMLNodeList &temp_v0 = this->unk_4->GetChildNodes();
+    s32 temp_v0_2 = temp_v0.GetLength();
 
     for (int var_s1 = 0; var_s1 < temp_v0_2; var_s1++) {
-        if (temp_v0->GetItem(var_s1)->GetName().EqualsInsensitive(arg1)) {
+        if (temp_v0.GetItem(var_s1)->GetName().EqualsInsensitive(arg1)) {
             UNUSED p3d::AllocType prev_alloc_type = p3d::GetCurrentAlloc();
             p3d::SetCurrentAlloc(p3d::ENUM_P3D_ALLOCTYPE_2);
 
-            XMLTree *ret = new XMLTree(temp_v0->GetItem(var_s1));
+            XMLTree *ret = new XMLTree(temp_v0.GetItem(var_s1));
             //! @bug (?) missing p3d::SetCurrentAlloc(prev_alloc_type);
             return ret;
         }
@@ -217,12 +217,12 @@ XMLTree *XMLTree::GetSubTreeByIndex(int arg1) {
         return NULL;
     }
 
-    XMLNodeList *temp_v0 = this->unk_4->GetChildNodes();
-    if (arg1 < temp_v0->GetLength()) {
+    XMLNodeList &temp_v0 = this->unk_4->GetChildNodes();
+    if (arg1 < temp_v0.GetLength()) {
         UNUSED p3d::AllocType prev_alloc_type = p3d::GetCurrentAlloc();
         p3d::SetCurrentAlloc(p3d::ENUM_P3D_ALLOCTYPE_2);
 
-        XMLTree *ret = new XMLTree(temp_v0->GetItem(arg1));
+        XMLTree *ret = new XMLTree(temp_v0.GetItem(arg1));
         //! @bug (?) missing p3d::SetCurrentAlloc(prev_alloc_type);
         return ret;
     }

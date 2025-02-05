@@ -26,7 +26,7 @@ void radMemorySetOutOfMemoryCallback(void (*)(void *, int, unsigned int), void *
 // void radMemorySetAllocatorCallback__FP30IRadMemorySetAllocatorCallback();
 // void radMemoryGetAllocatorCallback__Fv();
 // void func_003C84F0();
-// void radMemoryGetCurrentAllocator__Fv();
+int radMemoryGetCurrentAllocator(void); // void radMemoryGetCurrentAllocator__Fv();
 int radMemorySetCurrentAllocator(int);
 // void radMemorySetAllocationName__FPCc();
 // void radMemoryGetAllocationName__Fv();

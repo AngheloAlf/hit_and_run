@@ -1,6 +1,8 @@
 #ifndef MEMORY_HPP
 #define MEMORY_HPP
 
+#include "unk.h"
+
 // text
 
 namespace p3d {
@@ -11,7 +13,7 @@ namespace p3d {
     // void MemSetup__3p3dv();
     // void func_003285C0();
     AllocType GetCurrentAlloc(void); // void GetCurrentAlloc__3p3dv();
-    void SetCurrentAlloc(AllocType); // void SetCurrentAlloc__3p3dQ23p3d9AllocType();
+    UNK_RET SetCurrentAlloc(AllocType); // void SetCurrentAlloc__3p3dQ23p3d9AllocType();
     // void func_00328668();
     // void MallocTemp__3p3dUi();
     // void FreeTemp__3p3dPv();
