@@ -18,46 +18,9 @@ PascalCString XMLAttribute::GetValue() {
 int XMLAttributeList::GetLength(void) {
     return this->vec.GetLength();
 }
-
-#if 0
 void XMLAttributeList::AddItem(XMLAttribute *arg1) {
-    UNK_TYPE8 temp_s3 = this->vec.unk_08;
-
-    if (this->vec.unk_10 < (temp_s3 + 1)) {
-        UNK_TYPE8 temp_s2 = temp_s3 + this->vec.unk_18;
-        if (this->vec.unk_10 == 0) {
-            this->vec.unk_20 = radMemoryGetCurrentAllocator();
-        }
-
-        int temp_s0 = radMemorySetCurrentAllocator(this->vec.unk_20);
-        XMLAttribute **temp_s4 = new XMLAttribute *[temp_s2];
-        radMemorySetCurrentAllocator(temp_s0);
-
-        if (temp_s2 < this->vec.unk_08) {
-            this->vec.unk_08 = temp_s2;
-        }
-
-        for (int var_a1 = 0; var_a1 < this->vec.unk_08; var_a1++) {
-            temp_s4[var_a1] = this->vec.unk_00[var_a1];
-        }
-
-        delete [] this->vec.unk_00;
-
-        this->vec.unk_00 = temp_s4;
-        this->vec.unk_10 = temp_s2;
-    }
-
-    for (int var_a1 = this->vec.unk_08; var_a1 > temp_s3; var_a1--) {
-        this->vec.unk_00[var_a1+1] = this->vec.unk_00[var_a1];
-    }
-
-    this->vec.unk_00[temp_s3] = arg1;
-    this->vec.unk_08++;
+    this->vec.AddItem(arg1);
 }
-#else
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/scrooby/scroobypr/XMLParser", AddItem__16XMLAttributeListP12XMLAttribute);
-#endif
-
 XMLAttribute *XMLAttributeList::GetItem(int index) {
     return this->vec.GetItem(index);
 }
@@ -65,55 +28,9 @@ XMLAttribute *XMLAttributeList::GetItem(int index) {
 int XMLNodeList::GetLength(void) {
     return this->vec.GetLength();
 }
-
-#if 0
 void XMLNodeList::AddItem(XMLNode *arg1) {
-    XMLNode * sp0;
-    s32 var_a1;
-    XMLNode **temp_s4;
-    s64 temp_s2;
-    UNK_TYPE8 temp_s3;
-    int var_a1_2;
-
-    sp0 = arg1;
-    temp_s3 = this->vec.unk_08;
-    if (this->vec.unk_10 < (temp_s3 + 1)) {
-        temp_s2 = temp_s3 + this->vec.unk_18;
-        if (this->vec.unk_10 == 0) {
-            this->vec.unk_20 = radMemoryGetCurrentAllocator();
-        }
-
-        int temp_s0;
-        temp_s0 = radMemorySetCurrentAllocator(this->vec.unk_20);
-        temp_s4 = new XMLNode *[temp_s2];
-        radMemorySetCurrentAllocator(temp_s0);
-
-        if (temp_s2 < this->vec.unk_08) {
-            this->vec.unk_08 = temp_s2;
-        }
-
-        for (var_a1 = 0; var_a1 < this->vec.unk_08; var_a1++) {
-            temp_s4[var_a1] = this->vec.unk_00[var_a1];
-        }
-        delete [] this->vec.unk_00;
-
-        this->vec.unk_00 = temp_s4;
-        this->vec.unk_10 = temp_s2;
-    }
-
-    var_a1_2 = this->vec.unk_08;
-    while (temp_s3 < var_a1_2) {
-        this->vec.unk_00[var_a1_2+1] = this->vec.unk_00[var_a1_2];
-        var_a1_2 -= 1;
-    }
-
-    this->vec.unk_00[temp_s3] = sp0;
-    this->vec.unk_08++;
+    this->vec.AddItem(arg1);
 }
-#else
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/scrooby/scroobypr/XMLParser", AddItem__11XMLNodeListP7XMLNode);
-#endif
-
 XMLNode *XMLNodeList::GetItem(int index) {
     return this->vec.GetItem(index);
 }
@@ -127,20 +44,17 @@ XMLNode::XMLNode() : unk_04(), unk_18(), unk_40() {
 
 #if 0
 XMLNode::~XMLNode(void) {
-    p3d::AllocType temp_s4;
+    p3d::AllocType temp_s4 = p3d::GetCurrentAlloc();
     int temp_v0;
-    int var_s0;
 
-    // this->unk_68 = &_vt$a3XMLNode;
-    temp_s4 = p3d::GetCurrentAlloc();
     p3d::SetCurrentAlloc(p3d::ENUM_P3D_ALLOCTYPE_2);
     temp_v0 = this->unk_18.GetLength();
-    for (var_s0 = 0; var_s0 < temp_v0; var_s0++) {
+    for (int var_s0 = 0; var_s0 < temp_v0; var_s0++) {
         delete this->unk_18.GetItem(var_s0);
     }
 
     temp_v0 = this->unk_40.GetLength();
-    for (var_s0 = 0; var_s0 < temp_v0; var_s0++) {
+    for (int var_s0 = 0; var_s0 < temp_v0; var_s0++) {
         delete this->unk_40.GetItem(var_s0);
     }
     p3d::SetCurrentAlloc(temp_s4);
@@ -335,7 +249,6 @@ XMLAttribute::XMLAttribute(void): name(), value() {
 #if 0
 // vt and such
 XMLAttributeList::~XMLAttributeList() {
-
 }
 #else
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/scrooby/scroobypr/XMLParser", _$_16XMLAttributeList);
@@ -348,9 +261,19 @@ XMLAttributeList::XMLAttributeList(): vec() {
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/scrooby/scroobypr/XMLParser", __16XMLAttributeList);
 #endif
 
+#if 0
+XMLNodeList::~XMLNodeList() {
+}
+#else
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/scrooby/scroobypr/XMLParser", _$_11XMLNodeList);
+#endif
 
+#if 0
+XMLNodeList::XMLNodeList(): vec() {
+}
+#else
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/scrooby/scroobypr/XMLParser", __11XMLNodeList);
+#endif
 
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/libs/scrooby/scroobypr/XMLParser", _vt$t7rVector1ZP7XMLNode);
 

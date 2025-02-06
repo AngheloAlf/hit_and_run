@@ -4,35 +4,75 @@
 #include "types.h"
 #include "unk.h"
 
+#include "libs/radcore/radcorepr/memorymanager.hpp"
 #include "libs/scrooby/scroobypr/pcstring.hpp"
 
 class XMLNode;
 
 template <class T>
 class rVector {
-public:
-    /* 0x00 */ T *unk_00; // buffer?
-    /* 0x08 */ UNK_TYPE8 unk_08; // length
-    /* 0x10 */ UNK_TYPE8 unk_10; // capacity
-    /* 0x18 */ UNK_TYPE8 unk_18;
-    /* 0x20 */ int unk_20;
+    /* 0x00 */ T *buffer; // buffer?
+    /* 0x08 */ s64 length; // length
+    /* 0x10 */ s64 capacity; // capacity
+    /* 0x18 */ s64 threshold;
+    /* 0x20 */ int rad_allocator;
 
-    rVector() : unk_00(NULL), unk_08(0), unk_10(0), unk_18(10), unk_20(0) {}
+public:
+    rVector() : buffer(NULL), length(0), capacity(0), threshold(10), rad_allocator(0) {}
     virtual ~rVector() {
-        if (this->unk_00 != NULL) {
-            delete [] this->unk_00;
-            this->unk_00 = NULL;
+        if (this->buffer != NULL) {
+            delete [] this->buffer;
+            this->buffer = NULL;
         }
-        this->unk_08 = 0;
-        this->unk_10 = 0;
+        this->length = 0;
+        this->capacity = 0;
     };
 
-    UNK_TYPE8 GetLength(void) {
-        return this->unk_08;
+    s64 GetLength(void) {
+        return this->length;
     }
-    // void AddItem(T item);
+
+    void Insert(s64 index, T item) {
+        T *temp = &item;
+
+        if (this->capacity < index + 1) {
+            s64 new_capacity = index + this->threshold;
+
+            if (this->capacity == 0) {
+                this->rad_allocator = radMemoryGetCurrentAllocator();
+            }
+
+            int allocator = radMemorySetCurrentAllocator(this->rad_allocator);
+            T *new_buffer = new T[new_capacity];
+            radMemorySetCurrentAllocator(allocator);
+
+            if (new_capacity < this->length) {
+                this->length = new_capacity;
+            }
+
+            for (int i = 0; i < this->length; i++) {
+                new_buffer[i] = this->buffer[i];
+            }
+
+            delete [] this->buffer;
+
+            this->buffer = new_buffer;
+            this->capacity = new_capacity;
+        }
+
+        for (int i = this->length; i > index; i--) {
+            this->buffer[i+1] = this->buffer[i];
+        }
+
+        this->buffer[index] = *temp;
+        this->length++;
+    }
+    void AddItem(T item) {
+        this->Insert(this->length, item);
+    }
+
     T &GetItem(UNK_TYPE8 index) {
-        return this->unk_00[index];
+        return this->buffer[index];
     }
 };
 
