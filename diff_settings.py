@@ -26,3 +26,5 @@ def apply(config: dict, args: argparse.Namespace):
     config["objdump_flags"] = ["-Mreg-names=n32"]
     # config["objdump_flags"].append("-Mno-aliases")
     config["makeflags"] = ["WERROR=0", f"VERSION={version}", "OBJDUMP_BUILD=0", "PERMUTER=1"]
+
+    args.diff_function_symbols = True
