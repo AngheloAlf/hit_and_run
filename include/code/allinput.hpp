@@ -3,7 +3,11 @@
 
 #include "types.h"
 
+#include "libs/tRefCounted.hpp"
+
 // text
+
+class Mappable;
 
 // void __6Button();
 // void _$_6Button();
@@ -17,51 +21,60 @@ public:
     void Update(u32);
 
 private:
-// void OnControllerConnectionStatusChange__12InputManagerP14IRadController();
-// void IsControllerInPort__C12InputManageri();
-// void ToggleRumble__12InputManagerb();
-// void SetRumbleEnabled__12InputManagerb();
-// void SetRumbleForDevice__12InputManagerib();
-// void func_00150828();
-// void TriggerRumblePulse__12InputManageri();
-// void GetValue__C12InputManagerUiUi();
-// void GetController__12InputManagerUi();
-// void RegisterMappable__12InputManagerUiP8Mappable();
-// void UnregisterMappable__12InputManagerUii();
-// void UnregisterMappable__12InputManagerUiP8Mappable();
-// void UnregisterMappable__12InputManagerP8Mappable();
-// void LoadData__12InputManagerPCUcUi();
-// void SaveData__12InputManagerPUcUi();
-// void ResetData__12InputManager();
-// void __12InputManager();
-// void _$_12InputManager();
-// void EnumerateControllers__12InputManager();
-// void ReleaseAllControllers__12InputManager();
-// void SetGameState__12InputManagerQ25Input11ActiveState();
-// void GetGameState__C12InputManager();
-// void RegisterControllerID__12InputManagerii();
-// void UnregisterControllerID__12InputManageri();
-// void UnregisterAllControllerID__12InputManager();
+    // void OnControllerConnectionStatusChange__12InputManagerP14IRadController();
+    // void IsControllerInPort__C12InputManageri();
+    // void ToggleRumble__12InputManagerb();
+    // void SetRumbleEnabled__12InputManagerb();
+    // void SetRumbleForDevice__12InputManagerib();
+    // void func_00150828();
+    // void TriggerRumblePulse__12InputManageri();
+    // void GetValue__C12InputManagerUiUi();
+    // void GetController__12InputManagerUi();
+public:
+    void RegisterMappable(unsigned int, Mappable *); // void RegisterMappable__12InputManagerUiP8Mappable();
+private:
+    // void UnregisterMappable__12InputManagerUii();
+public:
+    void UnregisterMappable(unsigned int, Mappable *); // void UnregisterMappable__12InputManagerUiP8Mappable();
+private:
+    // void UnregisterMappable__12InputManagerP8Mappable();
+    // void LoadData__12InputManagerPCUcUi();
+    // void SaveData__12InputManagerPUcUi();
+    // void ResetData__12InputManager();
+    // void __12InputManager();
+    // void _$_12InputManager();
+    // void EnumerateControllers__12InputManager();
+    // void ReleaseAllControllers__12InputManager();
+    // void SetGameState__12InputManagerQ25Input11ActiveState();
+    // void GetGameState__C12InputManager();
+    // void RegisterControllerID__12InputManagerii();
+    // void UnregisterControllerID__12InputManageri();
+    // void UnregisterAllControllerID__12InputManager();
 };
 
-// void __8MappableUi();
-// void _$_8Mappable();
-// void DispatchOnButton__8MappableiiPC6Button();
-// void InitButtons__8MappableiPC6Button();
-// void OnControllerDisconnect__8Mappablei();
-// void OnControllerConnect__8Mappablei();
-// void UpdateButtonState__8MappableiiPC6Button();
-// void GetValue__C8MappableUi();
-// void GetButton__8MappableUi();
-// void GetMapper__8MappableUi();
-// void GetActiveMapper__8Mappable();
-// void SetGameState__8MappableUi();
-// void IsActive__C8Mappable();
-// void IsButtonDown__8MappableUi();
-// void func_00151768();
-// void Map__8MappablePCciUiUi();
-// void ClearMap__8MappableUi();
-// void Reset__8Mappable();
+class Mappable: tRefCounted {
+protected:
+    Mappable(unsigned int); // void __8MappableUi();
+    virtual ~Mappable(void); // void _$_8Mappable();
+private:
+    // void DispatchOnButton__8MappableiiPC6Button();
+    // void InitButtons__8MappableiPC6Button();
+    // void OnControllerDisconnect__8Mappablei();
+    // void OnControllerConnect__8Mappablei();
+    // void UpdateButtonState__8MappableiiPC6Button();
+    // void GetValue__C8MappableUi();
+    // void GetButton__8MappableUi();
+    // void GetMapper__8MappableUi();
+    // void GetActiveMapper__8Mappable();
+    // void SetGameState__8MappableUi();
+    // void IsActive__C8Mappable();
+    // void IsButtonDown__8MappableUi();
+    // void func_00151768();
+    // void Map__8MappablePCciUiUi();
+    // void ClearMap__8MappableUi();
+    // void Reset__8Mappable();
+};
+
 // void __6Mapper();
 // void SetAssociation__6Mapperii();
 // void GetLogicalIndex__C6Mapperi();

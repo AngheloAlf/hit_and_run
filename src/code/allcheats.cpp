@@ -7,6 +7,11 @@
 #include "sce_libs/gcc/ee/libg/strcat.h"
 #include "sce_libs/gcc/ee/libg/strncpy.h"
 
+#include "libs/radcore/radcorepr/debug.hpp"
+
+#include "code/allcharactersheet.hpp"
+#include "code/allevents.hpp"
+#include "code/allgui.hpp"
 #include "code/allmemory.hpp"
 
 struct struct_00458A30 {
@@ -88,7 +93,31 @@ void CheatInputSystem::Init(void) {
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", Init__16CheatInputSystem);
 #endif
 
+#if 0
+void CheatInputSystem::SetEnabled(bool arg1) {
+    CheatInputHandler *temp_v0;
+    unsigned int var_s1;
+
+    var_s1 = 0;
+    this->unk_00 = arg1;
+    do {
+        if (arg1 != 0) {
+            InputManager::GetInstance()->RegisterMappable(var_s1, this->unk_0C);
+        } else {
+            InputManager::GetInstance()->UnregisterMappable(var_s1, this->unk_0C);
+        }
+        var_s1 += 1;
+    } while (var_s1 < 0xA);
+    this->unk_0C->ResetInputSequence();
+    #if 0
+    temp_v0 = this->unk_0C;
+    temp_v0->unk_29C = 0;
+    temp_v0->unk_298 = 0;
+    #endif
+}
+#else
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", SetEnabled__16CheatInputSystemb);
+#endif
 
 void CheatInputSystem::SetActivated(int arg1, bool arg2) {
     if (arg2) {
@@ -103,7 +132,23 @@ bool CheatInputSystem::IsActivated(int arg1) const {
     return this->unk_04 & (1 << arg1);
 }
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", SetCheatEnabled__16CheatInputSystem8eCheatIDb);
+void CheatInputSystem::SetCheatEnabled(eCheatID arg1, bool arg2) {
+    if (((arg1 < ECHEATID_3 && arg1 > ECHEATID_0) || (arg1 == ECHEATID_5))) {
+        if (!CharacterSheetManager::GetInstance()->IsAllStoryMissionsCompleted()) {
+            return;
+        }
+    }
+
+    if (arg2) {
+        CheatInputSystem::s_cheatsEnabled |= 1 << arg1;
+    } else {
+        CheatInputSystem::s_cheatsEnabled &= ~(1 << arg1);
+    }
+
+    for (int i = 0; i < this->unk_90; i++) {
+        this->unk_10[i]->virtual_0C(arg1, arg2);
+    }
+}
 
 bool CheatInputSystem::IsCheatEnabled(eCheatID arg1) const {
     return s_cheatsEnabled & (1 << arg1);
@@ -125,7 +170,55 @@ INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allcheats", D_00458800);
 
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allcheats", D_00458810);
 
+#ifdef NON_MATCHING
+extern const char D_00458828[] = "*** This cheat cannot be enabled until all story missions have been completed!\n";
+extern const char D_00458878[] = "*** Cheat code successfully entered: %s (%s)\n";
+extern const char D_004588A8[] = "enabled";
+extern const char D_004588B0[] = "disabled";
+extern const char D_004588C0[] = "*** Invalid cheat code entered!\n";
+
+void CheatInputSystem::ReceiveInputs(eCheatInput *arg1, int arg2) {
+    const char *var_a2;
+    Cheat *temp_v1;
+    eCheatID temp_v0;
+    bool var_s2;
+
+    temp_v0 = this->unk_08->GetCheatID(CheatsDB::ConvertSequenceToIndex(arg1, arg2));
+    if (~temp_v0 != 0) {
+        var_s2 = true;
+        this->SetCheatEnabled(temp_v0, true);
+
+        if (this->IsCheatEnabled(temp_v0)) {
+            EventManager::GetInstance()->TriggerEvent(EVENTENUM_173, NULL);
+        } else {
+            var_s2 = false;
+            EventManager::GetInstance()->TriggerEvent(EVENTENUM_174, NULL);
+            rReleasePrintf(D_00458828);
+        }
+
+        temp_v1 = this->unk_08->GetCheat(temp_v0);
+        if (var_s2) {
+            var_a2 = D_004588A8;
+        } else {
+            var_a2 = D_004588B0;
+        }
+        rReleasePrintf(D_00458878, temp_v1->unk_14, var_a2);
+
+        if (temp_v0 == ECHEATID_6) {
+            for (int var_s0 = ECHEATID_1; var_s0 < ECHEATID_6; var_s0++) {
+                this->SetCheatEnabled(static_cast<eCheatID>(var_s0), var_s2);
+            }
+        } else if (temp_v0 == ECHEATID_17) {
+            CGuiSystem::GetInstance()->GotoScreen(0xC, 0, 0, 1);
+        }
+    } else {
+        EventManager::GetInstance()->TriggerEvent(EVENTENUM_174, NULL);
+        rReleasePrintf(D_004588C0);
+    }
+}
+#else
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", ReceiveInputs__16CheatInputSystemP11eCheatInputi);
+#endif
 
 void CheatInputSystem::RegisterCallback(ICheatEnteredCallback *arg1) {
     for (int i = 0; i < this->unk_90; i++) {
@@ -138,8 +231,19 @@ void CheatInputSystem::RegisterCallback(ICheatEnteredCallback *arg1) {
     this->unk_90++;
 }
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", UnregisterCallback__16CheatInputSystemP21ICheatEnteredCallback);
-
+void CheatInputSystem::UnregisterCallback(ICheatEnteredCallback *arg1) {
+    for (int i = 0; i < this->unk_90; i++) {
+        if (this->unk_10[i] == arg1) {
+            this->unk_10[i] = NULL;
+            this->unk_90--;
+            if (i < this->unk_90) {
+                this->unk_10[i] = this->unk_10[this->unk_90];
+                this->unk_10[this->unk_90] = NULL;
+            }
+            return;
+        }
+    }
+}
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", __17CheatInputHandler);
 
@@ -166,10 +270,10 @@ CheatsDB::CheatsDB(void) : unk_0(NULL) {
         CheatsDB::s_maxNumPossibleCheats *= 4;
     }
 
-    this->unk_0 = new (GameMemoryAllocator_3) int[CheatsDB::s_maxNumPossibleCheats];
+    this->unk_0 = new (GameMemoryAllocator_3) eCheatID[CheatsDB::s_maxNumPossibleCheats];
 
     for (i = 0; i < CheatsDB::s_maxNumPossibleCheats; i++) {
-        this->unk_0[i] = -1;
+        this->unk_0[i] = ECHEATID_MINUS1;
     }
 
     for (i = 0; i < 0xC; i++) {
@@ -189,7 +293,7 @@ CheatsDB::~CheatsDB(void) {
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", _$_8CheatsDB);
 #endif
 
-int CheatsDB::GetCheatID(unsigned int arg1) const {
+eCheatID CheatsDB::GetCheatID(unsigned int arg1) const {
     return this->unk_0[arg1];
 }
 
@@ -203,7 +307,7 @@ Cheat *CheatsDB::GetCheat(eCheatID arg1) const {
     return NULL;
 }
 
-int CheatsDB::ConvertSequenceToIndex(eCheatInput const *arg0, int arg1) {
+unsigned int CheatsDB::ConvertSequenceToIndex(eCheatInput const *arg0, int arg1) {
     int var_a2 = 0;
 
     for (int var_a3 = 0; var_a3 < arg1; var_a3++) {
@@ -297,4 +401,4 @@ INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allcheats", D_00458B58);
 
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allcheats", D_00458B60);
 
-INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allcheats", D_00458B64);
+// INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allcheats", D_00458B64);

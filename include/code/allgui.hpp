@@ -139,33 +139,35 @@ class CGuiSystem {
 public:
     static void CreateInstance(void);
     static void DestroyInstance(void);
+    static CGuiSystem *GetInstance(void); // void GetInstance__10CGuiSystem();
 
 private:
-// void GetInstance__10CGuiSystem();
-// void __10CGuiSystem();
-// void _$_10CGuiSystem();
-// void Init__10CGuiSystem();
-// void Update__10CGuiSystemUi();
-// void HandleMessage__10CGuiSystem11eGuiMessageUiUi();
-// void OnProjectLoadComplete__10CGuiSystemPQ27Scrooby7Project();
-// void GotoScreen__10CGuiSystemUiUiUiUi();
-// void GetCurrentManager__C10CGuiSystem();
-// void RegisterUserInputHandlers__10CGuiSystemi();
-// void UnregisterUserInputHandlers__10CGuiSystemi();
-// void GetUserInputHandler__C10CGuiSystemi();
-// void LoadData__10CGuiSystemPCUcUi();
-// void SaveData__10CGuiSystemPUcUi();
-// void ResetData__10CGuiSystem();
-// void OnInitBootUp__10CGuiSystem();
-// void OnReleaseBootUp__10CGuiSystem();
-// void OnInitFrontEnd__10CGuiSystem();
-// void OnReleaseFrontEnd__10CGuiSystem();
-// void OnInitMiniGame__10CGuiSystem();
-// void OnReleaseMiniGame__10CGuiSystem();
-// void OnInitInGame__10CGuiSystem();
-// void OnReleaseInGame__10CGuiSystem();
-// void GetPrimaryController__C10CGuiSystem();
-// void SetPrimaryController__10CGuiSystemi();
+    // void __10CGuiSystem();
+    // void _$_10CGuiSystem();
+    // void Init__10CGuiSystem();
+    // void Update__10CGuiSystemUi();
+    // void HandleMessage__10CGuiSystem11eGuiMessageUiUi();
+    // void OnProjectLoadComplete__10CGuiSystemPQ27Scrooby7Project();
+public:
+    void GotoScreen(unsigned int, unsigned int, unsigned int, unsigned int); // void GotoScreen__10CGuiSystemUiUiUiUi();
+private:
+    // void GetCurrentManager__C10CGuiSystem();
+    // void RegisterUserInputHandlers__10CGuiSystemi();
+    // void UnregisterUserInputHandlers__10CGuiSystemi();
+    // void GetUserInputHandler__C10CGuiSystemi();
+    // void LoadData__10CGuiSystemPCUcUi();
+    // void SaveData__10CGuiSystemPUcUi();
+    // void ResetData__10CGuiSystem();
+    // void OnInitBootUp__10CGuiSystem();
+    // void OnReleaseBootUp__10CGuiSystem();
+    // void OnInitFrontEnd__10CGuiSystem();
+    // void OnReleaseFrontEnd__10CGuiSystem();
+    // void OnInitMiniGame__10CGuiSystem();
+    // void OnReleaseMiniGame__10CGuiSystem();
+    // void OnInitInGame__10CGuiSystem();
+    // void OnReleaseInGame__10CGuiSystem();
+    // void GetPrimaryController__C10CGuiSystem();
+    // void SetPrimaryController__10CGuiSystemi();
 };
 
 // void __13CGuiTextBible();

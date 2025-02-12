@@ -332,8 +332,7 @@ private:
 // void __tft11ChangeState1ZQ211CharacterAi5InCar();
 // void _$_t11ChangeState1ZQ211CharacterAi4Loco();
 // void __tft11ChangeState1ZQ211CharacterAi4Loco();
-// void _$_11tRefCounted();
-// void __11tRefCounted();
+
 // void __Q25tPose5Joint();
 // void __Q214LoadingManager23ProcessRequestsCallback();
 // void __18CStatePropListener();

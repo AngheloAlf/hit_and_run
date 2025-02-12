@@ -6,29 +6,28 @@
 
 #include "libc/stddef.h"
 
+#include "libs/IRefCount.hpp"
+
 // text
 
-class radLoadObject {
-private:
-    // void __13radLoadObject();
-    // void _$_13radLoadObject();
-    // void AddRef__13radLoadObject();
-    // void Release__13radLoadObject();
+class radLoadObject: IRefCount {
+protected:
+    radLoadObject(void); // void __13radLoadObject();
+
+public:
+    /* vt 0x0C */ virtual void AddRef(void); // void AddRef__13radLoadObject();
+    /* vt 0x14 */ virtual void Release(void); // void Release__13radLoadObject();
+protected:
+    /* vt 0x1C */ virtual ~radLoadObject(void); // void _$_13radLoadObject();
+
     // void ReleaseVerified__13radLoadObject();
 public:
     void *operator new(size_t);
     void *operator new(size_t, int);
-private:
     // void func_003ED588();
-    // void __dl__13radLoadObjectPv();
+    void operator delete(void *); // void __dl__13radLoadObjectPv();
     // void func_003ED5B8();
     // void __tf13radLoadObject();
-
-public:
-    /* vt 0x0C */ virtual void virtual_0C(void);
-    /* vt 0x14 */ virtual void virtual_14(void);
-private:
-    /* vt 0x1C */ virtual void virtual_1C(void); /* placeholder */
 };
 // void func_003ED618();
 

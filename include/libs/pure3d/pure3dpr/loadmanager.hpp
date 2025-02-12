@@ -38,10 +38,6 @@ private:
     // void GetHandler__15tP3DFileHandlerUi();
     // void RemoveAllHandlers__15tP3DFileHandler();
 
-private:
-    /* vt 0x14 */ virtual void virtual_14(); /* placeholder */
-    /* vt 0x1C */ virtual void virtual_1C(); /* placeholder */
-    /* vt 0x24 */ virtual void virtual_24(); /* placeholder */
 public:
     /* vt 0x2C */ virtual void virtual_2C(tFileMem *, tInventory *);
 

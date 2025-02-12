@@ -33,6 +33,8 @@ func_00412170 = 0x00412170; // type:func
 func_004128C0 = 0x004128C0; // type:func
 
 
+D_00458B60 = 0x00458B60; // size:0x138
+
 STR_0045D010 = 0x0045D010; // type:asciz
 STR_0045D020 = 0x0045D020; // type:asciz
 STR_0045D050 = 0x0045D050; // type:asciz

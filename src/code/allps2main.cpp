@@ -492,13 +492,13 @@ void LoadMemP3DFile(u8 *arg0, u32 arg1, UNUSED tEntityStore *arg2) {
     tFileMem *temp_2 = new tFileMem(arg0, arg1, false);
     tP3DFileHandler *temp_2_3;
 
-    temp_2->virtual_0C();
+    temp_2->AddRef();
     temp_2->SetFilename("memfile.p3d");
 
     temp_2_3 = p3d::loadManager->GetP3DHandler();
     temp_2_3->virtual_2C(temp_2, p3d::inventory);
 
-    temp_2->virtual_14();
+    temp_2->Release();
 }
 
 PS2Platform *PS2Platform::CreateInstance(void) {

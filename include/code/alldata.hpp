@@ -72,7 +72,6 @@ private:
 // void func_0014E248();
 // void __tf26IRadFileCompletionCallback();
 // void __tf22IRadDriveErrorCallback();
-// void __9IRefCount();
 // void func_0014E308();
 
 // data
@@ -116,6 +115,5 @@ private:
 // extern UNK_TYPE _vt$26IRadFileCompletionCallback;
 // extern UNK_TYPE D_0045AB38;
 // extern UNK_TYPE D_0045AB58;
-// extern UNK_TYPE _vt$9IRefCount;
 
 #endif
