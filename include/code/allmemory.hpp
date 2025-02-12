@@ -42,7 +42,7 @@ enum GameMemoryAllocator {
 // void __builtin_vec_delete();
 void* operator new(size_t, GameMemoryAllocator);
 // void __dl__FPv19GameMemoryAllocator(); // operator delete(void *, GameMemoryAllocator)
-// void __vn__FUi19GameMemoryAllocator();
+void* operator new[](size_t, GameMemoryAllocator); // void __vn__FUi19GameMemoryAllocator();
 // void func_00166D48();
 // void FindFreeMemory__F19GameMemoryAllocatorUi();
 // void SetupAllocatorSearch__F19GameMemoryAllocator();

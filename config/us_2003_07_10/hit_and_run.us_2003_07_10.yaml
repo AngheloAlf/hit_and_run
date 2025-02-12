@@ -109,7 +109,7 @@ segments:
       - [0x02FEE0, asm, code/allatc]
       - [0x0305B0, asm, code/allcamera]
       - [0x044790, asm, code/allcards]
-      - [0x045720, asm, code/allcheats]
+      - [0x045720, cpp, code/allcheats]
       - [0x046468, asm, code/allconsole]
       - [0x048828, asm, code/allcontexts]
       - [0x04AAB8, asm, code/allgameplay]
@@ -218,7 +218,7 @@ segments:
       - [0x1D49E8, asm, libs/sim/simpr/simstatearticulated] # .a
       - [0x1D6ED0, asm, libs/sim/simpr/simtarget] # .a
       - [0x1D74C0, asm, libs/sim/simpr/simulatedobject] # .a
-      - [0x1D79A0, asm, libs/sim/simpr/simutility] # .a
+      - [0x1D79A0, cpp, libs/sim/simpr/simutility] # .a
       - [0x1D82B0, asm, libs/sim/simpr/skeletoninfo] # .a
       - [0x1D8940, asm, libs/sim/simpr/symmatrix] # .a
       - [0x1D91F0, asm, libs/sim/simpr/tlist] # .a
@@ -1034,7 +1034,7 @@ segments:
       - [0x355FB8, rodata, code/allatc]
       - [0x3560A8, rodata, code/allcamera]
       - [0x357B18, rodata, code/allcards]
-      - [0x358778, rodata, code/allcheats]
+      - [0x358778, .rodata, code/allcheats]
       - [0x358CA0, rodata, code/allconsole]
       - [0x359328, rodata, code/allcontexts]
       - [0x359DD8, rodata, code/allgameplay]
@@ -1139,7 +1139,7 @@ segments:
       - [0x384DE8, rodata, libs/sim/simpr/simstatearticulated] # .a
       - [0x385098, rodata, libs/sim/simpr/simtarget] # .a
       - [0x385270, rodata, libs/sim/simpr/simulatedobject] # .a
-      - [0x385390, rodata, libs/sim/simpr/simutility] # .a
+      - [0x385390, .rodata, libs/sim/simpr/simutility] # .a
       - [0x385580, rodata, libs/sim/simpr/skeletoninfo] # .a
       - [0x3855C8, rodata, libs/sim/simpr/symmatrix] # .a
       - [0x3855F8, rodata, libs/sim/simpr/tlist] # .a

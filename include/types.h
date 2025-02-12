@@ -27,6 +27,8 @@ typedef double          f64;
 #define NULL (0)
 #endif
 
+#define ARR_LEN(arr) (sizeof(arr) / sizeof(*arr))
+
 #ifdef __cplusplus
 }
 #endif
