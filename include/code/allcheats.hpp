@@ -8,6 +8,9 @@
 
 // text
 
+class CheatsDB;
+class CheatInputHandler;
+
 typedef enum eCheatID {
     /* 0 */ ECHEATID_0,
 } eCheatID;
@@ -24,34 +27,53 @@ typedef struct Cheat {
     /* 0x14 */ const char *unk_14;
 } Cheat; // size = 0x18
 
+class ICheatEnteredCallback {
+    virtual ~ICheatEnteredCallback(void);
+};
+
+#define CHEATINPUTSYSTEM_UNK_10_LEN 0x20U
+
 class CheatInputSystem {
+    /* 0x00 */ char unk_00;
+    /* 0x04 */ u32 unk_04;
+    /* 0x08 */ CheatsDB *unk_08;
+    /* 0x0C */ CheatInputHandler *unk_0C;
+    /* 0x10 */ ICheatEnteredCallback *unk_10[CHEATINPUTSYSTEM_UNK_10_LEN];
+    /* 0x90 */ UNK_TYPE4 unk_90;
+    /* 0x94 */ // vtable
+    /*      */ // size = 0x98
+
 public:
     static void CreateInstance(void);
     static void DestroyInstance(void);
 
 private:
-    // void GetInstance__16CheatInputSystem();
-    // void __16CheatInputSystem();
-    // void _$_16CheatInputSystem();
-    // void Init__16CheatInputSystem();
+    static CheatInputSystem *GetInstance(void); // void GetInstance__16CheatInputSystem();
+    CheatInputSystem(void); // void __16CheatInputSystem();
+    virtual ~CheatInputSystem(void); // void _$_16CheatInputSystem();
+    void Init(void); // void Init__16CheatInputSystem();
     // void SetEnabled__16CheatInputSystemb();
-    // void SetActivated__16CheatInputSystemib();
-    // void IsActivated__C16CheatInputSystemi();
+    void SetActivated(int, bool); // void SetActivated__16CheatInputSystemib();
+    bool IsActivated(int) const; // void IsActivated__C16CheatInputSystemi();
     // void SetCheatEnabled__16CheatInputSystem8eCheatIDb();
-    // void IsCheatEnabled__C16CheatInputSystem8eCheatID();
+    bool IsCheatEnabled(eCheatID) const; // void IsCheatEnabled__C16CheatInputSystem8eCheatID();
     // void ReceiveInputs__16CheatInputSystemP11eCheatInputi();
-    // void RegisterCallback__16CheatInputSystemP21ICheatEnteredCallback();
+    void RegisterCallback(ICheatEnteredCallback *); // void RegisterCallback__16CheatInputSystemP21ICheatEnteredCallback();
     // void UnregisterCallback__16CheatInputSystemP21ICheatEnteredCallback();
 
-    // extern UNK_TYPE _16CheatInputSystem$spInstance;
-    // extern UNK_TYPE _16CheatInputSystem$s_cheatsEnabled;
+    static CheatInputSystem *spInstance; // extern UNK_TYPE _16CheatInputSystem$spInstance;
+    static u32 s_cheatsEnabled;// extern UNK_TYPE _16CheatInputSystem$s_cheatsEnabled;
 };
 
 class CheatInputHandler {
+private:
+    /* 0x000 */ UNK_PAD unk_000[0x2B4];
+    /*       */ // size = 0x2B4
+
     // void __17CheatInputHandler();
     // void _$_17CheatInputHandler();
-    // void ResetInputSequence__17CheatInputHandler();
 public:
+    void ResetInputSequence(void); // void ResetInputSequence__17CheatInputHandler();
     static const char *GetInputName(eCheatInput); // void GetInputName__17CheatInputHandler11eCheatInput();
 private:
     // void OnButton__17CheatInputHandleriiPC6Button();
@@ -61,13 +83,15 @@ private:
 };
 
 class CheatsDB {
+private:
     /* 0x0 */ int *unk_0; // cheat_id?
     /* 0x4 */ // vtable
     /*     */ // size = 0x8
 
-private:
+public:
     CheatsDB(void); // void __8CheatsDB();
     virtual ~CheatsDB(void); // void _$_8CheatsDB();
+private:
     int GetCheatID(unsigned int) const; // void GetCheatID__C8CheatsDBUi();
     Cheat *GetCheat(eCheatID) const;// void GetCheat__C8CheatsDB8eCheatID();
     static int ConvertSequenceToIndex(eCheatInput const *, int); // void ConvertSequenceToIndex__8CheatsDBPC11eCheatInputi();

@@ -9,27 +9,105 @@
 
 #include "code/allmemory.hpp"
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", CreateInstance__16CheatInputSystem);
+struct struct_00458A30 {
+    const char *unk_00;
+    int unk_04;
+};
+extern struct_00458A30 D_00458A30[];
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", DestroyInstance__16CheatInputSystem);
+// TODO: add to symbol_addrs
+extern Cheat D_00458B60[];
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", GetInstance__16CheatInputSystem);
+void CheatInputSystem::CreateInstance(void) {
+    CheatInputSystem::spInstance = new (GameMemoryAllocator_3) CheatInputSystem;
+}
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", __16CheatInputSystem);
+void CheatInputSystem::DestroyInstance(void) {
+    delete CheatInputSystem::spInstance;
+    CheatInputSystem::spInstance = NULL;
+}
 
+CheatInputSystem *CheatInputSystem::GetInstance(void) {
+    return CheatInputSystem::spInstance;
+}
+
+CheatInputSystem::CheatInputSystem(void) {
+    this->unk_00 = 0;
+    this->unk_04 = 0;
+    this->unk_08 = NULL;
+    this->unk_0C = NULL;
+    this->unk_90 = 0;
+
+    for (size_t var_v1 = 0; var_v1 < CHEATINPUTSYSTEM_UNK_10_LEN; var_v1++) {
+        this->unk_10[var_v1] = NULL;
+    }
+}
+
+#if 0
+CheatInputSystem::~CheatInputSystem(void) {
+    s32 var_v0;
+    void **temp_v1_2;
+    void *temp_v0;
+    void *temp_v0_2;
+    void *temp_v1;
+
+    temp_v1 = this->unk_08;
+    if (temp_v1 != NULL) {
+        temp_v0 = temp_v1->unk_4;
+        temp_v0->unk_C(temp_v1 + temp_v0->unk_08, 3);
+        this->unk_08 = NULL;
+    }
+    temp_v1_2 = this->unk_0C;
+    #if 0
+    var_v0 = arg1 & 1;
+    if (temp_v1_2 != NULL) {
+        temp_v0_2 = *temp_v1_2;
+        temp_v0_2->unk_14(temp_v1_2 + temp_v0_2->unk_10);
+        this->unk_C = NULL;
+        var_v0 = arg1 & 1;
+    }
+    if (var_v0 != 0) {
+        __builtin_delete(this);
+    }
+    #endif
+}
+#else
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", _$_16CheatInputSystem);
+#endif
 
+#if 0
+void CheatInputSystem::Init(void) {
+    this->unk_08 = new (GameMemoryAllocator_3) CheatsDB;
+    this->unk_0C = new (GameMemoryAllocator_3) CheatInputHandler;
+#if 0
+    temp_v1 = *this->unk_0C;
+    temp_v1->unk_C(this->unk_0C + temp_v1->unk_8);
+#endif
+}
+#else
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", Init__16CheatInputSystem);
+#endif
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", SetEnabled__16CheatInputSystemb);
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", SetActivated__16CheatInputSystemib);
+void CheatInputSystem::SetActivated(int arg1, bool arg2) {
+    if (arg2) {
+        this->unk_04 |= (1 << arg1);
+    } else {
+        this->unk_04 &= ~(1 << arg1);
+    }
+    this->unk_0C->ResetInputSequence();
+}
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", IsActivated__C16CheatInputSystemi);
+bool CheatInputSystem::IsActivated(int arg1) const {
+    return this->unk_04 & (1 << arg1);
+}
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", SetCheatEnabled__16CheatInputSystem8eCheatIDb);
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", IsCheatEnabled__C16CheatInputSystem8eCheatID);
+bool CheatInputSystem::IsCheatEnabled(eCheatID arg1) const {
+    return s_cheatsEnabled & (1 << arg1);
+}
 
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allcheats", D_00458778);
 
@@ -49,9 +127,19 @@ INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allcheats", D_00458810);
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", ReceiveInputs__16CheatInputSystemP11eCheatInputi);
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", RegisterCallback__16CheatInputSystemP21ICheatEnteredCallback);
+void CheatInputSystem::RegisterCallback(ICheatEnteredCallback *arg1) {
+    for (int i = 0; i < this->unk_90; i++) {
+        if (this->unk_10[i] == arg1) {
+            return;
+        }
+    }
+
+    this->unk_10[this->unk_90] = arg1;
+    this->unk_90++;
+}
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", UnregisterCallback__16CheatInputSystemP21ICheatEnteredCallback);
+
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", __17CheatInputHandler);
 
@@ -59,7 +147,9 @@ INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", _$_17CheatInputHand
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", ResetInputSequence__17CheatInputHandler);
 
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", GetInputName__17CheatInputHandler11eCheatInput);
+const char *CheatInputHandler::GetInputName(eCheatInput arg0) {
+    return D_00458A30[arg0].unk_00;
+}
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", OnButton__17CheatInputHandleriiPC6Button);
 
@@ -68,9 +158,6 @@ INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", OnButtonDown__17Che
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", OnButtonUp__17CheatInputHandleriiPC6Button);
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", LoadControllerMappings__17CheatInputHandlerUi);
-
-// TODO: add to symbol_addrs
-extern Cheat D_00458B60[];
 
 CheatsDB::CheatsDB(void) : unk_0(NULL) {
     size_t i;
