@@ -29,8 +29,7 @@ public:
     static tPlatform *Create(void);
     tContext *CreateContext(tContextInitData *);
 
-private:
-    tPlatform *GetPlatform(void);
+    static tPlatform &GetPlatform(void);
 };
 
 // void func_003122E8();

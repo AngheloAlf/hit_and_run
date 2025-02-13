@@ -1,6 +1,8 @@
 #ifndef COLLISIONOBJECT_HPP
 #define COLLISIONOBJECT_HPP
 
+#include "libs/sim/simpr/simutility.hpp"
+
 // text
 
 // void __Q23sim15CollisionObjectPQ23sim15CollisionVolume();
@@ -18,9 +20,19 @@
 // void SetSelfCollision__Q23sim15CollisionObjectRQ33sim15CollisionObject13SelfCollision();
 // void __as__Q33sim15CollisionObject20CollisionVolumeOwnerRCQ33sim15CollisionObject20CollisionVolumeOwner();
 // void LoadVectorFromCollisionVectorChunk__3simP10tChunkFileRQ218RadicalMathLibrary6Vector();
-// void __Q23sim21CollisionObjectLoader();
-// void LoadObject__Q23sim21CollisionObjectLoaderP10tChunkFileP12tEntityStore();
-// void LoadCollisionVolume__Q23sim21CollisionObjectLoaderP10tChunkFile();
+
+namespace sim {
+    class CollisionObjectLoader: public tSimpleChunkHandler {
+        /* 0x04 */ UNK_PAD unk_04[0x10];
+        /*      */ // size = 0x14
+
+    public:
+        CollisionObjectLoader(); // void __Q23sim21CollisionObjectLoader();
+    private:
+        virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__Q23sim21CollisionObjectLoaderP10tChunkFileP12tEntityStore();
+        // void LoadCollisionVolume__Q23sim21CollisionObjectLoaderP10tChunkFile();
+    };
+}
 // void SetNumOwnerList__Q33sim15CollisionObject20CollisionVolumeOwneri();
 // void func_002C8B90();
 // void ResizeArray__Q23simt6TArray1ZQ33sim15CollisionObject13SelfCollisioni();

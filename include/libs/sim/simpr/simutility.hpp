@@ -1,6 +1,8 @@
 #ifndef SIMUTILITY_HPP
 #define SIMUTILITY_HPP
 
+#include "simenvironment.hpp"
+
 #include "libs/pure3d/pure3dpr/loadmanager.hpp"
 
 // text
@@ -25,26 +27,35 @@ namespace sim {
     void SetupLineDrawing(void); // void SetupLineDrawing__3simv();
     void CleanupLineDrawing(void); // void CleanupLineDrawing__3simv();
 
-    // inherits from:
-    // polymorphism: tChunkHandler
-    // vtable: +radLoadObject, tChunkHandler, tSimpleChunkHandler
-    // constructor: +radLoadDataLoader
     class tExportInfoLoader: public tSimpleChunkHandler {
+        /* 0x04 */ UNK_PAD unk_04[0x4];
+        /* 0x08 */ UNK_TYPE4 unk_08;
+        /* 0x0C */ UNK_PAD unk_0C[0x4];
+        /* 0x10 */ UNK_TYPE4 unk_10;
+        /*      */ // size = 0x14
+
+public:
         tExportInfoLoader(void); // void __Q23sim17tExportInfoLoader();
+private:
         virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__Q23sim17tExportInfoLoaderP10tChunkFileP12tEntityStore();
         // void func_002D8080();
         // void __tfQ23sim11tExportInfo();
+public:
         virtual ~tExportInfoLoader(void); // void _$_Q23sim17tExportInfoLoader();
         // void __tfQ23sim17tExportInfoLoader();
     };
 
     // void func_002D8190();
     // void _$_Q23sim11tExportInfo();
-    // void _$_Q23sim15SimUnitsManager();
-    // void __Q23sim15SimUnitsManager();
-    // void func_002D8248();
-    // void __tfQ23sim15SimUnitsManager();
-    // void UpdateUnits__Q23sim15SimUnitsManager();
+
+    class SimUnitsManager: SimUnits {
+    public:
+        ~SimUnitsManager(); // void _$_Q23sim15SimUnitsManager();
+        SimUnitsManager(); // void __Q23sim15SimUnitsManager();
+        // void func_002D8248();
+        // void __tfQ23sim15SimUnitsManager();
+        // void UpdateUnits__Q23sim15SimUnitsManager();
+    };
 };
 
 // rodata

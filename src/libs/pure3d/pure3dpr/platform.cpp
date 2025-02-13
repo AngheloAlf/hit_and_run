@@ -73,8 +73,8 @@ tContext *tPlatform::CreateContext(tContextInitData *arg1) {
     return this->unk_0;
 }
 
-tPlatform *tPlatform::GetPlatform(void) {
-    return &D_004B2DE8;
+tPlatform &tPlatform::GetPlatform(void) {
+    return D_004B2DE8;
 }
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/pure3d/pure3dpr/platform", func_003122E8);

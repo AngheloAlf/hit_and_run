@@ -6,6 +6,7 @@
 
 #include "libs/radLoadDataLoader.hpp"
 
+#include "chunkfile.hpp"
 #include "file.hpp"
 #include "inventory.hpp"
 
@@ -17,6 +18,7 @@ class tEntity;
 
 class tChunkHandler : public radLoadDataLoader {
 protected:
+    tChunkHandler(void) {}
     virtual ~tChunkHandler(void);
 
     virtual UNK_RET LoadData(radLoadStream *, int, radLoadInventory *, IRefCount *);
@@ -60,6 +62,7 @@ private:
 
 class tSimpleChunkHandler: public tChunkHandler {
 protected:
+    tSimpleChunkHandler(void) {}
     virtual ~tSimpleChunkHandler(void); // void _$_19tSimpleChunkHandler();
 
     virtual UNK_RET Load(tChunkFile *, tEntityStore *); // void Load__19tSimpleChunkHandlerP10tChunkFileP12tEntityStore();
