@@ -23,21 +23,18 @@ private:
 // void _$_10ATCManager();
 };
 
-class ATCLoader : public tChunkHandler {
+class ATCLoader : public tSimpleChunkHandler {
 public:
     ATCLoader(void);
 private:
     // void _$_9ATCLoader();
-    // void LoadObject__9ATCLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__9ATCLoaderP10tChunkFileP12tEntityStore();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x10];
 }; // size = 0x14
 
 // void __tf9ATCLoader();
-// void _$_17radLoadDataLoader();
-// void __17radLoadDataLoader();
-// void __tf17radLoadDataLoader();
 
 // data
 
@@ -53,7 +50,6 @@ private:
 // extern UNK_TYPE D_00455FE8;
 // extern UNK_TYPE _vt$9ATCLoader;
 // extern UNK_TYPE D_00456050;
-// extern UNK_TYPE _vt$17radLoadDataLoader;
 // extern UNK_TYPE D_00456090;
 
 #endif

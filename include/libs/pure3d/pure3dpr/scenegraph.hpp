@@ -82,11 +82,11 @@
 // void GetLights__Q210Scenegraph10LightGroup();
 
 namespace Scenegraph {
-    class Loader : public tChunkHandler {
+    class Loader : public tSimpleChunkHandler {
     public:
         Loader(void);
     private:
-        // void LoadObject__Q210Scenegraph6LoaderP10tChunkFileP12tEntityStore();
+        virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__Q210Scenegraph6LoaderP10tChunkFileP12tEntityStore();
 
     private:
         /* 0x04 */ UNK_PAD unk_04[0x28];

@@ -30,21 +30,21 @@
 // void Clone__30tAnimatedObjectFrameController();
 // void Update__30tAnimatedObjectFrameController();
 
-class tAnimatedObjectFactoryLoader : public tChunkHandler {
+class tAnimatedObjectFactoryLoader : public tSimpleChunkHandler {
 public:
     tAnimatedObjectFactoryLoader(void);
 private:
-    // void LoadObject__28tAnimatedObjectFactoryLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__28tAnimatedObjectFactoryLoaderP10tChunkFileP12tEntityStore();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x10];
 }; // size = 0x14
 
-class tAnimatedObjectLoader : public tChunkHandler {
+class tAnimatedObjectLoader : public tSimpleChunkHandler {
 public:
     tAnimatedObjectLoader(void);
 private:
-    // void LoadObject__21tAnimatedObjectLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__21tAnimatedObjectLoaderP10tChunkFileP12tEntityStore();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x10];

@@ -5,11 +5,11 @@
 
 // text
 
-class tCameraLoader : public tChunkHandler {
+class tCameraLoader : public tSimpleChunkHandler {
 public:
     tCameraLoader(void);
 private:
-    // void LoadObject__13tCameraLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__13tCameraLoaderP10tChunkFileP12tEntityStore();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x10];

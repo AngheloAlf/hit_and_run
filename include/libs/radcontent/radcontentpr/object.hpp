@@ -10,7 +10,7 @@
 
 // text
 
-class radLoadObject: IRefCount {
+class radLoadObject: public IRefCount {
 protected:
     radLoadObject(void); // void __13radLoadObject();
 

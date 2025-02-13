@@ -9,11 +9,11 @@
 // void _$_8tLocator();
 // void SetPosition__8tLocatorGQ218RadicalMathLibrary6Vector();
 
-class tLocatorLoader : public tChunkHandler {
+class tLocatorLoader : public tSimpleChunkHandler {
 public:
     tLocatorLoader(void);
 private:
-    // void LoadObject__14tLocatorLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__14tLocatorLoaderP10tChunkFileP12tEntityStore();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x10];

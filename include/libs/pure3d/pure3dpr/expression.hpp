@@ -9,11 +9,11 @@
 // void _$_11tExpression();
 // void func_003472C0();
 
-class tExpressionLoader : public tChunkHandler {
+class tExpressionLoader : public tSimpleChunkHandler {
 public:
     tExpressionLoader(void);
 private:
-    // void LoadObject__17tExpressionLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__17tExpressionLoaderP10tChunkFileP12tEntityStore();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x10];
@@ -28,9 +28,9 @@ private:
 // void SetExpressionState__16tExpressionMixerRC5tNamef();
 // void ResetToNeutral__16tExpressionMixer();
 
-class tExpressionGroupLoader : public tChunkHandler {
+class tExpressionGroupLoader : public tSimpleChunkHandler {
 private:
-    // void LoadObject__22tExpressionGroupLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__22tExpressionGroupLoaderP10tChunkFileP12tEntityStore();
 public:
     tExpressionGroupLoader(void);
 
@@ -44,11 +44,11 @@ private:
 // void Store__Q222tExpressionGroupLoader16tExpressionStoreP7tEntity();
 // void StoreHandlingCollisions__Q222tExpressionGroupLoader16tExpressionStoreP7tEntity();
 
-class tExpressionMixerLoader : public tChunkHandler {
+class tExpressionMixerLoader : public tSimpleChunkHandler {
 public:
     tExpressionMixerLoader(void);
 private:
-    // void LoadObject__22tExpressionMixerLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__22tExpressionMixerLoaderP10tChunkFileP12tEntityStore();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x10];

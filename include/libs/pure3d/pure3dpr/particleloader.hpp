@@ -12,21 +12,21 @@
 // void LoadBaseParticleData__21tEmitterFactoryLoaderP10tAnimationP19tBaseEmitterFactory();
 // void LoadSpriteParticleData__21tEmitterFactoryLoaderP10tAnimationP21tSpriteEmitterFactory();
 
-class tParticleSystemFactoryLoader : public tChunkHandler {
+class tParticleSystemFactoryLoader : public tSimpleChunkHandler {
 public:
     tParticleSystemFactoryLoader(void);
 private:
-    // void LoadObject__28tParticleSystemFactoryLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__28tParticleSystemFactoryLoaderP10tChunkFileP12tEntityStore();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x10];
 }; // size = 0x14
 
-class tParticleSystemLoader : public tChunkHandler {
+class tParticleSystemLoader : public tSimpleChunkHandler {
 public:
     tParticleSystemLoader(void);
 private:
-    // void LoadObject__21tParticleSystemLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__21tParticleSystemLoaderP10tChunkFileP12tEntityStore();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x10];

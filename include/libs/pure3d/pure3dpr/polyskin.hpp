@@ -11,11 +11,11 @@
 // void DisplayInstanced__9tPolySkinP5tPoseUi();
 // void ProcessShaders__9tPolySkinRQ29tDrawable14ShaderCallback();
 
-class tPolySkinLoader : public tChunkHandler {
+class tPolySkinLoader : public tSimpleChunkHandler {
 public:
     tPolySkinLoader(void);
 private:
-    // void LoadObject__15tPolySkinLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__15tPolySkinLoaderP10tChunkFileP12tEntityStore();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x14];

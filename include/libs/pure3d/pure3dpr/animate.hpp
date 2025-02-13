@@ -47,12 +47,12 @@
 // void Reset__21tBlendFrameController();
 // void LastFrameReached__21tBlendFrameController();
 
-class tFrameControllerLoader : public tChunkHandler {
+class tFrameControllerLoader : public tSimpleChunkHandler {
 public:
     tFrameControllerLoader(void);
 private:
     // void _$_22tFrameControllerLoader();
-    // void LoadObject__22tFrameControllerLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__22tFrameControllerLoaderP10tChunkFileP12tEntityStore();
     // void CheckFC__22tFrameControllerLoaderUi();
     // void LoadFC__22tFrameControllerLoaderPcUiP10tChunkFileP12tEntityStore();
 
@@ -88,11 +88,11 @@ private:
 // void MakeValidFrame__C10tAnimationfff12p3dCycleMode();
 // void SortAnimationGroups__10tAnimation();
 
-class tAnimationLoader : public tChunkHandler {
+class tAnimationLoader : public tSimpleChunkHandler {
 public:
     tAnimationLoader(void);
 private:
-    // void LoadObject__16tAnimationLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__16tAnimationLoaderP10tChunkFileP12tEntityStore();
     // void LoadAnimationGroup__16tAnimationLoaderP10tChunkFileP12tEntityStoreP21tAnimationMemoryBlock();
 
 private:

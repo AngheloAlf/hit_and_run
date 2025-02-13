@@ -16,20 +16,20 @@ public:
 private:
     // void _$_10tSetLoader();
     // void func_00332720();
-    // void Load__10tSetLoaderP10tChunkFileP12tEntityStore();
-    // void CheckChunkID__10tSetLoaderUi();
-    // void GetChunkID__10tSetLoader();
+    virtual UNK_RET Load(tChunkFile *, tEntityStore *); // void Load__10tSetLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_RET CheckChunkID(unsigned int); // void CheckChunkID__10tSetLoaderUi();
+    virtual UNK_RET GetChunkID(void); // void GetChunkID__10tSetLoader();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x4];
 }; // size = 0x8
 
-class tTextureLoader : public tChunkHandler {
+class tTextureLoader : public tSimpleChunkHandler {
 public:
     void TextureLoader(void);
 private:
     // void _$_14tTextureLoader();
-    // void LoadObject__14tTextureLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__14tTextureLoaderP10tChunkFileP12tEntityStore();
     // void LoadTexture__14tTextureLoaderP10tChunkFile();
     // void LoadImage__14tTextureLoaderP10tChunkFileP13tImageFactoryP8tTexturei();
     // void LoadVolumeImage__14tTextureLoaderP10tChunkFileP13tImageFactoryP8tTextureii();

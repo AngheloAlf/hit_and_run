@@ -12,11 +12,11 @@
 // void NewPose__9tSkeleton();
 // void Rebuild__9tSkeleton();
 
-class tSkeletonLoader : public tChunkHandler {
+class tSkeletonLoader : public tSimpleChunkHandler {
 public:
     tSkeletonLoader(void);
 private:
-    // void LoadObject__15tSkeletonLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__15tSkeletonLoaderP10tChunkFileP12tEntityStore();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x10];

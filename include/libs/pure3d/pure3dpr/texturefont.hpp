@@ -27,11 +27,11 @@ private:
     // void DrawBlank__C12tTextureFontP13ps2PrimStreamff();
 };
 
-class tTextureFontLoader : public tChunkHandler {
+class tTextureFontLoader : public tSimpleChunkHandler {
 public:
     tTextureFontLoader(void);
 private:
-    // void LoadObject__18tTextureFontLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__18tTextureFontLoaderP10tChunkFileP12tEntityStore();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x10];

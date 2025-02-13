@@ -4,15 +4,26 @@
 #include "types.h"
 #include "unk.h"
 
-#include "libs/radcontent/radcontentpr/object.hpp"
+#include "libs/radLoadDataLoader.hpp"
 
 #include "file.hpp"
 #include "inventory.hpp"
 
+// TODO: declare these classes somewhere
+class tChunkFile;
+class tEntity;
+
 // text
 
-class tChunkHandler : public radLoadObject {
+class tChunkHandler : public radLoadDataLoader {
+protected:
+    virtual ~tChunkHandler(void);
 
+    virtual UNK_RET LoadData(radLoadStream *, int, radLoadInventory *, IRefCount *);
+    virtual UNK_RET Load(tChunkFile *, tEntityStore *) = 0;
+    virtual UNK_RET CheckChunkID(unsigned int) = 0;
+    virtual UNK_RET GetChunkID(void) = 0;
+    virtual UNK_RET SetNameOverride(char const *);
 };
 
 class tFileHandler : public radLoadObject {
@@ -46,9 +57,19 @@ private:
 }; // size = 0x4C
 
 // void func_00327198();
-// void Load__19tSimpleChunkHandlerP10tChunkFileP12tEntityStore();
-// void HandleCollision__19tSimpleChunkHandlerP7tEntity();
-// void CheckChunkID__19tSimpleChunkHandlerUi();
+
+class tSimpleChunkHandler: public tChunkHandler {
+protected:
+    virtual ~tSimpleChunkHandler(void); // void _$_19tSimpleChunkHandler();
+
+    virtual UNK_RET Load(tChunkFile *, tEntityStore *); // void Load__19tSimpleChunkHandlerP10tChunkFileP12tEntityStore();
+    virtual UNK_RET CheckChunkID(unsigned int); // void CheckChunkID__19tSimpleChunkHandlerUi();
+    virtual UNK_RET GetChunkID(void); // void GetChunkID__19tSimpleChunkHandler();
+    virtual UNK_RET SetNameOverride(char const *); // void SetNameOverride__19tSimpleChunkHandlerPCc();
+    virtual UNK_RET HandleCollision(tEntity *); // void HandleCollision__19tSimpleChunkHandlerP7tEntity();
+    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *) = 0;
+};
+
 // void __12tLoadRequestPCc();
 // void __12tLoadRequestP5tFile();
 // void _$_12tLoadRequest();
@@ -106,9 +127,6 @@ public:
 // void func_00328030();
 // void SetNameOverride__13tChunkHandlerPCc();
 // void _$_13tChunkHandler();
-// void GetChunkID__19tSimpleChunkHandler();
-// void SetNameOverride__19tSimpleChunkHandlerPCc();
-// void _$_19tSimpleChunkHandler();
 // void Store__10tTempStoreP7tEntity();
 // void StoreHandlingCollisions__10tTempStoreP7tEntity();
 // void func_00328130();

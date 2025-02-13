@@ -9,12 +9,12 @@
 // void __7tShaderPcT1();
 // void _$_7tShader();
 
-class tShaderLoader : public tChunkHandler {
+class tShaderLoader: public tSimpleChunkHandler {
 public:
     tShaderLoader(void);
 private:
     // void func_0032DA78();
-    // void LoadObject__13tShaderLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__13tShaderLoaderP10tChunkFileP12tEntityStore();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x10];

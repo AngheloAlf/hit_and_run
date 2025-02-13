@@ -25,11 +25,11 @@
 // void SetDrawable__Q218tCompositeDrawable21DrawableEffectElementP9tDrawable();
 // void Draw__Q218tCompositeDrawable21DrawableEffectElementP5tPose();
 
-class tCompositeDrawableLoader : public tChunkHandler {
+class tCompositeDrawableLoader : public tSimpleChunkHandler {
 public:
     tCompositeDrawableLoader(void);
 private:
-    // void LoadObject__24tCompositeDrawableLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__24tCompositeDrawableLoaderP10tChunkFileP12tEntityStore();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x10];

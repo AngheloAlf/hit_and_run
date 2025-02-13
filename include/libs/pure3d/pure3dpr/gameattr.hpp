@@ -15,11 +15,11 @@
 // void SetMatrix__9tGameAttrPcRCQ218RadicalMathLibrary6Matrix();
 // void SetVector__9tGameAttrPcRCQ218RadicalMathLibrary6Vector();
 
-class tGameAttrLoader : public tChunkHandler {
+class tGameAttrLoader : public tSimpleChunkHandler {
 public:
     tGameAttrLoader(void);
 private:
-    // void LoadObject__15tGameAttrLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__15tGameAttrLoaderP10tChunkFileP12tEntityStore();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x10];

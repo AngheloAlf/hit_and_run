@@ -5,21 +5,21 @@
 
 // text
 
-class tLightLoader : public tChunkHandler {
+class tLightLoader : public tSimpleChunkHandler {
 public:
     tLightLoader(void);
 private:
-    // void LoadObject__12tLightLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__12tLightLoaderP10tChunkFileP12tEntityStore();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x10];
 }; // size = 0x14
 
-class tLightGroupLoader : public tChunkHandler {
+class tLightGroupLoader : public tSimpleChunkHandler {
 public:
     tLightGroupLoader(void);
 private:
-    // void LoadObject__17tLightGroupLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__17tLightGroupLoaderP10tChunkFileP12tEntityStore();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x10];

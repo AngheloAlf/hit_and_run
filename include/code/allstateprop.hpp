@@ -32,11 +32,11 @@
 // void GetNumberOfCallbacks__14CStatePropDatai();
 // void GetCallbackData__14CStatePropDataii();
 
-class CStatePropDataLoader : public tChunkHandler {
+class CStatePropDataLoader : public tSimpleChunkHandler {
 public:
     CStatePropDataLoader(void);
 private:
-    // void LoadObject__20CStatePropDataLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *);  // void LoadObject__20CStatePropDataLoaderP10tChunkFileP12tEntityStore();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x10];

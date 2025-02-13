@@ -21,11 +21,11 @@
 // void __14tVertexAnimKey();
 // void _$_14tVertexAnimKey();
 
-class tVertexAnimKeyLoader : public tChunkHandler {
+class tVertexAnimKeyLoader : public tSimpleChunkHandler {
 public:
     tVertexAnimKeyLoader(void);
 private:
-    // void LoadObject__20tVertexAnimKeyLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__20tVertexAnimKeyLoaderP10tChunkFileP12tEntityStore();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x10];

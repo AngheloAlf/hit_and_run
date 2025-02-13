@@ -18,11 +18,11 @@
 // void func_0034A648();
 // void Update__16tMultiController();
 
-class tMultiControllerLoader : public tChunkHandler {
+class tMultiControllerLoader : public tSimpleChunkHandler {
 public:
     tMultiControllerLoader(void);
 private:
-    // void LoadObject__22tMultiControllerLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__22tMultiControllerLoaderP10tChunkFileP12tEntityStore();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x10];

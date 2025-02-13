@@ -17,11 +17,11 @@
 // void DisplayLine__C10tImageFontP6tImageiiPCUsi();
 // void FindGlyph__C10tImageFontUs();
 
-class tImageFontLoader : public tChunkHandler {
+class tImageFontLoader : public tSimpleChunkHandler {
 public:
     tImageFontLoader(void);
 private:
-    // void LoadObject__16tImageFontLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__16tImageFontLoaderP10tChunkFileP12tEntityStore();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x10];

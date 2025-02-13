@@ -10,8 +10,11 @@ public:
     CameraDataLoader(void);
 private:
     // void _$_16CameraDataLoader();
-    // void Load__16CameraDataLoaderP10tChunkFileP12tEntityStore();
-
+    virtual UNK_RET Load(tChunkFile *, tEntityStore *); // void Load__16CameraDataLoaderP10tChunkFileP12tEntityStore();
+    // void __tf16CameraDataLoader();
+    virtual UNK_RET CheckChunkID(unsigned int); // void CheckChunkID__16CameraDataLoaderUi();
+    virtual UNK_RET GetChunkID(void); // void GetChunkID__16CameraDataLoader();
+    // extern UNK_TYPE _vt$16CameraDataLoader;
 private:
     /* 0x04 */ UNK_PAD unk_04[0x4];
 }; // size = 0x8
@@ -44,9 +47,9 @@ public:
     IntersectionLoader(void);
 private:
     // void _$_18IntersectionLoader();
-    // void Load__18IntersectionLoaderP10tChunkFileP12tEntityStore();
-    // void CheckChunkID__18IntersectionLoaderUi();
-    // void GetChunkID__18IntersectionLoader();
+    virtual UNK_RET Load(tChunkFile *, tEntityStore *); // void Load__18IntersectionLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_RET CheckChunkID(unsigned int); // void CheckChunkID__18IntersectionLoaderUi();
+    virtual UNK_RET GetChunkID(void); // void GetChunkID__18IntersectionLoader();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x4];
@@ -91,9 +94,9 @@ public:
     RoadDataSegmentLoader(void);
 private:
     // void _$_21RoadDataSegmentLoader();
-    // void Load__21RoadDataSegmentLoaderP10tChunkFileP12tEntityStore();
-    // void CheckChunkID__21RoadDataSegmentLoaderUi();
-    // void GetChunkID__21RoadDataSegmentLoader();
+    virtual UNK_RET Load(tChunkFile *, tEntityStore *); // void Load__21RoadDataSegmentLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_RET CheckChunkID(unsigned int); // void CheckChunkID__21RoadDataSegmentLoaderUi();
+    virtual UNK_RET GetChunkID(void); // void GetChunkID__21RoadDataSegmentLoader();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x4];
@@ -128,7 +131,6 @@ private:
 // void func_001618A0();
 // void clear__t10_List_base2ZP11RoadSegmentZt7s2alloc1ZP11RoadSegment();
 // void __tfQ212tLoadRequest8Callback();
-// void __tf16CameraDataLoader();
 // void func_001619C0();
 // void __tf11FileHandler();
 // void __tf14LoadingManager();
@@ -151,8 +153,6 @@ private:
 // void func_00161FB0();
 // void _$_Q212tLoadRequest8Callback();
 // void Done__Q212tLoadRequest8Callback();
-// void CheckChunkID__16CameraDataLoaderUi();
-// void GetChunkID__16CameraDataLoader();
 // void _$_18WalkerCamDataChunk();
 // void __35IRadCementLibraryCompletionCallback();
 // void func_00162150();
@@ -261,7 +261,6 @@ private:
 // extern UNK_TYPE _vt$14LoadingManager;
 // extern UNK_TYPE _vt$11FileHandler;
 // extern UNK_TYPE _vt$18WalkerCamDataChunk;
-// extern UNK_TYPE _vt$16CameraDataLoader;
 // extern UNK_TYPE _vt$Q212tLoadRequest8Callback;
 // extern UNK_TYPE D_0045CC18;
 // extern UNK_TYPE D_0045CC38;

@@ -30,12 +30,12 @@
 // void func_00320D30();
 // void func_00320E30();
 
-class tImageLoader : public tChunkHandler {
+class tImageLoader : public tSimpleChunkHandler {
 public:
     tImageLoader(void);
 private:
-    // void _$_12tImageLoader();
-    // void LoadObject__12tImageLoaderP10tChunkFileP12tEntityStore();
+    virtual ~tImageLoader(void);// void _$_12tImageLoader();
+    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__12tImageLoaderP10tChunkFileP12tEntityStore();
     // void LoadImage__12tImageLoaderP10tChunkFilei();
 
 private:
