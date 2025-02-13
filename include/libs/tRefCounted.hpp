@@ -5,7 +5,7 @@
 
 #include "libs/radcontent/radcontentpr/object.hpp"
 
-class tRefCounted: radLoadObject {
+class tRefCounted: public radLoadObject {
 protected:
     virtual ~tRefCounted(void); // void _$_11tRefCounted();
     tRefCounted(void); // void __11tRefCounted();

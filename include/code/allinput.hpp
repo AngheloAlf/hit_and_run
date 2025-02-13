@@ -9,8 +9,10 @@
 
 class Mappable;
 
-// void __6Button();
-// void _$_6Button();
+class Button {
+    Button(void); // void __6Button();
+    ~Button(void); // void _$_6Button();
+};
 
 class InputManager {
 public:
@@ -52,7 +54,7 @@ private:
     // void UnregisterAllControllerID__12InputManager();
 };
 
-class Mappable: tRefCounted {
+class Mappable: public tRefCounted {
 protected:
     Mappable(unsigned int); // void __8MappableUi();
     virtual ~Mappable(void); // void _$_8Mappable();
@@ -70,7 +72,9 @@ private:
     // void IsActive__C8Mappable();
     // void IsButtonDown__8MappableUi();
     // void func_00151768();
-    // void Map__8MappablePCciUiUi();
+protected:
+    void Map(char const *, int, unsigned int, unsigned int); // void Map__8MappablePCciUiUi();
+private:
     // void ClearMap__8MappableUi();
     // void Reset__8Mappable();
 };
