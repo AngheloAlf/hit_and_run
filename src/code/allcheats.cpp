@@ -18,11 +18,12 @@
 
 struct struct_00458A30 {
     const char *unk_00;
-    int unk_04;
+    eCheatInput unk_04;
 };
-extern const struct_00458A30 D_00458A30[];
 
-extern const Cheat D_00458B60[];
+extern const struct_00458A30 D_00458A30[7];
+
+extern const Cheat D_00458B60[13];
 
 #if 0
 // migrating data has alignment issues
@@ -81,8 +82,8 @@ CheatInputSystem::CheatInputSystem(void) {
     this->unk_0C = NULL;
     this->unk_90 = 0;
 
-    for (size_t var_v1 = 0; var_v1 < CHEATINPUTSYSTEM_UNK_10_LEN; var_v1++) {
-        this->unk_10[var_v1] = NULL;
+    for (size_t i = 0; i < CHEATINPUTSYSTEM_UNK_10_LEN; i++) {
+        this->unk_10[i] = NULL;
     }
 }
 
@@ -112,11 +113,11 @@ void CheatInputSystem::Init(void) {
 
 void CheatInputSystem::SetEnabled(bool arg1) {
     this->unk_00 = arg1;
-    for (int var_s1 = 0; var_s1 < 10; var_s1++) {
+    for (int i = 0; i < 10; i++) {
         if (arg1 != 0) {
-            InputManager::GetInstance()->RegisterMappable(var_s1, this->unk_0C);
+            InputManager::GetInstance()->RegisterMappable(i, this->unk_0C);
         } else {
-            InputManager::GetInstance()->UnregisterMappable(var_s1, this->unk_0C);
+            InputManager::GetInstance()->UnregisterMappable(i, this->unk_0C);
         }
     }
 
@@ -138,7 +139,7 @@ bool CheatInputSystem::IsActivated(int arg1) const {
 }
 
 void CheatInputSystem::SetCheatEnabled(eCheatID arg1, bool arg2) {
-    if (((arg1 < ECHEATID_3 && arg1 > ECHEATID_0) || (arg1 == ECHEATID_5))) {
+    if (arg1 == ECHEATID_2 || arg1 == ECHEATID_1 || arg1 == ECHEATID_UNLOCK_ALL_VEHICLES) {
         if (!CharacterSheetManager::GetInstance()->IsAllStoryMissionsCompleted()) {
             return;
         }
@@ -159,27 +160,26 @@ bool CheatInputSystem::IsCheatEnabled(eCheatID arg1) const {
     return s_cheatsEnabled & (1 << arg1);
 }
 
+#if 0
+extern const char D_00458778[] = "bad_alloc";
+extern const char D_00458788[] = "Game Controller System";
+extern const char D_004587A0[] = "SineCos Shaker";
+extern const char D_004587B0[] = "ScroobyLanguage";
+extern const char D_004587C0[] = "ScroobyBootup";
+extern const char D_004587D0[] = "ScroobyBackend";
+extern const char D_004587E0[] = "ScroobyFrontend";
+extern const char D_004587F0[] = "ScroobyMiniGame";
+extern const char D_00458800[] = "ScroobyIngame";
+#else
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allcheats", D_00458778);
-
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allcheats", D_004587B0);
-
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allcheats", D_004587C0);
-
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allcheats", D_004587D0);
-
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allcheats", D_004587E0);
-
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allcheats", D_004587F0);
-
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allcheats", D_00458800);
-
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allcheats", D_00458810);
-
-extern const char D_00458828[] = "*** This cheat cannot be enabled until all story missions have been completed!\n";
-extern const char D_00458878[] = "*** Cheat code successfully entered: %s (%s)\n";
-extern const char D_004588A8[] = "enabled";
-extern const char D_004588B0[] = "disabled";
-extern const char D_004588C0[] = "*** Invalid cheat code entered!\n";
+#endif
 
 void CheatInputSystem::ReceiveInputs(eCheatInput *arg1, int arg2) {
     eCheatID temp_v0 = this->unk_08->GetCheatID(CheatsDB::ConvertSequenceToIndex(arg1, arg2));
@@ -193,10 +193,10 @@ void CheatInputSystem::ReceiveInputs(eCheatInput *arg1, int arg2) {
         } else {
             var_s2 = false;
             EventManager::GetInstance()->TriggerEvent(EVENTENUM_174, NULL);
-            rReleasePrintf(D_00458828);
+            rReleasePrintf("*** This cheat cannot be enabled until all story missions have been completed!\n");
         }
 
-        rReleasePrintf(D_00458878, this->unk_08->GetCheat(temp_v0)->unk_14, var_s2 ? D_004588A8 : D_004588B0);
+        rReleasePrintf("*** Cheat code successfully entered: %s (%s)\n", this->unk_08->GetCheat(temp_v0)->unk_14, var_s2 ? "enabled" : "disabled");
 
         if (temp_v0 == ECHEATID_6) {
             for (int var_s0 = ECHEATID_1; var_s0 < ECHEATID_6; var_s0++) {
@@ -207,7 +207,7 @@ void CheatInputSystem::ReceiveInputs(eCheatInput *arg1, int arg2) {
         }
     } else {
         EventManager::GetInstance()->TriggerEvent(EVENTENUM_174, NULL);
-        rReleasePrintf(D_004588C0);
+        rReleasePrintf("*** Invalid cheat code entered!\n");
     }
 }
 
@@ -243,13 +243,6 @@ CheatInputHandler::CheatInputHandler(): Mappable(0xFFFFFFEF), unk_298(0), unk_29
 #if 0
 // vt issue
 CheatInputHandler::~CheatInputHandler() {
-    #if 0
-    *arg0 = &_vt$s1CheatInputHandler;
-    _$_8Mappable(0);
-    if (arg1 & 1) {
-        __dl__13radLoadObjectPv(arg0);
-    }
-    #endif
 }
 #else
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", _$_17CheatInputHandler);
@@ -257,8 +250,8 @@ INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", _$_17CheatInputHand
 
 void CheatInputHandler::ResetInputSequence(void) {
     this->unk_2B0 = 0;
-    for (size_t var_a1 = 0; var_a1 < CHEATINPUTHANDLER_UNK_2A0_LEN; var_a1++) {
-        this->unk_2A0[var_a1] = ECHEATINPUT_MINUS1;
+    for (size_t i = 0; i < CHEATINPUTHANDLER_UNK_2A0_LEN; i++) {
+        this->unk_2A0[i] = ECHEATINPUT_NONE;
     }
 }
 
@@ -269,13 +262,11 @@ const char *CheatInputHandler::GetInputName(eCheatInput arg0) {
 void CheatInputHandler::OnButton(UNUSED int arg1, UNUSED int arg2, UNUSED Button const *arg3) {
 }
 
-extern const char D_004588E8[] = "Received Cheat Input [%d] = [%d]\n";
-
 void CheatInputHandler::OnButtonDown(int arg1, int arg2, UNUSED Button const *arg3) {
     eCheatInput temp = static_cast<eCheatInput>(arg2);
 
     switch (temp) {
-        case ECHEATINPUT_4:
+        case ECHEATINPUT_L1:
             {
                 this->unk_298 |= (1 << arg1);
                 bool var_s0 = this->unk_29C & (1 << arg1);
@@ -283,7 +274,7 @@ void CheatInputHandler::OnButtonDown(int arg1, int arg2, UNUSED Button const *ar
             }
             break;
 
-        case ECHEATINPUT_5:
+        case ECHEATINPUT_R1:
             {
                 this->unk_29C |= (1 << arg1);
                 bool var_s0_2 = this->unk_298 & (1 << arg1);
@@ -293,7 +284,7 @@ void CheatInputHandler::OnButtonDown(int arg1, int arg2, UNUSED Button const *ar
 
         default:
             if (CheatInputSystem::GetInstance()->IsActivated(arg1)) {
-                rReleasePrintf(D_004588E8, this->unk_2B0, arg2);
+                rReleasePrintf("Received Cheat Input [%d] = [%d]\n", this->unk_2B0, arg2);
 
                 this->unk_2A0[this->unk_2B0++] = temp;
                 this->unk_2B0 %= CHEATINPUTHANDLER_UNK_2A0_LEN;
@@ -306,21 +297,24 @@ void CheatInputHandler::OnButtonDown(int arg1, int arg2, UNUSED Button const *ar
 }
 
 void CheatInputHandler::OnButtonUp(int arg1, int arg2, UNUSED Button const *arg3) {
-    switch (arg2) {
-        case 0x4:
+    switch (static_cast<eCheatInput>(arg2)) {
+        case ECHEATINPUT_L1:
             this->unk_298 &= ~(1 << arg1);
             CheatInputSystem::GetInstance()->SetActivated(arg1, false);
             break;
 
-        case 0x5:
+        case ECHEATINPUT_R1:
             this->unk_29C &= ~(1 << arg1);
             CheatInputSystem::GetInstance()->SetActivated(arg1, false);
+            break;
+
+        default:
             break;
     }
 }
 
 void CheatInputHandler::LoadControllerMappings(unsigned int arg1) {
-    for (size_t i = 0; i < 7U; i++) {
+    for (size_t i = 0; i < ARR_LEN(D_00458A30); i++) {
         this->Map(D_00458A30[i].unk_00, D_00458A30[i].unk_04, 0, arg1);
     }
 }
@@ -338,7 +332,7 @@ CheatsDB::CheatsDB(void): unk_0(NULL) {
         this->unk_0[i] = ECHEATID_MINUS1;
     }
 
-    for (i = 0; i < 0xC; i++) {
+    for (i = 0; i < ARR_LEN(D_00458B60)-1; i++) {
         this->unk_0[CheatsDB::ConvertSequenceToIndex(D_00458B60[i].unk_04, CHEAT_UNK_04_LEN)] = D_00458B60[i].unk_00;
     }
 }
@@ -360,8 +354,8 @@ eCheatID CheatsDB::GetCheatID(unsigned int arg1) const {
 }
 
 const Cheat *CheatsDB::GetCheat(eCheatID arg1) const {
-    for (size_t var_a0 = 0; var_a0 < 0xCU; var_a0++) {
-        const Cheat *temp_v1 = &D_00458B60[var_a0];
+    for (size_t i = 0; i < ARR_LEN(D_00458B60)-1; i++) {
+        const Cheat *temp_v1 = &D_00458B60[i];
         if (temp_v1->unk_00 == arg1) {
             return temp_v1;
         }
@@ -370,38 +364,35 @@ const Cheat *CheatsDB::GetCheat(eCheatID arg1) const {
 }
 
 unsigned int CheatsDB::ConvertSequenceToIndex(eCheatInput const *arg0, int arg1) {
-    int var_a2 = 0;
+    unsigned int ret = 0;
 
-    for (int var_a3 = 0; var_a3 < arg1; var_a3++) {
-        var_a2 |= arg0[var_a3] << (var_a3 * 2);
+    for (int i = 0; i < arg1; i++) {
+        ret |= arg0[i] << (i * 2);
     }
-    return var_a2;
+    return ret;
 }
-
-extern const char D_00458910[] = "%s: { ";
-extern const char D_00458918[] = ", ";
-extern const char D_00458920[] =" }";
 
 void CheatsDB::PrintCheatInfo(Cheat const *arg0, char *arg1) {
     #define BUFFER_LEN 4
     char sp[CHEAT_UNK_04_LEN][BUFFER_LEN];
 
-    sprintf(arg1, D_00458910, arg0->unk_14);
+    sprintf(arg1, "%s: { ", arg0->unk_14);
 
     for (size_t i = 0; i < CHEAT_UNK_04_LEN; i++) {
         strncpy(sp[i], CheatInputHandler::GetInputName(arg0->unk_04[i]), BUFFER_LEN-1);
         sp[i][BUFFER_LEN-1] = '\0';
 
         if (i != 0) {
-            strcat(arg1, D_00458918);
+            strcat(arg1, ", ");
         }
         strcat(arg1, sp[i]);
     }
 
-    strcat(arg1, D_00458920);
+    strcat(arg1, " }");
     #undef BUFFER_LEN
 }
 
+#if 1
 __asm__(".section .rodata; .align 3;");
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allcheats", _vt$17CheatInputHandler);
 
@@ -414,9 +405,21 @@ INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", __tf8CheatsDB);
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", __tf16CheatInputSystem);
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", __tf17CheatInputHandler);
+#endif
 
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/code/allcheats", func_00146458);
 
+#if 0
+const struct_00458A30 D_00458A30[] = {
+    { "X", ECHEATINPUT_X },
+    { "Circle", ECHEATINPUT_O },
+    { "Square", ECHEATINPUT_S },
+    { "Triangle", ECHEATINPUT_T },
+    { "L1", ECHEATINPUT_L1 },
+    { "R1", ECHEATINPUT_R1 },
+    { "", ECHEATINPUT_NONE },
+};
+#else
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allcheats", D_004589F0);
 
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allcheats", D_004589F8);
@@ -432,7 +435,25 @@ INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allcheats", D_00458A20);
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allcheats", D_00458A28);
 
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allcheats", D_00458A30);
+#endif
 
+#if 0
+const Cheat D_00458B60[] = {
+    { ECHEATID_UNLOCK_ALL_VEHICLES,  { ECHEATINPUT_X, ECHEATINPUT_O, ECHEATINPUT_X, ECHEATINPUT_O }, "Unlock All Reward Vehicles" },
+    { ECHEATID_NO_TOP_SPEED,  { ECHEATINPUT_S, ECHEATINPUT_S, ECHEATINPUT_S, ECHEATINPUT_S }, "No Top Speed" },
+    { ECHEATID_HIGH_ACCELERATION,  { ECHEATINPUT_T, ECHEATINPUT_T, ECHEATINPUT_T, ECHEATINPUT_T }, "High Acceleration" },
+    { ECHEATID_CAR_JUMP_ON_HORN,  { ECHEATINPUT_S, ECHEATINPUT_S, ECHEATINPUT_S, ECHEATINPUT_T }, "Car Jump on Horn" },
+    { ECHEATID_ONE_TAP_TRAFFIC_DEATH, { ECHEATINPUT_T, ECHEATINPUT_T, ECHEATINPUT_S, ECHEATINPUT_S }, "One Tap Traffic Death" },
+    { ECHEATID_UNLOCK_ALL_CAMERAS, { ECHEATINPUT_O, ECHEATINPUT_O, ECHEATINPUT_O, ECHEATINPUT_X }, "Unlock All Cameras" },
+    { ECHEATID_PLAY_CREDITS_DIALOG, { ECHEATINPUT_X, ECHEATINPUT_S, ECHEATINPUT_S, ECHEATINPUT_T }, "Play Credits Dialog" },
+    { ECHEATID_SHOW_SPEEDOMETER, { ECHEATINPUT_T, ECHEATINPUT_T, ECHEATINPUT_O, ECHEATINPUT_S }, "Show Speedometer" },
+    { ECHEATID_RED_BRICK, { ECHEATINPUT_O, ECHEATINPUT_O, ECHEATINPUT_T, ECHEATINPUT_S }, "Red Brick" },
+    { ECHEATID_INVINCIBLE_CAR, { ECHEATINPUT_T, ECHEATINPUT_X, ECHEATINPUT_T, ECHEATINPUT_X }, "Invincible Car" },
+    { ECHEATID_SHOW_TREE, { ECHEATINPUT_O, ECHEATINPUT_X, ECHEATINPUT_O, ECHEATINPUT_T }, "Show Tree" },
+    { ECHEATID_TRIPPY, { ECHEATINPUT_T, ECHEATINPUT_O, ECHEATINPUT_T, ECHEATINPUT_O }, "Trippy" },
+    { ECHEATID_MINUS1, { ECHEATINPUT_NONE, ECHEATINPUT_NONE, ECHEATINPUT_NONE, ECHEATINPUT_NONE }, "" },
+};
+#else
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allcheats", D_00458A68);
 
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allcheats", D_00458A88);
@@ -458,3 +479,4 @@ INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allcheats", D_00458B48);
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allcheats", D_00458B58);
 
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/code/allcheats", D_00458B60);
+#endif

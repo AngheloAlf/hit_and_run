@@ -61,8 +61,12 @@ protected:
 private:
     // void DispatchOnButton__8MappableiiPC6Button();
     // void InitButtons__8MappableiPC6Button();
-    // void OnControllerDisconnect__8Mappablei();
-    // void OnControllerConnect__8Mappablei();
+    virtual void OnButton(int, int, Button const *) = 0;
+    virtual void OnButtonUp(int, int, Button const *) = 0;
+    virtual void OnButtonDown(int, int, Button const *) = 0;
+    virtual void LoadControllerMappings(unsigned int) = 0;
+    virtual void OnControllerDisconnect(int); // void OnControllerDisconnect__8Mappablei();
+    virtual void OnControllerConnect(int); // void OnControllerConnect__8Mappablei();
     // void UpdateButtonState__8MappableiiPC6Button();
     // void GetValue__C8MappableUi();
     // void GetButton__8MappableUi();

@@ -19,18 +19,32 @@ typedef enum eCheatID {
     /*  1 */ ECHEATID_1,
     /*  2 */ ECHEATID_2,
     /*  3 */ ECHEATID_3,
-    /*  5 */ ECHEATID_5 = 5,
+    /*  5 */ ECHEATID_UNLOCK_ALL_VEHICLES = 5,
     /*  6 */ ECHEATID_6,
-    /* 17 */ ECHEATID_17 = 17,
+    /*  7 */ ECHEATID_NO_TOP_SPEED,
+    /*  8 */ ECHEATID_HIGH_ACCELERATION,
+    /*  9 */ ECHEATID_CAR_JUMP_ON_HORN,
+    /* 11 */ ECHEATID_ONE_TAP_TRAFFIC_DEATH,
+    /* 16 */ ECHEATID_UNLOCK_ALL_CAMERAS = 16,
+    /* 17 */ ECHEATID_17,
+    /* 18 */ ECHEATID_PLAY_CREDITS_DIALOG,
+    /* 19 */ ECHEATID_SHOW_SPEEDOMETER,
+    /* 20 */ ECHEATID_RED_BRICK,
+    /* 21 */ ECHEATID_INVINCIBLE_CAR,
+    /* 22 */ ECHEATID_SHOW_TREE,
+    /* 23 */ ECHEATID_TRIPPY,
 } eCheatID;
 
 #define CHEAT_UNK_04_LEN 4
 
 typedef enum eCheatInput {
-    /* -1 */ ECHEATINPUT_MINUS1 = -1,
-    /*  0 */ ECHEATINPUT_0,
-    /*  4 */ ECHEATINPUT_4 = 4,
-    /*  5 */ ECHEATINPUT_5,
+    /* -1 */ ECHEATINPUT_NONE = -1,
+    /*  0 */ ECHEATINPUT_X, // X
+    /*  1 */ ECHEATINPUT_O, // Circle
+    /*  2 */ ECHEATINPUT_S, // Square
+    /*  3 */ ECHEATINPUT_T, // Triangle
+    /*  4 */ ECHEATINPUT_L1, // L1
+    /*  5 */ ECHEATINPUT_R1, // R1
 } eCheatInput;
 
 typedef struct Cheat {
@@ -42,6 +56,25 @@ typedef struct Cheat {
 class ICheatEnteredCallback {
 public:
     virtual void virtual_0C(eCheatID arg1, bool arg2);
+};
+
+class CheatsDB {
+private:
+    /* 0x0 */ eCheatID *unk_0; // cheat_id?
+    /* 0x4 */ // vtable
+    /*     */ // size = 0x8
+
+public:
+    CheatsDB(void); // void __8CheatsDB();
+    virtual ~CheatsDB(void); // void _$_8CheatsDB();
+    eCheatID GetCheatID(unsigned int) const; // void GetCheatID__C8CheatsDBUi();
+    const Cheat *GetCheat(eCheatID) const;// void GetCheat__C8CheatsDB8eCheatID();
+    static unsigned int ConvertSequenceToIndex(eCheatInput const *, int); // void ConvertSequenceToIndex__8CheatsDBPC11eCheatInputi();
+private:
+    static void PrintCheatInfo(Cheat const *, char *); // void PrintCheatInfo__8CheatsDBPC5CheatPc();
+    // void __tf8CheatsDB();
+
+    static int s_maxNumPossibleCheats; // _8CheatsDB$s_maxNumPossibleCheats
 };
 
 #define CHEATINPUTSYSTEM_UNK_10_LEN 0x20U
@@ -102,29 +135,10 @@ public:
     void ResetInputSequence(void); // void ResetInputSequence__17CheatInputHandler();
     static const char *GetInputName(eCheatInput); // void GetInputName__17CheatInputHandler11eCheatInput();
 private:
-    void OnButton(int, int, Button const *); // void OnButton__17CheatInputHandleriiPC6Button();
-    void OnButtonDown(int, int, Button const *); // void OnButtonDown__17CheatInputHandleriiPC6Button();
-    void OnButtonUp(int, int, Button const *); // void OnButtonUp__17CheatInputHandleriiPC6Button();
-    void LoadControllerMappings(unsigned int); // void LoadControllerMappings__17CheatInputHandlerUi();
-};
-
-class CheatsDB {
-private:
-    /* 0x0 */ eCheatID *unk_0; // cheat_id?
-    /* 0x4 */ // vtable
-    /*     */ // size = 0x8
-
-public:
-    CheatsDB(void); // void __8CheatsDB();
-    virtual ~CheatsDB(void); // void _$_8CheatsDB();
-    eCheatID GetCheatID(unsigned int) const; // void GetCheatID__C8CheatsDBUi();
-    const Cheat *GetCheat(eCheatID) const;// void GetCheat__C8CheatsDB8eCheatID();
-    static unsigned int ConvertSequenceToIndex(eCheatInput const *, int); // void ConvertSequenceToIndex__8CheatsDBPC11eCheatInputi();
-private:
-    static void PrintCheatInfo(Cheat const *, char *); // void PrintCheatInfo__8CheatsDBPC5CheatPc();
-    // void __tf8CheatsDB();
-
-    static int s_maxNumPossibleCheats; // _8CheatsDB$s_maxNumPossibleCheats
+    virtual void OnButton(int, int, Button const *); // void OnButton__17CheatInputHandleriiPC6Button();
+    virtual void OnButtonUp(int, int, Button const *); // void OnButtonUp__17CheatInputHandleriiPC6Button();
+    virtual void OnButtonDown(int, int, Button const *); // void OnButtonDown__17CheatInputHandleriiPC6Button();
+    virtual void LoadControllerMappings(unsigned int); // void LoadControllerMappings__17CheatInputHandlerUi();
 };
 
 // void __tf16CheatInputSystem();
