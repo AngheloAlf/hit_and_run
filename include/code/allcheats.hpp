@@ -119,7 +119,7 @@ private:
 
 class CheatInputHandler: public Mappable {
 private:
-    /* 0x004 */ UNK_PAD unk_004[0x294];
+    /* 0x008 */ UNK_PAD unk_008[0x290];
 public:
     /* 0x298 */ u32 unk_298;
     /* 0x29C */ u32 unk_29C;

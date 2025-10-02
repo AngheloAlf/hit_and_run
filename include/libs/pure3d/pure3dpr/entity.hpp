@@ -6,8 +6,6 @@
 #include "t_name.hpp"
 
 class tEntity : public tRefCounted {
-    /* 0x00 */ // vtable
-    /* 0x04 */ UNK_PAD unk_04[0x4];
 public:
     /* 0x08 */ tName unk_08;
     /*      */ // size >= 0x10

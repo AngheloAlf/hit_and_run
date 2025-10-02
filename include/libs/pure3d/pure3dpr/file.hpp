@@ -18,6 +18,10 @@ private:
 };
 
 class tFileMem : public tFile {
+private:
+    /* 0x08 */ UNK_PAD unk_08[0x20];
+    /*      */ // size = 0x28
+
 public:
     tFileMem(u8 *, u32, bool);
 private:
@@ -31,9 +35,7 @@ private:
     // void SetCompressed__8tFileMemb();
     // void SetUncompressedSize__8tFileMemi();
 
-private:
-    /* 0x08 */ UNK_PAD unk_04[0x24];
-}; // size = 0x28
+};
 
 // void __tf5tFile();
 // void __tf8tFileMem();

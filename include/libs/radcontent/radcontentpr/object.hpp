@@ -8,9 +8,10 @@
 
 #include "libs/IRefCount.hpp"
 
-// text
-
 class radLoadObject: public IRefCount {
+    /* 0x04 */ size_t reference_count;
+    /*      */ // size = 0x8
+
 protected:
     radLoadObject(void); // void __13radLoadObject();
 
@@ -20,24 +21,14 @@ public:
 protected:
     /* vt 0x1C */ virtual ~radLoadObject(void); // void _$_13radLoadObject();
 
-    // void ReleaseVerified__13radLoadObject();
+    void ReleaseVerified(void); // void ReleaseVerified__13radLoadObject();
 public:
-    void *operator new(size_t);
-    void *operator new(size_t, int);
-    // void func_003ED588();
+    void *operator new(size_t); // __nw__13radLoadObjectUi
+    void *operator new(size_t, int); // __nw__13radLoadObjectUii
     void operator delete(void *); // void __dl__13radLoadObjectPv();
-    // void func_003ED5B8();
-    // void __tf13radLoadObject();
+
+private:
+    static UNK_TYPE4 s_allocator;
 };
-// void func_003ED618();
-
-// rodata
-
-// extern UNK_TYPE _vt$13radLoadObject;
-// extern UNK_TYPE D_004ABFA8;
-
-// data
-
-// extern UNK_TYPE _13radLoadObject$s_allocator;
 
 #endif

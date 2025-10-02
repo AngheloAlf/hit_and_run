@@ -1,6 +1,10 @@
 #ifndef ATTRIBUTES_H
 #define ATTRIBUTES_H
 
+#ifndef __IS_OLD_COMP__
+#define __IS_OLD_COMP__ ((__GNUC__ == 2) && (__GNUC_MINOR__ == 95))
+#endif
+
 #if (!defined(__GNUC__) && !defined(__clang__)) || defined(M2CTX)
     #ifndef __attribute__
         #define __attribute__(x)
@@ -67,7 +71,9 @@
 #endif
 
 #ifndef UNUSED
-    #if __STDC_VERSION__ >= 202000L
+    #if __IS_OLD_COMP__
+        #define UNUSED
+    #elif __STDC_VERSION__ >= 202000L
         #define UNUSED [[maybe_unused]]
     #else
         #define UNUSED __attribute__((unused))

@@ -517,7 +517,7 @@ segments:
       - [0x2EA468, asm, libs/radcontent/radcontentpr/hashtable] # .a
       - [0x2EAFA0, asm, libs/radcontent/radcontentpr/inventory] # .a
       - [0x2EBA60, asm, libs/radcontent/radcontentpr/manager] # .a
-      - [0x2ED458, asm, libs/radcontent/radcontentpr/object] # .a
+      - [0x2ED458, cpp, libs/radcontent/radcontentpr/object] # .a
       - [0x2ED628, asm, libs/radcontent/radcontentpr/queue] # .a
       - [0x2ED838, asm, libs/radcontent/radcontentpr/request] # .a
       - [0x2EDD20, asm, libs/radcontent/radcontentpr/stream] # .a
@@ -977,7 +977,7 @@ segments:
       - [0x33E218, data, libs/radcore/radcorepr/instancedrive] # .a
       - [0x33E240, data, sce_libs/lib/liblgdev/liblgdev] # .a
       - [0x33E500, data, libs/radcontent/radcontentpr/manager] # .a
-      - [0x33E50C, data, libs/radcontent/radcontentpr/object] # .a
+      - [0x33E50C, .data, libs/radcontent/radcontentpr/object] # .a
       - [0x33E510, data, sce_libs/gcc/ee/libg/impure] # .a
       - [0x33E800, data, sce_libs/gcc/ee/libg/mallocr] # .a
       - [0x33EC58, data, sce_libs/gcc/ee/libg/locale] # .a
@@ -1404,7 +1404,7 @@ segments:
       - [0x3AB948, rodata, libs/radcontent/radcontentpr/hashtable] # .a
       - [0x3AB990, rodata, libs/radcontent/radcontentpr/inventory] # .a
       - [0x3ABB90, rodata, libs/radcontent/radcontentpr/manager] # .a
-      - [0x3ABF80, rodata, libs/radcontent/radcontentpr/object] # .a
+      - [0x3ABF80, .rodata, libs/radcontent/radcontentpr/object] # .a
       - [0x3ABFE8, rodata, libs/radcontent/radcontentpr/queue] # .a
       - [0x3AC030, rodata, libs/radcontent/radcontentpr/request] # .a
       - [0x3AC0C8, rodata, libs/radcontent/radcontentpr/stream] # .a

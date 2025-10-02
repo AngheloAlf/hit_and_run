@@ -28,7 +28,6 @@ namespace sim {
     void CleanupLineDrawing(void); // void CleanupLineDrawing__3simv();
 
     class tExportInfoLoader: public tSimpleChunkHandler {
-        /* 0x04 */ UNK_PAD unk_04[0x4];
         /* 0x08 */ UNK_TYPE4 unk_08;
         /* 0x0C */ UNK_PAD unk_0C[0x4];
         /* 0x10 */ UNK_TYPE4 unk_10;

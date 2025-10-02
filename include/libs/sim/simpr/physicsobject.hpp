@@ -42,7 +42,7 @@ namespace sim {
 // void ReadSymMatrixFromPhysicsInertiaMatrixChunk__3simP10tChunkFileRQ23sim9SymMatrix();
 
     class PhysicsObjectLoader: public tSimpleChunkHandler {
-        /* 0x04 */ UNK_PAD unk_04[0x10];
+        /* 0x08 */ UNK_PAD unk_08[0xC];
         /*      */ // size = 0x14
 
     public:
