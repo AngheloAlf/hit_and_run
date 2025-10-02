@@ -143,7 +143,7 @@ MIPS_BUILTIN_DEFS :=
 ifneq ($(RUN_CC_CHECK),0)
 #   The -MMD flags additionaly creates a .d file with the same name as the .o file.
     CC_CHECK          := $(CC_CHECK_COMP)
-    CC_CHECK_FLAGS    := -MMD -MP -std=c++98 -fno-builtin -fsyntax-only -fdiagnostics-color -DNON_MATCHING -DPRESERVE_UB -DCC_CHECK=1
+    CC_CHECK_FLAGS    := -MMD -MP -std=c++98 -fno-builtin -fsyntax-only -fdiagnostics-color -DNON_MATCHING -DNON_EQUIVALENT -DPRESERVE_UB -DCC_CHECK=1
 else
     CC_CHECK          := @:
 endif

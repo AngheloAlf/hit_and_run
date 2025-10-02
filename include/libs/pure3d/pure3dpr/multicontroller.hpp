@@ -23,7 +23,6 @@ enum p3dCycleMode {
 };
 
 class tMultiController : public tFrameController {
-    /* 0x0C */ UNK_PAD unk_0C[0x4];
     /* 0x10 */ float unk_10;
     /* 0x14 */ float unk_14;
     /* 0x18 */ float unk_18;

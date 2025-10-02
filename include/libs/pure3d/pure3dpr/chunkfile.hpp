@@ -13,10 +13,14 @@ public:
 private:
     // void __10tChunkFileP5tFile();
     // void _$_10tChunkFile();
-    // void ChunksRemaining__10tChunkFile();
-    // void BeginChunk__10tChunkFile();
+public:
+    UNK_RET ChunksRemaining(void); // void ChunksRemaining__10tChunkFile();
+    UNK_TYPE4 BeginChunk(void); // void BeginChunk__10tChunkFile();
+private:
     // void BeginChunk__10tChunkFileUi();
-    // void EndChunk__10tChunkFile();
+public:
+    void EndChunk(void); // void EndChunk__10tChunkFile();
+private:
     // void GetCurrentID__10tChunkFile();
     // void BeginInset__10tChunkFile();
     // void EndInset__10tChunkFileP5tFile();

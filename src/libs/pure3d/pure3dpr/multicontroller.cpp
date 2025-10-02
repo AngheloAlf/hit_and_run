@@ -4,6 +4,8 @@
 
 #include "garbage_helper.h"
 
+#include "libs/pure3d/pure3dpr/utility.hpp"
+
 tMultiController::tMultiController(int arg1, float arg2) {
     size_t i;
 
@@ -250,6 +252,7 @@ INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/pure3d/pure3dpr/multicontroller
 
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/libs/pure3d/pure3dpr/multicontroller", D_00492700);
 
+extern const char D_004927D0[];
 INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/libs/pure3d/pure3dpr/multicontroller", D_004927D0);
 
 // disaster
@@ -257,10 +260,13 @@ INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/libs/pure3d/pure3dpr/multicontrol
 UNK_TYPE *tMultiControllerLoader::LoadObject(tChunkFile *arg1, tEntityStore *arg2) {
     char sp[0x100];
     char sp100[4];
+    #if 0
     f32 sp104;
     f32 sp108;
     f32 sp10C;
+    #endif
     char sp110[0x200-0x110];
+    #if 0
     f32 sp200;
     f32 sp204;
     f32 sp208;
@@ -272,9 +278,11 @@ UNK_TYPE *tMultiControllerLoader::LoadObject(tChunkFile *arg1, tEntityStore *arg
     u8 sp250;
     u8 sp260;
     UNK_TYPE sp270;
+    #endif
     float sp274;
     f32 sp278;
     int sp27C;
+    #if 0
     s32 sp280;
     f32 sp284;
     f32 sp288;
@@ -282,14 +290,18 @@ UNK_TYPE *tMultiControllerLoader::LoadObject(tChunkFile *arg1, tEntityStore *arg
     f32 sp290;
     f32 sp294;
     f32 sp298;
-    s32 temp_2_8;
-    s32 var_23;
+    #endif
+    s32 temp_2_8; // 
+    s32 var_23; //
+    #if 0
     s32 var_2;
     s32 var_2_2;
     s32 var_2_3;
     s32 var_2_4;
+    #endif
     size_t var_30;
     tMultiController* temp_2;
+    #if 0
     void* temp_2_10;
     void* temp_2_11;
     void* temp_2_12;
@@ -338,13 +350,16 @@ UNK_TYPE *tMultiControllerLoader::LoadObject(tChunkFile *arg1, tEntityStore *arg
     void** temp_3_7;
     void** temp_3_8;
     void** temp_3_9;
-    tFrameController  * var_16;
-    void** var_16_2;
-    tFrameController * var_16_3;
-    void** var_16_4;
+    #endif
+    tFrameController  * var_16; //
+    void** var_16_2; //
+    tFrameController * var_16_3; //
+    void** var_16_4; //
 
-#if 0
+    (void)arg2;
+
     var_30 = 0;
+#if 0
     temp_3 = arg1->unk210;
     temp_2_2 = *temp_3;
     temp_2_2->unk64(temp_3 + temp_2_2->unk60, &sp100, 1, 1);
@@ -413,6 +428,9 @@ UNK_TYPE *tMultiControllerLoader::LoadObject(tChunkFile *arg1, tEntityStore *arg
                     }
                 }
                 var_16 = NULL;
+                if (!var_2) {
+
+                }
                 #if 0
                 //__5tNamePCc(&sp210, &sp100);
                 // MakeUID__5tNamePCc(&sp220, &D_004927D0);
@@ -434,7 +452,7 @@ UNK_TYPE *tMultiControllerLoader::LoadObject(tChunkFile *arg1, tEntityStore *arg
                     }
                 }
                 */
-                var_16 = NULL;
+                // var_16 = NULL;
                 if (var_2 == 0) {
                     __Q216radLoadInventoryt8SafeCast1Z16tFrameController(&sp220);
                     __13tUidUnalignedRC13tUidUnaligned(&sp250, &sp210);
@@ -456,17 +474,21 @@ UNK_TYPE *tMultiControllerLoader::LoadObject(tChunkFile *arg1, tEntityStore *arg
                 tUidUnaligned sp220 = tName::MakeUID(D_004927D0);
                 tUidUnaligned sp230(sp210);
 
-                bool var_2 = 0;
+                bool var_2_2 = 0;
                 if (sp230 == sp220) {
-                    var_2 = 1;
+                    var_2_2 = 1;
                 } else {
                     sp220 = tName::MakeUID("NO_NAME_TEXT");
                     tUidUnaligned sp240(sp220);
                     if (sp240 == sp220) {
-                        var_2 = true;
+                        var_2_2 = true;
                     } else {
-                        var_2 = false;
+                        var_2_2 = false;
                     }
+                }
+                var_16_2 = NULL;
+                if (!var_2_2) {
+
                 }
 
                 #if 0
@@ -500,7 +522,9 @@ UNK_TYPE *tMultiControllerLoader::LoadObject(tChunkFile *arg1, tEntityStore *arg
             #endif
             } else {
                 p3d::printf("multicontroller (%s) has invalid track (%s)\n", sp, sp100);
+                #if 0
                 sp208 = 0.0f;
+                #endif
             }
 
             #if 0
@@ -565,6 +589,9 @@ UNK_TYPE *tMultiControllerLoader::LoadObject(tChunkFile *arg1, tEntityStore *arg
                         }
                     }
                     var_16_3 = NULL;
+                    if (!var_2_3) {
+
+                    }
                     #if 0
                     // __5tNamePCc(&sp220, &sp110);
                     //MakeUID__5tNamePCc(&sp230, &D_004927D0);
@@ -572,7 +599,7 @@ UNK_TYPE *tMultiControllerLoader::LoadObject(tChunkFile *arg1, tEntityStore *arg
                     //if ((__eq__C13tUidUnalignedG13tUidUnaligned(&sp240, &sp230) != 0) || (MakeUID__5tNamePCc(&sp230, "NO_NAME_TEXT"), __13tUidUnalignedRC13tUidUnaligned(&sp250, &sp220), var_2_3 = 0 & 0xFF, (__eq__C13tUidUnalignedG13tUidUnaligned(&sp250, &sp230) != 0))) {
                     //    var_2_3 = 1 & 0xFF;
                     //}
-                    var_16_3 = NULL;
+                    //var_16_3 = NULL;
                     if (var_2_3 == 0) {
                         __Q216radLoadInventoryt8SafeCast1Z16tFrameController(&sp230);
                         __13tUidUnalignedRC13tUidUnaligned(&sp260, &sp220);
@@ -595,18 +622,23 @@ UNK_TYPE *tMultiControllerLoader::LoadObject(tChunkFile *arg1, tEntityStore *arg
                     tUidUnaligned sp220 = tName::MakeUID(D_004927D0);
                     tUidUnaligned sp230(sp210);
 
-                    bool var_2_3;
+                    bool var_2_4;
                     if (sp230 == sp220) {
-                        var_2_3 = true;
+                        var_2_4 = true;
                     } else {
                         sp220 = tName::MakeUID("NO_NAME_TEXT");
                         tUidUnaligned sp240(sp210);
                         if (sp240 == sp220) {
-                            var_2_3 = true;
+                            var_2_4 = true;
                         } else {
-                            var_2_3 = false;
+                            var_2_4 = false;
                         }
                     }
+                    var_16_4 = NULL;
+                    if (!var_2_4) {
+
+                    }
+
                     #if 0
                     //__5tNamePCc(&sp210, &sp110);
                     //MakeUID__5tNamePCc(&sp220, &D_004927D0);
@@ -637,7 +669,9 @@ UNK_TYPE *tMultiControllerLoader::LoadObject(tChunkFile *arg1, tEntityStore *arg
                     #endif
                 } else {
                     p3d::printf("multicontroller (%s) has invalid track (%s)\n", sp, sp110);
+                    #if 0
                     sp108 = 0.0f;
+                    #endif
                 }
                 #if 0
                 if (var_30 < (u32) temp_2->unk30) {

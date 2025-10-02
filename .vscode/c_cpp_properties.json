@@ -7,6 +7,8 @@
                 "include"
             ],
             "defines": [
+                "NON_MATCHING",
+                "NON_EQUIVALENT",
             ],
             "browse": {
                 "limitSymbolsToIncludedHeaders": true

@@ -56,13 +56,16 @@ private:
 
 private:
     tUidUnaligned(void);
+public:
     tUidUnaligned(tUidUnaligned const &);
 
+private:
     tUidUnaligned(s32 a1, s32 a2) {
         this->unk_00 = a1;
         this->unk_04 = a2;
     }
 
+public:
     tUidUnaligned &operator=(const tUidUnaligned &other) {
         this->unk_00 = other.unk_00;
         this->unk_04 = other.unk_04;
@@ -70,7 +73,9 @@ private:
     }
 
     bool operator!=(tUidUnaligned) const;
+public:
     bool operator==(tUidUnaligned) const;
+private:
     bool operator<(tUidUnaligned) const;
     tUidUnaligned operator^(tUidUnaligned arg1) const;
     tUidUnaligned operator*=(u64);
