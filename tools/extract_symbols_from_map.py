@@ -48,6 +48,8 @@ SYM_NAMES_COMMENT_OUT = {
     "_gp",
     "_stack",
     "_heap_size",
+    "_datastart",
+    "vu0_ucode",
 }
 
 SYM_NAMES_FORCE_DEFINED = {
@@ -96,6 +98,11 @@ SYM_NAMES_FORCE_DEFINED = {
     "VU_END",
 }
 
+SYMBOL_ALIGNMENT = {
+    "__ti7XMLTree": 0x8,
+    "_IO_stdin_buf": 0x8,
+}
+
 def emit_yaml_entry(filepath: str, section: str, addr: int, size: int, autogen: bool):
     if size == 0 and not autogen:
         return
@@ -112,7 +119,7 @@ def emit_yaml_entry(filepath: str, section: str, addr: int, size: int, autogen: 
     section = SECTION_MAPPER[section]
 
     yaml_name = None
-    comment = f""
+    comment = ""
     if filepath in NOT_FILES or autogen:
         comment = f" # {filepath}"
         if section in NOLOAD_SECTIONS:
@@ -122,7 +129,7 @@ def emit_yaml_entry(filepath: str, section: str, addr: int, size: int, autogen: 
 
     else:
         if "crt0.o" in filepath:
-            yaml_name = f"crt0/crt0"
+            yaml_name = "crt0/crt0"
         elif "D:\\usr\\local\\sce\\ee\\" in filepath:
             filepath = filepath.replace("D:\\usr\\local\\sce\\ee\\", "")
             assert ".a" in filepath, filepath
@@ -206,8 +213,9 @@ for name, section, addr, size in syms:
     if addr in known_sym_addrs:
         duped_sym_addrs.add(addr)
 
-    known_sym_names.add(name)
-    known_sym_addrs.add(addr)
+    if name not in SYM_NAMES_COMMENT_OUT:
+        known_sym_names.add(name)
+        known_sym_addrs.add(addr)
 
 # print()
 # for duped_addr in duped_sym_addrs:
@@ -234,8 +242,13 @@ with Path("config/us_2003_07_10/elf_symbol_addrs.txt").open("w") as f:
         type_str = ""
         prefix = "D_"
         if section == ".text":
-            type_str = f" type:func"
+            type_str = " type:func"
             prefix = "func_"
+
+        align_str = ""
+        alignment = SYMBOL_ALIGNMENT.get(name)
+        if alignment is not None:
+            align_str = f" align:0x{alignment:X}"
 
         filename_str = ""
         if len(name) > 253 or any(c in ILLEGAL_FILENAME_CHARS for c in name):
@@ -249,4 +262,4 @@ with Path("config/us_2003_07_10/elf_symbol_addrs.txt").open("w") as f:
         if name in duped_sym_names:
             visibility = " visibility:local"
 
-        f.write(f"{comment_out}{name} = 0x{addr:08X}; //{size_str}{type_str}{filename_str}{defined}{visibility}\n")
+        f.write(f"{comment_out}{name} = 0x{addr:08X}; //{size_str}{type_str}{align_str}{filename_str}{defined}{visibility}\n")

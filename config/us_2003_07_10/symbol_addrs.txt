@@ -32,6 +32,12 @@ func_00411B40 = 0x00411B40; // type:func
 func_00412170 = 0x00412170; // type:func
 func_004128C0 = 0x004128C0; // type:func
 
+microcode_vucod = 0x004209C0; // align:0x40
+radMath_vucod = 0x00424150; // align:0x10
+
+D_0042CF50 = 0x0042CF50; // type:u32
+
+D_004300C0 = 0x004300C0; // type:u32
 
 D_00458B60 = 0x00458B60; // size:0x138
 
@@ -73,3 +79,8 @@ D_0045D6F8 = 0x0045D6F8; // type:asciz force_not_migration:True
 D_0045D700 = 0x0045D700; // type:asciz force_not_migration:True
 
 _args = 0x004B0F80; // size:0x144
+
+D_00491AA8 = 0x00491AA8; // type:u32
+D_00492BC8 = 0x00492BC8; // type:u32
+
+B_004F8180 = 0x004F8180; // size:0x800 align:0x40

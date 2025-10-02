@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# SPDX-FileCopyrightText: © 2024 AngheloAlf
+# SPDX-FileCopyrightText: © 2024-2025 AngheloAlf
 # SPDX-License-Identifier: MIT
 
 from __future__ import annotations
@@ -69,16 +69,16 @@ for i, sect in enumerate(elf_file.sectionHeaders):
         addralign_pointer = section_offset + 0x20
         size_pointer = section_offset + 0x14
 
-        # Patch the alignment of the section
         fmt = spimdisasm.common.GlobalConfig.ENDIAN.toFormatString() + "I"
+        old_alignment, = struct.unpack_from(fmt, elf_bytes, addralign_pointer)
+
+        if old_alignment > 0x10:
+            # Avoid patching the section's alignment if it has a value larger
+            # than the usual one, because this larger alignment may come from
+            # an user-defined alignment.
+            continue
+
+        # Patch the alignment of the section
         struct.pack_into(fmt, elf_bytes, addralign_pointer, new_alignment)
-
-        # new_size = align_up(sect.size, new_alignment)
-        # # Patch the size of the section
-        # fmt = spimdisasm.common.GlobalConfig.ENDIAN.toFormatString() + "I"
-        # struct.pack_into(fmt, elf_bytes, size_pointer, new_size)
-
-        # print(name)
-        # print(elf_bytes[section_offset:section_offset+0x28])
 
 elf_path.write_bytes(elf_bytes)

@@ -55,6 +55,7 @@ options:
 
   # TODO
   # gp_value: 0x0039DD70
+  # ld_gp_expression: sections_SCOMMON_START + 0x7FF0
 
   section_order:
     - .text
@@ -766,7 +767,9 @@ segments:
       - [0x31F548, asm, sce_libs/gcc_lib/ee/libgcc/tinfo] # .a # 2.95.3
       - [0x31FC18, asm, sce_libs/gcc_lib/ee/libgcc/tinfo2] # .a # 2.95.3
       - [0x320994, asm, unk/321994] # Collect2
+
       - [0x3209C0, vutext, unk/3219C0]
+
       - [0x324680, data, code/allai]
       - [0x3249B8, data, code/allactor]
       - [0x324AA0, data, code/allsequencer]
@@ -1027,6 +1030,7 @@ segments:
       - [0x34F608, data, sce_libs/gcc_lib/ee/libgcc/tinfo] # .a # 2.95.3
       - [0x34F990, data, sce_libs/gcc_lib/ee/libgcc/tinfo2] # .a # 2.95.3
       - [0x34FE90, data, unk/350E90] # Collect2
+
       - [0x350100, rodata, code/allai]
       - [0x353868, rodata, code/allactor]
       - [0x354A68, rodata, code/allsequencer]
@@ -1493,9 +1497,11 @@ segments:
       - [0x3B03C0, rodata, sce_libs/gcc_lib/ee/libgcc/frame] # .a # 2.95.3
       - [0x3B0490, rodata, sce_libs/gcc_lib/ee/libgcc/tinfo] # .a # 2.95.3
       - [0x3B05A0, rodata, sce_libs/gcc_lib/ee/libgcc/tinfo2] # .a # 2.95.3
+
       - [0x3B0780, gcc_except_table, sce_libs/gcc/ee/libstdc++/filebuf] # .a
       - [0x3B07D0, gcc_except_table, sce_libs/gcc/ee/libstdc++/stdiostream] # .a
       - [0x3B0808, gcc_except_table, sce_libs/gcc_lib/ee/libgcc/exception] # .a # 2.95.3
+
       - { type: scommon, vram: 0x004B0880, name: unk/004B0880 } # COMMON
       - { type: scommon, vram: 0x004B0888, name: unk/004B0888 } # COMMON
       - { type: scommon, vram: 0x004B0890, name: unk/004B0890 } # COMMON
@@ -1735,6 +1741,7 @@ segments:
       - { type: scommon, vram: 0x004B0F68, name: unk/004B0F68 } # COMMON
       - { type: scommon, vram: 0x004B0F70, name: unk/004B0F70 } # COMMON
       - { type: scommon, vram: 0x004B0F78, name: unk/004B0F78 } # COMMON
+
       - { type: bss, vram: 0x004B0F80, name: crt0/crt0 }
       - { type: bss, vram: 0x004B10C8, name: code/allai }
       - { type: bss, vram: 0x004B1228, name: code/allactor }
