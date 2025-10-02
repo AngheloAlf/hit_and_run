@@ -279,7 +279,7 @@ segments:
       - [0x21C650, asm, libs/pure3d/pure3dpr/chunkfile] # .a
       - [0x21CEB0, asm, libs/pure3d/pure3dpr/context] # .a
       - [0x21D670, asm, libs/pure3d/pure3dpr/drawable] # .a
-      - [0x21DCA8, asm, libs/pure3d/pure3dpr/entity] # .a
+      - [0x21DCA8, cpp, libs/pure3d/pure3dpr/entity] # .a
       - [0x21E180, asm, libs/pure3d/pure3dpr/error] # .a
       - [0x21E3D0, asm, libs/pure3d/pure3dpr/file] # .a
       - [0x21EAA8, asm, libs/pure3d/pure3dpr/font] # .a
@@ -892,7 +892,7 @@ segments:
       - [0x3365DC, data, libs/pure3d/pure3dpr/sprite] # .a
       - [0x3365E8, data, libs/pure3d/pure3dpr/texture] # .a
       - [0x3365F0, data, libs/pure3d/pure3dpr/utility] # .a
-      - [0x336614, data, libs/pure3d/pure3dpr/multicontroller] # .a
+      - [0x336614, .data, libs/pure3d/pure3dpr/multicontroller] # .a
       - [0x336618, data, libs/pure3d/pure3dpr/particleutility] # .a
       - [0x336620, data, libs/pure3d/pure3dpr/fileftt] # .a
       - [0x336638, data, libs/pure3d/pure3dpr/particlegenerator] # .a
@@ -1195,7 +1195,7 @@ segments:
       - [0x38D0D8, rodata, libs/pure3d/pure3dpr/chunkfile] # .a
       - [0x38D148, rodata, libs/pure3d/pure3dpr/context] # .a
       - [0x38D1D0, rodata, libs/pure3d/pure3dpr/drawable] # .a
-      - [0x38D3A8, rodata, libs/pure3d/pure3dpr/entity] # .a
+      - [0x38D3A8, .rodata, libs/pure3d/pure3dpr/entity] # .a
       - [0x38D420, rodata, libs/pure3d/pure3dpr/error] # .a
       - [0x38D4B0, rodata, libs/pure3d/pure3dpr/file] # .a
       - [0x38D5F0, rodata, libs/pure3d/pure3dpr/font] # .a

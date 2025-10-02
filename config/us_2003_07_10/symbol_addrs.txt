@@ -81,6 +81,12 @@ D_0045D700 = 0x0045D700; // type:asciz force_not_migration:True
 _args = 0x004B0F80; // size:0x144
 
 D_00491AA8 = 0x00491AA8; // type:u32
+
+R_00492700 = 0x00492700; // type:asciz
+R_STR_00492708 = 0x00492708; // type:asciz
+R_STR_00492768 = 0x00492768; // type:asciz
+R_STR_004927D0 = 0x004927D0; // type:asciz
+
 D_00492BC8 = 0x00492BC8; // type:u32
 
 B_004F8180 = 0x004F8180; // size:0x800 align:0x40

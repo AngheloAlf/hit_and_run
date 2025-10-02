@@ -67,19 +67,16 @@ void tMultiController::Advance(float arg1, bool arg2) {
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/pure3d/pure3dpr/multicontroller", Advance__16tMultiControllerfb);
 #endif
 
-// TODO: bool?
-extern u8 D_00436614;
-extern s8 D_00436615;
+bool D_00436614 = true;
+bool D_00436615 = true;
 
-
-#if 1
 void tMultiController::SetFrame(float arg1) {
     float temp_f5;
     size_t var_17;
     float dunno;
 
-    if ((arg1 != 0.0f) && (D_00436614 != 0)) {
-        D_00436614 = 0;
+    if ((arg1 != 0.0f) && D_00436614) {
+        D_00436614 = false;
     }
 
     this->unk_10 = 0;
@@ -115,15 +112,10 @@ void tMultiController::SetFrame(float arg1) {
 float tMultiController::GetFrame() {
     return this->unk_20 * this->unk_24 * 0.001f;
 }
-#else
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/pure3d/pure3dpr/multicontroller", SetFrame__16tMultiControllerf);
-
-INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/pure3d/pure3dpr/multicontroller", GetFrame__16tMultiController);
-#endif
 
 #if 0
 void tMultiController::SetFrameRange(float arg1, float arg2) {
-    D_00436615 = 0;
+    D_00436615 = false;
 
     this->unk_14 = this->unk_14 > arg1 ? this->unk_14 : arg1;
     this->unk_18 = this->unk_18 > arg2 ? this->unk_18 : arg2;
@@ -140,6 +132,10 @@ void tMultiController::SetFrameRange(float arg1, float arg2) {
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/pure3d/pure3dpr/multicontroller", SetFrameRange__16tMultiControllerff);
 #endif
 
+INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/libs/pure3d/pure3dpr/multicontroller", R_00492700);
+INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/libs/pure3d/pure3dpr/multicontroller", R_STR_00492708);
+INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/libs/pure3d/pure3dpr/multicontroller", R_STR_00492768);
+
 GARBAGE_INSTR("swc1        $f0, 0x0($6)");
 
 const tFrameController *tMultiController::GetTrack(size_t arg1) {
@@ -148,7 +144,6 @@ const tFrameController *tMultiController::GetTrack(size_t arg1) {
     }
     return this->unk_38[arg1];
 }
-// INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/pure3d/pure3dpr/multicontroller", GetTrack__16tMultiControllerUi);
 
 // regalloc
 #if 0
@@ -249,11 +244,6 @@ tMultiControllerLoader::tMultiControllerLoader(void) {
 #else
 INCLUDE_ASM("asm/us_2003_07_10/nonmatchings/libs/pure3d/pure3dpr/multicontroller", __22tMultiControllerLoader);
 #endif
-
-INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/libs/pure3d/pure3dpr/multicontroller", D_00492700);
-
-extern const char D_004927D0[];
-INCLUDE_RODATA("asm/us_2003_07_10/nonmatchings/libs/pure3d/pure3dpr/multicontroller", D_004927D0);
 
 // disaster
 #ifdef NON_EQUIVALENT
@@ -412,7 +402,7 @@ UNK_TYPE *tMultiControllerLoader::LoadObject(tChunkFile *arg1, tEntityStore *arg
             #endif
             {
                 tName sp210(sp100);
-                tUidUnaligned sp220 = tName::MakeUID(D_004927D0);
+                tUidUnaligned sp220 = tName::MakeUID("");
                 tUidUnaligned sp230(sp210);
 
                 bool var_2 = 0;
@@ -433,7 +423,7 @@ UNK_TYPE *tMultiControllerLoader::LoadObject(tChunkFile *arg1, tEntityStore *arg
                 }
                 #if 0
                 //__5tNamePCc(&sp210, &sp100);
-                // MakeUID__5tNamePCc(&sp220, &D_004927D0);
+                // MakeUID__5tNamePCc(&sp220, "");
                 //__13tUidUnalignedRC13tUidUnaligned(&sp230, &sp210);
                 /*
                 if (
@@ -471,7 +461,7 @@ UNK_TYPE *tMultiControllerLoader::LoadObject(tChunkFile *arg1, tEntityStore *arg
             temp_2->SetTrack(var_30, var_16);
             {
                 tName sp210(sp100);
-                tUidUnaligned sp220 = tName::MakeUID(D_004927D0);
+                tUidUnaligned sp220 = tName::MakeUID("");
                 tUidUnaligned sp230(sp210);
 
                 bool var_2_2 = 0;
@@ -493,7 +483,7 @@ UNK_TYPE *tMultiControllerLoader::LoadObject(tChunkFile *arg1, tEntityStore *arg
 
                 #if 0
                 //__5tNamePCc(&sp210, &sp100);
-                //MakeUID__5tNamePCc(&sp220, &D_004927D0);
+                //MakeUID__5tNamePCc(&sp220, "");
                 //__13tUidUnalignedRC13tUidUnaligned(&sp230, &sp210);
                 //if ((__eq__C13tUidUnalignedG13tUidUnaligned(&sp230, &sp220) != 0) || (MakeUID__5tNamePCc(&sp220, "NO_NAME_TEXT"), __13tUidUnalignedRC13tUidUnaligned(&sp240, &sp210), var_2_2 = 0 & 0xFF, (__eq__C13tUidUnalignedG13tUidUnaligned(&sp240, &sp220) != 0))) {
                 //    var_2_2 = 1 & 0xFF;
@@ -573,7 +563,7 @@ UNK_TYPE *tMultiControllerLoader::LoadObject(tChunkFile *arg1, tEntityStore *arg
                 #endif
                 {
                     tName sp220(sp110);
-                    tUidUnaligned sp230 = tName::MakeUID(D_004927D0);
+                    tUidUnaligned sp230 = tName::MakeUID("");
                     tUidUnaligned sp240(sp220);
 
                     bool var_2_3;
@@ -594,7 +584,7 @@ UNK_TYPE *tMultiControllerLoader::LoadObject(tChunkFile *arg1, tEntityStore *arg
                     }
                     #if 0
                     // __5tNamePCc(&sp220, &sp110);
-                    //MakeUID__5tNamePCc(&sp230, &D_004927D0);
+                    //MakeUID__5tNamePCc(&sp230, "");
                     //__13tUidUnalignedRC13tUidUnaligned(&sp240, &sp220);
                     //if ((__eq__C13tUidUnalignedG13tUidUnaligned(&sp240, &sp230) != 0) || (MakeUID__5tNamePCc(&sp230, "NO_NAME_TEXT"), __13tUidUnalignedRC13tUidUnaligned(&sp250, &sp220), var_2_3 = 0 & 0xFF, (__eq__C13tUidUnalignedG13tUidUnaligned(&sp250, &sp230) != 0))) {
                     //    var_2_3 = 1 & 0xFF;
@@ -619,7 +609,7 @@ UNK_TYPE *tMultiControllerLoader::LoadObject(tChunkFile *arg1, tEntityStore *arg
 
                 {
                     tName sp210(sp110);
-                    tUidUnaligned sp220 = tName::MakeUID(D_004927D0);
+                    tUidUnaligned sp220 = tName::MakeUID("");
                     tUidUnaligned sp230(sp210);
 
                     bool var_2_4;
@@ -641,7 +631,7 @@ UNK_TYPE *tMultiControllerLoader::LoadObject(tChunkFile *arg1, tEntityStore *arg
 
                     #if 0
                     //__5tNamePCc(&sp210, &sp110);
-                    //MakeUID__5tNamePCc(&sp220, &D_004927D0);
+                    //MakeUID__5tNamePCc(&sp220, "");
                     //__13tUidUnalignedRC13tUidUnaligned(&sp230, &sp210);
                     //if ((__eq__C13tUidUnalignedG13tUidUnaligned(&sp230, &sp220) != 0) || (MakeUID__5tNamePCc(&sp220, "NO_NAME_TEXT"), __13tUidUnalignedRC13tUidUnaligned(&sp240, &sp210), var_2_4 = 0 & 0xFF, (__eq__C13tUidUnalignedG13tUidUnaligned(&sp240, &sp220) != 0))) {
                     //    var_2_4 = 1 & 0xFF;
