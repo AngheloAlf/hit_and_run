@@ -1,6 +1,8 @@
 #ifndef T_NAME_HPP
 #define T_NAME_HPP
 
+// TODO: maybe move this file to include/radcontent?
+
 class tName {
 private:
     // void __5tName();

@@ -29,7 +29,7 @@ public:
     void TextureLoader(void);
 private:
     // void _$_14tTextureLoader();
-    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__14tTextureLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_TYPE *LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__14tTextureLoaderP10tChunkFileP12tEntityStore();
     // void LoadTexture__14tTextureLoaderP10tChunkFile();
     // void LoadImage__14tTextureLoaderP10tChunkFileP13tImageFactoryP8tTexturei();
     // void LoadVolumeImage__14tTextureLoaderP10tChunkFileP13tImageFactoryP8tTextureii();

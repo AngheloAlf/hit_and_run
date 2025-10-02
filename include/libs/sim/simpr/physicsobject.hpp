@@ -49,7 +49,7 @@ namespace sim {
         PhysicsObjectLoader(); // void __Q23sim19PhysicsObjectLoader();
         virtual ~PhysicsObjectLoader(); // void _$_Q23sim19PhysicsObjectLoader();
     private:
-        virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__Q23sim19PhysicsObjectLoaderP10tChunkFileP12tEntityStore();
+        virtual UNK_TYPE *LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__Q23sim19PhysicsObjectLoaderP10tChunkFileP12tEntityStore();
     };
 }
 // void func_002DBFB8();

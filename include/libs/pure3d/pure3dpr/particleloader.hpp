@@ -16,7 +16,7 @@ class tParticleSystemFactoryLoader : public tSimpleChunkHandler {
 public:
     tParticleSystemFactoryLoader(void);
 private:
-    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__28tParticleSystemFactoryLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_TYPE *LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__28tParticleSystemFactoryLoaderP10tChunkFileP12tEntityStore();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x10];
@@ -26,7 +26,7 @@ class tParticleSystemLoader : public tSimpleChunkHandler {
 public:
     tParticleSystemLoader(void);
 private:
-    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__21tParticleSystemLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_TYPE *LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__21tParticleSystemLoaderP10tChunkFileP12tEntityStore();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x10];

@@ -35,7 +35,7 @@ public:
     tImageLoader(void);
 private:
     virtual ~tImageLoader(void);// void _$_12tImageLoader();
-    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__12tImageLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_TYPE *LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__12tImageLoaderP10tChunkFileP12tEntityStore();
     // void LoadImage__12tImageLoaderP10tChunkFilei();
 
 private:

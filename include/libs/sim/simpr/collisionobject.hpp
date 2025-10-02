@@ -29,7 +29,7 @@ namespace sim {
     public:
         CollisionObjectLoader(); // void __Q23sim21CollisionObjectLoader();
     private:
-        virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__Q23sim21CollisionObjectLoaderP10tChunkFileP12tEntityStore();
+        virtual UNK_TYPE *LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__Q23sim21CollisionObjectLoaderP10tChunkFileP12tEntityStore();
         // void LoadCollisionVolume__Q23sim21CollisionObjectLoaderP10tChunkFile();
     };
 }

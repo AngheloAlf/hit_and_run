@@ -16,7 +16,7 @@ class tSkeletonLoader : public tSimpleChunkHandler {
 public:
     tSkeletonLoader(void);
 private:
-    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__15tSkeletonLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_TYPE *LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__15tSkeletonLoaderP10tChunkFileP12tEntityStore();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x10];

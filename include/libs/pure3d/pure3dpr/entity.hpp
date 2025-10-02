@@ -1,14 +1,26 @@
 #ifndef ENTITY_HPP
 #define ENTITY_HPP
 
+#include "libs/radcontent/radcontentpr/object.hpp"
+
+#include "t_name.hpp"
+
 // text
 
-// void __7tEntity();
-// void func_0031E040();
-// void _$_7tEntity();
-// void CopyName__7tEntityP7tEntity();
-// void GetNameDangerous__7tEntity();
-// void __tf7tEntity();
+class tEntity : public radLoadObject {
+    /* 0x00 */ // vtable
+    /* 0x04 */ UNK_PAD unk_04[0x4];
+public:
+    /* 0x08 */ tName unk_08;
+
+    // void __7tEntity();
+    // void func_0031E040();
+    // void _$_7tEntity();
+    // void CopyName__7tEntityP7tEntity();
+    // void GetNameDangerous__7tEntity();
+    // void __tf7tEntity();
+};
+
 // void func_0031E148();
 
 // data

@@ -34,7 +34,7 @@ class tAnimatedObjectFactoryLoader : public tSimpleChunkHandler {
 public:
     tAnimatedObjectFactoryLoader(void);
 private:
-    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__28tAnimatedObjectFactoryLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_TYPE *LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__28tAnimatedObjectFactoryLoaderP10tChunkFileP12tEntityStore();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x10];
@@ -44,7 +44,7 @@ class tAnimatedObjectLoader : public tSimpleChunkHandler {
 public:
     tAnimatedObjectLoader(void);
 private:
-    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__21tAnimatedObjectLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_TYPE *LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__21tAnimatedObjectLoaderP10tChunkFileP12tEntityStore();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x10];

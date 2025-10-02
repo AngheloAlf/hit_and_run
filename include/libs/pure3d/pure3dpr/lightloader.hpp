@@ -9,7 +9,7 @@ class tLightLoader : public tSimpleChunkHandler {
 public:
     tLightLoader(void);
 private:
-    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__12tLightLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_TYPE *LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__12tLightLoaderP10tChunkFileP12tEntityStore();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x10];
@@ -19,7 +19,7 @@ class tLightGroupLoader : public tSimpleChunkHandler {
 public:
     tLightGroupLoader(void);
 private:
-    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__17tLightGroupLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_TYPE *LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__17tLightGroupLoaderP10tChunkFileP12tEntityStore();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x10];

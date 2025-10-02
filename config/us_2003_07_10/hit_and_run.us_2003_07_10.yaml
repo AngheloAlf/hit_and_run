@@ -325,7 +325,7 @@ segments:
       - [0x2471A8, asm, libs/pure3d/pure3dpr/expression] # .a
       - [0x248E58, asm, libs/pure3d/pure3dpr/expressionanimation] # .a
       - [0x249590, asm, libs/pure3d/pure3dpr/lightanimation] # .a
-      - [0x24A170, asm, libs/pure3d/pure3dpr/multicontroller] # .a
+      - [0x24A170, cpp, libs/pure3d/pure3dpr/multicontroller] # .a
       - [0x24B3D8, asm, libs/pure3d/pure3dpr/polyskin] # .a
       - [0x24C330, asm, libs/pure3d/pure3dpr/pose] # .a
       - [0x24C9F8, asm, libs/pure3d/pure3dpr/poseanimation] # .a
@@ -1238,7 +1238,7 @@ segments:
       - [0x391F50, rodata, libs/pure3d/pure3dpr/expression] # .a
       - [0x3924F8, rodata, libs/pure3d/pure3dpr/expressionanimation] # .a
       - [0x392608, rodata, libs/pure3d/pure3dpr/lightanimation] # .a
-      - [0x392700, rodata, libs/pure3d/pure3dpr/multicontroller] # .a
+      - [0x392700, .rodata, libs/pure3d/pure3dpr/multicontroller] # .a
       - [0x392A28, rodata, libs/pure3d/pure3dpr/polyskin] # .a
       - [0x392CF0, rodata, libs/pure3d/pure3dpr/pose] # .a
       - [0x392D58, rodata, libs/pure3d/pure3dpr/poseanimation] # .a

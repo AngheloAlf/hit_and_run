@@ -24,7 +24,7 @@ public:
     tSpriteLoader(void);
 private:
     // void _$_13tSpriteLoader();
-    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__13tSpriteLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_TYPE *LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__13tSpriteLoaderP10tChunkFileP12tEntityStore();
     // void LoadImage__13tSpriteLoaderP10tChunkFilei();
     // void LoadTexture__13tSpriteLoaderP10tChunkFilei();
 

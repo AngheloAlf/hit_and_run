@@ -1,15 +1,40 @@
 #ifndef ANIMATE_HPP
 #define ANIMATE_HPP
 
+#include "entity.hpp"
 #include "loadmanager.hpp"
 
 // text
 
 // void AnimationGroupCompareByGroupID__FPCvT0();
 // void AnimationGroupCompareByUID__FPCvT0();
-// void __16tFrameController();
-// void __16tFrameControllerP16tFrameController();
-// void _$_16tFrameController();
+
+class tFrameController : public tEntity {
+protected:
+    tFrameController(void); // void __16tFrameController();
+    // void __16tFrameControllerP16tFrameController();
+    ~tFrameController(void); // void _$_16tFrameController();
+
+public:
+    /* vt 0x24 */ virtual void virtual_24(int, float);
+private:
+    /* vt 0x2C */ virtual void virtual_2C();
+    /* vt 0x34 */ virtual void virtual_34();
+    /* vt 0x3C */ virtual void virtual_3C();
+public:
+    /* vt 0x44 */ virtual void virtual_44(float);
+private:
+    /* vt 0x3C */ virtual void virtual_4C();
+public:
+    /* vt 0x54 */ virtual void virtual_54(float, float);
+private:
+    /* vt 0x3C */ virtual void virtual_5C();
+    /* vt 0x3C */ virtual void virtual_64();
+    /* vt 0x3C */ virtual void virtual_6C();
+public:
+    /* vt 0x74 */ virtual u32 virtual_74(void);
+};
+
 // void __25tAnimationFrameController();
 // void __25tAnimationFrameControllerP25tAnimationFrameController();
 // void _$_25tAnimationFrameController();
@@ -52,7 +77,7 @@ public:
     tFrameControllerLoader(void);
 private:
     // void _$_22tFrameControllerLoader();
-    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__22tFrameControllerLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_TYPE *LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__22tFrameControllerLoaderP10tChunkFileP12tEntityStore();
     // void CheckFC__22tFrameControllerLoaderUi();
     // void LoadFC__22tFrameControllerLoaderPcUiP10tChunkFileP12tEntityStore();
 
@@ -92,7 +117,7 @@ class tAnimationLoader : public tSimpleChunkHandler {
 public:
     tAnimationLoader(void);
 private:
-    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__16tAnimationLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_TYPE *LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__16tAnimationLoaderP10tChunkFileP12tEntityStore();
     // void LoadAnimationGroup__16tAnimationLoaderP10tChunkFileP12tEntityStoreP21tAnimationMemoryBlock();
 
 private:

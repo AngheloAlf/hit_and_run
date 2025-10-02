@@ -9,7 +9,7 @@ class tLensFlareGroupLoader : public tSimpleChunkHandler {
 public:
     tLensFlareGroupLoader(void);
 private:
-    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__21tLensFlareGroupLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_TYPE *LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__21tLensFlareGroupLoaderP10tChunkFileP12tEntityStore();
     // void LoadLensFlare__21tLensFlareGroupLoaderP10tChunkFileP12tEntityStore();
 
 private:

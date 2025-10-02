@@ -13,7 +13,7 @@ class tExpressionLoader : public tSimpleChunkHandler {
 public:
     tExpressionLoader(void);
 private:
-    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__17tExpressionLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_TYPE *LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__17tExpressionLoaderP10tChunkFileP12tEntityStore();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x10];
@@ -30,7 +30,7 @@ private:
 
 class tExpressionGroupLoader : public tSimpleChunkHandler {
 private:
-    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__22tExpressionGroupLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_TYPE *LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__22tExpressionGroupLoaderP10tChunkFileP12tEntityStore();
 public:
     tExpressionGroupLoader(void);
 
@@ -48,7 +48,7 @@ class tExpressionMixerLoader : public tSimpleChunkHandler {
 public:
     tExpressionMixerLoader(void);
 private:
-    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__22tExpressionMixerLoaderP10tChunkFileP12tEntityStore();
+    virtual UNK_TYPE *LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__22tExpressionMixerLoaderP10tChunkFileP12tEntityStore();
 
 private:
     /* 0x04 */ UNK_PAD unk_04[0x10];

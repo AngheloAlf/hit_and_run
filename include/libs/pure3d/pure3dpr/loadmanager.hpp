@@ -70,7 +70,7 @@ protected:
     virtual UNK_RET GetChunkID(void); // void GetChunkID__19tSimpleChunkHandler();
     virtual UNK_RET SetNameOverride(char const *); // void SetNameOverride__19tSimpleChunkHandlerPCc();
     virtual UNK_RET HandleCollision(tEntity *); // void HandleCollision__19tSimpleChunkHandlerP7tEntity();
-    virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *) = 0;
+    virtual UNK_TYPE *LoadObject(tChunkFile *, tEntityStore *) = 0;
 };
 
 // void __12tLoadRequestPCc();

@@ -37,7 +37,7 @@ namespace sim {
 public:
         tExportInfoLoader(void); // void __Q23sim17tExportInfoLoader();
 private:
-        virtual UNK_RET LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__Q23sim17tExportInfoLoaderP10tChunkFileP12tEntityStore();
+        virtual UNK_TYPE *LoadObject(tChunkFile *, tEntityStore *); // void LoadObject__Q23sim17tExportInfoLoaderP10tChunkFileP12tEntityStore();
         // void func_002D8080();
         // void __tfQ23sim11tExportInfo();
 public:
