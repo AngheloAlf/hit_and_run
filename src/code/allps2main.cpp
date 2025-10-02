@@ -37,6 +37,7 @@
 #include "libs/sim/simpr/simenvironment.hpp"
 #include "libs/sim/simpr/simutility.hpp"
 
+#include "libs/pure3d/pure3dpr/t_uid_unaligned.hpp"
 #include "libs/pure3d/pure3dpr/utility.hpp"
 #include "libs/pure3d/pure3dpr/unicode.hpp"
 #include "libs/pure3d/pure3dpr/texturefont.hpp"
@@ -1417,51 +1418,6 @@ void DestroySingletons(void) {
     GameDataManager::DestroyInstance();
     EventManager::DestroyInstance();
 }
-
-// Private?
-// Completely made up
-class tUidUnaligned_aux {
-    union {
-        s32 si[2];
-        u64 ul;
-    } u;
-
-public:
-    tUidUnaligned_aux(s32 a1, s32 a2) {
-        this->u.si[0] = a1;
-        this->u.si[1] = a2;
-    }
-
-    tUidUnaligned_aux(u64 a1) {
-        this->u.ul = a1;
-    }
-
-    s32 get_word0(void) const {
-        return this->u.si[0];
-    }
-
-    s32 get_word1(void) const {
-        return this->u.si[1];
-    }
-
-    bool operator<(tUidUnaligned_aux &other) const {
-        return this->u.ul < other.u.ul;
-    }
-
-    tUidUnaligned_aux operator^(tUidUnaligned_aux &other) const {
-        return tUidUnaligned_aux(this->u.ul ^ other.u.ul);
-    }
-
-    // wrong?
-    tUidUnaligned_aux operator*(u64 other) const {
-        return tUidUnaligned_aux(this->u.ul * other);
-    }
-
-    tUidUnaligned_aux operator>>(s32 other) const {
-        return tUidUnaligned_aux(this->u.ul >> other);
-    }
-};
-
 
 tUidUnaligned::tUidUnaligned(void) {
     this->unk_00 = 0;

@@ -1,7 +1,7 @@
 #ifndef INVENTORY_HPP
 #define INVENTORY_HPP
 
-#include "entity.hpp"
+#include "t_name.hpp"
 
 // text
 

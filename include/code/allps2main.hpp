@@ -213,36 +213,6 @@ private:
 void CreateSingletons(void);
 void DestroySingletons(void);
 
-class tUidUnaligned {
-private:
-    /* 0x00 */ s32 unk_00;
-    /* 0x04 */ s32 unk_04;
-    /* size >= 0x08 */
-
-private:
-    tUidUnaligned(void);
-    tUidUnaligned(tUidUnaligned const &);
-
-    tUidUnaligned(s32 a1, s32 a2) {
-        this->unk_00 = a1;
-        this->unk_04 = a2;
-    }
-
-    tUidUnaligned &operator=(const tUidUnaligned &other) {
-        this->unk_00 = other.unk_00;
-        this->unk_04 = other.unk_04;
-        return *this;
-    }
-
-    bool operator!=(tUidUnaligned) const;
-    bool operator==(tUidUnaligned) const;
-    bool operator<(tUidUnaligned) const;
-    tUidUnaligned operator^(tUidUnaligned arg1) const;
-    tUidUnaligned operator*=(u64);
-    tUidUnaligned operator&(tUidUnaligned) const;
-    tUidUnaligned operator>>(s32) const;
-};
-
 // void func_00165BC8();
 // void __tf4Game();
 // void __tf11PS2Platform();
