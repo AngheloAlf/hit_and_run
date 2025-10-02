@@ -885,7 +885,7 @@ segments:
       - [0x336544, data, libs/scrooby/scroobypr/FeBoundedDrawable] # .a
       - [0x33655C, data, libs/pure3d/pure3dpr/billboardobject] # .a
       # - [0x336562, data, libs/pure3d/pure3dpr/drawable] # .a
-      - [0x336568, data, libs/pure3d/pure3dpr/entity] # .a
+      - [0x336568, .data, libs/pure3d/pure3dpr/entity] # .a
       - [0x336580, data, libs/pure3d/pure3dpr/error] # .a
       - [0x336588, data, libs/pure3d/pure3dpr/matrixstack] # .a
       - [0x3365D4, data, libs/pure3d/pure3dpr/memory] # .a

@@ -6,6 +6,8 @@
 // Private?
 // Completely made up
 class tUidUnaligned_aux {
+    friend class tUidUnaligned;
+
     union {
         s32 si[2];
         u64 ul;
@@ -49,6 +51,8 @@ public:
 
 
 class tUidUnaligned {
+    friend class tName;
+
 private:
     /* 0x00 */ s32 unk_00;
     /* 0x04 */ s32 unk_04;
@@ -66,9 +70,21 @@ private:
     }
 
 public:
+    tUidUnaligned(u64 a1) {
+        tUidUnaligned_aux aux(a1);
+        this->unk_00 = aux.get_word0();
+        this->unk_04 = aux.get_word1();
+    }
+
+public:
     tUidUnaligned &operator=(const tUidUnaligned &other) {
         this->unk_00 = other.unk_00;
         this->unk_04 = other.unk_04;
+        return *this;
+    }
+
+    tUidUnaligned &operator^=(const tUidUnaligned &other) {
+        *this = *this ^ other;
         return *this;
     }
 

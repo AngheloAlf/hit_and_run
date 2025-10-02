@@ -1,38 +1,25 @@
 #ifndef ENTITY_HPP
 #define ENTITY_HPP
 
-#include "libs/radcontent/radcontentpr/object.hpp"
+#include "libs/tRefCounted.hpp"
 
 #include "t_name.hpp"
 
-// text
-
-class tEntity : public radLoadObject {
+class tEntity : public tRefCounted {
     /* 0x00 */ // vtable
     /* 0x04 */ UNK_PAD unk_04[0x4];
 public:
     /* 0x08 */ tName unk_08;
+    /*      */ // size >= 0x10
 
-    // void __7tEntity();
-    // void func_0031E040();
-    // void _$_7tEntity();
-    // void CopyName__7tEntityP7tEntity();
-    // void GetNameDangerous__7tEntity();
+private:
+    tEntity(void); // void __7tEntity();
+public:
+    ~tEntity(void); // void _$_7tEntity();
+private:
+    void CopyName(tEntity *); // void CopyName__7tEntityP7tEntity();
+    const char *GetNameDangerous(void); // void GetNameDangerous__7tEntity();
     // void __tf7tEntity();
 };
-
-// void func_0031E148();
-
-// data
-
-// extern UNK_TYPE _5tName$s_allocator;
-// extern UNK_TYPE D_0043656C;
-// extern UNK_TYPE D_00436570;
-
-// rodata
-
-// extern UNK_TYPE D_0048D3A8;
-// extern UNK_TYPE _vt$7tEntity;
-// extern UNK_TYPE D_0048D3D8;
 
 #endif

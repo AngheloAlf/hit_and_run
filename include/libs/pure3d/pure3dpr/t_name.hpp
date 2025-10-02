@@ -6,15 +6,13 @@
 #include "t_uid_unaligned.hpp"
 
 class tName : public tUidUnaligned {
-private:
-    // void __5tName();
-
 public:
-    tName(char const *);
+    tName(void); // void __5tName();
+    tName(char const *); // __5tNamePCc
 
 private:
-    // void __5tNameG13tUidUnaligned();
-    // void __5tNameRC5tName();
+    tName(tUidUnaligned); // void __5tNameG13tUidUnaligned();
+    tName(tName const &); // void __5tNameRC5tName();
 
 public:
     ~tName();
@@ -22,16 +20,21 @@ public:
 private:
     // void func_0031DDD8();
 public:
-    UNK_RET SetText(char const *); // void SetText__5tNamePCc();
+    void SetText(char const *); // void SetText__5tNamePCc();
 private:
-    // void SetTextOnly__5tNamePCc();
-    // void SetUID__5tNameG13tUidUnaligned();
-    // void GetText__C5tName();
-    // void __eq__C5tNameRC5tName();
-    // void __ne__C5tNameRC5tName();
-    // void __as__5tNameRC5tName();
+    void SetTextOnly(char const *); // void SetTextOnly__5tNamePCc();
+    void SetUID(tUidUnaligned); // void SetUID__5tNameG13tUidUnaligned();
 public:
+    const char *GetText(void) const; // void GetText__C5tName();
+private:
+    bool operator==(tName const &) const; // void __eq__C5tNameRC5tName();
+    bool operator!=(tName const &) const; // void __ne__C5tNameRC5tName();
+public:
+    tName &operator=(tName const &); // void __as__5tNameRC5tName();
     static tUidUnaligned MakeUID(char const *); // void MakeUID__5tNamePCc();
+
+private:
+    static UNK_TYPE4 s_allocator;
 };
 
 #endif
