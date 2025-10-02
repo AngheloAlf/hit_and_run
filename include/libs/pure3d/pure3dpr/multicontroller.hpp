@@ -8,9 +8,10 @@
 
 
 struct tMultiController_unk_34 {
-    /* 0x00 */ UNK_PAD unk_00[0x8];
+    /* 0x00 */ float unk_00;
+    /* 0x04 */ float unk_04;
     /* 0x08 */ float unk_08;
-    /* 0x0C */ UNK_PAD unk_0C[0x4];
+    /* 0x0C */ float unk_0C;
     /*      */ // size = 0x10
 };
 
@@ -23,14 +24,14 @@ enum p3dCycleMode {
 };
 
 class tMultiController : public tFrameController {
+    friend class tMultiControllerLoader;
+
     /* 0x10 */ float unk_10;
     /* 0x14 */ float unk_14;
     /* 0x18 */ float unk_18;
     /* 0x1C */ UNK_TYPE unk_1C;
     /* 0x20 */ float unk_20;
-public:
     /* 0x24 */ float unk_24;
-private:
     /* 0x28 */ float unk_28;
     /* 0x2C */ p3dCycleMode unk_2C;
     /* 0x30 */ int unk_30;

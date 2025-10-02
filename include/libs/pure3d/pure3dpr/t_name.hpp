@@ -33,6 +33,11 @@ public:
     tName &operator=(tName const &); // void __as__5tNameRC5tName();
     static tUidUnaligned MakeUID(char const *); // void MakeUID__5tNamePCc();
 
+    inline bool operator==(tUidUnaligned const &arg1) const {
+        // This is kinda fake, but whatever
+        return *static_cast<tUidUnaligned const *>(this) == arg1;
+    }
+
 private:
     static UNK_TYPE4 s_allocator;
 };

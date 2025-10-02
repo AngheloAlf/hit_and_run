@@ -1,15 +1,54 @@
 #ifndef INVENTORY_HPP
 #define INVENTORY_HPP
 
-#include "t_name.hpp"
+#include "libs/radLoadInventory.hpp"
+#include "libs/pure3d/pure3dpr/t_name.hpp"
 
 // text
 
+class tFrameController;
+
 class tEntityStore {
+private:
     // void Store__12tEntityStoreP7tEntity();
     // void Store__12tEntityStoreG13tUidUnalignedP9IRefCount();
     // void StoreHandlingCollisions__12tEntityStoreP7tEntity();
     // void StoreHandlingCollisions__12tEntityStoreG13tUidUnalignedP9IRefCount();
+
+private:
+    /* vt 0x0C */ virtual UNK_RET virtual_0C(UNK_ARGS);
+    /* vt 0x14 */ virtual UNK_RET virtual_14(UNK_ARGS);
+    /* vt 0x1C */ virtual UNK_RET virtual_1C(UNK_ARGS);
+public:
+    // return type is not guaranteed.
+    /* vt 0x24 */ virtual tFrameController *virtual_24(radLoadInventory::SafeCastBase &, tUidUnaligned); // radLoadHashedStore::Find(radLoadInventory::SafeCastBase &, tUidUnaligned)
+private:
+    /* vt 0x2C */ virtual UNK_RET virtual_2C(UNK_ARGS);
+    /* vt 0x34 */ virtual UNK_RET virtual_34(UNK_ARGS);
+    /* vt 0x3C */ virtual UNK_RET virtual_3C(UNK_ARGS);
+    /* vt 0x44 */ virtual UNK_RET virtual_44(UNK_ARGS);
+    /* vt 0x4C */ virtual UNK_RET virtual_4C(UNK_ARGS);
+    /* vt 0x54 */ virtual UNK_RET virtual_54(UNK_ARGS);
+    /* vt 0x5C */ virtual UNK_RET virtual_5C(UNK_ARGS);
+    /* vt 0x64 */ virtual UNK_RET virtual_64(UNK_ARGS);
+    /* vt 0x6C */ virtual UNK_RET virtual_6C(UNK_ARGS);
+    /* vt 0x74 */ virtual UNK_RET virtual_74(UNK_ARGS);
+    /* vt 0x7C */ virtual UNK_RET virtual_7C(UNK_ARGS);
+    /* vt 0x84 */ virtual UNK_RET virtual_84(UNK_ARGS);
+    /* vt 0x8C */ virtual UNK_RET virtual_8C(UNK_ARGS);
+    /* vt 0x94 */ virtual UNK_RET virtual_94(UNK_ARGS);
+    /* vt 0x9C */ virtual UNK_RET virtual_9C(UNK_ARGS);
+    /* vt 0xA4 */ virtual UNK_RET virtual_A4(UNK_ARGS);
+    /* vt 0xAC */ virtual UNK_RET virtual_AC(UNK_ARGS);
+    /* vt 0xB4 */ virtual UNK_RET virtual_B4(UNK_ARGS);
+    /* vt 0xBC */ virtual UNK_RET virtual_BC(UNK_ARGS);
+    /* vt 0xC4 */ virtual UNK_RET virtual_C4(UNK_ARGS);
+    /* vt 0xCC */ virtual UNK_RET virtual_CC(UNK_ARGS);
+    /* vt 0xD4 */ virtual UNK_RET virtual_D4(UNK_ARGS);
+    /* vt 0xDC */ virtual UNK_RET virtual_DC(UNK_ARGS);
+    /* vt 0xE4 */ virtual UNK_RET virtual_E4(UNK_ARGS);
+    /* vt 0xEC */ virtual UNK_RET virtual_EC(UNK_ARGS);
+    /* vt 0xF4 */ virtual UNK_RET virtual_F4(UNK_ARGS);
 };
 
 class tInventory : public tEntityStore {

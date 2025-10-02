@@ -18,19 +18,18 @@ protected:
 public:
     /* vt 0x24 */ virtual void virtual_24(int, float);
 private:
-    /* vt 0x2C */ virtual void virtual_2C();
-    /* vt 0x34 */ virtual void virtual_34();
-    /* vt 0x3C */ virtual void virtual_3C();
+    /* vt 0x2C */ virtual void virtual_2C(UNK_ARGS);
+    /* vt 0x34 */ virtual void virtual_34(UNK_ARGS);
+    /* vt 0x3C */ virtual void virtual_3C(UNK_ARGS);
 public:
     /* vt 0x44 */ virtual void virtual_44(float);
-private:
-    /* vt 0x3C */ virtual void virtual_4C();
+    /* vt 0x3C */ virtual float virtual_4C(void);
 public:
     /* vt 0x54 */ virtual void virtual_54(float, float);
 private:
-    /* vt 0x3C */ virtual void virtual_5C();
-    /* vt 0x3C */ virtual void virtual_64();
-    /* vt 0x3C */ virtual void virtual_6C();
+    /* vt 0x3C */ virtual void virtual_5C(UNK_ARGS);
+    /* vt 0x3C */ virtual void virtual_64(UNK_ARGS);
+    /* vt 0x3C */ virtual void virtual_6C(UNK_ARGS);
 public:
     /* vt 0x74 */ virtual u32 virtual_74(void);
 };
