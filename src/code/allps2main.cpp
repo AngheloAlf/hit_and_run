@@ -1456,10 +1456,8 @@ tUidUnaligned tUidUnaligned::operator^(tUidUnaligned arg1) const {
     return tUidUnaligned(temp.get_word0(), temp.get_word1());
 }
 
-# if 0
-// wibo emits wrong codegen
-// it also doesn' match 😅
 
+# if 0
 tUidUnaligned tUidUnaligned::operator*=(u64 arg2) {
     tUidUnaligned_aux sp10(this->unk_00, this->unk_04);
     tUidUnaligned_aux sp18 = sp10 * arg2;

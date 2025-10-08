@@ -83,8 +83,7 @@ endif
 
 ## General tools
 
-# WIBO            ?= tools/wibo/wibo
-WIBO            ?= wine
+WIBO            ?= tools/wibo/wibo
 PYTHON          ?= python3
 SPLAT           ?= $(PYTHON) -m splat split
 ELF_PATCHER     ?= $(PYTHON) tools/buildtools/elf_patcher.py

@@ -18,8 +18,8 @@ distclean: clean
 .PHONY: all clean distclean
 
 $(WIBO_BIN): | $(WIBO_DIR)
-	wget https://github.com/decompals/wibo/releases/latest/download/wibo --directory-prefix=$(WIBO_DIR)
-	wget https://github.com/decompals/wibo/releases/latest/download/wibo_debug --directory-prefix=$(WIBO_DIR)
+	wget https://github.com/decompals/wibo/releases/download/1.0.0-alpha.1/wibo --directory-prefix=$(WIBO_DIR)
+	wget https://github.com/decompals/wibo/releases/download/1.0.0-alpha.1/wibo_debug --directory-prefix=$(WIBO_DIR)
 	chmod +x $(WIBO_DIR)/wibo $(WIBO_DIR)/wibo_debug
 
 $(WIBO_DIR):

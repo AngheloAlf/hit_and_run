@@ -13,25 +13,29 @@ class tFrameController : public tEntity {
 protected:
     tFrameController(void); // void __16tFrameController();
     // void __16tFrameControllerP16tFrameController();
-    ~tFrameController(void); // void _$_16tFrameController();
+    virtual ~tFrameController(void); // void _$_16tFrameController();
 
 public:
-    /* vt 0x24 */ virtual void virtual_24(int, float);
+    /* vt 0x24 */ virtual void virtual_24(int, float) /* = 0 */;
 private:
-    /* vt 0x2C */ virtual void virtual_2C(UNK_ARGS);
-    /* vt 0x34 */ virtual void virtual_34(UNK_ARGS);
-    /* vt 0x3C */ virtual void virtual_3C(UNK_ARGS);
+    /* vt 0x2C */ virtual void virtual_2C(UNK_ARGS) /* = 0 */;
+    /* vt 0x34 */ virtual void virtual_34(UNK_ARGS) /* = 0 */;
+    /* vt 0x3C */ virtual void virtual_3C(UNK_ARGS) /* = 0 */;
 public:
-    /* vt 0x44 */ virtual void virtual_44(float);
-    /* vt 0x3C */ virtual float virtual_4C(void);
+    /* vt 0x44 */ virtual void virtual_44(float) /* = 0 */;
+    /* vt 0x3C */ virtual float virtual_4C(void) /* = 0 */;
 public:
-    /* vt 0x54 */ virtual void virtual_54(float, float);
+    /* vt 0x54 */ virtual void virtual_54(float, float) /* = 0 */;
 private:
-    /* vt 0x3C */ virtual void virtual_5C(UNK_ARGS);
-    /* vt 0x3C */ virtual void virtual_64(UNK_ARGS);
-    /* vt 0x3C */ virtual void virtual_6C(UNK_ARGS);
+    /* vt 0x5C */ virtual void virtual_5C(UNK_ARGS) /* = 0 */;
+    /* vt 0x64 */ virtual void virtual_64(UNK_ARGS) /* = 0 */;
+    /* vt 0x6C */ virtual void virtual_6C(UNK_ARGS) /* = 0 */;
 public:
-    /* vt 0x74 */ virtual u32 virtual_74(void);
+    /* vt 0x74 */ virtual u32 virtual_74(void) /* = 0 */;
+private:
+    /* vt 0x7C */ virtual void virtual_7C(UNK_ARGS) /* = 0 */;
+protected:
+    /* vt 0x84 */ virtual void virtual_84(float) /* = 0 */;
 };
 
 // void __25tAnimationFrameController();

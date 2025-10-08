@@ -62,10 +62,6 @@ private:
     float GetRelativeSpeed(void);
     UNK_TYPE LastFrameReached(void);
     void Reset(void);
-
-private:
-    /* vt 0x7C */ virtual void virtual_7C();
-    /* vt 0x84 */ virtual void virtual_84(float);
 };
 
 
