@@ -41,10 +41,8 @@ jobs:
     - name: Disassemble and extraction
       run: make extract -j $(nproc) VERSION=${{ matrix.version }}
 
-    # - name: Build
-    #   run: make -j $(nproc) WERROR=1 VERSION=${{ matrix.version }}
     - name: Build
-      run: make WERROR=1 VERSION=${{ matrix.version }}
+      run: make -j $(nproc) WERROR=1 VERSION=${{ matrix.version }}
 
     # - name: Print progress
     #   run: python3 tools/progress.py --version ${{ matrix.version }}
