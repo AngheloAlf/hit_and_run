@@ -84,7 +84,8 @@ endif
 ## General tools
 
 WIBO            ?= tools/wibo/wibo
-PYTHON          ?= python3
+UV              ?= uv
+PYTHON          ?= $(UV) run python
 SPLAT           ?= $(PYTHON) -m splat split
 ELF_PATCHER     ?= $(PYTHON) tools/buildtools/elf_patcher.py
 
@@ -268,6 +269,7 @@ setup:
 	$(MAKE) -C tools
 	$(OBJCOPY) -O binary --pad-to=0x3B0880 --gap-fill=0x00 $(BASEELF) $(BASEROM)
 	$(OBJCOPY) -I binary -O binary --pad-to=0x3B0880 --gap-fill=0x00 $(BASEROM)
+	@echo "Setup done"
 
 extract:
 	$(RM) -r asm/$(VERSION) $(LD_SCRIPT) $(LD_SCRIPT:.ld=.d)
@@ -286,10 +288,10 @@ init:
 	$(MAKE) diff-init
 
 format:
-	clang-format-11 -i -style=file $(C_FILES) $(CPP_FILES)
+	clang-format-14 -i -style=file $(C_FILES) $(CPP_FILES)
 
 tidy:
-	clang-tidy-11 -p . --fix --fix-errors $(C_FILES) $(CPP_FILES) -- $(CC_CHECK_FLAGS) $(IINC) -I build/$(VERSION)/src/main_segment $(CHECK_WARNINGS) $(BUILD_DEFINES) $(COMMON_DEFINES) $(C_DEFINES)
+	clang-tidy-14 -p . --fix --fix-errors $(C_FILES) $(CPP_FILES) -- $(CC_CHECK_FLAGS) $(IINC) -I build/$(VERSION)/src/main_segment $(CHECK_WARNINGS) $(BUILD_DEFINES) $(COMMON_DEFINES) $(C_DEFINES)
 
 
 .PHONY: all rom clean distclean setup extract diff-init init format tidy
